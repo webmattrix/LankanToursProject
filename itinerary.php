@@ -150,11 +150,11 @@
                     <div class="col-12">
                         <div class="row">
 
-                            <div class="home-image-slider p-0">
-                                <div class="slides">
-                                    <div class="slide active" id="slide1">
+                            <div class="itinerary-image-slider p-0">
+                                <div class="itinerary-slides">
+                                    <div class="itinerary-slide active" id="itinerary-slide1">
                                         <img src="./assets/img/itinerary_IMG/colombo.png" alt="Home Slider Image" />
-                                        <div class="slide-content">
+                                        <div class="itinerary-slide-content">
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 01</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
@@ -162,9 +162,9 @@
                                         </div>
 
                                     </div>
-                                    <div class="slide" id="slide2">
+                                    <div class="itinerary-slide" id="itinerary-slide2">
                                         <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" alt="Home Slider Image" />
-                                        <div class="slide-content">
+                                        <div class="itinerary-slide-content">
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 02</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
@@ -172,9 +172,9 @@
 
                                         </div>
                                     </div>
-                                    <div class="slide" id="slide3">
+                                    <div class="itinerary-slide" id="itinerary-slide3">
                                         <img src="./assets/img/itinerary_IMG/seegiriya.png" alt="Home Slider Image" />
-                                        <div class="slide-content">
+                                        <div class="itinerary-slide-content">
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 03</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
@@ -182,9 +182,9 @@
 
                                         </div>
                                     </div>
-                                    <div class="slide" id="slide4">
+                                    <div class="itinerary-slide" id="itinerary-slide4">
                                         <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" alt="Home Slider Image" />
-                                        <div class="slide-content">
+                                        <div class="itinerary-slide-content">
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 04</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
@@ -193,9 +193,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="slide" id="slide5">
+                                    <div class="itinerary-slide" id="itinerary-slide5">
                                         <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Home Slider Image" />
-                                        <div class="slide-content">
+                                        <div class="itinerary-slide-content">
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 05</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
