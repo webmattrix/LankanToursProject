@@ -67,9 +67,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-4">
-                                                            <div class="row justify-content-end">
-                                                                <div class="col-12 col-lg-5 col-sm-4">
-                                                                    <button class="btn text-white col-12 p-2 ps-lg-4" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
+                                                            <div class="row justify-content-center justify-content-lg-end">
+                                                                <div class="col-9 col-lg-5 col-sm-4">
+                                                                    <button type="button" class="btn text-white col-12 p-2 justify-content-center" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="request" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -83,61 +83,28 @@
                         </div>
                     </div>
 
-                    <!-- <div class="itinerary-popup-outer" id="itineraryPopup">
-                        <div class="itinerary-popup-box">
-                            <iconify-icon icon="ion:close-outline" class="close" id="closeBtn"></iconify-icon>
-                            <div class="col-12">
-                                <div class="row pt-2">
-                                    <div class="col-12 col-sm-3 col-lg-3">
-                                        <div class="row">
-                                            <span class="fs-5 fw-bold" style="font-family: 'Quicksand'; color: #333;">Make it Yours</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-11 col-sm-8 col-lg-8">
-                                        <hr style="border: 1px solid #D7D7D7;" />
-                                    </div>
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
                                     <div class="col-12">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-5">
-                                                <div class="row pt-2">
-                                                    <span class="fw-bold ps-3" style="font-family: 'Quicksand'; font-size: calc(0.6rem + 0.6vh);">Tour Plan</span>
-                                                    <div class="col-12">
-                                                        <input type="text" class="form-control" placeholder="Day 11 Tour Plan" readonly style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
-                                                    </div>
-                                                    <div class="col-12 mt-4 pt-2">
-                                                        <input type="text" class="form-control" placeholder="Members" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
-                                                    </div>
-                                                    <div class="col-12 mt-4 pt-2">
-                                                        <select class="form-select" aria-label="Tour Level" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
-                                                            <option value="1">Tour Level</option>
-                                                            <option value="2">Small</option>
-                                                            <option value="3">Medium</option>
-                                                            <option value="4">Comfortable</option>
-                                                            <option value="5">Luxury</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12 mt-4 pt-2">
-                                                        <select class="form-select" aria-label="How do we contact you?" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
-                                                            <option value="1">How do we contact you?</option>
-                                                            <option value="2">option1</option>
-                                                            <option value="3">option2</option>
-                                                            <option value="4">option3</option>
-                                                            <option value="5">option4</option>
-                                                        </select>
-                                                    </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-5">
+                                                <img src="./assets/img/itinerary_IMG/complete.png" style="width: 100%; height: 100%;" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">Request was send</span>
+                                                    <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">We will contact you soon as possible</span>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-lg-7">
-                                                <div class="row">
-                                                    <div class="col-12 mt-4 pt-1">
-                                                        <textarea class="form-control" placeholder="Your Message...." id="#" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mt-4">
-                                                    <div class="row justify-content-end">
-                                                        <div class="col-12 col-lg-5 col-sm-4">
-                                                            <button class="btn text-white col-12 p-2 ps-3" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
-                                                        </div>
+                                            <div class="col-12 mt-3 mb-2">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-9 col-sm-6 col-lg-5">
+                                                        <button class="btn col-12 text-white justify-content-center" style="background-color: #1546F4; display: flex; align-items: center;">Watch your tour&nbsp;&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,7 +113,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+
+
                     <div class="col-12">
                         <div class="row">
 
@@ -158,7 +127,7 @@
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 01</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
                                         </div>
 
                                     </div>
@@ -178,7 +147,7 @@
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 03</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
 
                                         </div>
                                     </div>
@@ -188,7 +157,7 @@
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 04</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
 
                                         </div>
                                     </div>
@@ -199,7 +168,7 @@
                                             <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 05</h1>
                                             <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
 
                                         </div>
                                     </div>
@@ -469,11 +438,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
     </div>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
