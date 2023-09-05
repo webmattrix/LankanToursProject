@@ -67,9 +67,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-4">
-                                                            <div class="row justify-content-end">
-                                                                <div class="col-12 col-lg-5 col-sm-4">
-                                                                    <button class="btn text-white col-12 p-2 ps-lg-4" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
+                                                            <div class="row justify-content-center justify-content-lg-end">
+                                                                <div class="col-9 col-lg-5 col-sm-4">
+                                                                    <button type="button" class="btn text-white col-12 p-2 justify-content-center" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="request" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -83,7 +83,39 @@
                         </div>
                     </div>
 
-                    
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-5">
+                                                <img src="./assets/img/itinerary_IMG/complete.png" style="width: 100%; height: 100%;" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">Request was send</span>
+                                                    <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">We will contact you soon as possible</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-3 mb-2">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-9 col-sm-6 col-lg-5">
+                                                        <button class="btn col-12 text-white justify-content-center" style="background-color: #1546F4; display: flex; align-items: center;">Watch your tour&nbsp;&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col-12">
                         <div class="row">
 
@@ -406,11 +438,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-    </div>
     </div>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
