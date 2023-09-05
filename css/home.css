@@ -1,39 +1,39 @@
 @font-face {
   font-family: "Quicksand-Light";
-  src: url("./res/fonts/Quicksand-Light.ttf");
+  src: url("../assets/fonts/Quicksand-Light.ttf");
 }
 @font-face {
   font-family: "Quicksand-Medium";
-  src: url("./res/fonts/Quicksand-Medium.ttf");
+  src: url("../assets/fonts/Quicksand-Medium.ttf");
 }
 @font-face {
   font-family: "Quicksand-Regular";
-  src: url("./res/fonts/Quicksand-Regular.ttf");
+  src: url("../assets/fonts/Quicksand-Regular.ttf");
 }
 @font-face {
   font-family: "Quicksand-SemiBold";
-  src: url("./res/fonts/Quicksand-SemiBold.ttf");
+  src: url("../assets/fonts/Quicksand-SemiBold.ttf");
 }
 @font-face {
   font-family: "Quicksand-Bold";
-  src: url("./res/fonts/Quicksand-Bold.ttf");
+  src: url("../assets/fonts/Quicksand-Bold.ttf");
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: url("./res/fonts/Segoe UI.ttf");
+  src: url("../assets/fonts/Segoe UI.ttf");
 }
 @font-face {
   font-family: "Segoe UI Italic";
-  src: url("./res/fonts/Segoe UI Italic.ttf");
+  src: url("../assets/fonts/Segoe UI Italic.ttf");
 }
 @font-face {
   font-family: "Segoe UI Bold";
-  src: url("./res/fonts/Segoe UI Bold.ttf");
+  src: url("../assets/fonts/Segoe UI Bold.ttf");
 }
 @font-face {
   font-family: "Segoe UI Bold Italic";
-  src: url("./res/fonts/Segoe UI Bold Italic.ttf");
+  src: url("../assets/fonts/Segoe UI Bold Italic.ttf");
 }
 
 :root {
