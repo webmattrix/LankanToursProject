@@ -1,0 +1,34 @@
+.LoginBackground {
+    background-image: url("../assets/img/Login&Registration_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg");
+   background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+
+}
+.Logincard2 {
+
+    border: 3px solid rgba(255, 255, 255, 0.766);
+    background: rgba(85, 85, 85, 0.418);
+    border-radius: 40px;
+    width: 250px;
+    height: 120px;
+    margin-top: -50px;
+    margin-left: -35px;
+   
+}
+.Logincard {
+   
+    margin-top: 4%;
+    color: #fff;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.766);
+    background: rgba(85, 85, 85, 0.418);
+    border-radius: 20px;
+   
+}
+.inputFeild{
+    background-color: rgba(247, 247, 247, 0.415);
+ }
+ 
