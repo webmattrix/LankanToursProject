@@ -81,7 +81,13 @@
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
-  color: #333333  ;
+  color: #333333;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 img {
@@ -227,7 +233,7 @@ img {
     .slide:nth-child(1)
     .slide-content
     div:nth-child(1) {
-    font-size: 30px;
+    font-size: 20px;
   }
   .home-image-slider
     .slides
@@ -235,6 +241,10 @@ img {
     .slide-content
     div:nth-child(2) {
     max-width: 70vw;
+    font-size: 14px;
+  }
+  .slide-content {
+    bottom: 50px;
   }
 }
 
@@ -402,17 +412,190 @@ img {
   background-color: #333333;
 }
 
-
-
-.activies-panel{
-
-}
-
-.activies-panel{
-  font-size: 22px;
+.activies-panel {
+  font-size: 20px;
   font-family: var(--quick-Bold);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.activies-panel .iconify-icon{
-  font-size: 30px;
+.activies-panel > div div {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 200px;
+  height: 120px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.activies-panel > div div:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+}
+
+.activies-panel .iconify-icon {
+}
+
+@media (max-width: 1200px) {
+  .activies-panel {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .activies-panel > div {
+    grid-column: span 2;
+  }
+
+  .activies-panel > div:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .activies-panel {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .activies-panel > div {
+    grid-column: span 2;
+  }
+
+  .activies-panel > div:nth-child(4) {
+    grid-column: span 2;
+  }
+  .activies-panel > div:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (max-width: 568px) {
+  .activies-panel {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .activies-panel > div {
+    grid-column: span 2;
+  }
+
+  .activies-panel > div:nth-child(4) {
+    grid-column: span 2;
+  }
+  .activies-panel > div:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+/* Home famouse Tour places */
+.home_places-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.home_places-grid .place {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+
+.home_places-grid .place::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  /* z-index: -1; */
+}
+
+.home_places-grid .place iconify-icon {
+  position: absolute;
+  color: white;
+  z-index: 2;
+  top: 30%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  font-size: 46px;
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+.home_places-grid .place:hover {
+  transform: scale(1.03);
+  transition-duration: 0.3s;
+}
+
+.home_places-grid .place:hover iconify-icon {
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+.home_places-grid .place .home_place-name {
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  z-index: 2;
+  font-size: 46px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .home_places-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .home_places-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .home_places-grid .place {
+    height: 350px;
+  }
+}
+
+@media (max-width: 820px) {
+  .home_places-grid .place {
+    height: 300px;
+  }
+}
+@media (max-width: 820px) {
+  .home_places-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .home_places-grid .place {
+    height: 200px;
+  }
+  .home_places-grid .place .home_place-name {
+    font-size: 26px;
+  }
+}
+
+.home_load-more-btn {
+  padding: 30px 0 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.home_load-more-btn span {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 100vh;
+  font-family: var(--quick-Bold);
 }
