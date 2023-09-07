@@ -4,21 +4,34 @@ function sideMenuMover() {
   menu.style.transitionDuration = 0.35 + "s";
 
   if (sideMenuStatus == 0) {
-    menu.style.width = 100 + "px";
-    menu.style.minWidth = 100 + "px";
-    menu.style.maxWidth = 100 + "px";
+    // menu.style.width = 100 + "px";
+    // menu.style.minWidth = 100 + "px";
+    // menu.style.maxWidth = 100 + "px";
     sideMenuStatus = 1;
     menu.style.paddingRight = 0;
+    document.getElementById("sideMenu").classList.add("sideMenu-disable");
+    document.getElementById("sideMenu").classList.remove("sideMenu-enable");
+
+    document.getElementById("mobileMode").classList.remove("d-block");
+    document.getElementById("mobileMode").classList.remove("d-lg-block");
+    document.getElementById("mobileMode").classList.remove("d-xl-none");
+    // d-block d-lg-block d-none d-xl-none
   } else {
-    menu.style.width = 330 + "px";
-    menu.style.minWidth = 330 + "px";
-    menu.style.maxWidth = 330 + "px";
+    // menu.style.width = 330 + "px";
+    // menu.style.minWidth = 330 + "px";
+    // menu.style.maxWidth = 330 + "px";
     sideMenuStatus = 0;
     menu.style.paddingRight = 30 + "px";
+    document.getElementById("sideMenu").classList.add("sideMenu-enable");
+    document.getElementById("sideMenu").classList.remove("sideMenu-disable");
+    
+    document.getElementById("mobileMode").classList.add("d-block");
+    document.getElementById("mobileMode").classList.add("d-lg-block");
+    document.getElementById("mobileMode").classList.add("d-xl-none");
   }
 
-  document.getElementById("mobileMode").classList.toggle("d-none");
   document.getElementById("desktopMode").classList.toggle("d-none");
+  document.getElementById("mobileMode").classList.toggle("d-none");
 
   var arrowDirection = document
     .getElementById("adminPanelSideBarIcon")
@@ -34,8 +47,6 @@ function sideMenuMover() {
       .setAttribute("icon", "icon-park-outline:double-left");
   }
 }
-
-
 
 function viewSubMenu(elementId) {
   var subMenu = document.getElementById(
@@ -55,11 +66,7 @@ function viewSubMenu(elementId) {
   }
 }
 
-// document.getElementById("mobileMenu").addEventListener("mousedown", (evt) => {
-//   console.log(evt.clientX + "--" + evt.clientY);
-//   console.log(getComputedStyle(document.getElementById("mobileMenu")).width);
-//   console.log(window.innerWidth);
-// });
+
 
 document
   .getElementById("mobileSideBarModel")
@@ -79,9 +86,7 @@ function toggleMobileMenu(evt) {
 
   if (clickOutArea >= evt.clientX) {
     document.getElementById("mobileSideBarModel").classList.add("d-none");
-    console.log("YES");
   } else {
     document.getElementById("mobileSideBarModel").classList.remove("d-none");
-    console.log("NO");
   }
 }

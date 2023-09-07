@@ -10,8 +10,8 @@
 
 <body>
 
-    <div class="side_menu w-auto" id="sideMenu">
-        <div class="arrow_cotnainer" onclick="sideMenuMover();">
+    <div class="side_menu sideMenu-enable w-auto" id="sideMenu">
+        <div class="arrow_cotnainer d-none d-xl-flex" onclick="sideMenuMover();">
             <iconify-icon icon="icon-park-outline:double-left" id="adminPanelSideBarIcon"></iconify-icon>
         </div>
         <div class="desktopMode" id="desktopMode">
@@ -117,7 +117,7 @@
 
         </div>
 
-        <div class="mobileMode d-none" id="mobileMode">
+        <div class="mobileMode d-block d-lg-block d-none d-xl-none" id="mobileMode">
             <div class="site_details">
                 <div class="siteLogo"></div>
             </div>
