@@ -1,0 +1,6 @@
+ReWriteEngine On
+
+Options -Indexes
+
+ReWriteRule ^Home$ home.php [NC,L]
+ReWriteRule ^Itinerary$ itinerary.php [NC,L]
