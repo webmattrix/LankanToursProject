@@ -81,7 +81,7 @@
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
-  color: #333333  ;
+  color: #333333;
 }
 
 img {
@@ -402,17 +402,39 @@ img {
   background-color: #333333;
 }
 
-
-
-.activies-panel{
-
-}
-
-.activies-panel{
-  font-size: 22px;
+.activies-panel {
+  font-size: 20px;
   font-family: var(--quick-Bold);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
 }
 
-.activies-panel .iconify-icon{
-  font-size: 30px;
+.activies-panel > div div {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 200px;
+  height: 120px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.activies-panel > div div:hover{
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+}
+
+.activies-panel .iconify-icon {
+}
+
+
+.home_places-grid{
+  display: grid;
+}
+
+.home_places-grid .place{
+  width: 100%;
+  height: 300px;
 }

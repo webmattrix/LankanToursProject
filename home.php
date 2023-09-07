@@ -15,7 +15,7 @@
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
-  <div class="container-fluid">
+  <div class="container-fluid pb-5">
 
     <?php
     include "./components/header.php";
@@ -101,22 +101,78 @@
     <div class="col-12">
       <div class="row">
 
-        <div class="fs-5">
+        <div class="fs-4 text-center pb-2">
           <span class="segoeui-bold">Activities</span>
         </div>
 
         <div class="d-flex justify-content-center activies-panel">
-          <div class="d-flex gap-5">
-            <div class="bg-white rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 30px;" icon="fluent:beach-24-filled"></iconify-icon>
+
+          <div class="">
+            <div class="rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 40px;" icon="fluent:beach-24-filled"></iconify-icon>
               <span>Beach</span>
             </div>
           </div>
+          <div class="">
+            <div class="rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 40px;" icon="icon-park-solid:mountain"></iconify-icon>
+              <span>Mountain</span>
+            </div>
+          </div>
+          <div class="">
+            <div class="rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
+              <span>Hiking</span>
+            </div>
+          </div>
+          <div class="">
+            <div class="rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 40px;" icon="fluent:sport-soccer-24-filled"></iconify-icon>
+              <span>Sports</span>
+            </div>
+          </div>
+          <div class="">
+            <div class="rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 40px;" icon="dashicons:food"></iconify-icon>
+              <span>Restaurant</span>
+            </div>
+          </div>
+
         </div>
 
       </div>
     </div>
     <!-- Activities -->
+
+
+    <!-- Most beautiful places & top tour plans -->
+    <div class="col-12 p-4">
+      <div class="row bg-white rounded p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
+
+        <!-- Beautiful places -->
+        <div class="col-12">
+          <div class="segoeui-bold fs-4">Most Beautiful Places of SRI LANKA</div>
+          <div class="home_places-grid">
+
+            <?php
+            for ($x = 0; $x < 10; $x++) {
+            ?>
+
+              <div class="place">
+                
+              </div>
+
+            <?php
+            }
+            ?>
+
+          </div>
+        </div>
+        <!-- Beautiful places -->
+
+      </div>
+    </div>
+    <!-- Most beautiful places & top tour plans -->
 
 
   </div>
