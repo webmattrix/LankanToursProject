@@ -1,39 +1,39 @@
 @font-face {
   font-family: "Quicksand-Light";
-  src: url("./res/fonts/Quicksand-Light.ttf");
+  src: url("../assets/fonts/Quicksand-Light.ttf");
 }
 @font-face {
   font-family: "Quicksand-Medium";
-  src: url("./res/fonts/Quicksand-Medium.ttf");
+  src: url("../assets/fonts/Quicksand-Medium.ttf");
 }
 @font-face {
   font-family: "Quicksand-Regular";
-  src: url("./res/fonts/Quicksand-Regular.ttf");
+  src: url("../assets/fonts/Quicksand-Regular.ttf");
 }
 @font-face {
   font-family: "Quicksand-SemiBold";
-  src: url("./res/fonts/Quicksand-SemiBold.ttf");
+  src: url("../assets/fonts/Quicksand-SemiBold.ttf");
 }
 @font-face {
   font-family: "Quicksand-Bold";
-  src: url("./res/fonts/Quicksand-Bold.ttf");
+  src: url("../assets/fonts/Quicksand-Bold.ttf");
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: url("./res/fonts/Segoe UI.ttf");
+  src: url("../assets/fonts/UI.ttf");
 }
 @font-face {
   font-family: "Segoe UI Italic";
-  src: url("./res/fonts/Segoe UI Italic.ttf");
+  src: url("../assets/fonts/UI Italic.ttf");
 }
 @font-face {
   font-family: "Segoe UI Bold";
-  src: url("./res/fonts/Segoe UI Bold.ttf");
+  src: url("../assets/fonts/Segoe UI Bold.ttf");
 }
 @font-face {
   font-family: "Segoe UI Bold Italic";
-  src: url("./res/fonts/Segoe UI Bold Italic.ttf");
+  src: url("../assets/fonts/ UI Bold Italic.ttf");
 }
 
 :root {
@@ -65,9 +65,23 @@
   font-family: "Quicksand-Bold";
 }
 
+.segoeui {
+  font-family: var(--segoeUi);
+}
+.segoeui-italic {
+  font-family: var(--segoeUi-italic);
+}
+.segoeui-bold {
+  font-family: var(--segoeUi-bold);
+}
+.segoeui-bold-italic {
+  font-family: var(--segoeUi-bold-italic);
+}
+
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
+  color: #333333  ;
 }
 
 img {
@@ -89,8 +103,8 @@ img {
   background-color: transparent;
 }
 
-.curve-line .path {
-}
+/* .curve-line .path {
+} */
 
 @media (max-width: 1700px) {
   .curve-line {
@@ -103,11 +117,9 @@ img {
     margin-top: 0px;
   }
 }
-
+/* 
 .curve-line .path {
-}
-
-
+} */
 
 .search-box {
   margin-top: 200px;
@@ -140,6 +152,7 @@ img {
   }
   .search-box input {
     padding: 5px 10px;
+    width: 250px;
   }
   .search-box .search-icon {
     padding: 5px 15px;
@@ -147,7 +160,7 @@ img {
 }
 @media (max-width: 768px) {
   .search-box {
-    margin-top: 100px;
+    margin-top: 130px;
     margin-right: 25px;
   }
 }
@@ -183,8 +196,8 @@ img {
   margin-left: 20px;
 }
 
-.home-image-slider .slides .slide:nth-child(1) .slide-content {
-}
+/* .home-image-slider .slides .slide:nth-child(1) .slide-content {
+} */
 
 .slide-content > div:nth-child(1) {
   font-weight: bold;
@@ -297,8 +310,8 @@ img {
   opacity: 0;
 }
 
-.mobile-home-menu {
-}
+/* .mobile-home-menu {
+} */
 
 .mobile-home-menu > div {
   margin-left: -300px;
@@ -347,18 +360,59 @@ img {
   width: 400px;
   margin-top: 10px;
   border-radius: 6px;
-  object-fit: contain;
+  object-fit: cover;
+  background-position: center;
 }
 
-.why-choosing-us .content .right-side {
-}
 .why-choosing-us .content .right-side .text {
   font-family: var(--quick-SemiBold);
   padding: 10px;
   font-size: 20px;
 }
 
-.why-choosing-us .content .right-side .text .list{
-  width: 30px;
-  background-color: red;
+.why-choosing-us .content .right-side .list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .why-choosing-us .content .right-side .text {
+    font-size: 16px;
+  }
+  .why-choosing-us .content .right-side .list {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .why-choosing-us .content {
+    flex-direction: column;
+  }
+  .why-choosing-us .content img {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+.why-choosing-us .content .right-side .list > div div {
+  width: 25px;
+  height: 25px;
+  clip-path: circle();
+  background-color: #333333;
+}
+
+
+
+.activies-panel{
+
+}
+
+.activies-panel{
+  font-size: 22px;
+  font-family: var(--quick-Bold);
+}
+
+.activies-panel .iconify-icon{
+  font-size: 30px;
 }

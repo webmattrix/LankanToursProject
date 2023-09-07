@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./css/home.css">
   <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/scrolbar.css">
 </head>
 
-<body onload="homeOnloadFunction();" class="c-default">
+<body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
   <div class="container-fluid">
 
     <?php
@@ -37,9 +38,9 @@
             <div class="slide active" id="slide1">
               <img src="./assets/img/home-slider/img (1).jpg" alt="Home Slider Image">
               <div class="slide-content">
-                <div class="">Welcomte to Sri Lanka</div>
+                <div class="text-white">Welcomte to Sri Lanka</div>
                 <div class="">
-                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
+                  <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
                 </div>
                 <button class="get-start-btn">Get Start</button>
               </div>
@@ -69,14 +70,23 @@
       <div class="row p-4">
 
         <div class="why-choosing-us">
-          <div class="title">Why Choosing Us</div>
+          <div class="title segoeui-bold">Why Choosing Us</div>
           <div class="content">
             <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
             <div class="right-side">
-              <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit, officiis corporis perferendis temporibus odit! Labore nihil doloribus eum exercitationem adipisci necessitatibus maiores distinctio porro! Corrupti, vel. Quis tempore dolore commodi sapiente nesciunt accusantium maxime labore quidem ducimus! Ab veritatis quia asperiores nesciunt deleniti id incidunt ratione. Aperiam corrupti quasi placeat nihil labore ipsa autem, fuga minus harum ducimus nostrum?</div>
-              <div class="list">
-                <div class="">
-                  <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+              <div class="text-center text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
+              <div class="list ps-5 mt-2">
+                <div class="d-flex gap-2">
+                  <div class="d-flex justify-content-center align-items-center" style="">
+                    <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                  </div>
+                  <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <div class="d-flex justify-content-center align-items-center" style="">
+                    <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                  </div>
+                  <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
                 </div>
               </div>
             </div>
@@ -87,10 +97,32 @@
     </div>
 
 
+    <!-- Activities -->
+    <div class="col-12">
+      <div class="row">
+
+        <div class="fs-5">
+          <span class="segoeui-bold">Activities</span>
+        </div>
+
+        <div class="d-flex justify-content-center activies-panel">
+          <div class="d-flex gap-5">
+            <div class="bg-white rounded p-2 d-flex flex-column align-items-center">
+              <iconify-icon style="font-size: 30px;" icon="fluent:beach-24-filled"></iconify-icon>
+              <span>Beach</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Activities -->
+
+
   </div>
 
   <script src="./js/bootstrap.js"></script>
-  <script src="home.js"></script>
+  <script src="./js/home.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

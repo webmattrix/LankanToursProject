@@ -9,8 +9,8 @@
             <div class="site-name">
                 <span class="text-white">Lankan Tours</span>
             </div>
-            <div class="d-block d-xl-none me-3 text-white fs-3 p-2">
-                <iconify-icon icon="majesticons:menu" class="c-pointer fs-2" onclick="viewMobileMenu();"></iconify-icon>
+            <div class="d-block d-xl-none me-3 text-white fs-3 p-1">
+                <iconify-icon icon="majesticons:menu" class="c-pointer text-white fs-2" onclick="viewMobileMenu();"></iconify-icon>
             </div>
             <div class="list">
                 <ul>
@@ -19,7 +19,7 @@
                     <li><a href="">History</a></li>
                     <li><a href="">Gallery</a></li>
                     <li><a href="">Contact</a></li>
-                    <li><a href="">Join</a></li>
+                    <li class="border px-3 border-2" style="border-radius: 100vh;"><a href="">Join</a></li>
                     <li><i class="bi bi-three-dots-vertical text-white c-pointer"></i></li>
                 </ul>
             </div>
