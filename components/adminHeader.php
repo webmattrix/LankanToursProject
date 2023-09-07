@@ -23,8 +23,8 @@
             <div class="d-flex px-2 gap-2 align-items-center" style="cursor: pointer;">
                 <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();"></div>
                 <div class="d-flex flex-column justify-content-center">
-                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;">Vihanga Heshan</span>
-                    <span style="font-size: 12px; font-family: sans-serif;">Super Admin</span>
+                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;">Admin Name</span>
+                    <span style="font-size: 12px; font-family: sans-serif;">type</span>
                 </div>
                 <div class="">
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>

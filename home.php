@@ -105,7 +105,7 @@
           <span class="segoeui-bold">Activities</span>
         </div>
 
-        <div class="d-flex justify-content-center activies-panel">
+        <div class="activies-panel">
 
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
@@ -147,19 +147,20 @@
 
     <!-- Most beautiful places & top tour plans -->
     <div class="col-12 p-4">
-      <div class="row bg-white rounded p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
+      <div class="row bg-white rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
 
         <!-- Beautiful places -->
         <div class="col-12">
-          <div class="segoeui-bold fs-4">Most Beautiful Places of SRI LANKA</div>
+          <div class="segoeui-bold fs-4 pb-3">Most Beautiful Places of SRI LANKA</div>
           <div class="home_places-grid">
 
             <?php
-            for ($x = 0; $x < 10; $x++) {
+            for ($x = 0; $x < 12; $x++) {
             ?>
 
-              <div class="place">
-                
+              <div class="place" style="background-image: url('./assets/img/places/Ella_Sri_Lanka.jpg');">
+                <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                <div class="home_place-name">Ella</div>
               </div>
 
             <?php
@@ -170,6 +171,10 @@
         </div>
         <!-- Beautiful places -->
 
+        <div class="home_load-more-btn">
+          <span class="bg-white px-3 py-2">Load more...</span>
+        </div>
+        
       </div>
     </div>
     <!-- Most beautiful places & top tour plans -->

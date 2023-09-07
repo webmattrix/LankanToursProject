@@ -16,12 +16,12 @@
 
             <div class="d-flex p-0">
                 <?php
-                include "./components/adminSidebar.php";
+                include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
                 ?>
 
                 <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto;">
                     <?php
-                    include "./components/adminHeader.php";
+                    include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
