@@ -77,13 +77,13 @@
               <div class="text-center text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
               <div class="list ps-5 mt-2">
                 <div class="d-flex gap-2">
-                  <div class="d-flex justify-content-center align-items-center" style="">
+                  <div class="d-flex justify-content-center align-items-center">
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
                   <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
                 </div>
                 <div class="d-flex gap-2">
-                  <div class="d-flex justify-content-center align-items-center" style="">
+                  <div class="d-flex justify-content-center align-items-center" sty>
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
                   <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
