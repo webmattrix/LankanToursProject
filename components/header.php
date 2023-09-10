@@ -14,11 +14,11 @@
             </div>
             <div class="list">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Tours</a></li>
-                    <li><a href="">History</a></li>
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="#" class="text-white">Tours</a></li>
+                    <li><a href="#" class="text-white">History</a></li>
+                    <li><a href="#" class="text-white">Gallery</a></li>
+                    <li><a href="#" class="text-white">Contact</a></li>
                     <li class="border px-3 border-2" style="border-radius: 100vh;"><a href="">Join</a></li>
                     <li><i class="bi bi-three-dots-vertical text-white c-pointer"></i></li>
                 </ul>
@@ -36,11 +36,11 @@
         <h1 class="mt-3 text-white fw-bold">Lankan Tours</h1>
 
         <div class="mt-5 text-white quicksand-SemiBold fs-5 d-flex flex-column gap-3 mobile-home-menu">
-            <div class="">Home</div>
-            <div class="">Tours</div>
-            <div class="">History</div>
-            <div class="">Gallery</div>
-            <div class="">Contact</div>
+            <div class="text-white">Home</div>
+            <div class="text-white">Tours</div>
+            <div class="text-white">History</div>
+            <div class="text-white">Gallery</div>
+            <div class="text-white">Contact</div>
         </div>
 
         <div class="signIn-signUP-box">
