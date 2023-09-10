@@ -1,0 +1,34 @@
+.footer {
+  background-color: #202020;
+}
+
+.req_complain_box {
+  width: 80%;
+}
+
+@media (max-width: 992px) {
+  .req_complain_box {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .req_complain_box {
+    width: 70%;
+  }
+}
+
+@media (max-width: 568px) {
+  .req_complain_box {
+    width: 90%;
+  }
+}
+
+.req_complain_box textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 250px;
+  max-height: 250px;
+  outline: none;
+}

@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="./css/home.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/scrolbar.css">
+  <link rel="stylesheet" href="./css/footer.css">
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
-  <div class="container-fluid pb-5">
+  <div class="container-fluid">
 
     <?php
     include "./components/header.php";
@@ -77,13 +78,13 @@
               <div class="text-center text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
               <div class="list ps-5 mt-2">
                 <div class="d-flex gap-2">
-                  <div class="d-flex justify-content-center align-items-center" style="">
+                  <div class="d-flex justify-content-center align-items-center">
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
                   <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
                 </div>
                 <div class="d-flex gap-2">
-                  <div class="d-flex justify-content-center align-items-center" style="">
+                  <div class="d-flex justify-content-center align-items-center" sty>
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
                   <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
@@ -101,8 +102,8 @@
     <div class="col-12">
       <div class="row">
 
-        <div class="fs-4 text-center pb-2">
-          <span class="segoeui-bold">Activities</span>
+        <div class="text-center pb-2">
+          <span class="segoeui-bold home_subtitle">Activities</span>
         </div>
 
         <div class="activies-panel">
@@ -151,11 +152,11 @@
 
         <!-- Beautiful places -->
         <div class="col-12">
-          <div class="segoeui-bold fs-4 pb-3">Most Beautiful Places of SRI LANKA</div>
+          <div class="segoeui-bold home_subtitle pb-3">Most Beautiful Places of SRI LANKA</div>
           <div class="home_places-grid">
 
             <?php
-            for ($x = 0; $x < 12; $x++) {
+            for ($x = 0; $x < 8; $x++) {
             ?>
 
               <div class="place" style="background-image: url('./assets/img/places/Ella_Sri_Lanka.jpg');">
@@ -174,17 +175,74 @@
         <div class="home_load-more-btn">
           <span class="bg-white px-3 py-2">Load more...</span>
         </div>
-        
+
+        <hr>
+
+        <!-- Top Tour Plans -->
+        <div class="col-12">
+          <div class="row">
+
+            <div class="segoeui-bold home_subtitle">Feel the SRI LANKA with our top tour plan</div>
+
+            <div class="home_tour-plan">
+              <?php
+              for ($x = 1; $x < 5; $x++) {
+              ?>
+                <div>
+                  <div class="head position-relative">
+                    <div class="position-absolute w-100 d-flex justify-content-between px-2 pt-2" style="z-index: 2;">
+                      <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer"></iconify-icon>
+                      <span class="text-uppercase text-white segoeui-bold">12 Days</span>
+                    </div>
+                    <div class="tour-plan-slider position-relative">
+                      <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
+                        <iconify-icon icon="mingcute:left-line" class="text-white"></iconify-icon>
+                        <iconify-icon icon="mingcute:right-line" class="text-white"></iconify-icon>
+                      </div>
+                      <div class="slides" style="width: 300%;">
+                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
+                        </div>
+                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
+
+                        </div>
+                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
+                    <div class="text-center quicksand-SemiBold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
+                    <div class="w-100 d-flex justify-content-center">
+                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="itinerary">
+                        <span>View Ininerary</span>
+                        <iconify-icon icon="ph:map-pin-line"></iconify-icon>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              <?php
+              }
+              ?>
+            </div>
+
+          </div>
+        </div>
+        <!-- Top Tour Plans -->
+
       </div>
     </div>
     <!-- Most beautiful places & top tour plans -->
 
-
+    <?php include "./components/footer.php"; ?>
+    
   </div>
-
+  
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="./js/footer.js"></script>
 </body>
 
 </html>
