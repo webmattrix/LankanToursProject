@@ -58,6 +58,9 @@
 
                     </div>
                 </div>
+                <div class="col-12 text-center">
+                    <span class="text-white-50">&copy; Copyright All Reserved LANKAN TOURS | 2023</span>
+                </div>
             </footer>
 
         </div>
