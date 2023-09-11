@@ -3,12 +3,25 @@
     src: url("../assets/fonts/SegoeUI.ttf");
 }
 
-@font-face{
+@font-face {
     font-family: "Inter";
     src: url("../assets/fonts/inter.ttf");
 }
 
-.selector{
+.ordersPg_R_moreBTN{
+    font-family: 'Segoe';
+    color: #9D3DE9;
+    border: 2px solid #9D3DE9;
+    background-color: transparent;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selector_ord{
     display: block;
     width: 100%;
     padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -31,8 +44,7 @@
     appearance: none;
 }
 
-.selector:focus {
+.selector_ord:focus {
     outline: 0;
     box-shadow: 0 0 0 0.15rem rgba(201, 201, 202, 0.25);
   }
-
