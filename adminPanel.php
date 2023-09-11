@@ -45,10 +45,12 @@
                                 <div class="content p-3">
                                     <img src="../assets/img/girl_profile_picture.jpg" alt="" class="admin_panel-profile-image">
                                     <div class="">
-                                        <span class="segoeui-bold text-primary fs-4">John Luther</span>
-                                    </div>
-                                    <div class="">
-                                        <span class="text-warning quicksand-Medium">Owner</span>
+                                        <!-- <div class="">
+                                            <span class="segoeui-bold text-primary fs-4">John Luther</span>
+                                        </div>
+                                        <div class="">
+                                            <span class="text-warning quicksand-Medium">Owner</span>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +70,7 @@
                                 <span class="position-absolute text-white fs-4 segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                             </div>
                             <div class="admin_grid-item">
-                            <lottie-player src="https://lottie.host/1d5241c3-2472-4564-a8ef-95a7f70daf2f/d0dTQ3Jiur.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                <lottie-player src="https://lottie.host/1d5241c3-2472-4564-a8ef-95a7f70daf2f/d0dTQ3Jiur.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                 <span class="position-absolute text-white fs-4 segoeui-bold top-0 start-0 m-3">Total Engagements</span>
                                 <span class="position-absolute text-white fs-4 segoeui-bold bottom-0 end-0 m-3">1352</span>
                             </div>

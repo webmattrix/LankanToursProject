@@ -8,6 +8,7 @@
   grid-gap: 10px;
   border-radius: 5px;
   height: 100%;
+  width: 100%;
 }
 
 .admin_header-grid .admin_grid-item {
@@ -62,7 +63,7 @@
   .content
   .admin_panel-profile-image {
   width: 100px;
-  height: 100%;
+  /* height: 100%; */
   clip-path: circle();
   object-fit: contain;
   object-position: center;
@@ -154,9 +155,21 @@
 @media screen and (max-width: 600px) {
   .admin_header-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
-    "c c"
-    "a b";
+    grid-template-areas:
+      "c c"
+      "b e"
+      "a a"
+      "f f"
+      "d g";
     grid-template-rows: repeat(4, 180px);
+  }
+  .admin_header-grid .admin_grid-item:nth-child(3) .content {
+    flex-direction: row;
+  }
+  .admin_header-grid
+    .admin_grid-item:nth-child(3)
+    .content
+    .admin_panel-profile-image {
+    width: 70px;
   }
 }
