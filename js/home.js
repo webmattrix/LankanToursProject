@@ -1,5 +1,7 @@
 function openSearchBox() {
-  document.getElementById("homeSearchField").classList.toggle("d-none");
+  if (document.getElementById("homeSearchField").value == "" || document.getElementById("homeSearchField").value == "Search here...") {
+    document.getElementById("homeSearchField").classList.toggle("d-none");
+  }
 }
 
 function setPlaceholder() {
