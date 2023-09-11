@@ -4,3 +4,4 @@ Options -Indexes
 
 ReWriteRule ^Home$ home.php [NC,L]
 ReWriteRule ^Itinerary$ itinerary.php [NC,L]
+ReWriteRule ^Guide/Tours$ guideP_TourPage.php [NC,L]
