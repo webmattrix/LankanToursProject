@@ -266,3 +266,63 @@
 .msg-container {
   scroll-behavior: smooth;
 }
+
+.ongoing-tour-box {
+  background-color: #eaeaea;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.admin_panel_scroll-boxes {
+  max-height: 350px;
+}
+
+@media (max-width: 1600px) {
+  .admin_body-container .admin_body-grid {
+    grid-template-areas:
+      "bodyA bodyA bodyB"
+      "bodyC bodyD bodyD";
+  }
+}
+
+@media (max-width: 1400px) {
+  .admin_body-container .admin_body-grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      "bodyA bodyA bodyA bodyB bodyB"
+      "bodyC bodyC bodyD bodyD bodyD";
+  }
+}
+
+@media (max-width: 1200px) {
+  .admin_body-container .admin_body-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "bodyA bodyA bodyA bodyA bodyB bodyB"
+      "bodyC bodyC bodyC bodyD bodyD bodyD";
+  }
+}
+
+@media (max-width: 992px) {
+  .admin_body-container .admin_body-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "bodyA bodyA bodyA"
+      "bodyB bodyD bodyD"
+      "bodyC bodyC bodyC";
+  }
+  .admin_panel_scroll-boxes {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 800px) {
+  .admin_body-container .admin_body-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "bodyA"
+      "bodyB"
+      "bodyC"
+      "bodyD";
+  }
+}

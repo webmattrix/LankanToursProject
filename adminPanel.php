@@ -90,17 +90,17 @@
                                             <canvas id="myChart" style="width: 100%; height: 100%; position: relative;"></canvas>
                                         </div>
                                     </div>
-                                    <div style="max-height: 350px; overflow-y: auto;" class="">
+                                    <div class="">
                                         <div class="d-flex gap-2 align-items-center">
                                             <span class="quicksand-Bold">Messages</span>
                                             <hr style="width: 100%;">
                                         </div>
-                                        <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex flex-column gap-3 admin_panel_scroll-boxes" style="overflow-y: auto;">
                                             <?php
                                             for ($x = 0; $x < 10; $x++) {
                                             ?>
                                                 <div class="msg-box px-3 rounded">
-                                                    <div class="d-flex w-100 justify-content-between">
+                                                    <div class="d-flex w-100 justify-content-between align-items-center">
                                                         <span class="quicksand-SemiBold fs-6">Sahan Perera</span>
                                                         <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">2023-06-06</span>
                                                     </div>
@@ -114,23 +114,25 @@
                                             ?>
                                         </div>
                                     </div>
-                                    <div style="max-height: 350px; overflow-y: auto;" class="">
+                                    <div class="">
                                         <div class="d-flex gap-2 align-items-center">
-                                            <span class="quicksand-Bold">Messages</span>
+                                            <span class="quicksand-Bold" style="min-width: max-content; display: block;">Ongoing Tours</span>
                                             <hr style="width: 100%;">
                                         </div>
-                                        <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex flex-column gap-3 admin_panel_scroll-boxes" style="overflow-y: auto;">
                                             <?php
                                             for ($x = 0; $x < 10; $x++) {
                                             ?>
-                                                <div class="msg-box px-3 rounded">
-                                                    <div class="d-flex w-100 justify-content-between">
-                                                        <span class="quicksand-SemiBold fs-6">Sahan Perera</span>
-                                                        <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">2023-06-06</span>
-                                                    </div>
-                                                    <div class="pt-2 quicksand-SemiBold position-relative">
-                                                        <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
-                                                        <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2">
+                                                    <img src="../assets/img/girl_profile_picture.jpg" class="" style="width: 50px; clip-path: circle();" />
+                                                    <div class="w-100 p-1">
+                                                        <div class="w-100 d-flex justify-content-between">
+                                                            <span class="quicksand-SemiBold">7 Day Premium Plan</span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Medium">2 Days Left</span>
+                                                        </div>
+                                                        <div class="w-100 p-1">
+                                                            <span class="quicksand-Medium">Assigned Guide : Mr. Blake Michael</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             <?php
