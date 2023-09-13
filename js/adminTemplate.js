@@ -24,7 +24,7 @@ function sideMenuMover() {
     menu.style.paddingRight = 30 + "px";
     document.getElementById("sideMenu").classList.add("sideMenu-enable");
     document.getElementById("sideMenu").classList.remove("sideMenu-disable");
-    
+
     document.getElementById("mobileMode").classList.add("d-block");
     document.getElementById("mobileMode").classList.add("d-lg-block");
     document.getElementById("mobileMode").classList.add("d-xl-none");
@@ -66,8 +66,6 @@ function viewSubMenu(elementId) {
   }
 }
 
-
-
 document
   .getElementById("mobileSideBarModel")
   .addEventListener("mousedown", toggleMobileMenu);
@@ -90,3 +88,7 @@ function toggleMobileMenu(evt) {
     document.getElementById("mobileSideBarModel").classList.remove("d-none");
   }
 }
+
+document.getElementById("adminHomeBtn").addEventListener("click", () => {
+  window.location = "Home";
+});

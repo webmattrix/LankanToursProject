@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Panel | Tours Page</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/guideP_TourPage.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/guideP_TourPage.css" />
 </head>
 
 <body>
