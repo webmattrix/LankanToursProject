@@ -19,12 +19,12 @@
 
             <div class="d-flex p-0">
                 <?php
-                include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
+                include "./components/guideSidebar.php"; // change if you using other component like "guideSidebar.php"
                 ?>
 
                 <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto; min-height: 100vh;">
                     <?php
-                    include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
+                    include "./components/guideHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
@@ -33,17 +33,17 @@
 
                             <div class="admin_header-grid">
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/7b556494-d0aa-430b-b797-c51341a0eb05/QVy6bSZRqZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/overall_income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Tours</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/793904a4-bfaa-46db-9c5b-6cc343cfd45a/1a0aNjUjgZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/d80c84e5-62c6-4d6b-ad66-a17b8561c4a2/8dc9pToLL5.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                     <div class="content p-3">
                                         <img src="../assets/img/girl_profile_picture.jpg" alt="" class="admin_panel-profile-image">
                                         <div class="admin-name">
@@ -53,24 +53,24 @@
                                     </div>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/000a5a10-3d7e-4b10-9145-ee04763b6dab/o6A00e1V8J.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today Engagement</span>
+                                    <lottie-player src="../assets/animations/todayEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Canceled Tours</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">08</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/793904a4-bfaa-46db-9c5b-6cc343cfd45a/1a0aNjUjgZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/49328183-94d0-4da0-9e0f-6919d9b58c1f/Siryo4hOJs.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/overall_outgoing.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Monthly Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="../assets/animations/totalEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Total Engagements</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">1352</span>
+                                    <lottie-player src="../assets/animations/totalEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Ranking</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">02</span>
                                 </div>
                             </div>
 

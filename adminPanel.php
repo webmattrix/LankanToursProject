@@ -33,17 +33,17 @@
 
                             <div class="admin_header-grid">
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/7b556494-d0aa-430b-b797-c51341a0eb05/QVy6bSZRqZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/overall_income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/793904a4-bfaa-46db-9c5b-6cc343cfd45a/1a0aNjUjgZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/d80c84e5-62c6-4d6b-ad66-a17b8561c4a2/8dc9pToLL5.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <div class="content p-3">
                                         <img src="../assets/img/girl_profile_picture.jpg" alt="" class="admin_panel-profile-image">
                                         <div class="admin-name">
@@ -53,22 +53,22 @@
                                     </div>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/000a5a10-3d7e-4b10-9145-ee04763b6dab/o6A00e1V8J.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/todayEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today Engagement</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">08</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/793904a4-bfaa-46db-9c5b-6cc343cfd45a/1a0aNjUjgZ.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Monthly Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/49328183-94d0-4da0-9e0f-6919d9b58c1f/Siryo4hOJs.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/overall_outgoing.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Outgoing Income</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
                                 </div>
                                 <div class="admin_grid-item">
-                                    <lottie-player src="https://lottie.host/1d5241c3-2472-4564-a8ef-95a7f70daf2f/d0dTQ3Jiur.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
+                                    <lottie-player src="../assets/animations/totalEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Total Engagements</span>
                                     <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">1352</span>
                                 </div>
