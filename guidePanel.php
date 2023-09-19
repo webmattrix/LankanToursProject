@@ -113,7 +113,7 @@
                                                 <span>4.2/5</span>
                                                 <iconify-icon icon="material-symbols:star"></iconify-icon>
                                             </div>
-                                            <div class="d-flex justify-content-between flex-xxl-row gap-1 mt-4">
+                                            <div class="d-flex justify-content-between gap-1 mt-4">
                                                 <div class="w-100 d-flex flex-column gap-2">
                                                     <div class="d-flex gap-2  mt-3">
                                                         <span style="width: 70px;">5 Star</span>
@@ -158,7 +158,7 @@
                                                 </div>
                                                 <div class="w-100 h-100">
                                                     <div class="p-1" style="max-height: 95%;">
-                                                        <canvas id="myChart" class=""></canvas>
+                                                        <canvas id="myChart" class="w-100 h-auto"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,6 +169,7 @@
                                             <span class="quicksand-Bold" style="min-width: max-content;">Customer Feedback</span>
                                             <hr style="width: 100%;">
                                         </div>
+                                        <div class="guide_customer-feedback-grid"></div>
                                     </div>
                                 </div>
                             </div>
