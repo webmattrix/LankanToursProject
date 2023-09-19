@@ -71,7 +71,7 @@
             <div class="d-flex flex-column gap-5 fs-3 icon-list">
                 <iconify-icon icon="ic:round-dashboard"></iconify-icon>
                 <iconify-icon icon="mdi:flight"></iconify-icon>
-                <iconify-icon icon="mdi:flight"></iconify-icon>
+                <iconify-icon icon="solar:gallery-bold"></iconify-icon>
             </div>
         </div>
 
