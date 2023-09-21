@@ -22,3 +22,10 @@ git push -u origin branch_name
 # Consider
 
 do not add anything to index.php, we will be adding contents to it later
+
+# URL Structure
+
+localhost/project_name/LankanToursProject/Home => for Home page
+localhost/project_name/LankanToursProject/Itinerary => for Itinerary Page
+localhost/project_name/LankanToursProject/Admin/Home => for Admin Panel / Admin Dashboard
+localhost/project_name/LankanToursProject/Guide/Tours => for Guide Tours Page
