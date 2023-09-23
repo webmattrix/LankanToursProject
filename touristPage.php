@@ -47,7 +47,7 @@
                                     <div class="row">
                                         <div class="col-5">
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div class="col-4 d-flex align-items-center">
                                                     <iconify-icon class="fs-3" icon="system-uicons:filter"></iconify-icon>                         
                                                     <span class="fs-6 mx-2">Filter</span>
                                                 </div>
