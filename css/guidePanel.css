@@ -1,0 +1,61 @@
+.guide_body-grid > div:nth-child(1) {
+  grid-area: GA;
+}
+.guide_body-grid > div:nth-child(2) {
+  grid-area: GB;
+}
+.guide_body-grid > div:nth-child(3) {
+  grid-area: GC;
+}
+.guide_body-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "GA GB"
+    "GC GC";
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  grid-gap: 10px;
+  grid-row-gap: 20px;
+}
+
+.guide_body-grid > div {
+  width: 100%;
+  min-height: 100px;
+  background-color: #eaeaea;
+  padding: 5px;
+  border-radius: 8px;
+  height: 400px;
+}
+
+.guide_assign-tour-box {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.guide_assign-tour-box .msg-box {
+  background-color: white;
+  padding: 2px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.tour-details-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* ###################### */
+@media (max-width: 1400px) {
+  .guide_body-grid {
+    grid-template-areas:
+      "GB GB"
+      "GA GA"
+      "GC GC";
+  }
+}
