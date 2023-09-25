@@ -169,7 +169,31 @@
                                             <span class="quicksand-Bold" style="min-width: max-content;">Customer Feedback</span>
                                             <hr style="width: 100%;">
                                         </div>
-                                        <div class="guide_customer-feedback-grid"></div>
+                                        <div class="guide_customer-feedback-grid p-2">
+                                            <?php
+                                            for ($x = 0; $x < 5; $x++) {
+                                            ?>
+                                                <div class="customer-feedback p-1">
+                                                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                                                        <span class="d-block quicksand-Bold">Tour plan Name Lorem, ipsum.</span>
+                                                        <span class="d-block d-flex align-items-center gap-2">
+                                                            <iconify-icon icon="octicon:dot-fill-24" class="text-success"></iconify-icon>
+                                                            <span class="text-success">Positive</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="mt-2 quicksand-Bold" style="line-height: 1.2rem;">
+                                                        <span class="fs-3">"</span>
+                                                        <span class="feedback-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam ipsa error nam repellat magni aliquam iste officiis adipisci perspiciatis earum? Recusandae doloremque quam facere itaque ad accusamus, architecto sapiente tempora.</span>
+                                                        <span class="fs-3">"</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <span class="ms-auto text-black-50 quicksand-SemiBold">2023-06-06</span>
+                                                    </div>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

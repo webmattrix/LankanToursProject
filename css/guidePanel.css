@@ -1,6 +1,11 @@
 :root {
   --default-radius: 6px;
 }
+
+body{
+
+}
+
 .guide_body-grid > div:nth-child(1) {
   grid-area: GA;
 }
@@ -82,6 +87,7 @@
 .guide_customer-feedback-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 
 .guide_customer-feedback-grid > div {
@@ -89,4 +95,26 @@
   min-height: 50px;
   background-color: white;
   border-radius: var(--default-radius);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.guide_customer-feedback-grid div.customer-feedback {
+}
+
+@media (max-width: 1400px) {
+  .guide_customer-feedback-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .guide_customer-feedback-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .guide_customer-feedback-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

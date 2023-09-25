@@ -122,7 +122,7 @@
           </div>
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>1
               <span>Hiking</span>
             </div>
           </div>
