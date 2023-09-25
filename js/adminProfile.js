@@ -44,3 +44,30 @@ function changeImageUploader() {
   document.getElementById("adminProfileViewImage").style.backgroundImage =
     "url('" + profileImage.value + "')";
 }
+
+document.getElementById("passwordEye").addEventListener("mousedown", () => {
+  if (
+    document.getElementById("passwordEye").getAttribute("icon") == "el:eye-open"
+  ) {
+    document.getElementById("passwordEye").setAttribute("icon", "el:eye-close");
+    document.getElementById("passwordField").type = "text";
+  } else {
+    document.getElementById("passwordEye").setAttribute("icon", "el:eye-open");
+    document.getElementById("passwordField").type = "password";
+  }
+});
+
+// profileSliderAnchor --> 1st slide
+// detailIcon --> icon
+// settingIcon --> icon
+// socialIcon --> icon
+
+function adminProfileSlider(id) {
+  document.getElementById("profileSliderAnchor").style.marginLeft =
+    id * -100 + "%";
+
+  document.getElementById("slide1Icon").classList.remove("active");
+  document.getElementById("slide2Icon").classList.remove("active");
+  document.getElementById("slide3Icon").classList.remove("active");
+  document.getElementById("slide" + (id + 1) + "Icon").classList.add("active");
+}
