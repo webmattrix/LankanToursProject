@@ -64,30 +64,30 @@
                                             <div class="quicksand-SemiBold">
                                                 <h3 class="segoeui-bold">Owner</h3>
                                                 <div class="d-flex">
-                                                    <span style="">Name</span>
+                                                    <span>Name</span>
                                                     <span>: &nbsp; Vihanga Heshan</span>
                                                 </div>
                                                 <div class="d-flex mt-2">
-                                                    <span style="">Email</span>
+                                                    <span>Email</span>
                                                     <span>: &nbsp; vihangaheshan@gmail.com</span>
                                                 </div>
                                                 <div class="d-flex mt-2">
-                                                    <span style="">Mobile</span>
+                                                    <span>Mobile</span>
                                                     <span>: &nbsp; 0712345678</span>
                                                 </div>
 
                                                 <hr class="w-75">
 
                                                 <div class="d-flex mt-2">
-                                                    <span style="">Address</span>
+                                                    <span>Address</span>
                                                     <span>: &nbsp; ...</span>
                                                 </div>
                                                 <div class="d-flex mt-2">
-                                                    <span style="">Work Time</span>
+                                                    <span>Work Time</span>
                                                     <span>: &nbsp; 10h 35m / Sep</span>
                                                 </div>
                                                 <div class="d-flex mt-2">
-                                                    <span style="">Registered Date</span>
+                                                    <span>Registered Date</span>
                                                     <span>: &nbsp; 2023-06-06</span>
                                                 </div>
 
