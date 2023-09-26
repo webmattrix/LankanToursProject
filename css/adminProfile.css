@@ -1,0 +1,247 @@
+/* .admin-profile {
+} */
+
+.admin-profile img {
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+}
+.profile-panel {
+  border: 1px solid #1d59b4;
+}
+
+.profile-panel .header {
+  background-color: #1d59b4;
+  display: flex;
+  padding-left: 5px;
+}
+
+.profile-panel .header > div {
+  width: 50px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.profile-panel .header > div.active {
+  /* border-bottom: 5px solid white; */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.profile-panel .header > div.active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 7px;
+  background-color: white;
+  bottom: 0;
+  border-radius: 5px 5px 0 0;
+  /* border-bottom: 1px solid #1d59b4; */
+}
+
+.profile-panel .body {
+  background-image: url("../assets/img/admin_profile_background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 75%;
+  width: 100%;
+  padding: 10px;
+}
+
+.profile-panel .body > div {
+  /* background-image: linear-gradient(
+    90deg,
+    white,
+    white,
+    white,
+    white,
+    transparent
+  ); */
+  background-color: rgba(255, 255, 255, 0.411);
+  height: 100%;
+  width: 50%;
+  /* padding: 10px; */
+}
+
+.profile-panel .body:nth-child(2) > div {
+  width: 30%;
+}
+
+.profile-panel .body:nth-child(3) > div {
+  width: 30%;
+  height: fit-content;
+}
+
+@media (max-width: 1400px) {
+  .profile-panel .body:nth-child(2) > div,
+  .profile-panel .body:nth-child(3) > div {
+    width: 50%;
+  }
+  .profile-panel .body > div {
+    width: 60%;
+  }
+}
+.profile-panel .body span:nth-child(1) {
+  width: 200px;
+}
+
+@media (max-width: 1200px) {
+  .profile-panel .body span:nth-child(1) {
+    width: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-panel .body:nth-child(2) > div,
+  .profile-panel .body:nth-child(3) > div,
+  .profile-panel .body > div {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.profile-panel .body > div hr {
+  /* border-color: #1D59B4; */
+  background-color: #1d59b4;
+}
+
+.profile-panel .body > div h3 {
+  color: #1d59b4;
+}
+
+.switch-notification {
+  border: 1px solid #1d59b4;
+  background-color: white;
+  border-radius: 100vh;
+  width: 60px;
+  overflow: hidden;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.switch-notification .switch-thumb {
+  background-color: #1d59b4;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.4) inset;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: 1s;
+}
+
+.switch-notification div.left {
+  transition-duration: 1s;
+  left: 2px;
+}
+.switch-notification div.right {
+  transition-duration: 1s;
+  right: 2px;
+}
+
+.switch-notification .switch-text {
+  position: absolute;
+  color: #1d59b4;
+  top: 0;
+  right: 20%;
+}
+
+.admin-profile-picture {
+  border: 1px dashed black;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-image: url("../assets/img/boy_profile_picture.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.admin-profile-picture::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.admin-profile-picture iconify-icon {
+  color: white;
+  font-size: 36px;
+  position: absolute;
+  z-index: 1;
+}
+
+.socialMediaContainer {
+  width: fit-content;
+  border: 1px solid #1d59b4;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  background-color: red;
+  width: 100px;
+}
+
+.socialMediaHeader {
+  background-color: #1d59b4;
+  display: flex;
+  padding-left: 5px;
+  width: 100%;
+  /* margin: 30px 0 0 30px; */
+  /* border-radius: 10px 10px 0 0; */
+}
+
+.socialMediaHeader > div {
+  width: 50px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.socialMediaHeader > div.active {
+  position: relative;
+}
+
+.socialMediaHeader > div.active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 7px;
+  background-color: white;
+  bottom: 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.socialMediaBody {
+  padding: 20px 10px;
+}
+
+.socialMediaBody input {
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #1d59b4;
+  outline: none;
+  color: #1d59b4;
+}
+
+.socialMediaContainer .hr {
+  border: 0.5px dashed #1d59b4;
+  margin-top: 10px;
+}
+
+#profileSliderAnchor {
+  transition-duration: 1s;
+}
+
+#socialMediaAnchor {
+  transition-duration: 0.8s;
+}

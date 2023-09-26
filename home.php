@@ -28,12 +28,12 @@
       <div class="row">
 
         <div class="home-image-slider p-0">
-          <div class="position-absolute end-0 top-0 search-box c-pointer" style="z-index: 1;">
+          <!-- <div class="position-absolute end-0 top-0 search-box c-pointer" style="z-index: 8;">
             <input type="text" class="c-pointer d-none text-white" id="homeSearchField" value="Search here..." style="outline: none;" onfocus="setPlaceholder();" onfocusout="outFocusOut();">
             <div class="search-icon" onclick="openSearchBox();">
               <i class="bi bi-search"></i>
             </div>
-          </div>
+          </div> -->
           <div class="slides">
 
             <div class="slide active" id="slide1">
@@ -122,7 +122,7 @@
           </div>
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>1
               <span>Hiking</span>
             </div>
           </div>
