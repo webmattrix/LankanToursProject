@@ -18,26 +18,6 @@ function notificationSwitch() {
   }
 }
 
-function privacySwitch() {
-  var privacyThumb = document.getElementById("privacyThumb");
-
-  var privacySwitch = document.getElementById("privacySwitch");
-
-  if (privacySwitch.dataset.switch_status == "ON") {
-    privacyThumb.classList.remove("left");
-    privacyThumb.classList.add("right");
-    privacySwitch.dataset.switch_status = "OFF";
-    privacySwitch.style.backgroundColor = "#1D59B4";
-    privacyThumb.style.backgroundColor = "white";
-  } else if (privacySwitch.dataset.switch_status == "OFF") {
-    privacyThumb.classList.remove("right");
-    privacyThumb.classList.add("left");
-    privacySwitch.dataset.switch_status = "ON";
-    privacySwitch.style.backgroundColor = "white";
-    privacyThumb.style.backgroundColor = "#1D59B4";
-  }
-}
-
 function changeImageUploader() {
   var profileImage = document.getElementById("adminProfilePicture");
   alert(profileImage.files[0]);
@@ -62,7 +42,7 @@ document.getElementById("passwordEye").addEventListener("mousedown", () => {
 // settingIcon --> icon
 // socialIcon --> icon
 
-function adminProfileSlider(id) {
+function guideProfileSlider(id) {
   document.getElementById("profileSliderAnchor").style.marginLeft =
     id * -100 + "%";
 

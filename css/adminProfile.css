@@ -241,3 +241,7 @@
 #profileSliderAnchor {
   transition-duration: 1s;
 }
+
+#socialMediaAnchor {
+  transition-duration: 0.8s;
+}

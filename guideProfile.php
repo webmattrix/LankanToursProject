@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Profile</title>
+    <title>Guide Profile</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/adminTemplate.css">
     <link rel="stylesheet" href="../css/font.css">
@@ -18,12 +18,12 @@
 
             <div class="d-flex p-0">
                 <?php
-                include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
+                include "./components/guideSidebar.php"; // change if you using other component like "guideSidebar.php"
                 ?>
 
                 <div class="d-flex w-100 flex-column" style="max-height: 100vh; min-height: 100vh; overflow-y: auto;">
                     <?php
-                    include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
+                    include "./components/guideHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
@@ -46,13 +46,13 @@
 
                                 <div class="profile-panel mt-4 rounded">
                                     <div class="header">
-                                        <div class="active" id="slide1Icon" onclick="adminProfileSlider(0);">
+                                        <div class="active" id="slide1Icon" onclick="guideProfileSlider(0);">
                                             <iconify-icon icon="ph:note" class="text-white" id="detailIcon"></iconify-icon>
                                         </div>
-                                        <div class="" id="slide2Icon" onclick="adminProfileSlider(1);">
+                                        <div class="" id="slide2Icon" onclick="guideProfileSlider(1);">
                                             <iconify-icon icon="uil:setting" class="text-white" id="settingIcon"></iconify-icon>
                                         </div>
-                                        <div class="" id="slide3Icon" onclick="adminProfileSlider(2);">
+                                        <div class="" id="slide3Icon" onclick="guideProfileSlider(2);">
                                             <iconify-icon icon="mdi:internet" class="text-white" id="socialIcon"></iconify-icon>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                                         <!-- Detail Slide -->
                                         <div class="body p-2" style="min-width: 100%;" id="profileSliderAnchor">
                                             <div class="quicksand-SemiBold">
-                                                <h3 class="segoeui-bold">Owner</h3>
+                                                <h3 class="segoeui-bold">Tour Guide</h3>
                                                 <div class="d-flex">
                                                     <span>Name</span>
                                                     <span>: &nbsp; Vihanga Heshan</span>
@@ -90,6 +90,10 @@
                                                     <span>Registered Date</span>
                                                     <span>: &nbsp; 2023-06-06</span>
                                                 </div>
+                                                <div class="d-flex mt-2">
+                                                    <span>Gender</span>
+                                                    <span>: &nbsp; ...</span>
+                                                </div>
 
                                                 <hr class="w-75">
 
@@ -100,15 +104,6 @@
                                                     </div>
                                                 </div>
                                                 <span class="text-black-50" style="font-size: 12px;">Email notification and push notifications will be enabled/disabled</span>
-
-                                                <div class="d-flex mt-4">
-                                                    <span class="" style="width: 200px;">Privacy</span>
-                                                    <div class="switch-notification position-relative" id="privacySwitch" data-switch_status="ON" onclick="privacySwitch();">
-                                                        <div class="switch-thumb left" id="privacyThumb"></div>
-                                                    </div>
-                                                </div>
-                                                <span class="text-black-50" style="font-size: 12px;">Allow or deny users to view admins' information
-                                                    Such as Admin Name, Mobile number and profile picture.</span>
                                             </div>
                                         </div>
                                         <!-- Detail Slide -->
@@ -301,7 +296,7 @@
 
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
-    <script src="../js/adminProfile.js"></script>
+    <script src="../js/guideProfile.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
