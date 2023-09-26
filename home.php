@@ -215,7 +215,7 @@
                     <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
                     <div class="text-center quicksand-SemiBold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
                     <div class="w-100 d-flex justify-content-center">
-                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="itinerary">
+                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="home/itinerary">
                         <span>View Ininerary</span>
                         <iconify-icon icon="ph:map-pin-line"></iconify-icon>
                       </a>
