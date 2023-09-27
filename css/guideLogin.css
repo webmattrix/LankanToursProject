@@ -16,12 +16,18 @@
   height: 160px;
 }
 
-.guide_login-input {
-  opacity: 60%;
+.guide_login-input input {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.276);
 }
 
-.guide_login-input :hover {
-  opacity: 100%;
+.guide_login-input input::placeholder{
+  color: rgb(215, 215, 215);
+}
+
+.guide_login-input input:focus {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.276);
 }
 
 .guide_login-btn {
