@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("../assets/fonts/Quicksand-Medium.ttf");
+}
+@font-face {
+    font-family: "SegoeUI";
+    src: url("../assets/fonts/Segoe\ UI.ttf");
+}
+.ConatctCardImage{
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    margin: auto;
+   
+}
+
+.ContactGuidCard{
+    background-image: linear-gradient(1200deg,rgb(42, 80, 150),rgb(26, 156, 242));
+    margin-top: 3%;
+    color: #fff;
+    text-align: center;
+    padding: 20px 35px;
+    border: 3px solid rgba(255, 255, 255, 0.766);
+    border-radius: 10px;
+   transition: 0.5s;
+}
+.ContactGuidCard:hover{
+    box-shadow:5px 2px 30px rgba(46, 46, 46, 0.793);
+}
