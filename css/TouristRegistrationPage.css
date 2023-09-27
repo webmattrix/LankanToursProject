@@ -1,9 +1,16 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("../assets/fonts/Quicksand-Medium.ttf");
+}
 .registerBackground {
     background-image: url("../assets/img/Login&Registration_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg");
-   background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
+    background-attachment: fixed;
+    
+   
 }
 .Registercard2 {
 
@@ -13,7 +20,7 @@
     width: 250px;
     height: 120px;
     margin-top: -50px;
-    margin-left: -30px;
+    margin-left: -35px;
    
 }
 

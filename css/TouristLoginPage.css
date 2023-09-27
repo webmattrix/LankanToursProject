@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("../assets/fonts/Quicksand-Medium.ttf");
+}
 .LoginBackground {
     background-image: url("../assets/img/Login&Registration_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg");
    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     
 
