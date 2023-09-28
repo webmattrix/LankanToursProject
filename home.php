@@ -28,12 +28,12 @@
       <div class="row">
 
         <div class="home-image-slider p-0">
-          <div class="position-absolute end-0 top-0 search-box c-pointer" style="z-index: 1;">
+          <!-- <div class="position-absolute end-0 top-0 search-box c-pointer" style="z-index: 8;">
             <input type="text" class="c-pointer d-none text-white" id="homeSearchField" value="Search here..." style="outline: none;" onfocus="setPlaceholder();" onfocusout="outFocusOut();">
             <div class="search-icon" onclick="openSearchBox();">
               <i class="bi bi-search"></i>
             </div>
-          </div>
+          </div> -->
           <div class="slides">
 
             <div class="slide active" id="slide1">
@@ -122,7 +122,7 @@
           </div>
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>1
               <span>Hiking</span>
             </div>
           </div>
@@ -215,7 +215,7 @@
                     <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
                     <div class="text-center quicksand-SemiBold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
                     <div class="w-100 d-flex justify-content-center">
-                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="itinerary">
+                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="home/itinerary">
                         <span>View Ininerary</span>
                         <iconify-icon icon="ph:map-pin-line"></iconify-icon>
                       </a>

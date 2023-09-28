@@ -8,7 +8,7 @@
 
 <body>
 
-    <div class="d-flex justify-content-between align-items-center w-100 px-3 py-2 border-bottom" style="height: fit-content;">
+    <div class="d-flex justify-content-between align-items-center w-100 px-3 py-2 border-bottom bg-white" style="height: fit-content;">
 
         <div class="d-flex align-items-center gap-2" id="adminHomeBtn" style="cursor: pointer;">
             <iconify-icon icon="solar:home-bold" class="fs-5 page-icon"></iconify-icon>
