@@ -14,7 +14,7 @@
   border-radius: 4px;
 }
 
-.header-menu ul li span {
+.header-menu > ul > li > a span {
   color: white;
 }
 
@@ -28,19 +28,44 @@
   border-radius: 100vh;
 }
 
-.header-menu ul li:nth-child(6) span:hover {
+.header-menu > ul > li:nth-child(6) > span:hover {
   background-color: white;
   color: #082f94;
 }
 
-.header-menu ul li:nth-child(6) iconify-icon {
+.header-menu > ul > li:nth-child(6) > iconify-icon {
   border: 2px solid white;
   padding: 2px 10px;
   border-radius: 100vh;
   color: white;
 }
 
-.header-menu ul li:nth-child(6) iconify-icon:hover {
+.header-menu > ul > li:nth-child(6) > iconify-icon:hover {
   background-color: white;
   color: #082f94;
+}
+
+.mobile-account-icon {
+  color: white;
+}
+
+.scale-1_1:hover {
+  transform: scale(1.1);
+}
+
+.header-more-panel iconify-icon {
+  color: #b3b3b3;
+}
+
+.header-more-panel:hover {
+  cursor: pointer;
+}
+
+.header-more-panel span {
+  color: #b3b3b3;
+}
+
+.header-more-panel:hover iconify-icon,
+.header-more-panel:hover span {
+  color: white;
 }

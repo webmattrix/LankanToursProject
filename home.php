@@ -70,9 +70,10 @@
     <!-- Image Slider Content -->
 
     <div class="col-12 mt-3">
-      <div class="px-2 d-flex justify-content-end">
-        <div class="">
-          <input type="text" placeholder="Search here..." />
+      <div class="px-2 d-flex justify-content-center justify-content-md-end">
+        <div class="search-box quicksand-SemiBold" id="searchBox">
+          <input type="text" placeholder="Search here..." id="homeSearchField"/>
+          <iconify-icon icon="ic:round-search"></iconify-icon>
         </div>
       </div>
     </div>

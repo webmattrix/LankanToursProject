@@ -18,3 +18,11 @@ document
       document.getElementById("headerContainer").style.opacity = 0.8;
     }
   });
+
+document
+  .getElementById("headerMorePanel")
+  .addEventListener("mouseout", () => {});
+
+document.getElementById("headerMoreIcon").addEventListener("click", () => {
+  document.getElementById("headerMorePanel").classList.toggle("d-none");
+});

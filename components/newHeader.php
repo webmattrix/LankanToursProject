@@ -13,7 +13,7 @@
 
     <div class="w-100 position-sticky top-0 start-0 d-flex justify-content-between p-3 header-container align-items-center flex-row-reverse flex-md-row" style="z-index: 9;" id="headerContainer">
         <div class="d-flex align-items-center d-md-none">
-            <iconify-icon icon="ic:round-search" class="text-white fs-3" style="cursor: pointer;"></iconify-icon>
+            <iconify-icon icon="codicon:account" class="fs-3 mobile-account-icon scale-1_1" style="cursor: pointer;"></iconify-icon>
         </div>
         <div class="site-name">
             <span class="text-white segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px;">Lankan Tours</span>
@@ -55,16 +55,33 @@
                         <iconify-icon icon="solar:login-outline" class="d-block fs-4 d-lg-none" title="Log In"></iconify-icon>
                     </a>
                 </li>
-                <li>
-                    <a hre="#" class="text-white text-decoration-none c-pointer">
-                        <iconify-icon icon="mingcute:more-2-fill" class="text-white pt-2" title=""></iconify-icon>
+                <li class="position-relative">
+                    <a hre="#" class="text-white text-decoration-none c-pointer" id="headerMoreIcon">
+                        <iconify-icon icon="mingcute:more-2-fill" class="text-white pt-2"></iconify-icon>
                     </a>
+                    <div class="position-absolute opacity-100 top-100 end-100 px-3 p-2 rounded fs-6 quicksand-Medium d-none" style="background-color: #343434; border: 1px solid #767676; width: 250px;" id="headerMorePanel">
+                        <div class="d-flex justify-content-center">
+                            <img src="./assets/img/flag.svg" alt="Helolo" style="width: 50px; clip-path: circle();">
+                        </div>
+                        <div class="mt-3 d-flex align-items-center gap-2 header-more-panel">
+                            <iconify-icon icon="iconamoon:profile-circle-fill"></iconify-icon>
+                            <span class="x">Profile</span>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-2 header-more-panel">
+                            <iconify-icon icon="mdi:heart"></iconify-icon>
+                            <span class="x">Watchlist</span>
+                        </div>
+                        <div class="mt-1 d-flex align-items-center gap-2 header-more-panel">
+                            <iconify-icon icon="mdi:flight"></iconify-icon>
+                            <span class="x">My Tours</span>
+                        </div>
+                    </div>
                 </li>
             </ul>
 
         </div>
         <div class="d-flex align-items-center d-md-none">
-            <iconify-icon icon="mingcute:menu-fill" class="text-white fs-3" style="cursor: pointer;"></iconify-icon>
+            <iconify-icon icon="mingcute:menu-fill" class="text-white fs-3 scale-1_1" style="cursor: pointer;"></iconify-icon>
         </div>
     </div>
 
