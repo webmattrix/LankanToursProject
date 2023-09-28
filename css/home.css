@@ -102,27 +102,6 @@ img {
   cursor: default;
 }
 
-.curve-line {
-  position: absolute;
-  margin-top: -100px;
-  z-index: -1;
-  background-color: transparent;
-}
-
-/* .curve-line .path {
-} */
-
-@media (max-width: 1700px) {
-  .curve-line {
-    margin-top: -50px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .curve-line {
-    margin-top: 0px;
-  }
-}
 /* 
 .curve-line .path {
 } */
@@ -418,7 +397,6 @@ img {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
-  width: fit-content;
   margin: 0 auto;
 }
 

@@ -16,11 +16,12 @@
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
-  <div class="container-fluid">
 
-    <?php
-    include "./components/header.php";
-    ?>
+  <?php
+  include "./components/newHeader.php";
+  ?>
+
+  <div class="container-fluid">
 
 
     <!-- Image Slider Content -->
@@ -43,7 +44,9 @@
                 <div class="">
                   <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
                 </div>
-                <button class="get-start-btn">Get Start</button>
+                <a href="#home_tour_plans">
+                  <button class="get-start-btn">Get Start</button>
+                </a>
               </div>
             </div>
             <div class="slide" id="slide2">
@@ -66,6 +69,13 @@
     </div>
     <!-- Image Slider Content -->
 
+    <div class="col-12 mt-3">
+      <div class="px-2 d-flex justify-content-end">
+        <div class="">
+          <input type="text" placeholder="Search here..." />
+        </div>
+      </div>
+    </div>
 
     <div class="col-12 mt-3">
       <div class="row p-4">
@@ -106,7 +116,7 @@
           <span class="segoeui-bold home_subtitle">Activities</span>
         </div>
 
-        <div class="activies-panel">
+        <div class="activies-panel" style="width: fit-content;">
 
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
@@ -122,7 +132,7 @@
           </div>
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>1
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
               <span>Hiking</span>
             </div>
           </div>
@@ -172,7 +182,7 @@
         </div>
         <!-- Beautiful places -->
 
-        <div class="home_load-more-btn">
+        <div class="home_load-more-btn" id="home_tour_plans">
           <span class="bg-white px-3 py-2">Load more...</span>
         </div>
 
@@ -236,13 +246,14 @@
     <!-- Most beautiful places & top tour plans -->
 
     <?php include "./components/footer.php"; ?>
-    
+
   </div>
-  
+
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="./js/footer.js"></script>
+  <script src="./js/newHeader.js"></script>
 </body>
 
 </html>

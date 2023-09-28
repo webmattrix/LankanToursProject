@@ -25,6 +25,28 @@
   opacity: 0;
 }
 
+.curve-line {
+  position: absolute;
+  margin-top: -100px;
+  z-index: -1;
+  background-color: transparent;
+}
+
+/* .curve-line .path {
+} */
+
+@media (max-width: 1700px) {
+  .curve-line {
+    margin-top: -50px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .curve-line {
+    margin-top: 0px;
+  }
+}
+
 @media (max-width: 1400px) {
   .header-menu .site-name {
     font-size: 30px;
