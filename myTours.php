@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lankan Tours</title>
+    <title>myTours.php</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -16,18 +16,17 @@
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
+    <?php
+    include "./components/newHeader.php";
+    ?>
     <div class="container-fluid">
-
-        <?php
-        include "./components/header.php";
-        ?>
 
         <div class="col-12">
             <div class="row">
 
-               <!-- Code here... -->
-               <!-- Code here... -->
-                
+                <!-- Code here... -->
+                <!-- Code here... -->
+
             </div>
         </div>
 
