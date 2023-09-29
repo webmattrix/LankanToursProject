@@ -25,13 +25,8 @@
         <div class="col-12">
             <div class="row">
 
-                <div class="">
-
-                    <div class="w-100">
-                        <span>Active Tours</span>
-                    </div>
-                
-                </div>
+               <!-- Code here... -->
+               <!-- Code here... -->
                 
             </div>
         </div>
