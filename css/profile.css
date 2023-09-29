@@ -1,11 +1,10 @@
-.profile_header-container {
-}
+/* .profile_header-container {
+} */
 
 .profile_header-container .profile-background {
   background-size: cover;
   width: 100%;
   height: 400px;
-  /* background-color: red; */
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -59,7 +58,6 @@
 .profile_header_icon_container span,
 .profile_header_icon_container label,
 .profile_header-container .profile-image label {
-  /* background-color: white; */
   width: 40px;
   height: 40px;
   font-size: 24px;
