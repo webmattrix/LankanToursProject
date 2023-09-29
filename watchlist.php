@@ -6,8 +6,11 @@
     <title>Watchlist</title>
     <link rel="stylesheet" href="./css/bootstrap.css"/>
     <link rel="stylesheet" href="./css/watchlist.css"/>
+    <link rel="stylesheet" href="./css/header.css"/>
 </head>
 <body>
+
+<?php include "./components/header.php";?>
 
  <div class="container-fluid">
     <div class="row">
