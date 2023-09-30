@@ -85,7 +85,7 @@
                                         <p>Upload Main Image</p>
                                         <div class="custom__image-container">
                                             <label id="add-img-label" for="add-single-img">
-                                                <img src="./Photo Gallery.png" alt="">
+                                                <img src="./assets/img/newTourPlan/Photo Gallery.png" alt="">
                                                 <a class="btn btn-sm">Browse Image</a>
                                             </label>
                                             <input type="file" id="add-single-img" accept="image/jpeg" />
