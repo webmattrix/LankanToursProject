@@ -16,11 +16,12 @@
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
-  <div class="container-fluid">
 
-    <?php
-    include "./components/header.php";
-    ?>
+  <?php
+  include "./components/newHeader.php";
+  ?>
+
+  <div class="container-fluid">
 
 
     <!-- Image Slider Content -->
@@ -43,7 +44,9 @@
                 <div class="">
                   <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
                 </div>
-                <button class="get-start-btn">Get Start</button>
+                <a href="#home_tour_plans">
+                  <button class="get-start-btn">Get Start</button>
+                </a>
               </div>
             </div>
             <div class="slide" id="slide2">
@@ -66,6 +69,14 @@
     </div>
     <!-- Image Slider Content -->
 
+    <div class="col-12 mt-3">
+      <div class="px-2 d-flex justify-content-center justify-content-md-end">
+        <div class="search-box quicksand-SemiBold" id="searchBox">
+          <input type="text" placeholder="Search here..." id="homeSearchField" />
+          <iconify-icon icon="ic:round-search"></iconify-icon>
+        </div>
+      </div>
+    </div>
 
     <div class="col-12 mt-3">
       <div class="row p-4">
@@ -106,7 +117,7 @@
           <span class="segoeui-bold home_subtitle">Activities</span>
         </div>
 
-        <div class="activies-panel">
+        <div class="activies-panel" style="width: fit-content;">
 
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
@@ -122,7 +133,7 @@
           </div>
           <div class="">
             <div class="rounded p-2 d-flex flex-column align-items-center">
-              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>1
+              <iconify-icon style="font-size: 40px;" icon="game-icons:hiking"></iconify-icon>
               <span>Hiking</span>
             </div>
           </div>
@@ -172,7 +183,7 @@
         </div>
         <!-- Beautiful places -->
 
-        <div class="home_load-more-btn">
+        <div class="home_load-more-btn" id="home_tour_plans">
           <span class="bg-white px-3 py-2">Load more...</span>
         </div>
 
@@ -182,7 +193,7 @@
         <div class="col-12">
           <div class="row">
 
-            <div class="segoeui-bold home_subtitle">Feel the SRI LANKA with our top tour plan</div>
+            <div class="segoeui-bold home_subtitle pb-2">Feel the SRI LANKA with our top tour plan</div>
 
             <div class="home_tour-plan">
               <?php
@@ -196,18 +207,20 @@
                     </div>
                     <div class="tour-plan-slider position-relative">
                       <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                        <iconify-icon icon="mingcute:left-line" class="text-white"></iconify-icon>
-                        <iconify-icon icon="mingcute:right-line" class="text-white"></iconify-icon>
+                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');"></iconify-icon>
+                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');"></iconify-icon>
                       </div>
-                      <div class="slides" style="width: 300%;">
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
+                      <div class="slides" style="width: 300%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="300" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
+                        <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
                         </div>
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
-
+                        <div class="slide" id="sliderSlide2" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
                         </div>
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
-
+                        <div class="slide" id="sliderSlide3" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
                         </div>
+                      </div>
+                      <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
+                        <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
+                        <span class="text-white"> / 3</span>
                       </div>
                     </div>
                   </div>
@@ -215,7 +228,7 @@
                     <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
                     <div class="text-center quicksand-SemiBold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
                     <div class="w-100 d-flex justify-content-center">
-                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="home/itinerary">
+                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="itinerary">
                         <span>View Ininerary</span>
                         <iconify-icon icon="ph:map-pin-line"></iconify-icon>
                       </a>
@@ -236,13 +249,14 @@
     <!-- Most beautiful places & top tour plans -->
 
     <?php include "./components/footer.php"; ?>
-    
+
   </div>
-  
+
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="./js/footer.js"></script>
+  <script src="./js/newHeader.js"></script>
 </body>
 
 </html>
