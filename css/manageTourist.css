@@ -1,0 +1,12 @@
+.admin_card {
+  background-color: #1655ce;
+  background-image: url("../assets/img/manageTourist/people.png");
+  background-position: center;
+  background-size: 300px 150px;
+  background-repeat: no-repeat;
+  height: 190px;
+}
+
+.admin_card div {
+  align-items: end;
+}

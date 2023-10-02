@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./css/footer.css">
 </head>
 
-<body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
+<body onload="homeOnloadFunction();" class="c-default" style="background-color: #DCDCDC;">
 
   <?php
   include "./components/newHeader.php";
@@ -72,7 +72,7 @@
     <div class="col-12 mt-3">
       <div class="px-2 d-flex justify-content-center justify-content-md-end">
         <div class="search-box quicksand-SemiBold" id="searchBox">
-          <input type="text" placeholder="Search here..." id="homeSearchField"/>
+          <input type="text" placeholder="Search here..." id="homeSearchField" />
           <iconify-icon icon="ic:round-search"></iconify-icon>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="col-12">
           <div class="row">
 
-            <div class="segoeui-bold home_subtitle">Feel the SRI LANKA with our top tour plan</div>
+            <div class="segoeui-bold home_subtitle pb-2">Feel the SRI LANKA with our top tour plan</div>
 
             <div class="home_tour-plan">
               <?php
@@ -207,18 +207,20 @@
                     </div>
                     <div class="tour-plan-slider position-relative">
                       <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                        <iconify-icon icon="mingcute:left-line" class="text-white"></iconify-icon>
-                        <iconify-icon icon="mingcute:right-line" class="text-white"></iconify-icon>
+                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');"></iconify-icon>
+                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');"></iconify-icon>
                       </div>
-                      <div class="slides" style="width: 300%;">
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
+                      <div class="slides" style="width: 300%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="300" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
+                        <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
                         </div>
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
-
+                        <div class="slide" id="sliderSlide2" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
                         </div>
-                        <div class="slide" id="slider<?php echo ($x); ?>slide1" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
-
+                        <div class="slide" id="sliderSlide3" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
                         </div>
+                      </div>
+                      <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
+                        <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
+                        <span class="text-white"> / 3</span>
                       </div>
                     </div>
                   </div>

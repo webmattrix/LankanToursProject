@@ -1,5 +1,4 @@
 window.onscroll = () => {
-  console.log(scrollY);
   if (scrollY > 100) {
     document.getElementById("headerContainer").style.opacity = 0.8;
   } else {
@@ -25,4 +24,8 @@ document
 
 document.getElementById("headerMoreIcon").addEventListener("click", () => {
   document.getElementById("headerMorePanel").classList.toggle("d-none");
+});
+
+document.getElementById("goToProfile").addEventListener("mousedown", () => {
+  window.location = "profile";
 });
