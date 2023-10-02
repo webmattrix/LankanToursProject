@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./css/footer.css">
 </head>
 
-<body onload="homeOnloadFunction();" class="c-default" style="background-color: #E7E7E7;">
+<body onload="homeOnloadFunction();" class="c-default" style="background-color: #DCDCDC;">
 
   <?php
   include "./components/newHeader.php";
