@@ -32,3 +32,40 @@ for(item of listItems){
       }
    };
 }
+
+// Slider js
+
+function sliderMover(direction) {
+    var slider = document.getElementById("slider");
+    slider.style.transitionDuration = 1 + "s";
+    var sliderMargin = parseFloat(slider.getAttribute("data-currentMargin"));
+  
+    var slideNumber = parseInt(slider.getAttribute("data-imageNumber"));
+  
+    if (direction == "left") {
+      if (slideNumber > 1) {
+        slider.style.marginLeft = sliderMargin + 75 + "%";
+        slider.setAttribute("data-currentMargin", sliderMargin + 75);
+        slider.setAttribute("data-imageNumber", slideNumber - 1);
+  
+        document.getElementById("slide" + slideNumber).classList.remove("active");
+        document
+          .getElementById("slide" + (slideNumber - 1))
+          .classList.add("active");
+      }
+    } else if (direction == "right") {
+      if (slideNumber < 5) {
+        slider.style.marginLeft = sliderMargin - 75 + "%";
+        slider.setAttribute("data-currentMargin", sliderMargin - 75);
+        slider.setAttribute("data-imageNumber", slideNumber + 1);
+  
+        document.getElementById("slide" + slideNumber).classList.remove("active");
+        document
+          .getElementById("slide" + (slideNumber + 1))
+          .classList.add("active");
+      }
+    }
+  }
+  
+
+// Slider js

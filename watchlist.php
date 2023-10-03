@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/watchlist.css" />
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/scrolbar.css"/>
+    <link rel="stylesheet" href="./css/scrolbar.css" />
 </head>
 
 <body style="background-color: #E2E2E2;">
@@ -65,7 +65,32 @@
                                             <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
                                                 <div class="row">
                                                     <div class="col-5">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-11">
+                                                                <div class="slider-container">
+                                                                    <span class="arrows left" onclick="sliderMover('left');">&lt;</span>
+                                                                    <span class="arrows right" onclick="sliderMover('right');">&gt;</span>
 
+                                                                    <div class="slides" data-currentMargin="12.5" id="slider" data-imageNumber="1">
+                                                                        <div class="slide active" id="slide1">
+                                                                            <img src="./assets/img/itinerary_IMG/seegiriya.png" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide2">
+                                                                            <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide3">
+                                                                            <img src="./assets/img/itinerary_IMG/colombo.png" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide4">
+                                                                            <img src="./assets/img/itinerary_IMG/matara.jpg" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide5">
+                                                                            <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-7 my-2" style="border-left: 2px solid #cecece;">
                                                         <div class="row">
@@ -158,7 +183,32 @@
                                             <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
                                                 <div class="row">
                                                     <div class="col-5">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-11">
+                                                                <div class="slider-container">
+                                                                    <span class="arrows left" onclick="sliderMover('left');">&lt;</span>
+                                                                    <span class="arrows right" onclick="sliderMover('right');">&gt;</span>
 
+                                                                    <div class="slides" data-currentMargin="12.5" id="slider" data-imageNumber="1">
+                                                                        <div class="slide active" id="slide1">
+                                                                            <img src="./assets/img/itinerary_IMG/seegiriya.png" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide2">
+                                                                            <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide3">
+                                                                            <img src="./assets/img/itinerary_IMG/colombo.png" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide4">
+                                                                            <img src="./assets/img/itinerary_IMG/matara.jpg" />
+                                                                        </div>
+                                                                        <div class="slide" id="slide5">
+                                                                            <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-7 my-2" style="border-left: 2px solid #cecece;">
                                                         <div class="row">
