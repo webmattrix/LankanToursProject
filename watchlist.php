@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/watchlist.css" />
     <link rel="stylesheet" href="./css/newHeader.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/scrolbar.css"/>
 </head>
 
 <body style="background-color: #E2E2E2;">
@@ -56,11 +58,11 @@
                     </div>
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="col-12" style="background-color: #fff; border-radius: 5px;">
+                            <div class="col-12 mt-3 mb-lg-4">
+                                <div class="col-12" style="background-color: #fff; border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <div class="col-12">
-                                            <div class="col-12" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
+                                            <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
                                                 <div class="row">
                                                     <div class="col-5">
 
@@ -153,7 +155,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="col-12" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
+                                            <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
                                                 <div class="row">
                                                     <div class="col-5">
 
@@ -253,15 +255,16 @@
                 </div>
             </div>
 
+            <?php include "./components/footer.php"; ?>
+
         </div>
     </div>
 
-    <!-- footer -->
 
     <script src="./js/newHeader.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="./js/watchlist.js"></script>
+    <script src="./js/footer.js"></script>
 </body>
 
 </html>
-
