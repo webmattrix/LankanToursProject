@@ -78,6 +78,12 @@
   font-family: var(--segoeUi-bold-italic);
 }
 
+.x {
+  font-size: calc(0.82rem + 0.82vh);
+  font-size: calc(0.62rem + 0.62vh);
+  font-size: calc(0.56rem + 0.56vh);
+}
+
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
@@ -88,6 +94,10 @@
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+
+#body {
+  background-color: #dcdcdc;
 }
 
 img {

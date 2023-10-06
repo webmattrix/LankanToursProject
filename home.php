@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./css/footer.css">
 </head>
 
-<body onload="homeOnloadFunction();" class="c-default" style="background-color: #DCDCDC;">
+<body onload="homeOnloadFunction();" class="c-default" id="body">
 
   <?php
   include "./components/newHeader.php";
@@ -86,7 +86,7 @@
           <div class="content">
             <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
             <div class="right-side">
-              <div class="text-center text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
+              <div class="text-center quicksand-Medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
               <div class="list ps-5 mt-2">
                 <div class="d-flex gap-2">
                   <div class="d-flex justify-content-center align-items-center">

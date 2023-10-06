@@ -111,11 +111,111 @@
 }
 
 .tour-plan-grid > div:nth-child(5) {
-  grid-column: span 2/2;
+  /* grid-column: span 2/2; */
 }
 
 @media (max-width: 1400px) {
   .tour-plan-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+@media (max-width: 1200px) {
+  .tour-plan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-plan-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.tour-bottom-section {
+  display: flex;
+  background-color: white;
+  padding-top: 10px;
+  gap: 5px;
+}
+
+.tour-bottom-section > div {
+  background-color: white;
+  /* padding: 10px; */
+}
+
+.tour-bottom-section > div:nth-child(1) {
+  border-radius: 0 100vh 100vh 0;
+  display: flex;
+  justify-content: end;
+}
+.tour-bottom-section > div:nth-child(2) {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tour-bottom-section > div:nth-child(3) {
+  border-radius: 100vh 0 0 100vh;
+}
+
+.tour-bottom-section > div:nth-child(3),
+.tour-bottom-section > div:nth-child(1) {
+  flex-grow: 2;
+  background-color: #214ce2;
+}
+
+/* Location Icon */
+.tour-bottom-section > div:nth-child(2) > span {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+.tour-bottom-section > div:nth-child(2) > span > span {
+  width: 70%;
+  height: 70%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.25);
+  color: #2452f2;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: white;
+}
+
+/* Left and Right Icons */
+.tour-bottom-section > div:nth-child(3) > span,
+.tour-bottom-section > div:nth-child(1) > span {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tour-bottom-section > div:nth-child(3) > span > span,
+.tour-bottom-section > div:nth-child(1) > span > span {
+  width: 70%;
+  height: 70%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.25);
+  color: #2452f2;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: white;
 }

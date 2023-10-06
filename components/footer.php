@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="col-12 position-sticky top-100">
+    <div class="col-12 position-sticky top-100 pt-3">
         <div class="row">
 
             <footer class="footer p-2">

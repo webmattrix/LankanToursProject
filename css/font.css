@@ -1,79 +1,95 @@
 @font-face {
-    font-family: "Quicksand-Light";
-    src: url("../assets/fonts/Quicksand-Light.ttf");
-  }
-  @font-face {
-    font-family: "Quicksand-Medium";
-    src: url("../assets/fonts/Quicksand-Medium.ttf");
-  }
-  @font-face {
-    font-family: "Quicksand-Regular";
-    src: url("../assets/fonts/Quicksand-Regular.ttf");
-  }
-  @font-face {
-    font-family: "Quicksand-SemiBold";
-    src: url("../assets/fonts/Quicksand-SemiBold.ttf");
-  }
-  @font-face {
-    font-family: "Quicksand-Bold";
-    src: url("../assets/fonts/Quicksand-Bold.ttf");
-  }
-  
-  @font-face {
-    font-family: "Segoe UI";
-    src: url("../assets/fonts/UI.ttf");
-  }
-  @font-face {
-    font-family: "Segoe UI Italic";
-    src: url("../assets/fonts/UI Italic.ttf");
-  }
-  @font-face {
-    font-family: "Segoe UI Bold";
-    src: url("../assets/fonts/Segoe UI Bold.ttf");
-  }
-  @font-face {
-    font-family: "Segoe UI Bold Italic";
-    src: url("../assets/fonts/ UI Bold Italic.ttf");
-  }
-  
-  :root {
-    --quick-Light: "Quicksand-Light";
-    --quick-medium: "Quicksand-Medium";
-    --quick-Regular: "Quicksand-Regular";
-    --quick-SemiBold: "Quicksand-SemiBold";
-    --quick-Bold: "Quicksand-Bold";
-  
-    --segoeUi: "Segoe UI";
-    --segoeUi-italic: "Segoe UI Italic";
-    --segoeUi-bold: "Segoe UI Bold";
-    --segoeUi-bold-italic: "Segoe UI Bold Italic";
-  }
-  
-  .quicksand-light {
-    font-family: "Quicksand-Light";
-  }
-  .quicksand-Medium {
-    font-family: "Quicksand-Medium";
-  }
-  .quicksand-Regular {
-    font-family: "Quicksand-Regular";
-  }
-  .quicksand-SemiBold {
-    font-family: "Quicksand-SemiBold";
-  }
-  .quicksand-Bold {
-    font-family: "Quicksand-Bold";
-  }
-  
-  .segoeui {
-    font-family: var(--segoeUi);
-  }
-  .segoeui-italic {
-    font-family: var(--segoeUi-italic);
-  }
-  .segoeui-bold {
-    font-family: var(--segoeUi-bold);
-  }
-  .segoeui-bold-italic {
-    font-family: var(--segoeUi-bold-italic);
-  }
+  font-family: "Quicksand-Light";
+  src: url("../assets/fonts/Quicksand-Light.ttf");
+}
+@font-face {
+  font-family: "Quicksand-Medium";
+  src: url("../assets/fonts/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: "Quicksand-Regular";
+  src: url("../assets/fonts/Quicksand-Regular.ttf");
+}
+@font-face {
+  font-family: "Quicksand-SemiBold";
+  src: url("../assets/fonts/Quicksand-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Quicksand-Bold";
+  src: url("../assets/fonts/Quicksand-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("../assets/fonts/UI.ttf");
+}
+@font-face {
+  font-family: "Segoe UI Italic";
+  src: url("../assets/fonts/UI Italic.ttf");
+}
+@font-face {
+  font-family: "Segoe UI Bold";
+  src: url("../assets/fonts/Segoe UI Bold.ttf");
+}
+@font-face {
+  font-family: "Segoe UI Bold Italic";
+  src: url("../assets/fonts/ UI Bold Italic.ttf");
+}
+
+:root {
+  --quick-Light: "Quicksand-Light";
+  --quick-medium: "Quicksand-Medium";
+  --quick-Regular: "Quicksand-Regular";
+  --quick-SemiBold: "Quicksand-SemiBold";
+  --quick-Bold: "Quicksand-Bold";
+
+  --segoeUi: "Segoe UI";
+  --segoeUi-italic: "Segoe UI Italic";
+  --segoeUi-bold: "Segoe UI Bold";
+  --segoeUi-bold-italic: "Segoe UI Bold Italic";
+
+  --main-heading: calc(0.82rem + 0.82vh);
+  --sub-heading: calc(0.62rem + 0.62vh);
+  --content-heading: calc(0.56rem + 0.56vh);
+}
+
+.quicksand-light {
+  font-family: "Quicksand-Light";
+}
+.quicksand-Medium {
+  font-family: "Quicksand-Medium";
+}
+.quicksand-Regular {
+  font-family: "Quicksand-Regular";
+}
+.quicksand-SemiBold {
+  font-family: "Quicksand-SemiBold";
+}
+.quicksand-Bold {
+  font-family: "Quicksand-Bold";
+}
+
+.segoeui {
+  font-family: var(--segoeUi);
+}
+.segoeui-italic {
+  font-family: var(--segoeUi-italic);
+}
+.segoeui-bold {
+  font-family: var(--segoeUi-bold);
+}
+.segoeui-bold-italic {
+  font-family: var(--segoeUi-bold-italic);
+}
+
+/* ################## Font Size ################## */
+
+.main-heading {
+  font-size: var(--main-heading);
+}
+.sub-heading {
+  font-size: var(--sub-heading);
+}
+.content-heading {
+  font-size: var(--content-heading);
+}
