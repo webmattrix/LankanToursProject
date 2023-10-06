@@ -81,7 +81,7 @@
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
-  color: #333333;
+  color: #ffffff;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -91,7 +91,7 @@
 }
 
 #body {
-  background-color: #dcdcdc;
+  background-color: #242424;
 }
 
 img {
@@ -275,7 +275,7 @@ img {
 }
 
 .why-choosing-us {
-  background-color: white;
+  background-color: #3e3e3e;
   border-radius: 6px;
   padding: 10px;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);
@@ -346,12 +346,16 @@ img {
   margin: 0 auto;
 }
 
+.activies-panel > * {
+  /* color: #333333; */
+}
+
 .activies-panel > div div {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #3e3e3e;
   width: 200px;
   height: 120px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
@@ -417,7 +421,7 @@ img {
 /* Home famouse Tour places */
 
 .places-container {
-  background-color: white;
+  background-color: #3e3e3e;
 }
 
 .home_places-grid {
@@ -541,6 +545,7 @@ img {
   font-family: var(--quick-Bold);
   cursor: pointer;
   background-color: white;
+  color: #333333;
 }
 
 .home_subtitle {

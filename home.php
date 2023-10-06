@@ -9,10 +9,12 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./css/home.css">
+  <!-- <link rel="stylesheet" href="./css/home.css"> -->
+  <link rel="stylesheet" href="./css/homeDark.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/scrolbar.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/font.css">
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" id="body">
@@ -82,23 +84,23 @@
       <div class="row p-4">
 
         <div class="why-choosing-us">
-          <div class="title segoeui-bold">Why Choosing Us</div>
+          <div class="title segoeui-bold main-heading">Why Choosing Us</div>
           <div class="content">
             <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
             <div class="right-side">
-              <div class="text-center quicksand-Medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
+              <div class="text-center quicksand-Medium sub-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
               <div class="list ps-5 mt-2">
                 <div class="d-flex gap-2">
                   <div class="d-flex justify-content-center align-items-center">
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
-                  <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
+                  <span class="quicksand-SemiBold content-heading">Lorem, ipsum dolor.</span>
                 </div>
                 <div class="d-flex gap-2">
                   <div class="d-flex justify-content-center align-items-center" sty>
                     <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                   </div>
-                  <span class="quicksand-SemiBold">Lorem, ipsum dolor.</span>
+                  <span class="quicksand-SemiBold content-heading">Lorem, ipsum dolor.</span>
                 </div>
               </div>
             </div>
@@ -159,7 +161,7 @@
 
     <!-- Most beautiful places & top tour plans -->
     <div class="col-12 p-4">
-      <div class="row bg-white rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
+      <div class="row places-container rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
 
         <!-- Beautiful places -->
         <div class="col-12">
@@ -184,7 +186,7 @@
         <!-- Beautiful places -->
 
         <div class="home_load-more-btn" id="home_tour_plans">
-          <span class="bg-white px-3 py-2">Load more...</span>
+          <span class="px-3 py-2">Load more...</span>
         </div>
 
         <hr>
