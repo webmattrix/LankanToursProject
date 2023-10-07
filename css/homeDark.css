@@ -346,10 +346,6 @@ img {
   margin: 0 auto;
 }
 
-.activies-panel > * {
-  /* color: #333333; */
-}
-
 .activies-panel > div div {
   cursor: pointer;
   display: flex;
@@ -365,9 +361,6 @@ img {
 .activies-panel > div div:hover {
   transform: scale(1.1);
   transition-duration: 0.2s;
-}
-
-.activies-panel .iconify-icon {
 }
 
 @media (max-width: 1200px) {
@@ -672,14 +665,15 @@ img {
 .search-box {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px 5px 5px 10px;
   border-radius: 100vh;
   overflow: hidden;
-  border: 2px solid transparent;
+  border: 2px solid rgb(255, 255, 255);
   outline: 4px solid transparent;
-  box-shadow: 1px 2px 4px 0px rgba(30, 30, 30, 0.5) inset,
-    1px 2px 4px 0px rgba(30, 30, 30, 0.5);
+  box-shadow: 1px 2px 4px 0px rgba(86, 86, 86, 0.5) inset,
+    1px 2px 4px 0px rgba(86, 86, 86, 0.5);
   max-width: 90%;
+  gap: 10px;
 }
 
 .search-box input {
@@ -693,11 +687,19 @@ img {
 .search-box iconify-icon {
   font-size: 22px;
   cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 60px;
+  border-radius: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
 }
 
 .search-box:hover {
   box-shadow: 1px 2px 4px 0px rgba(30, 30, 30, 0.5) inset,
     1px 2px 4px 0px rgba(30, 30, 30, 0.5);
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   outline: 4px solid transparent;
 }

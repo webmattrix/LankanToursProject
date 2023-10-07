@@ -165,7 +165,7 @@
 
         <!-- Beautiful places -->
         <div class="col-12">
-          <div class="segoeui-bold home_subtitle pb-3">Most Beautiful Places of SRI LANKA</div>
+          <div class="segoeui-bold home_subtitle pb-3 main-content">Most Beautiful Places of SRI LANKA</div>
           <div class="home_places-grid">
 
             <?php
@@ -195,7 +195,7 @@
         <div class="col-12">
           <div class="row">
 
-            <div class="segoeui-bold home_subtitle pb-2">Feel the SRI LANKA with our top tour plan</div>
+            <div class="segoeui-bold home_subtitle pb-2 main-content">Feel the SRI LANKA with our top tour plan</div>
 
             <div class="home_tour-plan">
               <?php
@@ -228,9 +228,9 @@
                   </div>
                   <div class="col-12">
                     <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
-                    <div class="text-center quicksand-SemiBold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
+                    <div class="quicksand-SemiBold sub-heading py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
                     <div class="w-100 d-flex justify-content-center">
-                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular px-3 py-1 text-decoration-none c-pointer" href="itinerary">
+                      <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary">
                         <span>View Ininerary</span>
                         <iconify-icon icon="ph:map-pin-line"></iconify-icon>
                       </a>

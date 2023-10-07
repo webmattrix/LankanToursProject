@@ -1,5 +1,6 @@
-/* .profile_header-container {
-} */
+#body {
+  background-color: #dcdcdc;
+}
 
 .profile_header-container .profile-background {
   background-size: cover;
@@ -102,10 +103,6 @@
   overflow: hidden;
 }
 
-/* .profile-change-container .body {
-  height: auto;
-} */
-
 .profile-setting-container .body > ul > li:hover *:not(ul > li > ul > li *) {
   color: #2452f2;
 }
@@ -124,7 +121,6 @@
 }
 
 .profile-change-container .body > div {
-  /* background-color: red; */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;

@@ -363,8 +363,8 @@ img {
   transition-duration: 0.2s;
 }
 
-.activies-panel .iconify-icon {
-}
+/* .activies-panel .iconify-icon {
+} */
 
 @media (max-width: 1200px) {
   .activies-panel {

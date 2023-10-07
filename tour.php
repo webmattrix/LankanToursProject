@@ -8,23 +8,24 @@
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
-    <link rel="stylesheet" href="./css/tour.css">
+    <!-- <link rel="stylesheet" href="./css/tour.css"> -->
+    <link rel="stylesheet" href="./css/tourDark.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
 </head>
 
-<body class=" c-default" style="background-color: #DCDCDC;">
+<body class=" c-default" id="body">
     <?php
     include "./components/newHeader.php";
     ?>
 
     <div class="container-fluid pt-3">
-        <div class="px-4 rounded py-2 mt-1" style="background-color: #FFFFFF;">
+        <div class="px-4 rounded py-2 mt-1 main-content">
 
             <!-- Popular Tour Contene -->
-            <div class="px-2 py-2 col-12 mt-3 tour_popular-tours" style="background-color: #EBEBEB;">
+            <div class="px-2 py-2 col-12 mt-3 tour_popular-tours">
                 <div class="d-flex gap-2 align-items-center">
-                    <div class="" style="min-width: fit-content;">Popular Tours</div>
+                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
                     <hr class="w-100">
                 </div>
                 <div class="d-flex p-2 overflow-auto">
@@ -32,7 +33,7 @@
                     for ($x = 0; $x < 5; $x++) {
                     ?>
                         <div class="tour_popular-tours-items">
-                            <div class="item">
+                            <div class="item white-item">
 
                                 <!-- Image Slider Container -->
                                 <div class="slider overflow-hidden position-relative">
@@ -67,22 +68,22 @@
                                 <!-- Image Slider Container -->
 
                                 <div class="quicksand-Medium mt-2">
-                                    <div class="">
+                                    <div class="content-heading">
                                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis id iusto tenetur commodi ducimus laborum qui quod voluptatibus deserunt esse!</span>
                                     </div>
                                     <a class="d-flex align-items-center gap-2">
                                         <iconify-icon icon="mdi:airplane"></iconify-icon>
-                                        <span>Travel to read more...</span>
+                                        <span class="content-heading">Travel to read more...</span>
                                     </a>
                                     <div class="d-flex flex-column text-black-50 mt-2">
                                         <div class="" title="View Count">
                                             <iconify-icon icon="gridicons:visible"></iconify-icon>
-                                            <span class="">2351</span>
+                                            <span class="content-heading">2351</span>
                                         </div>
 
                                         <div class="" title="Purchase Count">
                                             <iconify-icon icon="wi:time-9"></iconify-icon>
-                                            <span class="">4581</span>
+                                            <span class="content-heading">4581</span>
                                         </div>
                                     </div>
                                 </div>
@@ -97,9 +98,9 @@
             <!-- Popular Tour Contene -->
 
             <!-- Tour Plans Content -->
-            <div class="px-2 pt-1 pb-3 col-12 mt-3 tour_popular-tours" style="background-color: #EBEBEB;">
+            <div class="px-2 pt-1 pb-3 col-12 mt-3 tour_popular-tours">
                 <div class="d-flex gap-2 align-items-center">
-                    <div class="" style="min-width: fit-content;">Popular Tours</div>
+                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
                     <hr class="w-100">
                 </div>
 
@@ -108,9 +109,9 @@
                     for ($i = 6; $i < 12; $i++) {
                     ?>
                         <div class="tour_popular-tours-items">
-                            <div class="item p-0" style="border: none; background-color: #1C1C1C;">
+                            <div class="item dark-item p-0" style="border: none; ">
 
-                                <div class="p-2" style="background-color: white; border-radius: 0 0 10px 10px;">
+                                <div class="p-2 item-header" style="border-radius: 0 0 10px 10px;">
                                     <!-- Image Slider Container -->
                                     <div class="slider overflow-hidden position-relative">
                                         <!-- Arrow Buttons -->
@@ -143,15 +144,15 @@
                                     </div>
                                     <!-- Image Slider Container -->
 
-                                    <div class="quicksand-Medium mt-2 p-2">
+                                    <div class="quicksand-Medium mt-2 p-2 tour-desc">
                                         <div class="">
-                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis id iusto tenetur commodi ducimus laborum qui quod voluptatibus deserunt esse!</span>
+                                            <span class="theme-text content-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis id iusto tenetur commodi ducimus laborum qui quod voluptatibus deserunt esse!</span>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <div class="d-flex justify-content-between px-3 py-2">
+                                <div class="d-flex justify-content-between px-3 py-2 content-heading">
                                     <div class="text-white d-flex flex-column align-items-center quicksand-SemiBold">
                                         <span>20+</span>
                                         <span>Tour Places</span>
