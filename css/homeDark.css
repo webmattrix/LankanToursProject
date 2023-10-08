@@ -679,13 +679,13 @@ img {
 .search-box input {
   border: none;
   outline: none;
-  padding: 10px 0;
+  padding: 5px 10px;
   width: 300px;
   background-color: transparent;
 }
 
 .search-box iconify-icon {
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   height: 100%;
@@ -702,4 +702,10 @@ img {
     1px 2px 4px 0px rgba(30, 30, 30, 0.5);
   /* border: 2px solid transparent; */
   outline: 4px solid transparent;
+}
+
+@media (max-width: 992px) {
+  .search-box input {
+    width: 230px;
+  }
 }

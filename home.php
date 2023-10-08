@@ -73,7 +73,7 @@
 
     <div class="col-12 mt-3">
       <div class="px-2 d-flex justify-content-center justify-content-md-end">
-        <div class="search-box quicksand-SemiBold" id="searchBox">
+        <div class="search-box quicksand-Regular" id="searchBox">
           <input type="text" placeholder="Search here..." id="homeSearchField" />
           <iconify-icon icon="ic:round-search"></iconify-icon>
         </div>
@@ -228,7 +228,7 @@
                   </div>
                   <div class="col-12">
                     <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
-                    <div class="quicksand-SemiBold sub-heading py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
+                    <div class="quicksand-Medium sub-heading py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
                     <div class="w-100 d-flex justify-content-center">
                       <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary">
                         <span>View Ininerary</span>
