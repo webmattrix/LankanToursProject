@@ -37,43 +37,44 @@
         </div>
         <div class="header-menu p-0 m-0 d-none d-md-block">
             <ul class="d-flex list-unstyled gap-5 mb-0 quicksand-SemiBold" style="align-items: center;">
-                <li><a hre="#" class="text-decoration-none c-pointer">
+                <li>
+                    <a href="#" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Home</span>
                         <iconify-icon icon="solar:home-linear" class="d-block fs-4 d-lg-none text-white" title="Home"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a hre="#" class="text-decoration-none c-pointer">
+                    <a href="Tours" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Tours</span>
                         <iconify-icon icon="carbon:plane" class="d-block fs-4 d-lg-none text-white" title="Tours"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a hre="#" class="text-decoration-none c-pointer">
+                    <a href="#" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">History</span>
                         <iconify-icon icon="ic:round-history" class="d-block fs-4 d-lg-none text-white" title="History"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a hre="#" class="text-decoration-none c-pointer">
+                    <a href="#" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Gallery</span>
                         <iconify-icon icon="solar:gallery-outline" class="d-block fs-4 d-lg-none text-white" title="Gallery"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a hre="#" class="text-decoration-none c-pointer">
+                    <a href="contact" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Contact</span>
                         <iconify-icon icon="ri:customer-service-2-line" class="d-block fs-4 d-lg-none text-white" title="Contact"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a hre="#" class="text-decoration-none c-pointer">
+                    <a href="Login" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Join</span>
                         <iconify-icon icon="solar:login-outline" class="d-block fs-4 d-lg-none" title="Log In"></iconify-icon>
                     </a>
                 </li>
                 <li class="position-relative">
-                    <a hre="#" class="text-white text-decoration-none c-pointer" id="headerMoreIcon">
+                    <a href="#" class="text-white text-decoration-none c-pointer" id="headerMoreIcon">
                         <iconify-icon icon="mingcute:more-2-fill" class="text-white pt-2"></iconify-icon>
                     </a>
                     <div class="position-absolute opacity-100 top-100 end-100 px-3 p-2 rounded fs-6 quicksand-Medium d-none" style="background-color: #343434; border: 1px solid #767676; width: 250px;" id="headerMorePanel2">
