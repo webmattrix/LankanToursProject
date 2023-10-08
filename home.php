@@ -38,18 +38,17 @@
             </div>
           </div> -->
           <div class="slides">
-
+            <div class="slide-content">
+              <div class="text-white">Welcomte to Sri Lanka</div>
+              <div class="">
+                <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
+              </div>
+              <a href="#home_tour_plans">
+                <button class="get-start-btn">Get Start</button>
+              </a>
+            </div>
             <div class="slide active" id="slide1">
               <img src="./assets/img/home-slider/img (1).jpg" alt="Home Slider Image">
-              <div class="slide-content">
-                <div class="text-white">Welcomte to Sri Lanka</div>
-                <div class="">
-                  <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
-                </div>
-                <a href="#home_tour_plans">
-                  <button class="get-start-btn">Get Start</button>
-                </a>
-              </div>
             </div>
             <div class="slide" id="slide2">
               <img src="./assets/img/home-slider/img (2).jpg" alt="Home Slider Image">
