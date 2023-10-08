@@ -93,3 +93,15 @@
 .content-heading {
   font-size: var(--content-heading);
 }
+
+@media (max-width: 992px) {
+  .main-heading {
+    font-size: calc(0.82rem + 0.82vh);
+  }
+  .sub-heading {
+    font-size: calc(0.58rem + 0.58vh);
+  }
+  .content-heading {
+    font-size: calc(0.51rem + 0.51vh);
+  }
+}

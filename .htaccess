@@ -18,6 +18,7 @@ ReWriteRule ^Login$ TouristLoginPage.php [NC,L]
 ReWriteRule ^Registration$ TouristRegistrationPage.php [NC,L]
 ReWriteRule ^Tours$ tour.php [NC,L]
 ReWriteRule ^Orders$ myTours.php [NC,L]
+ReWriteRule ^Contact$ ContactPage.php [NC,L]
 
 ReWriteRule ^Admin$ AdminLoginPage.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]

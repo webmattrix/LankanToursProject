@@ -19,11 +19,15 @@ document
   });
 
 document
-  .getElementById("headerMorePanel")
+  .getElementById("headerMorePanel2")
   .addEventListener("mouseout", () => {});
 
 document.getElementById("headerMoreIcon").addEventListener("click", () => {
-  document.getElementById("headerMorePanel").classList.toggle("d-none");
+  document.getElementById("headerMorePanel2").classList.toggle("d-none");
+});
+
+document.getElementById("accountIcon").addEventListener("click", () => {
+  document.getElementById("headerMorePanel1").classList.toggle("d-none");
 });
 
 document.getElementById("goToProfile").addEventListener("mousedown", () => {
