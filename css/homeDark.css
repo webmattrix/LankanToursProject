@@ -81,7 +81,7 @@
 * {
   box-sizing: border-box;
   /* font-family: "Quicksand-Regular"; */
-  color: #333333;
+  color: #ffffff;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -91,7 +91,7 @@
 }
 
 #body {
-  background-color: #dcdcdc;
+  background-color: #242424;
 }
 
 img {
@@ -275,7 +275,7 @@ img {
 }
 
 .why-choosing-us {
-  background-color: white;
+  background-color: #3e3e3e;
   border-radius: 6px;
   padding: 10px;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);
@@ -351,7 +351,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #3e3e3e;
   width: 200px;
   height: 120px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
@@ -362,9 +362,6 @@ img {
   transform: scale(1.1);
   transition-duration: 0.2s;
 }
-
-/* .activies-panel .iconify-icon {
-} */
 
 @media (max-width: 1200px) {
   .activies-panel {
@@ -417,7 +414,7 @@ img {
 /* Home famouse Tour places */
 
 .places-container {
-  background-color: white;
+  background-color: #3e3e3e;
 }
 
 .home_places-grid {
@@ -541,6 +538,7 @@ img {
   font-family: var(--quick-Bold);
   cursor: pointer;
   background-color: white;
+  color: #333333;
 }
 
 .home_subtitle {
@@ -566,6 +564,7 @@ img {
   border-radius: 6px;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.39);
   padding-bottom: 15px;
+  background-color: #343434;
 }
 
 .home_tour-plan > div .head {
@@ -667,20 +666,21 @@ img {
 .search-box {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px 5px 5px 10px;
   border-radius: 100vh;
   overflow: hidden;
-  border: 2px solid transparent;
+  border: 2px solid rgb(255, 255, 255);
   outline: 4px solid transparent;
-  box-shadow: 1px 2px 4px 0px rgba(30, 30, 30, 0.5) inset,
-    1px 2px 4px 0px rgba(30, 30, 30, 0.5);
+  box-shadow: 1px 2px 4px 0px rgba(86, 86, 86, 0.5) inset,
+    1px 2px 4px 0px rgba(86, 86, 86, 0.5);
   max-width: 90%;
+  gap: 10px;
 }
 
 .search-box input {
   border: none;
   outline: none;
-  padding: 0px 10px;
+  padding: 5px 10px;
   width: 300px;
   background-color: transparent;
 }
@@ -688,12 +688,20 @@ img {
 .search-box iconify-icon {
   font-size: 20px;
   cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 60px;
+  border-radius: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
 }
 
 .search-box:hover {
   box-shadow: 1px 2px 4px 0px rgba(30, 30, 30, 0.5) inset,
     1px 2px 4px 0px rgba(30, 30, 30, 0.5);
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   outline: 4px solid transparent;
 }
 
