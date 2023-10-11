@@ -324,3 +324,26 @@ img {
   
 
 /*---------------------- image slider --------------------------*/
+
+
+.l{
+    background-color: #ddc22a;
+}
+
+.placesText2{
+    font-family: 'Quicksand';
+    font-size: calc(0.48rem + 0.48vh);
+    color: #15a1ff;
+    cursor: pointer;
+}
+
+.includeIconBlog2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25) inset, 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333;
+}
