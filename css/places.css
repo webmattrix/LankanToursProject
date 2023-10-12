@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-carousel {
+  padding: 0;
+  height: 90vh;
+}
+
+.carousel-item img {
+  height: 90vh;
+}
+
+.card1 {
+  width: fit-content;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card1 .card1-inner {
+  display: flex;
+  overflow: hidden;
+}
+
+.card1 img {
+  border-radius: 10px;
+  max-width: 70%;
+  height: auto;
+  display: block;
+}
+
+.card1-content {
+  flex: 1;
+  background-color: black;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0;
+  max-width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card1:hover .card1-img {
+  border-radius: 0px;
+}
+
+.card1-content p {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.card1:hover .card1-content {
+  opacity: 1;
+}
+
+.with-line {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  background-color: #b9b9b9;
+  margin-left: 10px;
+}
+
+.city_image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.image-text {
+  position: absolute;
+  top: 22px;
+  left: 640px;
+  background: #0548ad;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+/* city cards */
+
+.card-slider {
+  width: 100%; /* Set your preferred width */
+  overflow: hidden;
+}
+
+.cards {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card {
+  position: relative;
+  flex: 0 0 calc(20% - 20px); /* Display 3 cards in a row with 20px margin between cards */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  margin-right: 20px; /* Adjust margin between cards as needed */
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h4 {
+  margin: 0;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-container span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+}
