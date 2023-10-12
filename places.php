@@ -10,11 +10,10 @@
 </head>
 
 <body class="container-fluid">
-
     <div class="row">
 
         <div class="col-12">
-            <div id="carouselExampleIndicators" class="col-12 carousel slide  custom-carousel" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="col-12 carousel slide custom-carousel" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -22,27 +21,45 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="First slide">
+                        <div style="position: relative;">
+                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="First slide">
+                            <div class="text-overlay">
+                                <h3 class="text-right">First Slide Title</h3>
+                                <p class="text-right">Some description for the first slide.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Second slide">
+                        <div style="position: relative;">
+                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Second slide">
+                            <div class="text-overlay">
+                                <h3 class="text-right">Second Slide Title</h3>
+                                <p class="text-right">Some description for the second slide.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Third slide">
+                        <div style="position: relative;">
+                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Third slide">
+                            <div class="text-overlay">
+                                <h3 class="text-right">Third Slide Title</h3>
+                                <p class="text-right">Some description for the third slide.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-12 px-4">
-            <h4 class="with-line mt-4 ">Most Famous Cities<span class="line"></span></h4>
+            <p class="with-line mt-4">Most Famous Cities<span class="line"></span></p>
         </div>
 
         <div class="col-12">
-            <div class="row mt-1 justify-content-center text-center">
+            <div class="row justify-content-center text-center">
                 <div class="col-12">
                     <div class="row align-items-center p-4">
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
+                        <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-3">
                             <div class="card1">
                                 <div class="card1-inner">
                                     <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
@@ -52,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
+                        <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-3">
                             <div class="card1">
                                 <div class="card1-inner">
                                     <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
@@ -62,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
+                        <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-3">
                             <div class="card1">
                                 <div class="card1-inner">
                                     <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
@@ -72,47 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
-                            <div class="card1">
-                                <div class="card1-inner">
-                                    <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
-                                    <div class="card1-content">
-                                        <p>Matara</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
-                            <div class="card1">
-                                <div class="card1-inner">
-                                    <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
-                                    <div class="card1-content">
-                                        <p>Matara</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
-                            <div class="card1">
-                                <div class="card1-inner">
-                                    <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
-                                    <div class="card1-content">
-                                        <p>Matara</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
-                            <div class="card1">
-                                <div class="card1-inner">
-                                    <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
-                                    <div class="card1-content">
-                                        <p>Matara</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center py-3">
+                        <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-3">
                             <div class="card1">
                                 <div class="card1-inner">
                                     <img class="card1-img" src="./assets/img/itinerary_IMG/matara.jpg" alt="Image">
@@ -132,7 +109,7 @@
                 <div class="col-12" style="background-color:#ffffff">
                     <div class="row">
                         <div class="col-12 mt-4">
-                            <div class="col-6 offset-3 city_image">
+                            <div class="col-10 col-md-8 col-lg-6 offset-lg-3 offset-md-2 offset-1 city_image">
                                 <img src="./assets/img/itinerary_IMG/matara.jpg" alt="">
                                 <div class="image-text">Matara</div>
                             </div>
@@ -142,56 +119,61 @@
                     <div class="col-12">
                         <div class="card-slider">
                             <div class="btn-container mt-3">
-                                <span>Things To Do in Matara</span>
+                                <span>Things To Do In Matara</span>
                                 <div class="button-group">
-                                    <button class="btn" id="prev-btn"><iconify-icon icon="grommet-icons:previous"></iconify-icon></iconify-icon></button>
-                                    <button class="btn" id="next-btn"><iconify-icon icon="grommet-icons:next"></iconify-icon></button>
+                                    <button class="btn btn-sm" id="prev-btn"><iconify-icon icon="grommet-icons:previous"></iconify-icon></iconify-icon></button>
+                                    <button class="btn btn-sm" id="next-btn"><iconify-icon icon="grommet-icons:next"></iconify-icon></button>
                                 </div>
                             </div>
                             <div class="cards mt-2">
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
                                     <div class="card-overlay">
-                                        <h4>Card 1</h4>
+                                        <span>Whale Watching</span>
                                     </div>
                                 </div>
-                                <!-- Add more card elements as needed -->
+                                <div class="card">
+                                    <img src="./assets/img/itinerary_IMG/matara.jpg" alt="Card 1">
+                                    <div class="card-overlay">
+                                        <span>Whale Watching</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

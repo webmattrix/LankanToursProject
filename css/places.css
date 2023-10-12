@@ -3,13 +3,37 @@ body {
   padding: 0;
 }
 
+/* text slider */
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  padding: 10px;
+}
+
+.text-overlay h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.text-overlay p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* text slider */
+
 .custom-carousel {
-  padding: 0;
-  height: 90vh;
+  width: 100%;
+  height: auto;
 }
 
 .carousel-item img {
-  height: 90vh;
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
 }
 
 .card1 {
@@ -32,32 +56,36 @@ body {
 
 .card1-content {
   flex: 1;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0 10px 10px 0;
   color: #fff;
-  padding: 10px;
+  padding-bottom: 40px;
   font-size: 20px;
   transition: opacity 0.1s ease-in-out;
   opacity: 0;
   max-width: 20%;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 }
 
 .card1:hover .card1-img {
   border-radius: 0px;
+  transform-origin: start;
 }
 
 .card1-content p {
   transform: rotate(-90deg);
-  transform-origin: center;
+  transform-origin: start;
 }
+
 .card1:hover .card1-content {
   opacity: 1;
 }
 
 .with-line {
+  font-size: 25px;
+  font-weight: 500;
   display: flex;
   align-items: center;
 }
@@ -69,15 +97,25 @@ body {
   margin-left: 10px;
 }
 
+/* city image */
+
+.city_image {
+  position: relative;
+  text-align: center;
+}
+
 .city_image img {
-  width: 100%;
   border-radius: 10px;
 }
 
 .image-text {
   position: absolute;
-  top: 22px;
-  left: 640px;
+  top: 10%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
   background: #0548ad;
   border: 2px solid #fff;
   color: #fff;
@@ -88,7 +126,7 @@ body {
 /* city cards */
 
 .card-slider {
-  width: 100%; /* Set your preferred width */
+  width: 100%;
   overflow: hidden;
 }
 
@@ -99,12 +137,12 @@ body {
 
 .card {
   position: relative;
-  flex: 0 0 calc(20% - 20px); /* Display 3 cards in a row with 20px margin between cards */
+  flex: 0 0 calc(20% - 20px);
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  margin-right: 20px; /* Adjust margin between cards as needed */
+  margin-right: 20px;
 }
 
 .card:last-child {
@@ -122,15 +160,18 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-h4 {
+.card-overlay span {
+  font-size: 22px;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -149,4 +190,72 @@ h4 {
   display: flex;
   gap: 10px;
   margin-right: 10px;
+}
+
+@media (max-width: 1140px) {
+  .card1-content {
+    font-size: 16px;
+    padding-bottom: 15px;
+  }
+  .card-overlay span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .card {
+    flex: 0 0 calc(30% - 20px);
+  }
+  .image-text {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 950px) {
+  .card1-content {
+    display: none;
+  }
+  .card1 img {
+    max-width: 90%;
+  }
+  .card1:hover .card1-img {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 840px) {
+  .image-text {
+    font-size: 12px;
+    padding: 3px 5px;
+    top: 10%;
+    left: 85%;
+  }
+}
+
+@media (max-width: 780px) {
+  .card {
+    flex: 0 0 calc(40% - 20px);
+  }
+  .image-text {
+    display: none;
+  }
+  .btn-container span {
+    font-size: 14px;
+  }
+  .with-line {
+    font-size: 20px;
+  }
+  .card-overlay span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    flex: 0 0 calc(50% - 20px);
+  }
+  .with-line {
+    font-size: 16px;
+  }
 }
