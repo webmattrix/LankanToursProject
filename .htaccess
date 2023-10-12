@@ -2,5 +2,28 @@ ReWriteEngine On
 
 Options -Indexes
 
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
 ReWriteRule ^Home$ home.php [NC,L]
 ReWriteRule ^Itinerary$ itinerary.php [NC,L]
+ReWriteRule ^Login$ TouristLoginPage.php [NC,L]
+ReWriteRule ^Registration$ TouristRegistrationPage.php [NC,L]
+ReWriteRule ^Tours$ tour.php [NC,L]
+ReWriteRule ^Orders$ myTours.php [NC,L]
+
+ReWriteRule ^Admin$ AdminLoginPage.php [NC,L]
+ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]
+ReWriteRule ^Admin/Profile$ adminProfile.php [NC,L]
+
+ReWriteRule ^Guide/Tours$ guideP_TourPage.php [NC,L]
+ReWriteRule ^Guide/Home$ guidePanel.php [NC,L]
+ReWriteRule ^Guide/Profile$ guideProfile.php [NC,L]
+ReWriteRule ^Guide$ guideLogin.php [NC,L]

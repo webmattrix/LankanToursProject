@@ -1,0 +1,44 @@
+.guide_login-background {
+  background-image: url("../assets/img/guide-login/bg.png");
+  width: 100%;
+  height: 100vh;
+}
+
+.guide_login-title {
+  margin-top: 100px;
+}
+
+.guide_login-user-image {
+  background-image: url("../assets/img/guide-login/user.png");
+  background-position: center;
+  background-size: 140px 140px;
+  background-repeat: no-repeat;
+  height: 160px;
+}
+
+.guide_login-input input {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.276);
+}
+
+.guide_login-input input::placeholder {
+  color: rgb(215, 215, 215);
+}
+
+.guide_login-input input:focus {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.276);
+}
+
+.guide_login-btn {
+  background-color: #0e3cb1;
+  color: white;
+  width: 120px;
+  margin-top: 10px;
+}
+
+.guide_login-hr-break {
+  border-style: solid;
+  border-color: rgb(218, 218, 218);
+  border-width: 2px;
+}

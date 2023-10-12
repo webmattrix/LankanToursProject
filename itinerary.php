@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Itinerary Page</title>
 
-    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="css/itinerary.css" />
+    <link rel="stylesheet" href="./css/itinerary.css" />
     <link rel="stylesheet" href="./css/scrolbar.css">
+    <link rel="stylesheet" href="./css/header.css">
 
 </head>
 
 <body onload="homeOnloadFunction();">
 
     <div class="container-fluid">
-        <div class="row">
+        <?php
+        include "./components/header.php";
+        ?>
+
+        <!-- <div class="row"> -->
 
             <div class="col-12">
                 <div class="row">
@@ -64,7 +69,7 @@
                                                     <div class="col-12 col-lg-7">
                                                         <div class="row">
                                                             <div class="col-12 mt-4">
-                                                                <textarea class="form-control" placeholder="Your Message...." id="#" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
+                                                                <textarea class="form-control" placeholder="Your Message.." id="#" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-4">
@@ -237,7 +242,7 @@
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-12 col-lg-8 mt-4">
                                                                         <a href="#" class="text-decoration-none text-white"><i class="bi bi-arrow-right-circle fs-4 fw-bold text-white position-absolute px-2"></i></a>
-                                                                        <img src="./assets/img/itinerary_IMG/colombo_2.jpg" style="width: 100%; height: 30vh; border-radius: 6px;" alt="">
+                                                                        <img src="./assets/img/itinerary_IMG/colombo_2.jpg" style="width: 100%; height: 30vh; border-radius: 6px; object-fit: cover;" alt="">
                                                                     </div>
                                                                     <div class="row">
                                                                         <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Colombo</span>
@@ -282,7 +287,7 @@
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-12 col-lg-8 mt-4">
                                                                         <a href="#" class="text-decoration-none text-white"><i class="bi bi-arrow-right-circle fs-4 fw-bold text-white position-absolute px-2"></i></a>
-                                                                        <img src="./assets/img/itinerary_IMG/seegiriya.png" style="width: 100%; height: 30vh; border-radius: 6px;" alt="">
+                                                                        <img src="./assets/img/itinerary_IMG/seegiriya.png" style="width: 100%; height: 30vh; border-radius: 6px; object-fit: cover;" alt="">
                                                                     </div>
                                                                     <div class="row">
                                                                         <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Seegiriya</span>
@@ -363,7 +368,7 @@
                                     <div class="col-12 mb-lg-0 mb-sm-0 mb-3" style="padding-top: 5%; padding-bottom: 5%;">
                                         <div class="row justify-content-center">
                                             <div class="col-12 col-lg-5 col-sm-7">
-                                                <img src="./assets/img/itinerary_IMG/basemap.png" style="width: 100%; height: auto;" alt="">
+                                                <img src=". /assets/img/itinerary_IMG/basemap.png" style="width: 100%; height: auto;" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -445,7 +450,9 @@
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="js/itinerary.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+
 </body>
 
 </html>

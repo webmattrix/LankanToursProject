@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="side_menu sideMenu-enable w-auto" id="sideMenu">
+    <div class="side_menu sideMenu-enable w-auto bg-white" id="sideMenu">
         <div class="arrow_cotnainer d-none d-xl-flex" onclick="sideMenuMover();">
             <iconify-icon icon="icon-park-outline:double-left" id="adminPanelSideBarIcon"></iconify-icon>
         </div>
@@ -71,7 +71,7 @@
             <div class="d-flex flex-column gap-5 fs-3 icon-list">
                 <iconify-icon icon="ic:round-dashboard"></iconify-icon>
                 <iconify-icon icon="mdi:flight"></iconify-icon>
-                <iconify-icon icon="mdi:flight"></iconify-icon>
+                <iconify-icon icon="solar:gallery-bold"></iconify-icon>
             </div>
         </div>
 

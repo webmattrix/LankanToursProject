@@ -19,7 +19,7 @@
                 include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
                 ?>
 
-                <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto;">
+                <div class="d-flex w-100 flex-column" style="max-height: 100vh; min-height: 100vh; overflow-y: auto;">
                     <?php
                     include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
@@ -42,4 +42,4 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
-</html>
+</html> 
