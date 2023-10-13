@@ -613,7 +613,7 @@ img {
 
 .view-itinerary {
   background-color: #2452f2;
-  border-radius: 100vh;
+  /* border-radius: 100vh; */
   border: none;
   outline: none;
 }
@@ -642,9 +642,6 @@ img {
   }
   .home_tour-plan > div {
     grid-column: span 2;
-  }
-  .home_tour-plan > div:nth-child(4) {
-    grid-column: 3 / span 2;
   }
 }
 

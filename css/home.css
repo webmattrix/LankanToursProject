@@ -614,7 +614,7 @@ img {
 
 .view-itinerary {
   background-color: #2452f2;
-  border-radius: 100vh;
+  /* border-radius: 100vh; */
   border: none;
   outline: none;
 }
@@ -643,9 +643,6 @@ img {
   }
   .home_tour-plan > div {
     grid-column: span 2;
-  }
-  .home_tour-plan > div:nth-child(4) {
-    grid-column: 3 / span 2;
   }
 }
 
@@ -680,7 +677,7 @@ img {
 .search-box input {
   border: none;
   outline: none;
-  padding: 0px 10px;
+  padding: 5px 10px;
   width: 300px;
   background-color: transparent;
 }
