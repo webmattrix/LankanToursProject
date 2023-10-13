@@ -13,37 +13,39 @@
     <div class="row">
 
         <div class="col-12">
-            <div id="carouselExampleIndicators" class="col-12 carousel slide custom-carousel" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div style="position: relative;">
-                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="First slide">
-                            <div class="text-overlay">
-                                <h3 class="text-right">First Slide Title</h3>
-                                <p class="text-right">Some description for the first slide.</p>
+            <div class="row">
+                <div id="carouselExampleIndicators" class="carousel slide custom-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div style="position: relative;">
+                                <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="First slide">
+                                <div class="text-overlay">
+                                    <h3 class="text-right">First Slide Title</h3>
+                                    <p class="text-right">Some description for the first slide.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div style="position: relative;">
-                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Second slide">
-                            <div class="text-overlay">
-                                <h3 class="text-right">Second Slide Title</h3>
-                                <p class="text-right">Some description for the second slide.</p>
+                        <div class="carousel-item">
+                            <div style="position: relative;">
+                                <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Second slide">
+                                <div class="text-overlay">
+                                    <h3 class="text-right">Second Slide Title</h3>
+                                    <p class="text-right">Some description for the second slide.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div style="position: relative;">
-                            <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Third slide">
-                            <div class="text-overlay">
-                                <h3 class="text-right">Third Slide Title</h3>
-                                <p class="text-right">Some description for the third slide.</p>
+                        <div class="carousel-item">
+                            <div style="position: relative;">
+                                <img class="d-block w-100" src="./assets/img/itinerary_IMG/matara.jpg" alt="Third slide">
+                                <div class="text-overlay">
+                                    <h3 class="text-right">Third Slide Title</h3>
+                                    <p class="text-right">Some description for the third slide.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -183,8 +185,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="js/places.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
