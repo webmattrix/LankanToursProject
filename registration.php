@@ -14,15 +14,15 @@
 </head>
 
 <body class="registerBackground">
-    <div class="col-1 Registercard2 d-lg-block d-none" style=" position: absolute; z-index:-5;">
+    <div class="col-1 Registercard2 d-lg-block d-md-block d-none" style=" position: absolute; z-index:-5;">
     </div>
     <h6 class="p-3 text-white" style="font-family: QuickSand;"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
 
-    <div class="container-fluid  d-flex justify-content-center  ">
-        <div class="col-lg-5 col-12 mt-5 mt-lg-4  p-lg-5 p-3 Registercard align-content-center mb-2">
+    <div class=" LoginBox p-3 p-md-5 mb-2">
+        <div class="  p-lg-5 p-3 Registercard ">
             <div class="row ">
                 <div class="col-12 mt-2 mt-lg-0">
-                    <h1 style="font-family: QuickSand;">Registration</h1>
+                    <h1  style="font-family: QuickSand;">Registration</h1>
                 </div>
                 <div class="col-12 g-3 g-lg-5 ">
                     <div class="row">
@@ -56,8 +56,8 @@
                             </select>
 
                         </div>
-                        <div class="col-lg-6 offset-lg-3 col-10 offset-1 mt-3 mb-2 mt-lb-0">
-                            <button class="form-control " style="font-family: QuickSand;">Register</button>
+                        <div class="col-lg-6 offset-lg-3 col-10 offset-1 mt-3 ">
+                            <button class="form-control text-white " style="font-family: QuickSand; background-color: rgba(247, 247, 247, 0.415);">Register</button>
                         </div>
 
                     </div>
@@ -66,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <script src="./js/bootstrap.bundle.js"></script>
 
 </body>
