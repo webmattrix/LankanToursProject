@@ -42,43 +42,10 @@
                 </div>
             </div>
 
-            <?php include "./components/footer.php"; ?>
-
         </div>
     </div>
 
-
-    <!-- <div class="row">
-
-        <?php include "./components/newHeader.php"; ?>
-
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row">
-
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="./assets/img/itinerary_IMG/seegiriya.png" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="./assets/img/itinerary_IMG/matara.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="row">
 
         <div class="col-12 px-4">
             <p class="with-line mt-4">Most Famous Cities<span class="line"></span></p>
@@ -212,8 +179,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="js/places.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
