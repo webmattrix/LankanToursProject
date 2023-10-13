@@ -2,16 +2,17 @@
     font-family: "QuickSand";
     src: url("../assets/fonts/Quicksand-Medium.ttf");
 }
+
 .LoginBackground {
     background-image: url("../assets/img/Login&Registration_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg");
-   background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
-    
-
+    background-attachment: fixed;
 }
+
 .Logincard2 {
 
     border: 3px solid rgba(255, 255, 255, 0.766);
@@ -21,19 +22,34 @@
     height: 120px;
     margin-top: -50px;
     margin-left: -35px;
-   
+
 }
+
 .Logincard {
-   
-    margin-top: 4%;
+
     color: #fff;
-    text-align: center;
     border: 3px solid rgba(255, 255, 255, 0.766);
     background: rgba(85, 85, 85, 0.418);
     border-radius: 20px;
-   
+
 }
-.inputFeild{
+
+.inputFeild {
     background-color: rgba(247, 247, 247, 0.415);
- }
- 
+}
+
+.LoginBox {
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .LoginBox {
+        margin-left: 0vw;
+        margin-top: 50vh;
+        transform: translate(0%, -50%);
+    }
+
+}

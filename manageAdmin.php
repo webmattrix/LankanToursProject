@@ -12,7 +12,6 @@
 </head>
 
 <body style="background-color: #EAEAEA;">
-
     <div class="container-fluid">
         <div class="row">
 

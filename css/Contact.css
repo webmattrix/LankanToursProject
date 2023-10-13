@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("../assets/fonts/Quicksand-Medium.ttf");
+}
+@font-face {
+    font-family: "SegoeUI";
+    src: url("../assets/fonts/Segoe\ UI.ttf");
+}
+.ContactBackground{
+    background-color: #E7E7E7;
+
+}
+.contactCard:hover{
+    box-shadow:2px 2px 20px rgba(70, 70, 70, 0.793);
+}
+.contactCard{
+   
+    background-image: url(../assets/img/ContactPage_IMG/output-onlinepngtools\ \(1\).png) ;
+    background-color: #ffffff;
+    background-size:300px 280px;
+    background-position: 150px  ;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    border-radius: 10px;
+   
+}
