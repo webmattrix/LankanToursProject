@@ -1,0 +1,75 @@
+*{
+    color: #fff;
+}
+.MyToursBackground{
+    background-color:#242424;
+
+}
+.myToursTitle_button{
+    padding: 5px;
+    background: #ffffff;
+    color: #242424;
+    border-radius: 5px;
+    border: 0;
+}
+.myToursBg1{
+background: #3E3E3E;
+}
+.myToursBg2{
+background: #272727;
+}
+
+.myTourMsgBox{
+    background: #3E3E3E;
+
+}
+.tour-plan-slider {
+    height: 250px;
+    overflow: hidden;
+  }
+  .tour-plan-slider .slides {
+    height: 250px;
+    height: 100%;
+  }
+  .tour-plan-slider .slides .slide {
+    height: 100%;
+    width: 100%;
+  }
+  .tour-plan-slider .slides {
+    position: relative;
+    display: flex;
+  }
+  .tour-plan-slider .slides .slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .tour-plan-slider .slides .slide::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.21);
+    top: 0;
+    left: 0;
+    z-index: -0;
+  }
+  .modelBackGround{
+    background-image: linear-gradient(120deg,rgb(11, 130, 214),rgb(99, 181, 240));
+  }
+  .MytoursButton:hover{
+    box-shadow:2px 2px 8px rgba(255, 255, 255, 0.793);
+  }
+  .myToursD_table1{
+    background: #3E3E3E;
+  }
+  .myToursD_table2{
+    background: #616161;
+  }
+  .myToursD-modal{
+    background: #616161;
+  }
+  
