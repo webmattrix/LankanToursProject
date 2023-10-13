@@ -90,6 +90,10 @@
   user-select: none;
 }
 
+#body {
+  background-color: #dcdcdc;
+}
+
 img {
   width: 100%;
 }
@@ -101,54 +105,6 @@ img {
 .c-default {
   cursor: default;
 }
-
-/* 
-.curve-line .path {
-} */
-
-/* .search-box {
-  margin-top: 200px;
-  margin-right: 50px;
-  border-radius: 100vh;
-  border: 3px solid white;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 2px;
-} */
-
-/* .search-box input {
-  padding: 10px;
-  width: 300px;
-  border: none;
-  background-color: transparent;
-}
-
-.search-box .search-icon {
-  background-color: white;
-  padding: 10px 25px;
-  border-radius: 100vh;
-}
-
-@media (max-width: 992px) {
-  .search-box {
-    margin-top: 150px;
-  }
-  .search-box input {
-    padding: 5px 10px;
-    width: 250px;
-  }
-  .search-box .search-icon {
-    padding: 5px 15px;
-  }
-}
-@media (max-width: 768px) {
-  .search-box {
-    margin-top: 130px;
-    margin-right: 25px;
-  }
-} */
 
 /* ############################## Home Image Slider ############################## */
 .home-image-slider {
@@ -247,16 +203,6 @@ img {
   top: 0;
   left: 0;
   opacity: 0.25;
-}
-
-.header-menu-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 11;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(-125deg, #24eb38, #13c324);
 }
 
 .signIn-signUP-box {
@@ -417,8 +363,8 @@ img {
   transition-duration: 0.2s;
 }
 
-.activies-panel .iconify-icon {
-}
+/* .activies-panel .iconify-icon {
+} */
 
 @media (max-width: 1200px) {
   .activies-panel {
@@ -469,6 +415,11 @@ img {
 }
 
 /* Home famouse Tour places */
+
+.places-container {
+  background-color: white;
+}
+
 .home_places-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -589,6 +540,7 @@ img {
   border-radius: 100vh;
   font-family: var(--quick-Bold);
   cursor: pointer;
+  background-color: white;
 }
 
 .home_subtitle {
@@ -662,7 +614,7 @@ img {
 
 .view-itinerary {
   background-color: #2452f2;
-  border-radius: 100vh;
+  /* border-radius: 100vh; */
   border: none;
   outline: none;
 }
@@ -691,9 +643,6 @@ img {
   }
   .home_tour-plan > div {
     grid-column: span 2;
-  }
-  .home_tour-plan > div:nth-child(4) {
-    grid-column: 3 / span 2;
   }
 }
 
@@ -728,13 +677,13 @@ img {
 .search-box input {
   border: none;
   outline: none;
-  padding: 10px 0;
+  padding: 5px 10px;
   width: 300px;
   background-color: transparent;
 }
 
 .search-box iconify-icon {
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -743,4 +692,10 @@ img {
     1px 2px 4px 0px rgba(30, 30, 30, 0.5);
   border: 2px solid transparent;
   outline: 4px solid transparent;
+}
+
+@media (max-width: 992px) {
+  .search-box input {
+    width: 230px;
+  }
 }

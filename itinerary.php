@@ -9,19 +9,20 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="./css/itinerary.css" />
-    <link rel="stylesheet" href="./css/scrolbar.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/scrolbar.css" />
+    <link rel="stylesheet" href="./css/newHeader.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
 
 </head>
 
 <body onload="homeOnloadFunction();">
 
     <div class="container-fluid">
-        <?php
-        include "./components/header.php";
-        ?>
+        <div class="row">
 
-        <!-- <div class="row"> -->
+            <?php
+            include "./components/newHeader.php";
+            ?>
 
             <div class="col-12">
                 <div class="row">
@@ -368,7 +369,7 @@
                                     <div class="col-12 mb-lg-0 mb-sm-0 mb-3" style="padding-top: 5%; padding-bottom: 5%;">
                                         <div class="row justify-content-center">
                                             <div class="col-12 col-lg-5 col-sm-7">
-                                                <img src=". /assets/img/itinerary_IMG/basemap.png" style="width: 100%; height: auto;" alt="">
+                                                <img src="./assets/img/itinerary_IMG/basemap.png" style="width: 100%; height: auto;" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -445,6 +446,9 @@
                     </div>
                 </div>
             </div>
+
+            <?php include "./components/footer.php"; ?>
+
         </div>
     </div>
 
@@ -452,6 +456,8 @@
     <script src="js/itinerary.js"></script>
     <script src="js/home.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/newHeader.js"></script>
 
 </body>
 
