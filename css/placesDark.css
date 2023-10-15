@@ -4,11 +4,11 @@ body {
 }
 
 .background {
-  background-color: #dedede;
+  background-color: #242424;
 }
 
 .section {
-  background-color: #ffffff;
+  background-color: #3e3e3e;
 }
 
 /* text slider */
@@ -96,6 +96,7 @@ body {
   font-weight: 500;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .line {
@@ -190,6 +191,7 @@ img {
 }
 
 .btn-container span {
+  color: white;
   font-size: 20px;
   font-weight: 500;
 }
