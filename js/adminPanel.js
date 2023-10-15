@@ -1,6 +1,4 @@
 window.onload = function () {
-  var incomeData = [8, 14, 12, 20, 12, 36, 10, 15, 25, 32, 0, 0];
-  var outcomeData = [4, 7, 3, 6, 10, 7, 4, 6, 7, 18, 0, 0];
 
   var req = new XMLHttpRequest();
 

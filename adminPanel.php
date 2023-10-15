@@ -1,4 +1,7 @@
-<?php require "./assets/model/sqlConnection.php" ?>
+<?php
+require "./assets/model/sqlConnection.php";
+require "./assets/model/visitor.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +73,7 @@
                                     }
                                 }
 
-                                $query = "SELECT * FROM `ct_order`";
+                                $query = "SELECT * FROM `custom_tour_order`";
                                 $ct_order_rs = Database::search($query);
                                 $ct_order_num = $ct_order_rs->num_rows;
                                 for ($ct_order_iteration = 0; $ct_order_iteration < $ct_order_num; $ct_order_iteration++) {
