@@ -304,12 +304,14 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <?php include "./components/footer.php"; ?>
 
-            <?php include "./components/footer.php"; ?>
-
+                </div>
+            </div>
         </div>
     </div>
-
 
     <script src="./js/newHeader.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
