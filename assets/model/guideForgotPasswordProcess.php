@@ -10,7 +10,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 if (isset($_GET["e"])) {
     $email = $_GET["e"];
 
-    $resultset = Database::search("SELECT * FROM `employee` WHERE `email`='" . $email . "'");
+    $resultset = Database::search("SELECT * FROM 
+    `employee` INNER JOIN `employe_type` ON employee.employe_type_id=employe_type.id 
+    WHERE `employee`.`email`='" . $email . "' AND `employe_type`.`name`='guide'");
+
     $n = $resultset->num_rows;
 
     if ($n == 1) {
@@ -97,7 +100,7 @@ if (isset($_GET["e"])) {
                     <p>Use this verification code to reset your password!</p>
                 </div>
                 <div class="footer">
-                    &copy; 2023 Your LankanTours
+                    &copy; 2023 Your LankanTours Name
                 </div>
             </div>
         </body>
