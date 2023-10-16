@@ -1,6 +1,10 @@
 <?php
 require "./assets/model/sqlConnection.php";
 require "./assets/model/visitor.php";
+
+
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ require "./assets/model/visitor.php";
     <link rel="stylesheet" href="../css/scrolbar.css">
 </head>
 
-<body style="background-color: #EAEAEA;" onload="chartResize();">
+<body style="background-color: #EAEAEA;">
 
     <div class="container-fluid">
         <div class="row">
@@ -35,6 +39,8 @@ require "./assets/model/visitor.php";
                     <!-- Page Content / body content eka methanin liyanna -->
                     <div class="col-12 px-3 pt-2 pb-3">
                         <div class="row">
+
+                            <button class="btn" onclick="getVisitors();">Click Me</button>
 
                             <div class="admin_header-grid">
 
@@ -172,18 +178,44 @@ require "./assets/model/visitor.php";
                                         </div>
                                         <div class="d-flex flex-column gap-3 admin_panel_scroll-boxes" style="overflow-y: auto;">
                                             <?php
-                                            for ($x = 0; $x < 10; $x++) {
+
+                                            $message_rs = Database::search("SELECT * FROM `request_message` ORDER BY `status` ASC");
+
+                                            for ($x = 0; $x < $message_rs->num_rows; $x++) {
+                                                $message_data = $message_rs->fetch_assoc();
+
+                                                $user_data = Database::search("SELECT * FROM user WHERE `email`='" . $message_data["email"] . "'");
+                                                if ($user_data->num_rows == 1) {
+                                                    $user_data = $user_rs->fetch_assoc();
                                             ?>
-                                                <div class="msg-box px-3 rounded">
-                                                    <div class="d-flex w-100 justify-content-between align-items-center">
-                                                        <span class="quicksand-SemiBold fs-6">Sahan Perera</span>
-                                                        <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">2023-06-06</span>
+                                                    <div class="msg-box px-3 rounded">
+                                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                                            <span class="quicksand-SemiBold fs-6"><?php echo ($user_data["name"]); ?></span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php  ?></span>
+                                                        </div>
+                                                        <div class="pt-2 quicksand-SemiBold position-relative">
+                                                            <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
+                                                            <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                            <?php echo ($_SESSION["timeZone"]); ?>
+                                                        </div>
                                                     </div>
-                                                    <div class="pt-2 quicksand-SemiBold position-relative">
-                                                        <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
-                                                        <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <div class="msg-box px-3 rounded">
+                                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                                            <span class="quicksand-SemiBold fs-6">Sahan Perera</span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">2023-06-06</span>
+                                                        </div>
+                                                        <div class="pt-2 quicksand-SemiBold position-relative">
+                                                            <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
+                                                            <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                <?php
+                                                }
+
+                                                ?>
                                             <?php
                                             }
                                             ?>
@@ -237,6 +269,7 @@ require "./assets/model/visitor.php";
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart JS Link -->
     <script src="../js/adminPanel.js"></script>
     <script src="../js/visiterChart.js"></script>
+
 </body>
 
 </html>

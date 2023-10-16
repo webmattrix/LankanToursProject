@@ -1,4 +1,5 @@
 window.onload = function () {
+  setTimeZone();
 
   var req = new XMLHttpRequest();
 
@@ -90,3 +91,21 @@ window.onload = function () {
   req.open("GET", "../assets/model/adminPanelTransaction.php", true);
   req.send();
 };
+
+function setTimeZone() {
+  // alert("OK");
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+    }
+  };
+
+  req.open(
+    "GET",
+    "../assets/model/setTimeZoneSession.php?timeZone=" +
+      Intl.DateTimeFormat().resolvedOptions().timeZone,
+    true
+  );
+  req.send();
+}
