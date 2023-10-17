@@ -20,7 +20,6 @@ session_start();
     <link rel="stylesheet" href="../css/adminPanel.css">
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/scrolbar.css">
-
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
 </head>
 
@@ -79,7 +78,7 @@ session_start();
                                     }
                                 }
 
-                                $query = "SELECT * FROM `custom_tour_order`";
+                                $query = "SELECT * FROM `custom_tour`";
                                 $ct_order_rs = Database::search($query);
                                 $ct_order_num = $ct_order_rs->num_rows;
                                 for ($ct_order_iteration = 0; $ct_order_iteration < $ct_order_num; $ct_order_iteration++) {
