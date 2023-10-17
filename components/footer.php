@@ -45,8 +45,8 @@
                             <span class="fs-5 text-white">Request & Complain</span>
                             <div class="d-flex flex-column pt-2 gap-2 req_complain_box">
                                 <div class="d-flex p-1 overflow-hidden gap-2" style="border-radius: 100vh; background-color: rgba(38, 82, 242, 0.2); border: 1px solid rgb(38, 82, 242);">
-                                    <input type="text" placeholder="your email" class="py-1 bg-transparent w-100 ps-2 border-0 text-white quicksand-Regular" style="outline: none;"/>
-                                    <button class="border-0 px-3 d-flex justify-content-center align-items-center" style="border-radius: 100vh; background-color: rgb(38, 82, 242);">
+                                    <input type="text" placeholder="your email" class="py-1 bg-transparent w-100 ps-2 border-0 text-white quicksand-Regular" style="outline: none;" id="requestEmail"/>
+                                    <button class="border-0 px-3 d-flex justify-content-center align-items-center" style="border-radius: 100vh; background-color: rgb(38, 82, 242);" onclick="sendRequestMessage();">
                                         <iconify-icon icon="ic:round-send" class="text-white"></iconify-icon>
                                     </button>
                                 </div>
@@ -65,6 +65,7 @@
 
         </div>
     </div>
+
 
 </body>
 

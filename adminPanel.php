@@ -1,3 +1,8 @@
+<?php
+require "./assets/model/sqlConnection.php";
+require "./assets/model/visitor.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,15 +37,85 @@
                         <div class="row">
 
                             <div class="admin_header-grid">
+
+                                <?php
+
+                                $overall_income = 0;
+                                $yearly_income = 0;
+                                $monthly_income = 0;
+                                $outgoing_income = 0;
+                                $total_engagement = 0;
+                                $today_engagement = 0;
+                                $saving_amount = 0;
+
+                                // To get this year
+                                $dateTimeObject = new DateTime();
+                                $dateTimeObject->setTimezone(new DateTimeZone(date_default_timezone_get()));
+                                $year = $dateTimeObject->format("Y");
+                                $month = $dateTimeObject->format("m");
+
+                                $query = "SELECT * FROM `order`";
+                                $order_rs = Database::search($query);
+                                $order_num = $order_rs->num_rows;
+                                for ($order_iteration = 0; $order_iteration < $order_num; $order_iteration++) {
+                                    $order_data = $order_rs->fetch_assoc();
+                                    $overall_income = $overall_income + $order_data['cost'];
+                                    $saving_amount = $saving_amount + $order_data['saving_amount'];
+
+                                    $order_year = date("Y", strtotime($order_data["date_time"]));
+                                    if ($order_year == $year) {
+                                        $yearly_income = $yearly_income + $order_data['cost'];
+
+                                        $order_month = date("m", strtotime($order_data["date_time"]));
+                                        if ($order_month == $month) {
+                                            $monthly_income = $monthly_income + $order_data['cost'];
+                                        }
+                                    }
+                                }
+
+                                $query = "SELECT * FROM `custom_tour_order`";
+                                $ct_order_rs = Database::search($query);
+                                $ct_order_num = $ct_order_rs->num_rows;
+                                for ($ct_order_iteration = 0; $ct_order_iteration < $ct_order_num; $ct_order_iteration++) {
+                                    $ct_order_data = $ct_order_rs->fetch_assoc();
+                                    $overall_income = $overall_income + $ct_order_data['cost'];
+                                    $saving_amount = $saving_amount + $ct_order_data['saving_amount'];
+
+                                    $ct_order_year = date("Y", strtotime($ct_order_data["date_time"]));
+                                    if ($ct_order_year == $year) {
+                                        $yearly_income = $yearly_income + $ct_order_data['cost'];
+
+                                        $ct_order_month = date("m", strtotime($ct_order_data["date_time"]));
+                                        if ($ct_order_month == $month) {
+                                            $monthly_income = $monthly_income + $ct_order_data['cost'];
+                                        }
+                                    }
+                                }
+
+                                $query = "SELECT * FROM `user`";
+                                $user_rs = Database::search($query);
+                                $total_users = sprintf("%02s", $user_rs->num_rows);
+                                $new_users = 0;
+                                for ($user_iteration = 0; $user_iteration < $user_rs->num_rows; $user_iteration++) {
+                                    $user_data = $user_rs->fetch_assoc();
+                                    $user_reg_month = date("Y-m", strtotime($user_data["reg_date"]));
+                                    if ($user_reg_month == $year . "-" . $month) {
+                                        $new_users = $new_users + 1;
+                                    }
+                                }
+                                $new_users = sprintf("%02s", $new_users);
+
+                                ?>
+
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/overall_income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $overall_income); ?></span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $yearly_income); ?></span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
@@ -55,22 +130,22 @@
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/todayEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today Engagement</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">08</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ($total_users); ?></span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Monthly Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Profit</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $saving_amount); ?></span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/overall_outgoing.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Outgoing Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $overall_income - $saving_amount); ?></span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/totalEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Total Engagements</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">1352</span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">New Engagements</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ($new_users); ?></span>
                                 </div>
                             </div>
 

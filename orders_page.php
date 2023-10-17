@@ -581,8 +581,7 @@
                                                         </div>
                                                         <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
                                                             <div class="row">
-
-                                                                <table class="table-bordered" style="font-family: 'Segoe'; border: 1px solid #858585;">
+                                                                <table class="table table-hover table-bordered" style="font-family: 'Segoe'; border: 1px solid #A29A9A;">
                                                                     <thead>
                                                                         <tr>
                                                                             <div class="row">
