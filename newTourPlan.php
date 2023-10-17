@@ -1,3 +1,6 @@
+<?php
+require "assets/model/sqlConnection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,43 +37,87 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6 mt-3">
                                     <span>Name of Tour Plan</span>
-                                    <input type="text" class="form-control mt-1 input_field">
+                                    <input type="text" id="tour_name" class="form-control mt-1 input_field">
                                 </div>
                                 <div class="col-12 col-lg-6 mt-3">
                                     <span>Duration</span>
-                                    <input type="text" class="form-control mt-1 input_field">
+                                    <input type="text" id="duration" class="form-control mt-1 input_field">
                                 </div>
                                 <div class="col-12 mt-3">
                                     <span>Place to visit</span>
                                     <div class="row">
-                                        <div class="col-12 col-lg-9">
-                                            <input type="text" class="form-control mt-1 input_field">
+                                        <div class="col-12 col-lg-6">
+                                            <select name="" id="place" class="form-select input_field mt-1">
+                                                <?php
+                                                $resultset = Database::search("SELECT * FROM `place`");
+                                                $places = $resultset->fetch_all(MYSQLI_ASSOC);
+
+                                                foreach ($places as $place) {
+                                                ?>
+                                                    <option value="<?php echo $place['id'] ?>">
+                                                        <?php
+                                                        echo $place['name'];
+                                                        ?>
+                                                    </option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-2 text-end mt-3">
-                                            <button class="btn add_btn mt-1">Add</button>
+                                        <div class="col-6 col-lg-2 text-center text-lg-end mt-2 mt-lg-0">
+                                            <button class="btn add_btn mt-1" onclick="addPlace()">Add</button>
+                                        </div>
+                                        <div class="col-6 col-lg-3 text-center text-lg-end mt-2 mt-lg-0">
+                                            <button class="btn btn-success mt-1" onclick="addNewPlace()">Add New Place</button>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- modal -->
+                                <div class="modal" tabindex="-1" id="addNewPlaceModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div class="row g-3">
+                                                    <div class="col-12 text-start">
+                                                        <label class="form-label">Place Name</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" id="place_name" class="form-control" id="new_password">
+                                                        </div>
+                                                    </div>
+
+                                                    <form class="custom__form">
+                                                        <p>Upload Image</p>
+                                                        <div class="custom__image-container">
+                                                            <label for="place_image">
+                                                                <img src="./assets/img/newTourPlan/Photo Gallery.png" alt="">
+                                                                <a class="btn btn-sm">Browse Image</a>
+                                                            </label>
+                                                            <input type="file" id="place_image" accept="image/jpeg" />
+                                                        </div>
+                                                        <input type="file" accept="image/jpeg" />
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="createNewPlace();">Add New Place</button>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- modal -->
+
                                 <div class="col-12 mt-3">
                                     <table class="styled-table">
                                         <thead>
                                             <tr class="text-center">
+                                                <th>Id</th>
                                                 <th>Place</th>
-                                                <th>Upload City Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr class="text-center">
-                                                <td><input type="text" class="form-control table_input_field"></td>
-                                                <td><button class="btn px-2 px-lg-5" style="background-color: #CECCCC;">Browse</button></td>
-                                                <td><button class="btn px-2 px-lg-4 text-white" style="background-color: #EB4646;">Delete</button></td>
-                                            </tr>
-                                            <tr class="active-row text-center">
-                                                <td><input type="text" class="form-control table_input_field"></td>
-                                                <td><button class="btn px-2 px-lg-5" style="background-color: #CECCCC;">Browse</button></td>
-                                                <td><button class="btn px-2 px-lg-4 text-white" style="background-color: #EB4646;">Delete</button></td>
-                                            </tr>
+                                        <tbody id="tbody">
                                             <!-- and so on... -->
                                         </tbody>
                                     </table>
@@ -78,23 +125,23 @@
                                 </div>
                                 <div class="col-12">
                                     <span>Add Description</span>
-                                    <textarea cols="12" rows="5" class="form-control mt-1"></textarea>
+                                    <textarea cols="12" id="description" rows="5" class="form-control mt-1"></textarea>
                                 </div>
                                 <div class="col-12 col-lg-6 mt-2">
                                     <form class="custom__form">
                                         <p>Upload Main Image</p>
                                         <div class="custom__image-container">
-                                            <label id="add-img-label" for="add-single-img">
+                                            <label id="add-img-label" for="tour_image">
                                                 <img src="./assets/img/newTourPlan/Photo Gallery.png" alt="">
                                                 <a class="btn btn-sm">Browse Image</a>
                                             </label>
-                                            <input type="file" id="add-single-img" accept="image/jpeg" />
+                                            <input type="file" id="tour_image" accept="image/jpeg" />
                                         </div>
                                         <input type="file" accept="image/jpeg" />
                                     </form>
                                 </div>
                                 <div class="col-12 col-lg-6 new_plan_container">
-                                    <button class="btn add_new_plan">Add New Plan</button>
+                                    <button class="btn add_new_plan" onclick="addNewTourPlan()">Add New Plan</button>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +152,7 @@
         </div>
     </div>
 
+    <script src="./js/newTourPlan.js"></script>
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
