@@ -1,0 +1,202 @@
+@font-face {
+    font-family: "Segoe";
+    src: url("../assets/fonts/SegoeUI.ttf");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/inter.ttf");
+}
+
+.bg-orderP {
+    background-color: #242424;
+}
+
+.top-tour-details1 {
+    color: #FFFFFF;
+}
+
+.ordersPg_R_moreBTN {
+    font-family: 'Segoe';
+    color: #9D3DE9;
+    border: 2px solid #9D3DE9;
+    background-color: transparent;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selector_ord {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: calc(0.58rem + 0.59vh);
+    font-weight: 400;
+    font-family: 'Segoe';
+    line-height: 1.5;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1024" height="1024" viewBox="0 0 1024 1024"%3E%3Cpath fill="white" d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z"%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #242424;
+    border: 1px solid #858585;
+    color: #FFFFFF;
+}
+
+.selector_ord:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(201, 201, 202, 0.25);
+}
+
+.input-select1 {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-select1:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(201, 201, 202, 0.25);
+}
+
+.amountPic {
+    background: url("../assets/img/ordersPg_IMG/backPicAmount.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 24vh;
+}
+
+.closeBtn3 {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #FFFFFF;
+    background: transparent url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="white" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"%2F%3E%3C%2Fsvg%3E');
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: 0.5;
+}
+
+.closeBtn3:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.closeBtn3:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    opacity: 1;
+}
+
+.closeBtn3:disabled,
+.closeBtn3.disabled {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    opacity: 0.25;
+}
+
+.closeBtn3-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+@media(max-width: 1200px) {
+    .amountPic {
+        height: auto;
+    }
+}
+
+.blog-ord-bg-cont1 {
+    background-color: #3E3E3E;
+}
+
+.icon-style3 {
+    color: #FFFFFF;
+}
+
+.filter-textC2 {
+    color: #FFFFFF;
+}
+
+.tab-ord-textC {
+    color: #FFFFFF;
+}
+
+.tab-ord-sts-ong-textC {
+    color: #158921;
+}
+
+.tab-ord-sts-pend-textC {
+    color: #DB8219;
+}
+
+.unsg-ord-blog1 {
+    background-color: #242424;
+    box-shadow: 1px 1.5px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+.unsg-blog-title1 {
+    color: #FFFFFF;
+}
+
+.unsg-collapse-cont1 {
+    background-color: #3E3E3E;
+}
+
+.unsg-cont-date1 {
+    color: #bebebe;
+}
+
+.unsg-cont-tourN {
+    color: #FFFFFF;
+}
+
+.bg-ord-modal {
+    background-color: #3E3E3E;
+}
+
+.ord-modal-title1 {
+    color: #FFFFFF;
+}
+
+.ord-modal-textC1 {
+    color: #FFFFFF;
+}
+
+.icon-style4 {
+    color: #ddc22a;
+}
+
+.unsg-ord-modal-price {
+    color: #18badf;
+}
+
+.ord-modal-sts-sucs {
+    color: #158921;
+}

@@ -7,7 +7,8 @@
     <title>Guide Panel | Tours Page</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/guideP_TourPage.css" />
+    <link rel="stylesheet" href="./css/guideP_TourPage.css"/>
+    <!-- <link rel="stylesheet" href="./css/guideTourDark.css"/> -->
 </head>
 
 <body>
@@ -20,7 +21,7 @@
                 include "./components/guideSidebar.php";
                 ?>
 
-                <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto; background-color: #EAEAEA;">
+                <div class="d-flex w-100 flex-column bg-content" style="max-height: 100vh; overflow-y: auto;">
                     <?php
                     include "./components/guideHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
@@ -35,9 +36,9 @@
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                        <div class="modal-content">
+                                        <div class="modal-content bg-modalC">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tours Details</h1>
+                                                <h1 class="modal-title fs-5 modal-titleC" id="exampleModalLabel">Tours Details</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -47,47 +48,47 @@
                                                             <div class="row p-3" style="line-height: 0.4in; border: 1px solid #A29A9A; border-radius: 6px;">
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan Name</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan Name</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">11 Day</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">11 Day</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Timeline of tour</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Timeline of tour</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">2023/06/12 - 2023/06/14</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">2023/06/12 - 2023/06/14</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan ID</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan ID</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">TO_001</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">TO_001</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Rating</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Rating</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-sm-6">
                                                                     <div class="row">
                                                                         <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star-half" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star-border" style="color: #9A7C13;"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star-half" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star-border" class="icon-style"></iconify-icon>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -105,47 +106,47 @@
                                                             <div class="row p-3" style="line-height: 0.3in; border: 1px solid #A29A9A; border-radius: 6px;">
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan Name</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan Name</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">11 Day</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">11 Day</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Timeline of tour</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Timeline of tour</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">2023/06/12 - 2023/06/14</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">2023/06/12 - 2023/06/14</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan ID</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Tour Plan ID</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">TO_001</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">TO_001</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
-                                                                        <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Rating</span>
+                                                                        <span class="modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh); font-weight: 600;">Rating</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="row">
                                                                         <span style="font-family: 'Inter'; font-size: calc(0.56rem + 0.57vh);">
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star-half" style="color: #9A7C13;"></iconify-icon>
-                                                                            <iconify-icon icon="ic:baseline-star-border" style="color: #9A7C13;"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star-half" class="icon-style"></iconify-icon>
+                                                                            <iconify-icon icon="ic:baseline-star-border" class="icon-style"></iconify-icon>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -181,16 +182,16 @@
                                 </div>
                                 <div class="col-12 mt-lg-5 mt-2">
                                     <div class="row justify-content-center">
-                                        <div class="col-11 pt-5 px-5 pb-2" style="background-color: #fff;">
+                                        <div class="col-11 pt-5 px-5 pb-2 blog-background">
                                             <div class="row justify-content-center">
                                                 <div class="col-12 ">
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="row d-flex align-items-center">
                                                                 <div class="col-12 col-sm-5 col-lg-5 my-sm-2">
-                                                                    <span class="d-flex align-items-center"><iconify-icon icon="material-symbols:tune" class="fs-5"></iconify-icon> &nbsp;<span style="font-family: 'Segoe'; font-size: calc(0.64rem + 0.68vh);">Filter</span>
+                                                                    <span class="d-flex align-items-center"><iconify-icon icon="material-symbols:tune" class="fs-5 icon-filter"></iconify-icon> &nbsp;<span class="filter-textC" style="font-family: 'Segoe'; font-size: calc(0.64rem + 0.68vh);">Filter</span>
                                                                         <div class="col-lg-6 col-7 col-sm-9 ps-3">
-                                                                            <select class="selector" style="cursor: pointer; background-color: #D7D7D7; border: 1px solid #ced4da; color: #212529;" aria-label="Default select example">
+                                                                            <select class="selector" style="cursor: pointer; font-family: 'Segoe';" aria-label="Default select example">
                                                                                 <option selected>Select</option>
                                                                                 <option value="1">One</option>
                                                                                 <option value="2">Two</option>
@@ -199,7 +200,7 @@
                                                                         </div>
                                                                     </span>
                                                                 </div>
-                                                                <div class="col-10 col-lg-7 col-sm-7 my-sm-2">
+                                                                <div class="col-10 col-lg-7 col-sm-7 my-sm-2  mt-3 mt-lg-0 mt-sm-0">
                                                                     <div class="row justify-content-end">
                                                                         <div class="col-12 col-lg-6 col-sm-8">
                                                                             <div class="input-group">
@@ -213,66 +214,67 @@
                                                         </div>
                                                         <div class="col-12 mt-lg-5 d-none d-lg-grid d-sm-none">
                                                             <div class="row">
-                                                                <table class="table table-hover table-bordered" style="font-family: 'Inter'; border: 1px solid #A29A9A;">
+
+                                                                <table class="table-bordered tab-view">
                                                                     <thead>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <th class="col-1">ID</th>
-                                                                                <th class="col-3 text-center">Tour Plan Name</th>
-                                                                                <th class="col-3 text-center">Timeline</th>
-                                                                                <th class="col-2 text-center">Rating</th>
-                                                                                <th class="col-1 text-center">View</th>
+                                                                                <th class="col-1 py-3 text-center tab-textC">ID</th>
+                                                                                <th class="col-3 text-center py-3 tab-textC">Tour Plan Name</th>
+                                                                                <th class="col-3 text-center py-3 tab-textC">Timeline</th>
+                                                                                <th class="col-2 text-center py-3 tab-textC">Rating</th>
+                                                                                <th class="col-1 text-center py-3 tab-textC">View</th>
                                                                             </div>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <th class="col-1 fw-normal">TO_001</th>
-                                                                                <td class="col-3 text-center">11 Day</td>
-                                                                                <td class="col-3 text-center">2023/06/12 - 2023/06/14</td>
-                                                                                <td class="col-2 text-center">
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star-half" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star-border" style="color: #9A7C13;"></iconify-icon>
+                                                                                <th class="col-1 fw-normal py-2 text-center tab-textC">TO_001</th>
+                                                                                <td class="col-3 text-center py-2 tab-textC">11 Day</td>
+                                                                                <td class="col-3 text-center py-2 tab-textC">2023/06/12 - 2023/06/14</td>
+                                                                                <td class="col-2 text-center py-2">
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star-half" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star-border" class="icon-style"></iconify-icon>
                                                                                 </td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
                                                                         </tr>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <th class="col-1 fw-normal">TO_002</th>
-                                                                                <td class="col-3 text-center">12 Day</td>
-                                                                                <td class="col-3 text-center">2023/06/12 - 2023/06/14</td>
-                                                                                <td class="col-2 text-center">
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star-half" style="color: #9A7C13;"></iconify-icon>
+                                                                                <th class="col-1 fw-normal py-2 text-center tab-textC">TO_002</th>
+                                                                                <td class="col-3 text-center py-2 tab-textC">12 Day</td>
+                                                                                <td class="col-3 text-center py-2 tab-textC">2023/06/12 - 2023/06/14</td>
+                                                                                <td class="col-2 text-center py-2">
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star-half" class="icon-style"></iconify-icon>
                                                                                 </td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
                                                                         </tr>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <th class="col-1 fw-normal">TO_003</th>
-                                                                                <td class="col-3 text-center">6 Day</td>
-                                                                                <td class="col-3 text-center">2023/06/12 - 2023/06/14</td>
-                                                                                <td class="col-2 text-center">
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star-half" style="color: #9A7C13;"></iconify-icon>
-                                                                                    <iconify-icon icon="ic:baseline-star-border" style="color: #9A7C13;"></iconify-icon>
+                                                                                <th class="col-1 fw-normal py-2 text-center tab-textC">TO_003</th>
+                                                                                <td class="col-3 text-center py-2 tab-textC">6 Day</td>
+                                                                                <td class="col-3 text-center py-2 tab-textC">2023/06/12 - 2023/06/14</td>
+                                                                                <td class="col-2 text-center py-2">
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star-half" class="icon-style"></iconify-icon>
+                                                                                    <iconify-icon icon="ic:baseline-star-border" class="icon-style"></iconify-icon>
                                                                                 </td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
@@ -282,38 +284,39 @@
                                                             </div>
                                                         </div>
                                                         <!-- small devices -->
-                                                        <div class="col-12 mt-3 mt-lg-0 d-grid d-lg-none d-sm-grid">
+                                                        <div class="col-12 mt-4 pt-2 pt-lg-0 pt-sm-0 mt-sm-3 mt-lg-0 d-grid d-lg-none d-sm-grid">
                                                             <div class="row">
-                                                                <table class="table table-hover table-bordered" style="font-family: 'Inter'; border: 1px solid #A29A9A;">
+
+                                                                <table class="table-hover table-bordered" style="font-family: 'Inter'; border: 1px solid #858585;">
                                                                     <thead>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <th class="col-4 text-center">Tour Plan Name</th>
-                                                                                <th class="col-2 text-center">View</th>
+                                                                                <th class="col-4 text-center py-3 tab-textC">Tour Plan Name</th>
+                                                                                <th class="col-2 text-center py-2 tab-textC">View</th>
                                                                             </div>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <td class="col-3 text-center">11 Day</td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-3 text-center py-2 tab-textC">11 Day</td>
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
                                                                         </tr>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <td class="col-3 text-center">12 Day</td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-3 text-center py-2 tab-textC">12 Day</td>
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
                                                                         </tr>
                                                                         <tr>
                                                                             <div class="row">
-                                                                                <td class="col-3 text-center">6 Day</td>
-                                                                                <td class="col-1 text-center">
+                                                                                <td class="col-3 text-center py-2 tab-textC">6 Day</td>
+                                                                                <td class="col-1 text-center py-2">
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff;"></iconify-icon>
                                                                                 </td>
                                                                             </div>

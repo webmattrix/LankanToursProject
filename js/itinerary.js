@@ -21,3 +21,5 @@ var homeSlider;
     console.log(sliderNumber);
   }
 
+  
+

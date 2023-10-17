@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watchlist</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/watchlist.css" />
+    <!-- <link rel="stylesheet" href="./css/watchlist.css" /> -->
+    <link rel="stylesheet" href="./css/watchlistDark.css" />
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/scrolbar.css" />
 </head>
 
-<body style="background-color: #E2E2E2;">
+<body class="bg-watchlist">
 
     <?php include "./components/newHeader.php"; ?>
 
@@ -59,114 +60,118 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12 mt-3 mb-lg-4">
-                                <div class="col-12" style="background-color: #fff; border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
+                                <div class="col-12 wt-blog-cont4" style="border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
-                                        <div class="col-12">
-                                            <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
-                                                <div class="row">
-                                                    <div class="col-5">
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-11">
-                                                                <div class="slider-container">
-                                                                    <span class="arrows left" onclick="sliderMover('left');">&lt;</span>
-                                                                    <span class="arrows right" onclick="sliderMover('right');">&gt;</span>
+                                        <?php
+                                        for ($watchlist_iteration = 0; $watchlist_iteration < 3; $watchlist_iteration++) {
+                                        ?>
+                                            <div class="col-12">
+                                                <div class="col-12 py-3 wt-blog-area-field" style="border-radius: 6px; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-11">
+                                                                    <div class="slider-container">
+                                                                        <span class="arrows left" onclick="sliderMover('left',<?php echo ($watchlist_iteration); ?>);">&lt;</span>
+                                                                        <span class="arrows right" onclick="sliderMover('right',<?php echo ($watchlist_iteration); ?>);">&gt;</span>
 
-                                                                    <div class="slides" data-currentMargin="12.5" id="slider" data-imageNumber="1">
-                                                                        <div class="slide active" id="slide1">
-                                                                            <img src="./assets/img/itinerary_IMG/seegiriya.png" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide2">
-                                                                            <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide3">
-                                                                            <img src="./assets/img/itinerary_IMG/colombo.png" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide4">
-                                                                            <img src="./assets/img/itinerary_IMG/matara.jpg" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide5">
-                                                                            <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
+                                                                        <div class="slides" data-currentMargin="12.5" id="slider<?php echo ($watchlist_iteration); ?>" data-imageNumber="1">
+                                                                            <div class="slide active" id="slide1_<?php echo($watchlist_iteration); ?>">
+                                                                                <img src="./assets/img/itinerary_IMG/seegiriya.png" />
+                                                                            </div>
+                                                                            <div class="slide" id="slide2_<?php echo($watchlist_iteration); ?>">
+                                                                                <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
+                                                                            </div>
+                                                                            <div class="slide" id="slide3_<?php echo($watchlist_iteration); ?>">
+                                                                                <img src="./assets/img/itinerary_IMG/colombo.png" />
+                                                                            </div>
+                                                                            <div class="slide" id="slide4_<?php echo($watchlist_iteration); ?>">
+                                                                                <img src="./assets/img/itinerary_IMG/matara.jpg" />
+                                                                            </div>
+                                                                            <div class="slide" id="slide5_<?php echo($watchlist_iteration); ?>">
+                                                                                <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-7 my-2" style="border-left: 2px solid #cecece;">
-                                                        <div class="row">
-                                                            <span style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700; color: #333;">11 Day Tour Plan</span>
-                                                            <div class="col-12">
-                                                                <div class="row ms-lg-3 mt-2">
-                                                                    <div class="col-7 m-0 p-0">
-                                                                        <p style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400; color: #5F5F5F;">Lorem ipsum dolor sit amet consectetur. Praesent placerat ullamcorper enim tincidunt tempus nulla consequat dolor in. Tortor eu vestibulum tortor facilisi commodo. Magna euismod leo ullamcorper id aliquam.</p>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="row">
-                                                                            <div class="col-4">
-                                                                                <div class="row gap-4">
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="carbon:view-filled" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">1320</span>
-                                                                                    </div>
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="bxs:purchase-tag" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">689</span>
-                                                                                    </div>
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="material-symbols:star" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">4.7/5</span>
+                                                        <div class="col-7 my-2 wt-slide-borderC">
+                                                            <div class="row">
+                                                                <span class="wt-slide-cont-textC" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700;">11 Day Tour Plan</span>
+                                                                <div class="col-12">
+                                                                    <div class="row ms-lg-3 mt-2">
+                                                                        <div class="col-7 m-0 p-0">
+                                                                            <p class="wt-slide-cont-textC2" style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400;">Lorem ipsum dolor sit amet consectetur. Praesent placerat ullamcorper enim tincidunt tempus nulla consequat dolor in. Tortor eu vestibulum tortor facilisi commodo. Magna euismod leo ullamcorper id aliquam.</p>
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <div class="row">
+                                                                                <div class="col-4">
+                                                                                    <div class="row gap-4">
+                                                                                        <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
+                                                                                            <iconify-icon icon="carbon:view-filled" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
+                                                                                            <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">1320</span>
+                                                                                        </div>
+                                                                                        <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
+                                                                                            <iconify-icon icon="bxs:purchase-tag" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
+                                                                                            <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">689</span>
+                                                                                        </div>
+                                                                                        <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
+                                                                                            <iconify-icon icon="material-symbols:star" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
+                                                                                            <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">4.7/5</span>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="row mt-lg-5">
-                                                                    <div class="col-8">
-                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.57vh); font-weight: 600; color: #333;">Visiting Places</span>
-                                                                        <div class="col-12">
-                                                                            <div class="row">
-                                                                                <div class="col-6">
-                                                                                    <div class="row justify-content-center gap-3 mt-2">
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Galle</span>
+                                                                <div class="col-12">
+                                                                    <div class="row mt-lg-5">
+                                                                        <div class="col-8">
+                                                                            <span class="wt-slide-cont-textC" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.57vh); font-weight: 600;">Visiting Places</span>
+                                                                            <div class="col-12">
+                                                                                <div class="row">
+                                                                                    <div class="col-6">
+                                                                                        <div class="row justify-content-center gap-3 mt-2">
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Galle</span>
+                                                                                            </div>
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Colombo</span>
+                                                                                            </div>
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Ella</span>
+                                                                                            </div>
                                                                                         </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Colombo</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Ella</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row justify-content-center gap-3 mt-2">
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Kandy</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Mirissa</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Anuradhapura</span>
+                                                                                        <div class="row justify-content-center gap-3 mt-2">
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Kandy</span>
+                                                                                            </div>
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Mirissa</span>
+                                                                                            </div>
+                                                                                            <div class="col-3 includeBlog1">
+                                                                                                <span class="placesText1">Anuradhapura</span>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-4 d-flex align-items-end">
-                                                                        <div class="row justify-content-end">
-                                                                            <div class="col-8">
-                                                                                <div class="row gap-3">
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn1">
-                                                                                        <iconify-icon class="py-2 px-3" icon="ic:baseline-location-on" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
-                                                                                    </div>
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn2">
-                                                                                        <iconify-icon class="py-2 px-3" icon="mdi:airplane" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
-                                                                                    </div>
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn3">
-                                                                                        <iconify-icon class="py-2 px-3" icon="material-symbols:delete" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
+                                                                        <div class="col-4 d-flex align-items-end">
+                                                                            <div class="row justify-content-end">
+                                                                                <div class="col-8">
+                                                                                    <div class="row gap-3">
+                                                                                        <div class="col-3 includeIconBlog1 animatedBtn1">
+                                                                                            <iconify-icon class="py-2 px-3" icon="ic:baseline-location-on" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
+                                                                                        </div>
+                                                                                        <div class="col-3 includeIconBlog1 animatedBtn2">
+                                                                                            <iconify-icon class="py-2 px-3" icon="mdi:airplane" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
+                                                                                        </div>
+                                                                                        <div class="col-3 includeIconBlog1 animatedBtn3">
+                                                                                            <iconify-icon class="py-2 px-3" icon="material-symbols:delete" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -178,125 +183,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="col-12 py-3" style="border-radius: 6px; border: 1px solid #cecece; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
-                                                <div class="row">
-                                                    <div class="col-5">
-                                                        <div class="row justify-content-center">
-                                                            <div class="col-11">
-                                                                <div class="slider-container">
-                                                                    <span class="arrows left" onclick="sliderMover('left');">&lt;</span>
-                                                                    <span class="arrows right" onclick="sliderMover('right');">&gt;</span>
-
-                                                                    <div class="slides" data-currentMargin="12.5" id="slider" data-imageNumber="1">
-                                                                        <div class="slide active" id="slide1">
-                                                                            <img src="./assets/img/itinerary_IMG/seegiriya.png" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide2">
-                                                                            <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide3">
-                                                                            <img src="./assets/img/itinerary_IMG/colombo.png" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide4">
-                                                                            <img src="./assets/img/itinerary_IMG/matara.jpg" />
-                                                                        </div>
-                                                                        <div class="slide" id="slide5">
-                                                                            <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-7 my-2" style="border-left: 2px solid #cecece;">
-                                                        <div class="row">
-                                                            <span style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700; color: #333;">7 Day Luxury Tour Plan</span>
-                                                            <div class="col-12">
-                                                                <div class="row ms-lg-3 mt-2">
-                                                                    <div class="col-7 m-0 p-0">
-                                                                        <p style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400; color: #5F5F5F;">Lorem ipsum dolor sit amet consectetur. Praesent placerat ullamcorper enim tincidunt tempus nulla consequat dolor in. Tortor eu vestibulum tortor facilisi commodo. Magna euismod leo ullamcorper id aliquam.</p>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="row">
-                                                                            <div class="col-4">
-                                                                                <div class="row gap-4">
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="carbon:view-filled" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">1020</span>
-                                                                                    </div>
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="bxs:purchase-tag" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">429</span>
-                                                                                    </div>
-                                                                                    <div class="col-3 d-flex align-items-center gap-2 justify-content-center" style="background-color: #E8E8E8; border-radius: 6px;">
-                                                                                        <iconify-icon icon="material-symbols:star" style="font-size: calc(0.55rem + 0.55vh);"></iconify-icon>
-                                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 600; color: #333;">4.8/5</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="row mt-lg-5">
-                                                                    <div class="col-8">
-                                                                        <span style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.57vh); font-weight: 600; color: #333;">Visiting Places</span>
-                                                                        <div class="col-12">
-                                                                            <div class="row">
-                                                                                <div class="col-6">
-                                                                                    <div class="row justify-content-center gap-3 mt-2">
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Galle</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Colombo</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Ella</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row justify-content-center gap-3 mt-2">
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Kandy</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Mirissa</span>
-                                                                                        </div>
-                                                                                        <div class="col-3 includeBlog1">
-                                                                                            <span class="placesText1">Anuradhapura</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-4 d-flex align-items-end">
-                                                                        <div class="row justify-content-end">
-                                                                            <div class="col-8">
-                                                                                <div class="row gap-3">
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn1">
-                                                                                        <iconify-icon class="py-2 px-3" icon="ic:baseline-location-on" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
-                                                                                    </div>
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn2">
-                                                                                        <iconify-icon class="py-2 px-3" icon="mdi:airplane" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
-                                                                                    </div>
-                                                                                    <div class="col-3 includeIconBlog1 animatedBtn3">
-                                                                                        <iconify-icon class="py-2 px-3" icon="material-symbols:delete" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

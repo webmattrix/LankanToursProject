@@ -96,3 +96,52 @@
   opacity: 0.25;
 }
 
+.after-slider-cont-bg{
+  background-color: #E7E7E7;
+}
+
+.bg-blog-cont1{
+  background-color: #FFFFFF;
+}
+
+.blog-place-textC{
+  color: #1546F4;
+}
+
+.blog-place-desc{
+  color: black;
+}
+
+.icon-style2{
+  color: black;
+}
+
+.places-marked{
+  color: black;
+}
+
+.city-desc{
+  color: black;
+}
+
+.ts-feedback{
+  color: black;
+}
+
+.blog-cont-feedB{
+background-color: #EBEBEB;
+}
+
+.feedB-date1{
+  color: black;
+}
+
+.feedB-cont-desc{
+  color: black;
+}
+
+.viewMore-Btn{
+  background-color: #2C2C2C;
+  border: 6px solid #E7E7E7;
+  color: #FFFFFF;
+}
