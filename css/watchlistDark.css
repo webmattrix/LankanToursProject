@@ -363,3 +363,31 @@ img {
 .wt-slide-cont-textC2{
     color: #c7c7c7;
 }
+
+.input_textP{
+    font-size: calc(0.62rem + 0.62vh);
+}
+
+@media(max-width: 1200px){
+    .search_bar1 {
+        padding: 5px;
+        height: 7vh;
+    }
+    .search_field1{
+        height: 5.8vh;
+    }
+    .selectDrop1{
+        height: 6vh;
+    }
+    .input_textP{
+        font-size: calc(0.56rem + 0.56vh);
+    }
+    .icon_Sbtn1{
+        height: 6vh;
+    }
+    .arrows{
+      width: 37px;
+      height: 37px;
+      font-size: 18px;   
+    }
+}
