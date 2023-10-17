@@ -93,7 +93,6 @@ window.onload = function () {
 };
 
 function setTimeZone() {
-  // alert("OK");
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {

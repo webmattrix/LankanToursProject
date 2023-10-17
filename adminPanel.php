@@ -1,6 +1,7 @@
 <?php
 require "./assets/model/sqlConnection.php";
 require "./assets/model/visitor.php";
+require "./assets/model/timeZoneConverter.php";
 
 
 session_start();
@@ -19,6 +20,8 @@ session_start();
     <link rel="stylesheet" href="../css/adminPanel.css">
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/scrolbar.css">
+
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body style="background-color: #EAEAEA;">
@@ -39,9 +42,6 @@ session_start();
                     <!-- Page Content / body content eka methanin liyanna -->
                     <div class="col-12 px-3 pt-2 pb-3">
                         <div class="row">
-
-                            <button class="btn" onclick="getVisitors();">Click Me</button>
-
                             <div class="admin_header-grid">
 
                                 <?php
@@ -161,6 +161,7 @@ session_start();
                                 <div class="admin_body-grid">
                                     <div class="position-relative"> <!-- Income Chart (According to the months) -->
                                         <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">- Year : 2023 -</span>
+                                        <?php echo ($_SESSION["timeZone"]); ?>
                                         <div class="w-100 h-100">
                                             <canvas id="canvas" class="rounded p-2"></canvas>
                                         </div>
@@ -179,36 +180,41 @@ session_start();
                                         <div class="d-flex flex-column gap-3 admin_panel_scroll-boxes" style="overflow-y: auto;">
                                             <?php
 
-                                            $message_rs = Database::search("SELECT * FROM `request_message` ORDER BY `status` ASC");
+                                            $message_rs = Database::search("SELECT * FROM `request_message` ORDER BY `date_time` DESC");
 
                                             for ($x = 0; $x < $message_rs->num_rows; $x++) {
                                                 $message_data = $message_rs->fetch_assoc();
 
-                                                $user_data = Database::search("SELECT * FROM user WHERE `email`='" . $message_data["email"] . "'");
-                                                if ($user_data->num_rows == 1) {
+                                                $convertTime = strtotime(timeConverter::convert($message_data["date_time"]));
+
+                                                $user_rs = Database::search("SELECT * FROM user WHERE `email`='" . $message_data["email"] . "'");
+                                                if ($user_rs->num_rows == 1) {
                                                     $user_data = $user_rs->fetch_assoc();
                                             ?>
-                                                    <div class="msg-box px-3 rounded">
+                                                    <div class="msg-box px-3 rounded <?php if ($message_data["status"] == 0) {
+                                                                                            echo ("border border-secondary");
+                                                                                        } ?>">
                                                         <div class="d-flex w-100 justify-content-between align-items-center">
                                                             <span class="quicksand-SemiBold fs-6"><?php echo ($user_data["name"]); ?></span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php  ?></span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php echo (date("d M, Y", $convertTime)); ?></span>
                                                         </div>
                                                         <div class="pt-2 quicksand-SemiBold position-relative">
-                                                            <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
+                                                            <span class="text-black-50 admin_panel-msg-text"><?php echo ($message_data["message"]); ?></span>
                                                             <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
-                                                            <?php echo ($_SESSION["timeZone"]); ?>
                                                         </div>
                                                     </div>
                                                 <?php
                                                 } else {
                                                 ?>
-                                                    <div class="msg-box px-3 rounded">
+                                                    <div class="msg-box px-3 rounded <?php if ($message_data["status"] == 0) {
+                                                                                            echo ("border border-secondary");
+                                                                                        } ?>">
                                                         <div class="d-flex w-100 justify-content-between align-items-center">
-                                                            <span class="quicksand-SemiBold fs-6">Sahan Perera</span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">2023-06-06</span>
+                                                            <span class="quicksand-SemiBold fs-6"><?php echo ($message_data["email"]); ?></span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php echo (date("d M, Y", $convertTime)); ?></span>
                                                         </div>
                                                         <div class="pt-2 quicksand-SemiBold position-relative">
-                                                            <span class="text-black-50 admin_panel-msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis voluptatum vitae! Provident repellat suscipit praesentium, vero commodi debitis consectetur magnam quos in nulla. Sunt, porro neque, sed nulla perferendis fugiat nostrum delectus numquam, iusto ipsa modi at tenetur nobis.</span>
+                                                            <span class="text-black-50 admin_panel-msg-text"><?php echo ($message_data["message"]); ?></span>
                                                             <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
                                                         </div>
                                                     </div>
