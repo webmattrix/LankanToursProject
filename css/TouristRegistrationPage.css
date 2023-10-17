@@ -36,3 +36,18 @@
 .inputFeild{
     background-color: rgba(247, 247, 247, 0.415);
  }
+ .LoginBox {
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .LoginBox {
+        margin-left: 0vw;
+        margin-top: 50vh;
+        transform: translate(0%, -50%);
+    }
+
+}

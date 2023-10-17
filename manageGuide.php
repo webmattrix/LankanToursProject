@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/adminTemplate.css">
     <link rel="stylesheet" href="./css/GuidPage.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
 </head>
 
 <body style="background-color: #EAEAEA;">
@@ -34,7 +35,7 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-lg-4 col-12">
-                                                <img src="./assets/img/GuidePage_IMG/bohemian-man-with-his-arms-crossed.jpg" class="img-fluid rounded-start" style="border-radius:50%; object-fit: cover; ">
+                                                <img src="./assets/img/GuidePage_IMG/bohemian-man-with-his-arms-crossed.jpg" class="img-fluid " style="border-radius:5px; object-fit: cover; ">
                                             </div>
                                             <div class="col-lg-8 col-12">
                                                 <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Most Famouse Tour Guide</h5>
@@ -51,7 +52,7 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-lg-4 col-12">
-                                                <img src="./assets/img/GuidePage_IMG/bohemian-man-with-his-arms-crossed.jpg"  class="img-fluid rounded-start" style="border-radius:50%; object-fit: cover; ">
+                                                <img src="./assets/img/GuidePage_IMG/bohemian-man-with-his-arms-crossed.jpg"  class="img-fluid " style=" border-radius: 5px; object-fit: cover; ">
                                             </div>
                                             <div class="col-lg-8 col-12">
                                                 <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Most Famouse Tour Guide</h5>
@@ -113,7 +114,6 @@
                                         <td><button class="btn btn-danger">Available</button></i>
                                         </td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -128,11 +128,9 @@
                                 </ul>
                             </nav>
                         </div>
-
                         <div class="col-12 mt-4">
                             <h2 class="text-center" style="font-family: Inter;">Add New Guide</h2>
                         </div>
-
                         <div class="col-12 mb-4 mt-4">
                             <div class="row">
                                 <div class="col-10 offset-1 offset-lg-0">
@@ -154,6 +152,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                for ($x = 0; $x < 6; $x++) {
+                                ?>
                                     <tr style="font-size: small;">
                                         <td>UserEmail@gmail.com</td>
                                         <td>07/08/2023</td>
@@ -161,28 +162,9 @@
                                         <td><button class="btn btn-primary">view</button></i>
                                         </td>
                                     </tr>
-                                    <tr style="font-size: small;">
-                                        <td>UserEmail@gmail.com</td>
-                                        <td>07/08/2023</td>
-                                        <td>24/08/2023</td>
-                                        <td><button class="btn btn-primary">view</button></i>
-                                        </td>
-                                    </tr>
-                                    <tr style="font-size: small;">
-                                        <td>UserEmail@gmail.com</td>
-                                        <td>07/08/2023</td>
-                                        <td>24/08/2023</td>
-                                        <td><button class="btn btn-primary">view</button></i>
-                                        </td>
-                                    </tr>
-                                    <tr style="font-size: small;">
-                                        <td>UserEmail@gmail.com</td>
-                                        <td>07/08/2023</td>
-                                        <td>24/08/2023</td>
-                                        <td><button class="btn btn-primary">view</button></i>
-                                        </td>
-                                    </tr>
-
+                                    <?php
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -190,12 +172,9 @@
                     <!-- Page Content / body content eka methanin liyanna -->
 
                 </div>
-
             </div>
-
         </div>
     </div>
-
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>

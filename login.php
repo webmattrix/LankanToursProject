@@ -13,16 +13,17 @@
 
 </head>
 
-<body class="LoginBackground">
-    <div class="col-1 Logincard2 d-lg-block d-none" style=" position: absolute;z-index:-5; ">
+<body class="LoginBackground ">
+    <div class="col-1 Logincard2 d-lg-block  d-md-block d-none" style=" position: absolute;z-index:-5; ">
     </div>
     <h6 class="p-3 mb-5 text-white" style="font-family: QuickSand;"><i class="bi bi-arrow-right-circle-fill"></i>&nbsp; Registration</h6>
 
-    <div class="container-fluid  d-flex justify-content-center  align-items-center ">
-        <div class="col-lg-5 col-12  Logincard p-lg-5 p-2 mb-3 ">
+    <div class=" LoginBox p-3 p-md-5">
+
+        <div class="   Logincard p-lg-5 p-2 mb-3 ">
             <div class="row align-content-center ">
-                <div class="col-12 mt-2 mt-lg-0">
-                    <h1 style="font-family: QuickSand;">Login</h1>
+                <div class="col-12 mt-2 mt-lg-0 ">
+                    <h1 class="text-center" style="font-family: QuickSand;">Login</h1>
                 </div>
                 <div class="col-12 g-5 ">
                     <div class="row">
@@ -37,27 +38,29 @@
                         </div>
                         <div class="col-12 ">
                             <div class="row">
-                                <div class="col-lg-6 col-12  text-start mb-2">
+                                <div class="col-lg-6 col-12 col-md-6 text-start mb-2">
                                     <div class=" form-check">
                                         <input class="form-check-input inputFeild" type="checkbox" id="rememberme">
                                         <label class="form-check-label  " style="font-family: QuickSand;">Remember ME</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-12  text-lg-end text-start">
+                                <div class="col-lg-6 col-12 col-md-6  text-lg-end  text-md-end text-start">
                                     <a href="#" class=" text-decoration-none " style="color: rgb(248, 103, 103);font-family:QuickSand;" onclick="forgotPassword();">Forget Password</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-12 offset-lg-3 mt-3 mb-3 mb-lg-0">
-                            <button class="form-control " style="font-family: QuickSand;">Login</button>
+                            <button class="form-control text-white " style="font-family: QuickSand;  background-color: rgba(247, 247, 247, 0.415);">Login</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
     <script src="./js/bootstrap.bundle.js"></script>
-    
+
 </body>
 
 </html>

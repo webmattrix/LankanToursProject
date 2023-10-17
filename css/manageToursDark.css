@@ -68,18 +68,18 @@
     font-weight: 400;
     font-family: 'Segoe';
     line-height: 1.5;
-    color: #212529;
-    background-color: #D7D7D7;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1024" height="1024" viewBox="0 0 1024 1024"%3E%3Cpath fill="white" d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z"%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
-    border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    background-color: #242424;
+    border: 1px solid #858585;
+    color: #FFFFFF;
 }
 
 .selectorMTP_ord:focus {
@@ -92,10 +92,11 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #3E3E3E;
     padding-top: 7.1%;
     padding-bottom: 7.1%;
     font-family: 'Inter';
+    color: #FFFFFF;
 }
 
 .addTourBtn1:hover {
@@ -136,18 +137,18 @@
     font-weight: 400;
     font-family: 'Segoe';
     line-height: 1.5;
-    color: #212529;
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="1024" height="1024" viewBox="0 0 1024 1024"%3E%3Cpath fill="white" d="M831.872 340.864L512 652.672L192.128 340.864a30.592 30.592 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.592 30.592 0 0 0-42.752 0z"%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
-    border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    background-color: #3E3E3E;
+    border: 1px solid #858585;
+    color: #FFFFFF;
 }
 
 .selectorModalMTP_ord:focus {
@@ -165,10 +166,11 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #E7E7E7;
+    background-color: #3E3E3E;
     padding-top: 7.1%;
     padding-bottom: 7.1%;
     font-family: 'Inter';
+    color: #FFFFFF;
 }
 
 .addTourBtnDel1:hover {
@@ -261,61 +263,61 @@
 }
 
 .bg-MT-C {
-    background-color: #EBEBEB;
+    background-color: #242424;
 }
 
 .mt-poptp-textC {
-    color: black;
+    color: #FFFFFF;
 }
 
 .mt-collapse-bg {
-    background-color: #FFFFFF;
+    background-color: #b6b5b5;
 }
 
 .mt-collapse-cont-textC {
-    color: black;
+    color: #FFFFFF;
 }
 
 .mt-icon-style5 {
-    color: #9A7C13;
+    color: #ddc22a;
 }
 
-.mt-blog-cont2{
-    background-color: #FFFFFF;
+.mt-blog-cont2 {
+    background-color: #3E3E3E;
 }
 
-.mt-filter-icon3{
-    color: black;
+.mt-filter-icon3 {
+    color: #FFFFFF;
 }
 
-.mt-filter-textC{
-    color: black;
+.mt-filter-textC {
+    color: #FFFFFF;
 }
 
-.mt-tab-textC{
-    color: black;
+.mt-tab-textC {
+    color: #FFFFFF;
 }
 
-.mt-modal-bgC{
-    background-color: #FFFFFF;
+.mt-modal-bgC {
+    background-color: #3E3E3E;
 }
 
-.mt-modal-titleC{
-    color: black;
+.mt-modal-titleC {
+    color: #FFFFFF;
 }
 
-.mt-blog-cont4{
-    background-color: #E4E4E4;
+.mt-blog-cont4 {
+    background-color: #242424;
 }
 
-.mt-modal-cont-textC{
-    color: black;
+.mt-modal-cont-textC {
+    color: #FFFFFF;
 }
 
-.mt-modal-tab-blog{
-    background-color: #FFFFFF;
+.mt-modal-tab-blog {
+    background-color: #3E3E3E;
 }
 
-.mt-modal-tab-textC{
-    color: black;
+.mt-modal-tab-textC {
+    color: #FFFFFF;
 }
