@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="./css/itinerary.css" />
+    <!-- <link rel="stylesheet" href="./css/itinerary.css" /> -->
+    <link rel="stylesheet" href="./css/itineraryDark.css"/>
     <link rel="stylesheet" href="./css/scrolbar.css" />
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
@@ -186,27 +187,27 @@
 
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12" style="background-color: #E7E7E7;">
+                            <div class="col-12 after-slider-cont-bg">
                                 <div class="row justify-content-center">
 
-                                    <div class="col-11 mt-5 py-4 d-lg-grid d-none d-sm-none" style="background-color: #FFFFFF; border-radius: 6px;">
+                                    <div class="col-11 mt-5 py-4 d-lg-grid d-none d-sm-none bg-blog-cont1" style="border-radius: 6px;">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="row justify-content-center gap-3">
                                                     <div class="col-12 col-lg-6">
                                                         <div class="row">
-                                                            <span class="fs-4 text-center fw-bold" style="color: #1546F4; font-family: 'Segoe';">Day 01</span>
-                                                            <p class="fs-6 pt-lg-3 pt-2" style="font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
+                                                            <span class="fs-4 text-center fw-bold blog-place-textC" style="font-family: 'Segoe';">Day 01</span>
+                                                            <p class="fs-6 pt-lg-3 pt-2 blog-place-desc" style="font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
                                                                 Sed nulla at pretium vestibulum eleifend pharetra magna maecenas vel. Viverra pellentesque risus consectetur habitasse
                                                                 congue senectus. Enim posuere viverra consequat quis urna leo iaculis ut. Velit id consectetur ut et. Egestas in nibh et
                                                                 fermentum in integer augue ullamcorper massa. Lectus vitae venenatis ullamcorper pellentesque commodo.
                                                             </p>
                                                             <div class="col-12 mt-1 pt-2 pb-3">
                                                                 <div class="row" style="line-height: 0.28in;">
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -220,7 +221,7 @@
                                                                         <img src="./assets/img/itinerary_IMG/colombo_2.jpg" style="width: 100%; height: 30vh; border-radius: 6px;" alt="">
                                                                     </div>
                                                                     <div class="row">
-                                                                        <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Colombo</span>
+                                                                        <span class="fs-5 text-center pt-2 city-desc" style="font-family: 'Segoe';">Colombo</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -233,7 +234,7 @@
 
                                     <!-- Small Devices -->
 
-                                    <div class="col-11 mt-5 py-4 d-lg-none d-grid" style="background-color: #FFFFFF; border-radius: 6px;">
+                                    <div class="col-11 mt-5 py-4 d-lg-none d-grid bg-blog-cont1" style="border-radius: 6px;">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="row justify-content-center gap-3">
@@ -246,7 +247,7 @@
                                                                         <img src="./assets/img/itinerary_IMG/colombo_2.jpg" style="width: 100%; height: 30vh; border-radius: 6px; object-fit: cover;" alt="">
                                                                     </div>
                                                                     <div class="row">
-                                                                        <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Colombo</span>
+                                                                        <span class="fs-5 text-center pt-2 city-desc" style="font-family: 'Segoe';">Colombo</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -254,18 +255,18 @@
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <div class="row">
-                                                            <span class="fs-4 text-center fw-bold" style="color: #1546F4; font-family: 'Segoe';">Day 01</span>
-                                                            <p class="pt-lg-3 pt-2" style="font-family: 'Segoe'; font-size: calc(0.6rem + 0.6vh);">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
+                                                            <span class="fs-4 text-center fw-bold blog-place-textC" style="font-family: 'Segoe';">Day 01</span>
+                                                            <p class="pt-lg-3 pt-2 blog-place-desc" style="font-family: 'Segoe'; font-size: calc(0.6rem + 0.6vh);">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
                                                                 Sed nulla at pretium vestibulum eleifend pharetra magna maecenas vel. Viverra pellentesque risus consectetur habitasse
                                                                 congue senectus. Enim posuere viverra consequat quis urna leo iaculis ut. Velit id consectetur ut et. Egestas in nibh et
                                                                 fermentum in integer augue ullamcorper massa. Lectus vitae venenatis ullamcorper pellentesque commodo.
                                                             </p>
                                                             <div class="col-12 mt-1 pt-2 pb-3">
                                                                 <div class="row" style="line-height: 0.24in;">
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -278,7 +279,7 @@
                                     <!-- Small Devices -->
 
 
-                                    <div class="col-11 mt-4 py-4 d-lg-grid d-none d-sm-none" style="background-color: #FFFFFF; border-radius: 6px;">
+                                    <div class="col-11 mt-4 py-4 d-lg-grid d-none d-sm-none bg-blog-cont1" style="border-radius: 6px;">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="row justify-content-center gap-3">
@@ -291,7 +292,7 @@
                                                                         <img src="./assets/img/itinerary_IMG/seegiriya.png" style="width: 100%; height: 30vh; border-radius: 6px; object-fit: cover;" alt="">
                                                                     </div>
                                                                     <div class="row">
-                                                                        <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Seegiriya</span>
+                                                                        <span class="fs-5 text-center pt-2 city-desc" style="font-family: 'Segoe';">Seegiriya</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -299,18 +300,18 @@
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <div class="row">
-                                                            <span class="fs-4 text-center fw-bold" style="color: #1546F4; font-family: 'Segoe';">Day 02</span>
-                                                            <p class="fs-6 pt-lg-3 pt-2" style="font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
+                                                            <span class="fs-4 text-center fw-bold blog-place-textC" style="font-family: 'Segoe';">Day 02</span>
+                                                            <p class="fs-6 pt-lg-3 pt-2 blog-place-desc" style="font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
                                                                 Sed nulla at pretium vestibulum eleifend pharetra magna maecenas vel. Viverra pellentesque risus consectetur habitasse
                                                                 congue senectus. Enim posuere viverra consequat quis urna leo iaculis ut. Velit id consectetur ut et. Egestas in nibh et
                                                                 fermentum in integer augue ullamcorper massa. Lectus vitae venenatis ullamcorper pellentesque commodo.
                                                             </p>
                                                             <div class="col-12 mt-1 pt-2 pb-2">
                                                                 <div class="row" style="line-height: 0.28in;">
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="fs-6 text-black" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span class="fs-6"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur.</span></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -322,7 +323,7 @@
 
                                     <!-- Small Device -->
 
-                                    <div class="col-11 d-lg-none d-grid d-sm-none" style="background-color: #FFFFFF; border-radius: 6px;">
+                                    <div class="col-11 d-lg-none d-grid d-sm-none bg-blog-cont1" style="border-radius: 6px;">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="row justify-content-center gap-3">
@@ -335,7 +336,7 @@
                                                                         <img src="./assets/img/itinerary_IMG/seegiriya.png" style="width: 100%; height: 30vh; border-radius: 6px;" alt="">
                                                                     </div>
                                                                     <div class="row">
-                                                                        <span class="fs-5 text-center pt-2" style="font-family: 'Segoe';">Seegiriya</span>
+                                                                        <span class="fs-5 text-center pt-2 city-desc" style="font-family: 'Segoe';">Seegiriya</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -343,18 +344,18 @@
                                                     </div>
                                                     <div class="col-12 col-lg-6">
                                                         <div class="row">
-                                                            <span class="fs-4 text-center fw-bold" style="color: #1546F4; font-family: 'Segoe';">Day 02</span>
-                                                            <p class="pt-lg-3 pt-2" style="font-family: 'Segoe'; font-size: calc(0.6rem + 0.6vh);">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
+                                                            <span class="fs-4 text-center fw-bold blog-place-textC" style="font-family: 'Segoe';">Day 02</span>
+                                                            <p class="pt-lg-3 pt-2 blog-place-desc" style="font-family: 'Segoe'; font-size: calc(0.6rem + 0.6vh);">Lorem ipsum dolor sit amet consectetur. Vel volutpat at fermentum augue. Mattis accumsan urna lacus tellus.
                                                                 Sed nulla at pretium vestibulum eleifend pharetra magna maecenas vel. Viverra pellentesque risus consectetur habitasse
                                                                 congue senectus. Enim posuere viverra consequat quis urna leo iaculis ut. Velit id consectetur ut et. Egestas in nibh et
                                                                 fermentum in integer augue ullamcorper massa. Lectus vitae venenatis ullamcorper pellentesque commodo.
                                                             </p>
                                                             <div class="col-12 mt-1 pt-2 pb-3">
                                                                 <div class="row" style="line-height: 0.24in;">
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
-                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill text-black me-2"></i><span class="text-black" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
+                                                                    <span style="font-size: calc(0.64rem + 0.64vh);"><i class="bi bi-geo-alt-fill icon-style2 me-2"></i><span class="places-marked" style="font-weight: 600; font-family: 'Segoe'; font-size: calc(0.64rem + 0.64vh);">Lorem ipsum dolor sit amet consectetur.</span></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -376,49 +377,49 @@
 
                                     <div class="col-12 mb-4">
                                         <div class="row justify-content-center">
-                                            <div class="col-11 mb-4 pb-3 pt-1" style="background-color: #FFFFFF; border-radius: 6px; box-shadow: 0 3px 10px -6px #222;">
+                                            <div class="col-11 mb-4 pb-3 pt-1 bg-blog-cont1" style="border-radius: 6px; box-shadow: 0 3px 10px -6px #222;">
                                                 <div class="row">
-                                                    <span class="fs-3 fw-bold pb-3 d-lg-grid d-sm-grid d-none" style="font-family: 'Segoe';">Tourist Feedback</span>
-                                                    <span class="fs-5 fw-bold pb-1 d-lg-none d-sm-none d-grid" style="font-family: 'Segoe';">Tourist Feedback</span>
+                                                    <span class="fs-3 fw-bold pb-3 d-lg-grid d-sm-grid d-none ts-feedback" style="font-family: 'Segoe';">Tourist Feedback</span>
+                                                    <span class="fs-5 fw-bold pb-1 d-lg-none d-sm-none d-grid ts-feedback" style="font-family: 'Segoe';">Tourist Feedback</span>
                                                     <div class="col-12">
-                                                        <div class="col-12 mb-3" style="background-color: #EBEBEB; border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
+                                                        <div class="col-12 mb-3 blog-cont-feedB" style="border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
                                                             <div class="row">
-                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
-                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
+                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none feedB-date1" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
+                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid feedB-date1" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
                                                                 <hr class="col-9 col-lg-11 col-sm-11 ms-4" style="border-width: 2px; border-color: #D7D7D7;">
                                                             </div>
                                                             <div class="col-12 col-lg-8 col-sm-8 ps-3">
                                                                 <div class="row">
-                                                                    <p style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
+                                                                    <p class="feedB-cont-desc" style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
                                                                         Ultrices eleifend erat orci molestie laoreet habitant euismod pellentesque. Placerat a mi.
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 mb-3" style="background-color: #EBEBEB; border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
+                                                        <div class="col-12 mb-3 blog-cont-feedB" style="border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
                                                             <div class="row">
-                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
-                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
+                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none feedB-date1" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
+                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid feedB-date1" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
                                                                 <hr class="col-9 col-lg-11 col-sm-11 ms-4" style="border-width: 2px; border-color: #D7D7D7;">
                                                             </div>
                                                             <div class="col-12 col-lg-8 col-sm-8 ps-3">
                                                                 <div class="row">
-                                                                    <p style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
+                                                                    <p class="feedB-cont-desc" style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
                                                                         Ultrices eleifend erat orci molestie laoreet habitant euismod pellentesque. Placerat a mi.
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 mb-3" style="background-color: #EBEBEB; border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
+                                                        <div class="col-12 mb-3 blog-cont-feedB" style="border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
                                                             <div class="row">
-                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
-                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
+                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none feedB-date1" style="font-family: 'Segoe'; font-weight: 400;">2023-08-08</span>
+                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid feedB-date1" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);">2023-08-08</span>
                                                                 <hr class="col-9 col-lg-11 col-sm-11 ms-4" style="border-width: 2px; border-color: #D7D7D7;">
 
                                                             </div>
                                                             <div class="col-12 col-lg-8 col-sm-8 ps-3">
                                                                 <div class="row">
-                                                                    <p style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
+                                                                    <p class="feedB-cont-desc" style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Lectus imperdiet fames quam pretium lacus ac.
                                                                         Ultrices eleifend erat orci molestie laoreet habitant euismod pellentesque. Placerat a mi.
                                                                     </p>
                                                                 </div>
@@ -428,10 +429,10 @@
                                                     <div class="col-12 mb-2 pt-3">
                                                         <div class="row justify-content-center">
                                                             <div class="col-8 col-lg-2 col-sm-3 position-absolute d-lg-grid d-sm-grid d-none">
-                                                                <button class="btn text-white col-12" style="background-color: #2C2C2C; border-radius: 40px; border: 6px solid #E7E7E7; font-family: 'Segoe';">view more</button>
+                                                                <button class="col-12 viewMore-Btn py-2" style="border-radius: 40px; font-family: 'Segoe';">view more</button>
                                                             </div>
                                                             <div class="col-6 col-lg-2 col-sm-3 position-absolute d-grid d-lg-none d-sm-none">
-                                                                <button class="btn text-white col-12" style="background-color: #2C2C2C; border-radius: 40px; border: 6px solid #E7E7E7; font-family: 'Segoe'; font-size: calc(0.57rem + 0.59vh);">view more</button>
+                                                                <button class="col-12 viewMore-Btn py-2" style="border-radius: 40px; font-family: 'Segoe'; font-size: calc(0.57rem + 0.59vh);">view more</button>
                                                             </div>
                                                         </div>
                                                     </div>
