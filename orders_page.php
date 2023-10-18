@@ -16,7 +16,14 @@
     <div class="container-fluid">
         <div class="row">
 
-        <?php require "./assets/model/sqlConnection.php";?>
+            <?php
+
+            require "./assets/model/sqlConnection.php";
+            require "./assets/model/timeZoneConverter.php";
+
+            session_start();
+
+            ?>
 
             <div class="d-flex p-0">
                 <?php
@@ -584,11 +591,23 @@
                                                         <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
                                                             <div class="row">
 
-                                                            <?php 
-                                                            
-                                                              $order_details = Database::search("SELECT ");
+                                                                <?php
 
-                                                            ?>
+                                                                $date = new DateTime();
+                                                                $tz = new DateTimeZone("Asia/Colombo");
+                                                                $date->setTimezone($tz);
+                                                                $formatDate = $date->format("Y-M-d H:i:s");
+
+                                                                $order_details = Database::search("SELECT `tour`.`id` FROM `order` INNER JOIN `tour` 
+                                                                ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
+                                                                ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
+                                                                ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
+                                                                ON `order`.`order_status_id`=`order_status`.`id` 
+                                                                WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned'");
+                                                                
+                                                                $order_num = $order_details->num_rows;
+
+                                                                ?>
 
                                                                 <table class="table-bordered" style="font-family: 'Inter'; border: 1px solid #858585;">
                                                                     <thead>
@@ -604,19 +623,38 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <div class="row">
-                                                                                <th class="col-2 py-2 text-center fw-normal tab-ord-textC">6 Day</th>
-                                                                                <td class="col-3 py-2 text-center tab-ord-textC">Sahan Perera</td>
-                                                                                <td class="col-1 py-2 text-center tab-ord-textC">11</td>
-                                                                                <td class="col-3 py-2 text-center tab-ord-textC">2023/06/12 - 2023/06/14</td>
-                                                                                <td class="col-2 py-2 text-center tab-ord-sts-ong-textC">Ongoing</td>
-                                                                                <td class="col-1 text-center">
-                                                                                    <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                </td>
-                                                                            </div>
-                                                                        </tr>
-                                                                        <tr>
+
+                                                                        <?php
+
+                                                                        for ($x = 0; $x < $order_num; $x++) {
+
+                                                                            $order_data = $order_details->fetch_assoc();
+
+                                                                            $timeSetStart = timeConverter::convert($order_data["start_date"]);
+                                                                            $timeSetEnd = timeConverter::convert($order_data["end_date"]);
+
+                                                                        ?>
+
+                                                                            <tr>
+                                                                                <div class="row">
+                                                                                    <th class="col-2 py-2 text-center fw-normal tab-ord-textC"><?php echo $order_data["tour.name"];?></th>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC">Sahan Perera</td>
+                                                                                    <td class="col-1 py-2 text-center tab-ord-textC">11</td>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC">2023/06/12 - 2023/06/14</td>
+                                                                                    <td class="col-2 py-2 text-center tab-ord-sts-ong-textC">Ongoing</td>
+                                                                                    <td class="col-1 text-center">
+                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                    </td>
+                                                                                </div>
+                                                                            </tr>
+                                                                        
+                                                                        <?php
+
+                                                                        }
+
+                                                                        ?>
+
+                                                                        <!-- <tr>
                                                                             <div class="row">
                                                                                 <th class="col-2 py-2 text-center fw-normal tab-ord-textC">11 Day</th>
                                                                                 <td class="col-3 py-2 text-center tab-ord-textC">Jayantha Perera</td>
@@ -639,7 +677,7 @@
                                                                                     <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                 </td>
                                                                             </div>
-                                                                        </tr>
+                                                                        </tr> -->
                                                                     </tbody>
                                                                 </table>
                                                             </div>
