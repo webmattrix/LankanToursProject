@@ -111,9 +111,12 @@ require "assets/model/sqlConnection.php";
                                                             ?></td>
                                                         <td>
                                                             <div class="col-4">
-                                                                <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
+                                                                <button class="btn btn-secondary btn-sm py-1 px-2 border" onclick="viewDetails(<?php
+                                                                                                                                                echo $user['id'];
+                                                                                                                                                ?>)"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
                                                             </div>
                                                         </td>
+
                                                     </tr>
                                                 <?php
                                                 }
@@ -127,6 +130,16 @@ require "assets/model/sqlConnection.php";
                     </div>
                     <!-- Page Content -->
 
+                    <!-- modal -->
+                    <div class="modal" tabindex="-1" id="viewDetailsModal">
+                        <div class="modal-dialog" style="max-width:60%;">
+                            <div class="modal-content" style="background-color: #E2E2E2;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+
                 </div>
 
             </div>
@@ -134,6 +147,7 @@ require "assets/model/sqlConnection.php";
         </div>
     </div>
 
+    <script src="./js/manageTourist.js"></script>
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>

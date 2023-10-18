@@ -53,10 +53,12 @@ require "assets/model/sqlConnection.php";
                                                 $places = $resultset->fetch_all(MYSQLI_ASSOC);
 
                                                 foreach ($places as $place) {
+                                                    $r = Database::search("SELECT * FROM `city` WHERE `id`='" . $place['city_id'] . "'");
+                                                    $city = $r->fetch_assoc();
                                                 ?>
                                                     <option value="<?php echo $place['id'] ?>">
                                                         <?php
-                                                        echo $place['name'];
+                                                        echo $place['name'] . " - " . $city['name'];
                                                         ?>
                                                     </option>
                                                 <?php
@@ -77,26 +79,42 @@ require "assets/model/sqlConnection.php";
                                 <div class="modal" tabindex="-1" id="addNewPlaceModal">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
+                                            <div class="modal-header" style="background-color: white;">
+                                                <span class="fw-bold">Add New Place</span>
+                                            </div>
                                             <div class="modal-body">
                                                 <div class="row g-3">
                                                     <div class="col-12 text-start">
-                                                        <label class="form-label">Place Name</label>
+                                                        <label class="form-label">Select City</label>
                                                         <div class="input-group mb-3">
-                                                            <input type="text" id="place_name" class="form-control" id="new_password">
+                                                            <select name="" id="city" class="form-select input_field mt-1">
+                                                                <?php
+                                                                $results = Database::search("SELECT * FROM `city`");
+                                                                $cities = $results->fetch_all(MYSQLI_ASSOC);
+
+                                                                foreach ($cities as $city) {
+                                                                ?>
+                                                                    <option value="<?php echo $city['id'] ?>">
+                                                                        <?php
+                                                                        echo $city['name'];
+                                                                        ?>
+                                                                    </option>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                            </select>
                                                         </div>
                                                     </div>
 
-                                                    <form class="custom__form">
-                                                        <p>Upload Image</p>
-                                                        <div class="custom__image-container">
-                                                            <label for="place_image">
-                                                                <img src="./assets/img/newTourPlan/Photo Gallery.png" alt="">
-                                                                <a class="btn btn-sm">Browse Image</a>
-                                                            </label>
-                                                            <input type="file" id="place_image" accept="image/jpeg" />
+                                                    <div class="col-12 text-start">
+                                                        <label class="form-label">Place Name</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" id="place_name" class="form-control">
                                                         </div>
-                                                        <input type="file" accept="image/jpeg" />
-                                                    </form>
+                                                    </div>
+
+                                                    <input type="file" class="form-control form-control-sm" id="place_image" accept="image/jpeg" />
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -127,19 +145,7 @@ require "assets/model/sqlConnection.php";
                                     <span>Add Description</span>
                                     <textarea cols="12" id="description" rows="5" class="form-control mt-1"></textarea>
                                 </div>
-                                <div class="col-12 col-lg-6 mt-2">
-                                    <form class="custom__form">
-                                        <p>Upload Main Image</p>
-                                        <div class="custom__image-container">
-                                            <label id="add-img-label" for="tour_image">
-                                                <img src="./assets/img/newTourPlan/Photo Gallery.png" alt="">
-                                                <a class="btn btn-sm">Browse Image</a>
-                                            </label>
-                                            <input type="file" id="tour_image" accept="image/jpeg" />
-                                        </div>
-                                        <input type="file" accept="image/jpeg" />
-                                    </form>
-                                </div>
+
                                 <div class="col-12 col-lg-6 new_plan_container">
                                     <button class="btn add_new_plan" onclick="addNewTourPlan()">Add New Plan</button>
                                 </div>
