@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    <!-- model -->
+   
     <div class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -97,10 +97,67 @@
             </div>
         </div>
     </div>
-        <!-- model -->
+        
 
     <script src="./js/bootstrap.bundle.js"></script>
 
 </body>
 
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/adminTemplate.css">
+    <link rel="stylesheet" href="./css/AdminLogin.css">
+    <link rel="stylesheet" href="./css/font.css">
+</head>
+
+<body>
+    <div class="container-fluid admin_login-background">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 justify-content-center align-items-center text-center gui">
+                <div class="admin_login-title">
+                    <span class="text-white fs-5 segoeui-bold">Admin Login</span>
+                </div>
+                <div class="admin_login-user-image">
+                </div>
+                <div class="offset-1 col-10 admin_login-input position-relative">
+                    <input type="text" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Username">
+                    <iconify-icon icon="material-symbols:mail" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
+                </div>
+                <div class="offset-1 col-10 admin_login-input position-relative">
+                    <input type="text" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password">
+                    <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
+                </div>
+                <div class="offset-1 col-10 text-start mt-2">
+                    <input type="checkbox" class="form-check-input" style="border-radius: 100%;">
+                    <span class="text-white fs-6 quicksand-Medium">Keep Me Logged In</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn admin_login-btn quicksand-Medium d-flex justify-content-center gap-2 align-items-center text-white" >
+                        <span onclick="login();">Login</span>                        
+                        <iconify-icon icon="ph:arrow-circle-right-fill" class="pt-1" style="color: #fff;"></iconify-icon>
+                    </button>
+                </div>
+                <div class="offset-1 col-10">
+                    <hr class="admin_login-hr-break">
+                </div>
+                <div>
+                    <span class="text-danger quicksand-Medium" onclick="A_fogotPassword();">Forgot Password?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/adminLogin.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+
 </html>
+
