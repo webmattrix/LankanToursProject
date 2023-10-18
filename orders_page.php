@@ -19,9 +19,9 @@
             <?php
 
             require "./assets/model/sqlConnection.php";
-            require "./assets/model/timeZoneConverter.php";
+            // require "./assets/model/timeZoneConverter.php";
 
-            session_start();
+            // session_start();
 
             ?>
 
@@ -598,7 +598,7 @@
                                                                 $date->setTimezone($tz);
                                                                 $formatDate = $date->format("Y-M-d H:i:s");
 
-                                                                $order_details = Database::search("SELECT `tour`.`id` FROM `order` INNER JOIN `tour` 
+                                                                $order_details = Database::search("SELECT * FROM `order` INNER JOIN `tour` 
                                                                 ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
                                                                 ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
                                                                 ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
@@ -630,15 +630,15 @@
 
                                                                             $order_data = $order_details->fetch_assoc();
 
-                                                                            $timeSetStart = timeConverter::convert($order_data["start_date"]);
-                                                                            $timeSetEnd = timeConverter::convert($order_data["end_date"]);
+                                                                            // $timeSetStart = timeConverter::convert($order_data["start_date"]);
+                                                                            // $timeSetEnd = timeConverter::convert($order_data["end_date"]);
 
                                                                         ?>
 
                                                                             <tr>
                                                                                 <div class="row">
                                                                                     <th class="col-2 py-2 text-center fw-normal tab-ord-textC"><?php echo $order_data["tour.name"];?></th>
-                                                                                    <td class="col-3 py-2 text-center tab-ord-textC">Sahan Perera</td>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo $order_data["employee_id"];?></td>
                                                                                     <td class="col-1 py-2 text-center tab-ord-textC">11</td>
                                                                                     <td class="col-3 py-2 text-center tab-ord-textC">2023/06/12 - 2023/06/14</td>
                                                                                     <td class="col-2 py-2 text-center tab-ord-sts-ong-textC">Ongoing</td>
