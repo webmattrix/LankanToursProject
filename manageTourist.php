@@ -1,3 +1,6 @@
+<?php
+require "assets/model/sqlConnection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,18 +29,34 @@
                     include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
                     ?>
                     <!-- Page Content -->
+                    <?php
+                    $result = Database::search("SELECT * FROM `user`");
+                    $user_count = $result->num_rows;
+                    $users = $result->fetch_all(MYSQLI_ASSOC);
+
+                    $sevenDaysAgo = date('Y-m-d H:i:s', strtotime('-7 days'));
+                    $newly_added = Database::search("SELECT * FROM `user` WHERE `created_at` >= '$sevenDaysAgo'");
+                    $newly_added_count = $newly_added->num_rows;
+                    ?>
                     <div class="col-12 px-5 py-3">
                         <div class="row mx-auto justify-content-center">
                             <div class="col-5 offset-1 py-2 px-3 rounded-3 mt-3 admin_card">
                                 <span class='text-white fs-5 fw-bold'>Members</span><br>
                                 <div class="text-end" style="margin-top: 100px;">
-                                    <span class='text-white fw-bold'>1120</span>
+                                    <span class='text-white fw-bold'>
+                                        <?php
+                                        echo $user_count;
+                                        ?></span>
                                 </div>
                             </div>
                             <div class="col-5 offset-1 py-2 px-3 rounded-3 mt-3 admin_card" style="background-color: #B40583;">
                                 <span class='text-white fs-5 fw-bold'>New Members</span><br>
                                 <div class="text-end" style="margin-top: 100px;">
-                                    <span class='text-white fw-bold'>24</span>
+                                    <span class='text-white fw-bold'>
+                                        <?php
+                                        echo $newly_added_count;
+                                        ?>
+                                    </span>
                                 </div>
                             </div>
 
@@ -73,39 +92,32 @@
                                                     <th>Registration Date</th>
                                                     <th>Action</th>
                                                 </tr>
-                                                <tr class="border border-secondary">
-                                                    <td>TR_001</td>
-                                                    <td>Sahan Perera</td>
-                                                    <td>sahan@gmail.com</td>
-                                                    <td>2023/08/16</td>
-                                                    <td>
-                                                        <div class="col-4">
-                                                            <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr class="border border-secondary">
-                                                    <td>TR_001</td>
-                                                    <td>Sahan Perera</td>
-                                                    <td>sahan@gmail.com</td>
-                                                    <td>2023/08/16</td>
-                                                    <td>
-                                                        <div class="col-4">
-                                                            <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr class="border border-secondary">
-                                                    <td>TR_001</td>
-                                                    <td>Sahan Perera</td>
-                                                    <td>sahan@gmail.com</td>
-                                                    <td>2023/08/16</td>
-                                                    <td>
-                                                        <div class="col-4">
-                                                            <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                foreach ($users as $user) {
+                                                ?>
+                                                    <tr class="border border-secondary">
+                                                        <td><?php
+                                                            echo $user['id'];
+                                                            ?></td>
+                                                        <td><?php
+                                                            echo $user['name'];
+                                                            ?></td>
+                                                        <td><?php
+                                                            echo $user['email'];
+                                                            ?></td>
+                                                        <td><?php
+                                                            $created_at = new DateTime($user['created_at']);
+                                                            echo $formattedDate = $created_at->format('F j, Y');;
+                                                            ?></td>
+                                                        <td>
+                                                            <div class="col-4">
+                                                                <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
                                             </table>
                                         </div>
                                     </div>
