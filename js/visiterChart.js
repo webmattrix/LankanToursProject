@@ -4,7 +4,6 @@ var req = new XMLHttpRequest();
 
 req.onreadystatechange = function () {
   if (req.readyState == 4) {
-    
     new Chart(ctx, {
       type: "doughnut",
       data: {
@@ -12,7 +11,7 @@ req.onreadystatechange = function () {
         datasets: [
           {
             label: "Visiters",
-            data: [75, 19],
+            data: JSON.parse(req.responseText),
             borderWidth: 1,
           },
         ],
