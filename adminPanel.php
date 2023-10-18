@@ -157,10 +157,10 @@ session_start();
                             <hr>
 
                             <div class="admin_body-container">
+
                                 <div class="admin_body-grid">
                                     <div class="position-relative"> <!-- Income Chart (According to the months) -->
                                         <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">- Year : 2023 -</span>
-                                        <?php echo ($_SESSION["timeZone"]); ?>
                                         <div class="w-100 h-100">
                                             <canvas id="canvas" class="rounded p-2"></canvas>
                                         </div>
@@ -233,17 +233,43 @@ session_start();
                                         </div>
                                         <div class="d-flex flex-column gap-3 admin_panel_scroll-boxes" style="overflow-y: auto;">
                                             <?php
-                                            for ($x = 0; $x < 10; $x++) {
+
+                                            $date = new DateTime();
+                                            $date->setTimezone(new DateTimeZone("Asia/Colombo"));
+                                            $today = $date->format("Y-m-d");
+
+                                            $query = "SELECT *, `tour`.`name` AS `tour_name`, `employee`.`name` AS `guide_name` FROM `order`
+                                            INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
+                                            INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
+                                            INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id`
+                                            INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                            INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id`
+                                            WHERE `order`.`end_date`>='" . $today . "' AND `order_status`.`name`='Assigned'
+                                            ORDER BY `order`.`end_date` ASC";
+                                            $ongoing_order_rs = Database::search($query);
+
+                                            for ($x = 0; $x < $ongoing_order_rs->num_rows; $x++) {
+                                                $ongoing_order_data = $ongoing_order_rs->fetch_assoc();
                                             ?>
                                                 <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2">
-                                                    <img src="../assets/img/girl_profile_picture.jpg" class="" style="width: 50px; clip-path: circle();" />
+                                                    <?php
+                                                    if ($ongoing_order_data["profile_picture"] == null || empty($ongoing_order_data["profile_picture"])) {
+                                                    ?>
+                                                        <img src="../assets/img/profile/empty_profile.jpg" class="" style="width: 50px; clip-path: circle();" />
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <img src="../<?php echo ($ongoing_order_data["profile_picture"]); ?>" class="" style="width: 50px; clip-path: circle();" />
+                                                    <?php
+                                                    }
+                                                    ?>
                                                     <div class="w-100 p-1">
                                                         <div class="w-100 d-flex justify-content-between">
-                                                            <span class="quicksand-SemiBold">7 Day Premium Plan</span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Medium">2 Days Left</span>
+                                                            <span class="quicksand-SemiBold"><?php echo ($ongoing_order_data["tour_name"]); ?></span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Medium"><?php echo ((date_diff(new DateTime($today), new DateTime($ongoing_order_data["end_date"])))->d); ?> Days Left</span>
                                                         </div>
                                                         <div class="w-100 p-1">
-                                                            <span class="quicksand-Medium">Assigned Guide : Mr. Blake Michael</span>
+                                                            <span class="quicksand-Medium">Assigned Guide : <?php echo ($ongoing_order_data["guide_name"]); ?></span>
                                                         </div>
                                                     </div>
                                                 </div>

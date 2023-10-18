@@ -38,5 +38,5 @@ if (empty($email)) {
         echo "success";
     } else {
         echo "Invalid Email or Password";
-    }
+    } 
 }
