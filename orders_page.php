@@ -7,14 +7,16 @@
     <title>Admin Panel | Orders</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/adminTemplate.css">
-    <!-- <link rel="stylesheet" href="./css/orders_page.css" /> -->
-    <link rel="stylesheet" href="./css/orderDark.css" />
+    <link rel="stylesheet" href="./css/orders_page.css" />
+    <!-- <link rel="stylesheet" href="./css/orderDark.css" /> -->
 </head>
 
 <body>
 
     <div class="container-fluid">
         <div class="row">
+
+        <?php require "./assets/model/sqlConnection.php";?>
 
             <div class="d-flex p-0">
                 <?php
@@ -581,6 +583,13 @@
                                                         </div>
                                                         <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
                                                             <div class="row">
+
+                                                            <?php 
+                                                            
+                                                              $order_details = Database::search("SELECT ");
+
+                                                            ?>
+
                                                                 <table class="table-bordered" style="font-family: 'Inter'; border: 1px solid #858585;">
                                                                     <thead>
                                                                         <tr>
