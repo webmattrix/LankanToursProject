@@ -2,13 +2,64 @@
 
 require "sqlConnection.php";
 
-$date = new DateTime();
-$date->setTimezone(new DateTimeZone("Asia/Colombo"));
-$today = $date->format("Y-m-d");
-$end = '2023-10-28';
+$order_rs = Database::search("SELECT * FROM `order` ORDER BY `start_date` ASC");
+$ct_order_rs = Database::search("SELECT * FROM `custom_tour` ORDER BY `start_date` ASC");
 
-echo ((date_diff(new DateTime($today), new DateTime($end)))->d);
+$order_num = $order_rs->num_rows;
+$ct_order_num = $ct_order_rs->num_rows;
 
-// $query = "SELECT *, `tour`.`name` AS `tour_name` FROM `order` INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` WHERE `order`.`end_date`>='" . $today . "' AND `order_status`.`name`='Assigned'";
-// $order_rs = Database::search($query);
-// echo (($order_rs->fetch_assoc())["tour_name"]);
+$order_iteration = 0;
+$ct_order_iteration = 0;
+
+$loop = true;
+
+$order_previouse = null;
+$ct_order_previouse = null;
+
+$order_data = null;
+$ct_order_data = null;
+
+$order_start = null;
+$ct_order_start = null;
+
+while ($loop) {
+
+    if ($order_previouse == null) {
+        if ($order_iteration < $order_num) {
+            $order_data = $order_rs->fetch_assoc();
+            $order_start = strtotime($order_data["start_date"]);
+            $order_iteration = $order_iteration + 1;
+        } else {
+            $order_start = "9999-99-99";
+        }
+    } else {
+    }
+
+    if ($ct_order_previouse == null) {
+        if ($ct_order_iteration < $ct_order_num) {
+            $ct_order_data = $ct_order_rs->fetch_assoc();
+            $ct_order_start = strtotime($ct_order_data["start_date"]);
+            $ct_order_iteration = $ct_order_iteration + 1;
+        } else {
+            $ct_order_start = "9999-99-99";
+        }
+    } else {
+    }
+
+    if ($order_start > $ct_order_start) {
+        $order_previouse = $order_data;
+        $ct_order_previouse = null;
+        $main_data = $ct_order_data;
+    } else {
+        $ct_order_previouse = $ct_order_data;
+        $order_previouse = null;
+        $main_data = $order_data;
+    }
+
+
+    if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+        $loop = false;
+    }
+
+    echo (json_encode($main_data) . "<br>");
+}
