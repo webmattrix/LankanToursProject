@@ -167,6 +167,7 @@
 
 .unsg-collapse-cont1 {
     background-color: #3E3E3E;
+    cursor: pointer;
 }
 
 .unsg-cont-date1 {
@@ -200,3 +201,50 @@
 .ord-modal-sts-sucs {
     color: #158921;
 }
+
+/* Image Viewer */
+
+.img-component-container {
+    width: 500px;
+    max-width: 90%;
+    height: 350px;
+    margin-top: 50vh;
+    margin-left: 50vw;
+    transform: translate(-50%, -50%);
+  }
+  
+  .img-component {
+  
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(6px);
+  
+    position: relative;
+  }
+  
+  .img-component-container img {
+    width: 55%;
+    height: 45%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid white;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+  }
+  
+  .img-component-container img:nth-child(2) {
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(15deg);
+  }
+  
+  .img-component-container img:nth-child(3) {
+    left: 35%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+  }
+  
+  /* Image Viewer */
