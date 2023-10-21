@@ -62,7 +62,6 @@ function addNewTourPlan() {
     var name = document.getElementById("tour_name").value;
     var duration = document.getElementById("duration").value;
     var description = document.getElementById("description").value;
-    var image = document.getElementById("tour_image");
 
     if (image.files.length == 0) {
 
@@ -74,7 +73,6 @@ function addNewTourPlan() {
         form.append("duration", duration);
         form.append("description", description);
         form.append("places", valuesArray);
-        form.append("image", image.files[0]);
 
         var r = new XMLHttpRequest();
 
@@ -104,6 +102,7 @@ function addNewPlace() {
 
 function createNewPlace() {
     var name = document.getElementById("place_name").value;
+    var city = document.getElementById("city").value;
     var image = document.getElementById("place_image");
 
 
@@ -115,6 +114,7 @@ function createNewPlace() {
 
         var form = new FormData();
         form.append("name", name);
+        form.append("city", city);
         form.append("image", image.files[0]);
 
         var r = new XMLHttpRequest();
@@ -129,7 +129,7 @@ function createNewPlace() {
             }
         }
 
-        r.open("POST", "http://localhost/LankanToursProject/LankanToursProject/assets/model/addNewPlace.php", true);
+        r.open("POST", "/LankanToursProject/assets/model/addNewPlace.php", true);
         r.send(form);
     }
 }

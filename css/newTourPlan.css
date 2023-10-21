@@ -73,7 +73,7 @@
 }
 
 .new_plan_container {
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .add_new_plan {
@@ -106,10 +106,6 @@
 @media (max-width: 992px) {
   .input_field {
     width: 100%;
-  }
-
-  .new_plan_container {
-    margin-top: 0px;
   }
 
   .add_new_plan {

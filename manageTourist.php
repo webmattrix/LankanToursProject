@@ -111,9 +111,12 @@ require "assets/model/sqlConnection.php";
                                                             ?></td>
                                                         <td>
                                                             <div class="col-4">
-                                                                <button class="btn btn-secondary btn-sm py-1 px-2 border"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
+                                                                <button class="btn btn-secondary btn-sm py-1 px-2 border" onclick="viewDetails(<?php
+                                                                                                                                                echo $user['id'];
+                                                                                                                                                ?>)"><iconify-icon icon="ph:eye-fill"></iconify-icon></iconify-icon></button>
                                                             </div>
                                                         </td>
+
                                                     </tr>
                                                 <?php
                                                 }
@@ -127,6 +130,82 @@ require "assets/model/sqlConnection.php";
                     </div>
                     <!-- Page Content -->
 
+                    <!-- modal -->
+                    <div class="modal" tabindex="-1" id="viewDetailsModal">
+                        <div class="modal-dialog" style="max-width:60%;">
+                            <div class="modal-content" style="background-color: #E2E2E2;">
+
+                                <div class="modal-header" style="background-color: white;">
+                                    <span class="fw-bold">Tourist Profile Details</span>
+                                    <button type="button" class="btn btn-danger btn-sm rounded" data-bs-dismiss="modal" aria-label="Close"><iconify-icon icon="carbon:close-filled"></iconify-icon></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row g-3">
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">
+                                                Name
+                                            </label>
+                                            <div class="input-group mb-1">
+                                                <input type="text" class="form-control" id="name" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Mobile</label>
+                                            <div class="input-group mb-1">
+                                                <input type="text" class="form-control" id="mobile" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Email</label>
+                                            <div class="input-group mb-1">
+                                                <input type="text" class="form-control" id="email" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Country</label>
+                                            <div class="input-group mb-1">
+                                                <input type="text" class="form-control" id="country" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Gender</label>
+                                            <div class="input-group mb-1">
+
+                                                <input type="text" class="form-control" id="gender" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Date of Birth</label>
+                                            <div class="input-group mb-1">
+                                                <input type="text" class="form-control" id="dob" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-header" style="background-color: white;">
+                                    <span class="fw-bold">Registration Information</span>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row g-3">
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Tourist ID</label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" id="user_id" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-start">
+                                            <label class="form-label">Registration Date and Time</label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" id="created_at" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+
                 </div>
 
             </div>
@@ -134,6 +213,7 @@ require "assets/model/sqlConnection.php";
         </div>
     </div>
 
+    <script src="./js/manageTourist.js"></script>
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
