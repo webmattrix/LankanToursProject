@@ -1,0 +1,16 @@
+Home            => home.php
+Itinerary       => itinerary.php
+Login           => TouristLoginPage.php
+Registration    => TouristRegistrationPage.php
+Tours           => tour.php
+Orders          => myTours.php
+Contact         => ContactPage.php
+Gallery         => touristGallery.php
+Admin           => AdminLogin.php
+Admin/Home      => adminPanel.php
+Admin/Profile   => adminProfile.php
+Admin/Order     => orders_page.php
+Guide/Tours     => guideP_TourPage.php
+Guide/Home      => guidePanel.php
+Guide/Profile   => guideProfile.php
+Guide           => guideLogin.php
