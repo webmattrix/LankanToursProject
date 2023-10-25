@@ -30,6 +30,14 @@ document.getElementById("accountIcon").addEventListener("click", () => {
   document.getElementById("headerMorePanel1").classList.toggle("d-none");
 });
 
-document.getElementById("goToProfile").addEventListener("mousedown", () => {
-  window.location = "profile";
-});
+function goProfile() {
+  window.location = "Profile";
+}
+
+function goWatchlist() {
+  window.location = "Watchlist";
+}
+
+function goMyTours() {
+  window.location = "Orders";
+}

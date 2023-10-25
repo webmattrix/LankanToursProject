@@ -1,3 +1,8 @@
+<?php
+session_start();
+require "assets/model/sqlConnection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +35,20 @@
                 </div>
                 <div class="d-flex p-2 overflow-auto">
                     <?php
-                    for ($x = 0; $x < 5; $x++) {
+
+                    // this will give us only most purchase count tours and limit for 5 rows
+                    // column (`purchase_count`,`tour_id`)
+                    $tour_rs = Database::search("SELECT COUNT(`order`.`tour_id`) AS `purchase_count`,`order`.`tour_id` 
+                    FROM `order` 
+                    GROUP BY `order`.`tour_id`
+                    ORDER BY `purchase_count` DESC
+                    LIMIT 5");
+
+                    for ($x = 0; $x < $tour_rs->num_rows; $x++) {
+                        $tour_data = $tour_rs->fetch_assoc();
+
+                        // $tour_detail_rs = Database::search("");
+
                     ?>
                         <div class="tour_popular-tours-items">
                             <div class="item white-item">
@@ -100,7 +118,7 @@
             <!-- Tour Plans Content -->
             <div class="px-2 pt-1 pb-3 col-12 mt-3 tour_popular-tours">
                 <div class="d-flex gap-2 align-items-center">
-                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
+                    <div class="main-heading pb-2" style="min-width: fit-content;">All Tours</div>
                     <hr class="w-100">
                 </div>
 
