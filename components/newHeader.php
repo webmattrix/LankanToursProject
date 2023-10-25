@@ -26,13 +26,13 @@
         <div class="header-menu p-0 m-0 d-none d-md-block">
             <ul class="d-flex list-unstyled gap-5 mb-0 quicksand-SemiBold" style="align-items: center;">
                 <li>
-                    <a href="#" class="text-decoration-none c-pointer">
+                    <a href="Home" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Home</span>
                         <iconify-icon icon="solar:home-linear" class="d-block fs-4 d-lg-none text-white" title="Home"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="Tours" class="text-decoration-none c-pointer">
+                    <a href="Tour" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Tours</span>
                         <iconify-icon icon="carbon:plane" class="d-block fs-4 d-lg-none text-white" title="Tours"></iconify-icon>
                     </a>
@@ -44,13 +44,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="text-decoration-none c-pointer">
+                    <a href="Gallery" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Gallery</span>
                         <iconify-icon icon="solar:gallery-outline" class="d-block fs-4 d-lg-none text-white" title="Gallery"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="contact" class="text-decoration-none c-pointer">
+                    <a href="Contact" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Contact</span>
                         <iconify-icon icon="ri:customer-service-2-line" class="d-block fs-4 d-lg-none text-white" title="Contact"></iconify-icon>
                     </a>
