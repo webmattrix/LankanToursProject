@@ -189,6 +189,18 @@
   color: black;
 }
 
+.ord-modal-textC2{
+  color: black;
+  font-size: calc(0.72rem + 0.72vh);
+  font-weight: 600;
+}
+
+.ord-modal-textC3{
+  color: black;
+  font-size: calc(0.67rem + 0.67vh);
+  font-weight: 400;
+}
+
 .icon-style4 {
   color: #9A7C13;
 }

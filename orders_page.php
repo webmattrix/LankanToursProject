@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel | Orders</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/orders_page.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/orders_page.css" />
     <!-- <link rel="stylesheet" href="./css/orderDark.css" /> -->
 </head>
 
@@ -42,7 +42,7 @@
 
                                 <!-- view Modal for small devices -->
 
-                                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                <div class="modal fade" id="openModalFromTable" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                                         <div class="modal-content bg-ord-modal">
                                             <div class="modal-header">
@@ -56,54 +56,56 @@
                                                             <div class="row p-3" style=" border: 1px solid #A29A9A; border-radius: 6px;">
                                                                 <div class="col-12">
                                                                     <div class="row">
+                                                                        <span class="ord-modal-textC2 py-3">Tourist Name : <span class="ord-modal-textC3" id="tourist_name2">Sahan Perera</span></span>
                                                                         <div class="col-7">
                                                                             <div class="row gap-3">
                                                                                 <div class="col-5">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tour Name</span>
-                                                                                    <input type="text" class="input-select1" />
+                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="tour_name2" disabled/>
                                                                                 </div>
                                                                                 <div class="col-5">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tour Duration</span>
-                                                                                    <input type="text" class="input-select1" />
+                                                                                    <input type="text" class="input-select1" id="tour_duration2" style="background-color: #D9D9D9;" disabled/>
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Start Date</span>
-                                                                                    <input type="text" class="input-select1" />
+                                                                                    <input type="date" class="input-select1" id="tour_startDate2"/>
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">End Date</span>
-                                                                                    <input type="text" class="input-select1" />
+                                                                                    <input type="date" class="input-select1" id="tour_endDate2"/>
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Guide Name</span>
-                                                                                    <input type="text" class="input-select1" />
+                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="guide_name2" disabled/>
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tourist Members</span>
-                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" disabled />
+                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="tour_members2" disabled />
                                                                                 </div>
+                                                                                <input class="col-5" type="text" hidden id="tourIdNo" disabled/>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-5">
                                                                             <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Client Message</span>
-                                                                            <textarea class="col-12 p-3" style="height: 24vh; border: 1px solid #C4C4C4; background-color: #D9D9D9; font-family: 'Segoe'; border-radius: 4px;" readonly>Lorem ipsum dolor sit amet consectetur. Enim phasellus nibh neque amet tortor non dui non velit. Sed arcu vitae sit elementum aliquet massa dignissim amet lectus.</textarea>
+                                                                            <textarea class="col-12 p-3" id="tourist_msg2" style="height: 24vh; border: 1px solid #C4C4C4; background-color: #D9D9D9; font-family: 'Segoe'; border-radius: 4px;" readonly>Lorem ipsum dolor sit amet consectetur. Enim phasellus nibh neque amet tortor non dui non velit. Sed arcu vitae sit elementum aliquet massa dignissim amet lectus.</textarea>
                                                                         </div>
                                                                         <div class="col-12">
                                                                             <div class="row justify-content-end">
-                                                                                <div class="col-5">
+                                                                                <div class="col-5 mt-2">
                                                                                     <div class="row">
                                                                                         <div class="col-12">
                                                                                             <div class="row justify-content-end gap-2">
                                                                                                 <div class="col-5">
                                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Cost</span>
                                                                                                     <div class="input-group">
-                                                                                                        <input type="text" class="form-control" />
+                                                                                                        <input type="text" class="form-control" id="tourCost"/>
                                                                                                         <span class="input-group-text">$</span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="col-5">
-                                                                                                    <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Discount</span>
-                                                                                                    <input type="text" class="input-select1" />
+                                                                                                    <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Saving Amount</span>
+                                                                                                    <input type="text" class="input-select1" id="tourSaveAmount"/>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -194,7 +196,7 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="row justify-content-start pt-3 pt-lg-2">
-                                                                        <button class="btn col-lg-2 col-sm-3" data-bs-dismiss="modal" style="font-family: 'Inter'; font-size: calc(0.54rem + 0.56vh); background-color: #EAEAEA; color: #656565; border: 1px solid #D2D2D2; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);">Update</button>
+                                                                        <button class="btn col-lg-2 col-sm-3" data-bs-dismiss="modal" style="font-family: 'Inter'; font-size: calc(0.54rem + 0.56vh); background-color: #EAEAEA; color: #656565; border: 1px solid #D2D2D2; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" onclick="tableModalUpdate();" >Update</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -467,14 +469,14 @@
                                         <div class="modal-content bg-ord-modal">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5 ord-modal-title1" id="exampleModalLabel">Unassigned Tour Order</h1>
-                                                <button type="button" class="closeBtn3" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="closeBtn3" onclick="reloadModal();" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="col-12">
                                                     <div class="row">
                                                         <div class="col-12 col-lg-5">
                                                             <div class="row">
-                                                                <img src="./assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%;" alt="">
+                                                                <img src="../assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%;" alt="">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-lg-7 pt-2">
@@ -514,7 +516,7 @@
                                                                         for ($z = 0; $z < $guide_num; $z++) {
                                                                             $guide_data = $guide_List->fetch_assoc();
                                                                         ?>
-                                                                            <option value="<?php echo $guide_data["id"];?>"><?php echo $guide_data["guide_name"]; ?></option>
+                                                                            <option value="<?php echo $guide_data["id"]; ?>"><?php echo $guide_data["guide_name"]; ?></option>
                                                                         <?php
                                                                         }
                                                                         ?>
@@ -527,7 +529,7 @@
                                                                         <span class="ord-modal-textC1" style="font-family: 'Segoe'; font-weight: 500;">Customer Message</span>
                                                                     </div>
                                                                     <textarea disabled class="col-12 p-3" rows="8" id="cusMessage" style="background-color: #E9E9E9; height: 25vh; overflow-y: auto; border: 1px solid #BDBDBD; color: #727272; font-weight: 400; font-family: 'Segoe';">Lorem ipsum dolor sit amet consectetur. Nunc nisl ipsum odio in lectus mauris sapien. Ipsum tristique quis fringilla magna lacus sit in ultrices. Libero quis nisi tincidunt eu nunc nibh. Cras morbi eleifend justo odio tortor. Faucibus tristique id cursus in at pellentesque gravida. Morbi eget odio augue malesuada nibh aliquam nisl venenatis.</textarea>
-                                                                    <input type="text" id="responseTourId" hidden/>
+                                                                    <input type="text" id="responseTourId" hidden />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -558,7 +560,7 @@
 
                                                 <div class="col-12 col-lg-4">
                                                     <div class="row">
-                                                        <img src="./assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%; height: 25vh;" alt="">
+                                                        <img src="../assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%; height: 25vh;" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-8 py-2 px-3">
@@ -606,7 +608,8 @@
                                                             <div class="row justify-content-end">
                                                                 <div class="col-12 col-lg-6 col-sm-8">
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="search here..." style="font-family: 'Segoe'; background-color: #E3E3E3;">
+                                                                    <!-- onkeyup="searchFiltering();" onkeypress="searchFiltering();" onkeydown="searchFiltering();" -->
+                                                                        <input type="text" class="form-control" onkeyup="searchFiltering();" id="searchAnyInp" placeholder="search here..." style="font-family: 'Segoe'; background-color: #E3E3E3;">
                                                                         <span class="input-group-text"><a href="#" style="color: #858585;"><iconify-icon icon="fe:search"></iconify-icon></a></span>
                                                                     </div>
                                                                 </div>
@@ -614,25 +617,6 @@
                                                         </div>
                                                         <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
                                                             <div class="row">
-
-                                                                <?php
-
-                                                                $date = new DateTime();
-                                                                $tz = new DateTimeZone("Asia/Colombo");
-                                                                $date->setTimezone($tz);
-                                                                $formatDate = $date->format("Y-M-d H:i:s");
-
-                                                                $order_details = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `order_st_name` FROM `order` INNER JOIN `tour` 
-                                                                ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
-                                                                ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
-                                                                ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
-                                                                ON `order`.`order_status_id`=`order_status`.`id` 
-                                                                WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned'");
-
-                                                                $order_num = $order_details->num_rows;
-
-                                                                ?>
-
                                                                 <table class="table-bordered" style="font-family: 'Inter'; border: 1px solid #858585;">
                                                                     <thead>
                                                                         <tr>
@@ -650,30 +634,136 @@
 
                                                                         <?php
 
-                                                                        for ($x = 0; $x < $order_num; $x++) {
+                                                                        $date = new DateTime();
+                                                                        $tz = new DateTimeZone("Asia/Colombo");
+                                                                        $date->setTimezone($tz);
+                                                                        $formatDate = $date->format("Y-m-d");
 
-                                                                            $order_data = $order_details->fetch_assoc();
+                                                                        // $order_details = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `order_st_name` FROM `order` INNER JOIN `tour` 
+                                                                        // ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
+                                                                        // ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
+                                                                        // ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
+                                                                        // ON `order`.`order_status_id`=`order_status`.`id` 
+                                                                        // WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned'");
 
-                                                                            // $timeSetStart = timeConverter::convert($order_data["start_date"]);
-                                                                            // $timeSetEnd = timeConverter::convert($order_data["end_date"]);
+                                                                        // $order_num = $order_details->num_rows;
 
-                                                                            // // echo(date("Y-m-d", strtotime($timeSetStart)));
-                                                                            // echo(date("Y-m-d", strtotime($timeSetEnd)));
+                                                                        $order_rs = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`order`.`id` AS `order_id`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `order_st_name` 
+                                                                        FROM `order` INNER JOIN `tour` 
+                                                                        ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
+                                                                        ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
+                                                                        ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
+                                                                        ON `order`.`order_status_id`=`order_status`.`id` 
+                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC");
 
-                                                                            // // echo($order_data["start_date"]);
+                                                                        $ct_order_rs = Database::search("SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `order_id`,`order_status`.`name` AS `order_st_name` 
+                                                                        FROM `custom_tour` INNER JOIN `guide` 
+                                                                        ON `custom_tour`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
+                                                                        ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
+                                                                        ON `custom_tour`.`order_status_id`=`order_status`.`id` 
+                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC;");
 
+                                                                        $order_num = $order_rs->num_rows;
+                                                                        $ct_order_num = $ct_order_rs->num_rows;
+
+                                                                        $order_iteration = 0;
+                                                                        $ct_order_iteration = 0;
+
+                                                                        $loop = true;
+
+                                                                        $order_previouse = null;
+                                                                        $ct_order_previouse = null;
+
+                                                                        $order_data = null;
+                                                                        $ct_order_data = null;
+
+                                                                        $order_start = null;
+                                                                        $ct_order_start = null;
+
+                                                                        $tour_name;
+                                                                        $table_name;
+
+                                                                        while ($loop) {
+
+                                                                            if ($order_previouse == null) {
+                                                                                if ($order_iteration < $order_num) {
+                                                                                    $order_data = $order_rs->fetch_assoc();
+                                                                                    $order_start = strtotime($order_data["start_date"]);
+                                                                                    $order_iteration = $order_iteration + 1;
+                                                                                } else {
+                                                                                    $order_start = "9999-99-99";
+                                                                                }
+                                                                            } else {
+                                                                            }
+
+                                                                            if ($ct_order_previouse == null) {
+                                                                                if ($ct_order_iteration < $ct_order_num) {
+                                                                                    $ct_order_data = $ct_order_rs->fetch_assoc();
+                                                                                    $ct_order_start = strtotime($ct_order_data["start_date"]);
+                                                                                    $ct_order_iteration = $ct_order_iteration + 1;
+                                                                                } else {
+                                                                                    $ct_order_start = "9999-99-99";
+                                                                                }
+                                                                            } else {
+                                                                            }
+
+                                                                            if ($order_start > $ct_order_start) {
+                                                                                $order_previouse = $order_data;
+                                                                                $ct_order_previouse = null;
+                                                                                $main_data = $ct_order_data;
+                                                                                $tour_name = "Custom Tour";
+                                                                                $table_name = "Custom_T";
+                                                                            } else {
+                                                                                $ct_order_previouse = $ct_order_data;
+                                                                                $order_previouse = null;
+                                                                                $main_data = $order_data;
+                                                                                $tour_name = $main_data["tour_name"];
+                                                                                $table_name = "Company_T";
+                                                                            }
+
+
+                                                                            if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+                                                                                $loop = false;
+                                                                            }
+
+                                                                            $timeSetStart = timeConverter::convert($main_data["start_date"]);
+                                                                            $timeSetEnd = timeConverter::convert($main_data["end_date"]);
+
+                                                                            $new_status;
+
+                                                                            if ($timeSetStart < $formatDate) {
+                                                                                $new_status = "Ongoing";
+                                                                            } else {
+                                                                                $new_status = "Pending";
+                                                                            }
+
+                                                                         // echo (json_encode($main_data) . "<br>");
+
+                                                                            // $new_tour_type;
+
+                                                                            // if($tour_type == "custom"){
+                                                                            //     $new_tour_type = "Custom_Tour";
+                                                                            // }else{
+                                                                            //     $new_tour_type = $main_data["tour_name"];
+                                                                            // }
+
+                                                                            // echo($new_tour_type);
 
                                                                         ?>
 
                                                                             <tr>
                                                                                 <div class="row">
-                                                                                    <th class="col-3 py-2 text-center fw-normal tab-ord-textC"><?php echo $order_data["tour_name"]; ?></th>
-                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo $order_data["guide_name"]; ?></td>
-                                                                                    <td class="col-1 py-2 text-center tab-ord-textC"><?php echo $order_data["members"]; ?></td>
-                                                                                    <td class="col-3 py-2 text-center tab-ord-textC">---</td>
-                                                                                    <td class="col-1 py-2 text-center tab-ord-sts-ong-textC"><?php echo $order_data["order_st_name"]; ?></td>
+                                                                                    <th class="col-3 py-2 text-center fw-normal tab-ord-textC"><?php echo $tour_name; ?></th>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo $main_data["guide_name"]; ?></td>
+                                                                                    <td class="col-1 py-2 text-center tab-ord-textC"><?php echo $main_data["members"]; ?></td>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo date("d M, Y", strtotime($timeSetStart)) . " - " . (date("d M, Y", strtotime($timeSetEnd))); ?></td>
+                                                                                    <td class="col-1 py-2 text-center <?php if ($new_status == "Pending") {
+                                                                                                                            echo ("tab-ord-sts-pend-textC");
+                                                                                                                        } else {
+                                                                                                                            echo ("tab-ord-sts-ong-textC");
+                                                                                                                        } ?>"><?php echo $new_status; ?></td>
                                                                                     <td class="col-1 text-center">
-                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" onclick="tableModalOpen('<?php echo $main_data['order_id'];?>','<?php echo $table_name;?>');" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                     </td>
                                                                                 </div>
                                                                             </tr>
@@ -812,8 +902,8 @@
                                                                         <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="assignOpenModel(<?php echo $ung_tour_data['tour_id']; ?>);" style="border-radius: 4px; cursor: pointer;">
                                                                             <div class="row px-2 pb-3">
                                                                                 <div class="col-2 pt-4 pt-lg-3">
-                                                                                    <img src="./assets/img/ordersPg_IMG/user_icon.png" class="d-grid d-lg-none d-sm-none" style="width: 40px; height: 40px;" alt="">
-                                                                                    <img src="./assets/img/ordersPg_IMG/user_icon.png" class="d-none d-lg-grid d-sm-grid" style="width: 52px; height: 52px;" alt="">
+                                                                                    <img src="../assets/img/ordersPg_IMG/user_icon.png" class="d-grid d-lg-none d-sm-none" style="width: 40px; height: 40px;" alt="">
+                                                                                    <img src="../assets/img/ordersPg_IMG/user_icon.png" class="d-none d-lg-grid d-sm-grid" style="width: 52px; height: 52px;" alt="">
                                                                                 </div>
                                                                                 <div class="col-10">
                                                                                     <div class="row">
@@ -918,37 +1008,37 @@
                                                                         $asg_data = $asg_tours->fetch_assoc();
                                                                     ?>
 
-                                                                    <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="assignOpenModel(<?php echo $asg_data['tour_id']; ?>);" style="border-radius: 4px;">
-                                                                        <div class="row px-2 pb-3">
-                                                                            <div class="col-2 pt-4 pt-lg-3">
-                                                                                <img src="./assets/img/ordersPg_IMG/user_icon2.png" class="d-none d-lg-grid d-sm-grid" style="width: 52px; height: 52px;" alt="">
-                                                                                <img src="./assets/img/ordersPg_IMG/user_icon2.png" class="d-grid d-lg-none d-sm-none" style="width: 40px; height: 40px;" alt="">
-                                                                            </div>
-                                                                            <div class="col-10">
-                                                                                <div class="row">
-                                                                                    <span class="text-end unsg-cont-date1" style="font-family: 'Segoe'; font-size: calc(0.48rem + 0.48vh);"><?php echo $asg_data["date_time"];?></span>
-                                                                                    <span class="unsg-cont-tourN" style="font-weight: 700; font-family: 'Segoe'; font-size: calc(0.54rem + 0.54vh);"><?php echo $asg_data["tour_name"];?></span>
+                                                                        <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="assignOpenModel(<?php echo $asg_data['tour_id']; ?>);" style="border-radius: 4px;">
+                                                                            <div class="row px-2 pb-3">
+                                                                                <div class="col-2 pt-4 pt-lg-3">
+                                                                                    <img src="../assets/img/ordersPg_IMG/user_icon2.png" class="d-none d-lg-grid d-sm-grid" style="width: 52px; height: 52px;" alt="">
+                                                                                    <img src="../assets/img/ordersPg_IMG/user_icon2.png" class="d-grid d-lg-none d-sm-none" style="width: 40px; height: 40px;" alt="">
                                                                                 </div>
-                                                                                <div class="mt-1" style="border: 1px solid #D7D7D7;"></div>
-                                                                                <div class="row">
-                                                                                    <div class="col-10">
-                                                                                        <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $asg_data["message"];?></span>
+                                                                                <div class="col-10">
+                                                                                    <div class="row">
+                                                                                        <span class="text-end unsg-cont-date1" style="font-family: 'Segoe'; font-size: calc(0.48rem + 0.48vh);"><?php echo $asg_data["date_time"]; ?></span>
+                                                                                        <span class="unsg-cont-tourN" style="font-weight: 700; font-family: 'Segoe'; font-size: calc(0.54rem + 0.54vh);"><?php echo $asg_data["tour_name"]; ?></span>
                                                                                     </div>
-                                                                                    <div class="col-2">
-                                                                                        <div class="row">
-                                                                                            <span class="text-end mt-1"><iconify-icon icon="fluent-mdl2:completed-solid" style="color: #158921;"></iconify-icon></span>
+                                                                                    <div class="mt-1" style="border: 1px solid #D7D7D7;"></div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-10">
+                                                                                            <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $asg_data["message"]; ?></span>
+                                                                                        </div>
+                                                                                        <div class="col-2">
+                                                                                            <div class="row">
+                                                                                                <span class="text-end mt-1"><iconify-icon icon="fluent-mdl2:completed-solid" style="color: #158921;"></iconify-icon></span>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
                                                                     <?php
                                                                     }
 
                                                                     ?>
-<!--                                                                     
+                                                                    <!--                                                                     
                                                                     <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="border-radius: 4px;">
                                                                         <div class="row px-2 pb-3">
                                                                             <div class="col-2 pt-4 pt-lg-3">

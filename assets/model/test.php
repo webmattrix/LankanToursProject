@@ -49,11 +49,13 @@ while ($loop) {
     if ($order_start > $ct_order_start) {
         $order_previouse = $order_data;
         $ct_order_previouse = null;
+        $tour_type = "custom";
         $main_data = $ct_order_data;
     } else {
         $ct_order_previouse = $ct_order_data;
         $order_previouse = null;
         $main_data = $order_data;
+        $tour_type = "company";
     }
 
 

@@ -29,7 +29,7 @@ function assignOpenModel(t_id) {
             var responseObj = JSON.parse(data);
 
             document.getElementById("tpName").innerText = responseObj.tp_name;
-            document.getElementById("tpCost").innerText = "$"+responseObj.tp_cost;
+            document.getElementById("tpCost").innerText = "$" + responseObj.tp_cost;
             if (responseObj.tp_payStatus == 0) {
                 document.getElementById("tpOverall").style.color = "red";
                 document.getElementById("tpOverall").innerText = "Not Complete";
@@ -49,7 +49,7 @@ function assignOpenModel(t_id) {
         }
     }
 
-    r.open("GET", "/tourProject/LankanToursProject/assets/model/orderAssignModalOpenProcess.php?tp=" + t_id, true);
+    r.open("GET", "./assets/model/orderAssignModalOpenProcess.php?tp=" + t_id, true);
     r.send();
 
 }
@@ -88,6 +88,106 @@ function assignOrder() {
         }
     };
 
-    req.open("POST", "/tourProject/LankanToursProject/assets/model/orderAssignGuideProcess.php", true);
+    req.open("POST", "./assets/model/orderAssignGuideProcess.php", true);
     req.send(form);
 }
+
+function reloadModal() {
+    document.getElementById("forGuideMsg").value = "";
+    document.getElementById("select_guide").value = "Select";
+}
+
+function tableModalOpen(tab_tid, tab_name) {
+
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            var tabMo = req.responseText;
+            var responseObj2 = JSON.parse(tabMo);
+
+            var date = new Date();
+
+            var tDate = date.getDate();
+            var month = date.getMonth() + 1;
+
+            if (tDate < 10) {
+                tDate = '0' + tDate;
+            }
+
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            var year = date.getUTCFullYear();
+            var minDate = year + "-" + month + "-" + tDate;
+
+            document.getElementById("tourist_name2").innerText = responseObj2.tcli_name;
+            document.getElementById("tour_name2").value = responseObj2.t_name;
+            document.getElementById("tour_duration2").value = responseObj2.t_durat;
+            document.getElementById("tour_startDate2").value = responseObj2.t_stDate;
+            document.getElementById("tour_startDate2").setAttribute("min",minDate);
+            document.getElementById("tour_endDate2").value = responseObj2.t_enDate;
+            document.getElementById("tour_endDate2").setAttribute("min",minDate);
+            document.getElementById("guide_name2").value = responseObj2.t_guideN;
+            document.getElementById("tour_members2").value = responseObj2.t_members;
+            document.getElementById("tourIdNo").value = responseObj2.t_idNo;
+            document.getElementById("tourist_msg2").value = responseObj2.tcli_msg;
+
+            var m = document.getElementById("openModalFromTable");
+            bm = new bootstrap.Modal(m);
+            bm.show();
+        }
+    };
+
+    req.open("GET", "./assets/model/orderTableModalOpenProcess.php?tid=" + tab_tid + "&tabnm=" + tab_name + "", true);
+    req.send();
+}
+
+function tableModalUpdate() {
+
+    var toId = document.getElementById("tourIdNo").value;
+    var tName = document.getElementById("tour_name2").value;
+    var tDurat = document.getElementById("tour_duration2").value;
+    var tStDate = document.getElementById("tour_startDate2").value;
+    var tEnDate = document.getElementById("tour_endDate2").value;
+    var tCost = document.getElementById("tourCost").value;
+    var tSvAmount = document.getElementById("tourSaveAmount").value;
+
+    var form = new FormData();
+
+    form.append("ord_id", toId);
+    form.append("t_name", tName);
+    form.append("t_durat", tDurat);
+    form.append("t_stDate", tStDate);
+    form.append("t_enDate", tEnDate);
+    form.append("t_cost", tCost);
+    form.append("t_svAmount", tSvAmount);
+
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            var resData2 = req.responseText;
+            alert(resData2);
+        }
+    };
+
+    req.open("POST", "./assets/model/orderTableAsgUpdateProcess.php", true);
+    req.send(form);
+}
+
+function searchFiltering(){
+
+    var inpSc = document.getElementById("searchAnyInp").value;
+
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+        if(req.readyState == 4){
+           var inpD = req.responseText;
+           alert(inpD); 
+        }
+    };
+
+    req.open("GET","./assets/model/orderAsgRowsFiltering.php?inpS="+inpSc,true);
+    req.send();
+}
+
