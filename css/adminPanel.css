@@ -83,11 +83,11 @@
   .admin_grid-item:nth-child(3)
   .content
   .admin_panel-profile-image {
-  width: 100px;
-  /* height: 100%; */
+  width: 80%;
   clip-path: circle();
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  background-color: rgb(207, 207, 207);
 }
 
 .admin_header-grid .admin_grid-item {

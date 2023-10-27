@@ -17,7 +17,9 @@
         <div class="desktopMode" id="desktopMode">
 
             <div class="site_details px-4" style="margin-top: 30px;">
-                <div class="site_logo"></div>
+                <div class="site_logo">
+                    <img src="../assets/img/favicon.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
                 <div class="site_name">Lankan Tours</div>
             </div>
 
@@ -26,15 +28,16 @@
             <div class="sideMenuList">
 
                 <!--  -->
-                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewSubMenu('dashboard');">
+                <!-- <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewSubMenu('dashboard');"> -->
+                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewGuideHome();">
                     <span>Dashboard</span>
                     <iconify-icon icon="mingcute:right-fill" id="dashboardIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="dashboardSubContent">
+                <!-- <div class="SubContent ps-3" id="dashboardSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
                 <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');">
@@ -48,7 +51,7 @@
                 </div>
 
                 <!--  -->
-                <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');">
+                <!-- <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');">
                     <span>Gallery</span>
                     <iconify-icon icon="mingcute:right-fill" id="guideIcon"></iconify-icon>
                 </div>
@@ -56,7 +59,7 @@
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
             </div>
 

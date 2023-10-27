@@ -1,3 +1,14 @@
+<?php
+
+// session_start();
+if (isset($_SESSION["lt_guide"])) {
+    $guide = $_SESSION["lt_guide"];
+} else {
+    $guide = null;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,15 +31,68 @@
                 <iconify-icon icon="mdi:bell-outline"></iconify-icon>
                 <iconify-icon icon="material-symbols:mail-outline"></iconify-icon>
             </div>
-            <div class="d-flex px-2 gap-2 align-items-center" style="cursor: pointer;">
-                <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();"></div>
-                <div class="d-flex flex-column justify-content-center">
-                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;">Guide Name</span>
-                    <span style="font-size: 12px; font-family: sans-serif;">type</span>
+            <div class="d-flex px-2 gap-2 align-items-center position-relative" style="cursor: pointer;">
+                <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();">
+                    <?php
+                    if ($guide == null) {
+                    ?>
+                        <img src="../assets/img/profile/empty_profile.jpg" alt="" style="object-fit: cover; width: 100%; height: 100%;">
+                        <?php
+                    } else {
+                        if (isset($guide["profile_picture"])) {
+                        ?>
+                            <img src="../assets/img/profile/guide/<?php echo ($guide["profile_picture"]); ?>" alt="" style="object-fit: cover; width: 100%; height: 100%;">
+                        <?php
+                        } else {
+                        ?>
+                            <img src="../assets/img/profile/empty_profile.jpg" alt="" style="object-fit: cover; width: 100%; height: 100%;">
+                        <?php
+                        }
+                        ?>
+                    <?php
+                    }
+                    ?>
                 </div>
-                <div class="">
+                <div class="d-flex flex-column justify-content-center">
+                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;"><?php echo ($guide["guide_name"]); ?></span>
+                    <span style="font-size: 12px; font-family: sans-serif;"><?php echo ($guide["employee_type"]); ?></span>
+                </div>
+                <div class="profile-menu-icon d-flex justify-content-center align-items-center p-1 rounded" onclick="viewProfileModel();">
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>
                 </div>
+
+                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="guideProfileModel">
+                    <?php
+                    if ($guide == null) {
+                    ?>
+                        <img src="../assets/img/profile/empty_profile.jpg" />
+                        <?php
+                    } else {
+                        if (isset($guide["profile_picture"])) {
+                        ?>
+                            <img src="../assets/img/profile/guide/<?php echo ($guide["profile_picture"]); ?>" />
+                        <?php
+                        } else {
+                        ?>
+                            <img src="../assets/img/profile/empty_profile.jpg" />
+                        <?php
+                        }
+                        ?>
+                    <?php
+                    }
+                    ?>
+
+                    <div class="w-100 mt-3 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="viewGuideProfile();">
+                        <iconify-icon icon="iconamoon:profile-thin"></iconify-icon>
+                        <span>Profile</span>
+                    </div>
+                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded">
+                        <iconify-icon icon="clarity:logout-line"></iconify-icon>
+                        <span>Log Out</span>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

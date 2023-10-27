@@ -92,3 +92,15 @@ function toggleMobileMenu(evt) {
 document.getElementById("adminHomeBtn").addEventListener("click", () => {
   window.location = "Home";
 });
+
+function viewGuideProfile() {
+  window.location = "Profile";
+}
+
+function viewGuideHome() {
+  window.location = "Home";
+}
+
+function viewProfileModel() {
+  document.getElementById("guideProfileModel").classList.toggle("d-none");
+}

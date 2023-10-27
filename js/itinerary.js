@@ -21,5 +21,4 @@ function homeSlider() {
   if (sliderNumber == 6) {
     sliderNumber = 1;
   }
-  console.log(sliderNumber);
 }
