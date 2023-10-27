@@ -253,6 +253,7 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="./js/footer.js"></script>
   <script src="./js/newHeader.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

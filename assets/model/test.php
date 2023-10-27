@@ -1,16 +1,12 @@
-Home            => home.php
-Itinerary       => itinerary.php
-Login           => TouristLoginPage.php
-Registration    => TouristRegistrationPage.php
-Tours           => tour.php
-Orders          => myTours.php
-Contact         => ContactPage.php
-Gallery         => touristGallery.php
-Admin           => AdminLogin.php
-Admin/Home      => adminPanel.php
-Admin/Profile   => adminProfile.php
-Admin/Order     => orders_page.php
-Guide/Tours     => guideP_TourPage.php
-Guide/Home      => guidePanel.php
-Guide/Profile   => guideProfile.php
-Guide           => guideLogin.php
+<?php
+
+require "sqlConnection.php";
+session_start();
+
+$rs = Database::search("SELECT *,`employe_type`.`name` AS `employee_type`,`employee`.`name` AS `guide_name`,`employee`.`id` AS `guide_id`
+FROM `employee`
+INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id`
+INNER JOIN `guide` ON `guide`.`employee_id`=`employee`.`id`
+WHERE `employe_type`.`name`='guide' AND `employee`.`email`='vihangaheshan@gmail.com' AND `employee`.`password`='asd321asd'");
+
+$_SESSION["lt_guide"] = $rs->fetch_assoc();
