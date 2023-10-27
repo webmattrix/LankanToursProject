@@ -61,29 +61,29 @@
                                                                             <div class="row gap-3">
                                                                                 <div class="col-5">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tour Name</span>
-                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="tour_name2" disabled/>
+                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="tour_name2" disabled />
                                                                                 </div>
                                                                                 <div class="col-5">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tour Duration</span>
-                                                                                    <input type="text" class="input-select1" id="tour_duration2" style="background-color: #D9D9D9;" disabled/>
+                                                                                    <input type="text" class="input-select1" id="tour_duration2" style="background-color: #D9D9D9;" disabled />
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Start Date</span>
-                                                                                    <input type="date" class="input-select1" id="tour_startDate2"/>
+                                                                                    <input type="date" class="input-select1" id="tour_startDate2" />
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">End Date</span>
-                                                                                    <input type="date" class="input-select1" id="tour_endDate2"/>
+                                                                                    <input type="date" class="input-select1" id="tour_endDate2" />
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Guide Name</span>
-                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="guide_name2" disabled/>
+                                                                                    <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="guide_name2" disabled />
                                                                                 </div>
                                                                                 <div class="col-5 mt-3">
                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Tourist Members</span>
                                                                                     <input type="text" class="input-select1" style="background-color: #D9D9D9;" id="tour_members2" disabled />
                                                                                 </div>
-                                                                                <input class="col-5" type="text" hidden id="tourIdNo" disabled/>
+                                                                                <input class="col-5" type="text" hidden id="tourIdNo" disabled />
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-5">
@@ -91,6 +91,34 @@
                                                                             <textarea class="col-12 p-3" id="tourist_msg2" style="height: 24vh; border: 1px solid #C4C4C4; background-color: #D9D9D9; font-family: 'Segoe'; border-radius: 4px;" readonly>Lorem ipsum dolor sit amet consectetur. Enim phasellus nibh neque amet tortor non dui non velit. Sed arcu vitae sit elementum aliquet massa dignissim amet lectus.</textarea>
                                                                         </div>
                                                                         <div class="col-12">
+                                                                            <div class="row justify-content-start">
+                                                                                <div class="col-4">
+
+                                                                                    <?php
+
+                                                                                    $guide_List = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `guide` INNER JOIN `employee` ON `guide`.`employee_id`=`employee`.`id`");
+                                                                                    $guide_num = $guide_List->num_rows;
+
+                                                                                    ?>
+
+                                                                                    <span class="ord-modal-textC1" style="font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); font-weight: 600;">Select Guide</span>
+                                                                                    <select class="ord_selector_modal" style="cursor: pointer;" aria-label="Default select example">
+                                                                                        <option selected>Select</option>
+
+                                                                                        <?php
+
+                                                                                        for ($g = 0; $g < $guide_num; $g++) {
+                                                                                            $guide_data = $guide_List->fetch_assoc();
+                                                                                        ?>
+                                                                                            <option value="<?php echo $guide_data["id"]; ?>"><?php echo $guide_data["guide_name"]; ?></option>
+                                                                                        <?php
+                                                                                        }
+
+                                                                                        ?>
+
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
                                                                             <div class="row justify-content-end">
                                                                                 <div class="col-5 mt-2">
                                                                                     <div class="row">
@@ -99,13 +127,13 @@
                                                                                                 <div class="col-5">
                                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Cost</span>
                                                                                                     <div class="input-group">
-                                                                                                        <input type="text" class="form-control" id="tourCost"/>
+                                                                                                        <input type="text" class="form-control" id="tourCost" />
                                                                                                         <span class="input-group-text">$</span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="col-5">
                                                                                                     <span class="ord-modal-textC1" style="font-size: calc(0.55rem + 0.55vh); font-weight: 600; font-family: 'Segoe';">Saving Amount</span>
-                                                                                                    <input type="text" class="input-select1" id="tourSaveAmount"/>
+                                                                                                    <input type="text" class="input-select1" id="tourSaveAmount" />
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -116,6 +144,7 @@
                                                                         <div class="col-12 mt-4 mb-3">
                                                                             <div class="row">
                                                                                 <div class="col-5">
+
                                                                                     <span class="ord-modal-textC1" style="font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); font-weight: 600;">Message for Guide</span>
                                                                                     <textarea class="col-12 p-3" style="height: 20vh; border: 1px solid #C4C4C4; font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); border-radius: 4px;">Lorem ipsum dolor sit amet consectetur. Enim phasellus nibh neque amet tortor non dui non velit. Sed arcu vitae sit elementum aliquet massa dignissim amet lectus.</textarea>
                                                                                 </div>
@@ -196,7 +225,7 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="row justify-content-start pt-3 pt-lg-2">
-                                                                        <button class="btn col-lg-2 col-sm-3" data-bs-dismiss="modal" style="font-family: 'Inter'; font-size: calc(0.54rem + 0.56vh); background-color: #EAEAEA; color: #656565; border: 1px solid #D2D2D2; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" onclick="tableModalUpdate();" >Update</button>
+                                                                        <button class="btn col-lg-2 col-sm-3" data-bs-dismiss="modal" style="font-family: 'Inter'; font-size: calc(0.54rem + 0.56vh); background-color: #EAEAEA; color: #656565; border: 1px solid #D2D2D2; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);" onclick="tableModalUpdate();">Update</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -505,18 +534,18 @@
 
                                                                     <?php
 
-                                                                    $guide_List = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `guide` INNER JOIN `employee` ON `guide`.`employee_id`=`employee`.`id`");
-                                                                    $guide_num = $guide_List->num_rows;
+                                                                    $guide_List1 = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `guide` INNER JOIN `employee` ON `guide`.`employee_id`=`employee`.`id`");
+                                                                    $guide_num1 = $guide_List1->num_rows;
 
                                                                     ?>
 
                                                                     <select class="selector_ord" style="cursor: pointer;" aria-label="Default select example" id="select_guide">
                                                                         <option selected>Select</option>
                                                                         <?php
-                                                                        for ($z = 0; $z < $guide_num; $z++) {
-                                                                            $guide_data = $guide_List->fetch_assoc();
+                                                                        for ($z = 0; $z < $guide_num1; $z++) {
+                                                                            $guide_data1 = $guide_List1->fetch_assoc();
                                                                         ?>
-                                                                            <option value="<?php echo $guide_data["id"]; ?>"><?php echo $guide_data["guide_name"]; ?></option>
+                                                                            <option value="<?php echo $guide_data1["id"]; ?>"><?php echo $guide_data1["guide_name"]; ?></option>
                                                                         <?php
                                                                         }
                                                                         ?>
@@ -608,7 +637,7 @@
                                                             <div class="row justify-content-end">
                                                                 <div class="col-12 col-lg-6 col-sm-8">
                                                                     <div class="input-group">
-                                                                    <!-- onkeyup="searchFiltering();" onkeypress="searchFiltering();" onkeydown="searchFiltering();" -->
+                                                                        <!-- onkeyup="searchFiltering();" onkeypress="searchFiltering();" onkeydown="searchFiltering();" -->
                                                                         <input type="text" class="form-control" onkeyup="searchFiltering();" id="searchAnyInp" placeholder="search here..." style="font-family: 'Segoe'; background-color: #E3E3E3;">
                                                                         <span class="input-group-text"><a href="#" style="color: #858585;"><iconify-icon icon="fe:search"></iconify-icon></a></span>
                                                                     </div>
@@ -737,7 +766,7 @@
                                                                                 $new_status = "Pending";
                                                                             }
 
-                                                                         // echo (json_encode($main_data) . "<br>");
+                                                                            // echo (json_encode($main_data) . "<br>");
 
                                                                             // $new_tour_type;
 
@@ -763,7 +792,7 @@
                                                                                                                             echo ("tab-ord-sts-ong-textC");
                                                                                                                         } ?>"><?php echo $new_status; ?></td>
                                                                                     <td class="col-1 text-center">
-                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" onclick="tableModalOpen('<?php echo $main_data['order_id'];?>','<?php echo $table_name;?>');" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" onclick="tableModalOpen('<?php echo $main_data['order_id']; ?>','<?php echo $table_name; ?>');" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                     </td>
                                                                                 </div>
                                                                             </tr>
@@ -913,7 +942,7 @@
                                                                                     <div class="mt-1" style="border: 1px solid #D7D7D7;"></div>
                                                                                     <div class="row">
                                                                                         <div class="col-10">
-                                                                                            <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $ung_tour_data["message"]; ?></span>
+                                                                                            <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $ung_tour_data["request_message"]; ?></span>
                                                                                         </div>
                                                                                         <div class="col-2">
                                                                                             <div class="row">
@@ -1022,7 +1051,7 @@
                                                                                     <div class="mt-1" style="border: 1px solid #D7D7D7;"></div>
                                                                                     <div class="row">
                                                                                         <div class="col-10">
-                                                                                            <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $asg_data["message"]; ?></span>
+                                                                                            <span class="unsg-cont-tourN" style="font-weight: 500; font-family: 'Segoe'; font-size: calc(0.5rem + 0.5vh);"><?php echo $asg_data["request_message"]; ?></span>
                                                                                         </div>
                                                                                         <div class="col-2">
                                                                                             <div class="row">
@@ -1110,9 +1139,9 @@
         </div>
     </div>
 
-    <script src="./js/orders.js"></script>
-    <script src="./js/adminTemplate.js"></script>
-    <script src="./js/bootstrap.js"></script>
+    <script src="../js/orders.js"></script>
+    <script src="../js/adminTemplate.js"></script>
+    <script src="../js/bootstrap.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

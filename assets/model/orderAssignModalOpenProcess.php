@@ -12,7 +12,7 @@ $paymentStatus = $tp_data["saving_amount"];
 $start_Date = $tp_data["start_date"]; 
 $end_Date = $tp_data["end_date"]; 
 $members = $tp_data["members"];
-$customer_Msg = $tp_data["message"];
+$customer_Msg = $tp_data["request_message"];
 
 $responseObj = new stdClass();
 

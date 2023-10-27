@@ -49,7 +49,7 @@ function assignOpenModel(t_id) {
         }
     }
 
-    r.open("GET", "./assets/model/orderAssignModalOpenProcess.php?tp=" + t_id, true);
+    r.open("GET", "../assets/model/orderAssignModalOpenProcess.php?tp=" + t_id, true);
     r.send();
 
 }
@@ -88,7 +88,7 @@ function assignOrder() {
         }
     };
 
-    req.open("POST", "./assets/model/orderAssignGuideProcess.php", true);
+    req.open("POST", "../assets/model/orderAssignGuideProcess.php", true);
     req.send(form);
 }
 
@@ -124,10 +124,25 @@ function tableModalOpen(tab_tid, tab_name) {
             document.getElementById("tourist_name2").innerText = responseObj2.tcli_name;
             document.getElementById("tour_name2").value = responseObj2.t_name;
             document.getElementById("tour_duration2").value = responseObj2.t_durat;
-            document.getElementById("tour_startDate2").value = responseObj2.t_stDate;
-            document.getElementById("tour_startDate2").setAttribute("min",minDate);
-            document.getElementById("tour_endDate2").value = responseObj2.t_enDate;
-            document.getElementById("tour_endDate2").setAttribute("min",minDate);
+
+            if (responseObj2.t_Ov_sts == "Ongoing") {
+                document.getElementById("tour_startDate2").value = responseObj2.t_stDate;
+                document.getElementById("tour_endDate2").value = responseObj2.t_enDate;
+                document.getElementById("tour_startDate2").setAttribute("disabled", "true");
+                document.getElementById("tour_endDate2").setAttribute("disabled", "true");
+                document.getElementById("tour_startDate2").style.backgroundColor = "#D9D9D9";
+                document.getElementById("tour_endDate2").style.backgroundColor = "#D9D9D9";
+            } else {
+                document.getElementById("tour_startDate2").value = responseObj2.t_stDate;
+                document.getElementById("tour_endDate2").value = responseObj2.t_enDate;
+                document.getElementById("tour_startDate2").removeAttribute("disabled", "true");
+                document.getElementById("tour_endDate2").removeAttribute("disabled", "true");
+                document.getElementById("tour_startDate2").style.backgroundColor = "white";
+                document.getElementById("tour_endDate2").style.backgroundColor = "white";
+                document.getElementById("tour_startDate2").setAttribute("min", minDate);
+                document.getElementById("tour_endDate2").setAttribute("min", minDate);
+            }
+
             document.getElementById("guide_name2").value = responseObj2.t_guideN;
             document.getElementById("tour_members2").value = responseObj2.t_members;
             document.getElementById("tourIdNo").value = responseObj2.t_idNo;
@@ -139,7 +154,7 @@ function tableModalOpen(tab_tid, tab_name) {
         }
     };
 
-    req.open("GET", "./assets/model/orderTableModalOpenProcess.php?tid=" + tab_tid + "&tabnm=" + tab_name + "", true);
+    req.open("GET", "../assets/model/orderTableModalOpenProcess.php?tid=" + tab_tid + "&tabnm=" + tab_name + "", true);
     req.send();
 }
 
@@ -171,23 +186,23 @@ function tableModalUpdate() {
         }
     };
 
-    req.open("POST", "./assets/model/orderTableAsgUpdateProcess.php", true);
+    req.open("POST", "../assets/model/orderTableAsgUpdateProcess.php", true);
     req.send(form);
 }
 
-function searchFiltering(){
+function searchFiltering() {
 
     var inpSc = document.getElementById("searchAnyInp").value;
 
     var req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-        if(req.readyState == 4){
-           var inpD = req.responseText;
-           alert(inpD); 
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            var inpD = req.responseText;
+            alert(inpD);
         }
     };
 
-    req.open("GET","./assets/model/orderAsgRowsFiltering.php?inpS="+inpSc,true);
+    req.open("GET", "../assets/model/orderAsgRowsFiltering.php?inpS=" + inpSc, true);
     req.send();
 }
 
