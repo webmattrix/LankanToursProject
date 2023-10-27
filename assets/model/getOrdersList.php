@@ -58,12 +58,14 @@ class getOrders
                 $order_previouse = $order_data;
                 $ct_order_previouse = null;
                 $main_data = $ct_order_data;
-                // $tour_name = "Custom Tour";
+                $tour_name = "Custom Tour";
+                $main_data["tour_name"] = $tour_name;
             } else {
                 $ct_order_previouse = $ct_order_data;
                 $order_previouse = null;
                 $main_data = $order_data;
-                // $tour_name = $main_data["tour_name"];
+                $tour_name = $main_data["tour_name"];
+                $main_data["tour_name"] = $tour_name;
             }
 
 
