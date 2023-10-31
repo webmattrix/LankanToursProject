@@ -8,6 +8,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
     // require "assets/model/sqlConnection.php";
     require "assets/model/getOrdersList.php";
+    require "assets/model/timeZoneConverter.php";
 
     $guide = $_SESSION["lt_guide"];
 
@@ -253,7 +254,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                             <div class="guide_customer-feedback-grid p-2">
                                                 <?php
 
-                                                $feedback = "SELECT *,`tour`.`name` AS `tour_name`
+                                                $feedback = "SELECT *,`tour`.`name` AS `tour_name`,`feedback`.`date_time` AS `feedback_time`
                                                 FROM `order` 
                                                 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id`
                                                 INNER JOIN `order_status` ON `order_status`.`id` = `order`.`order_status_id`
@@ -264,7 +265,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                 AND `order_status`.`name`='Assigned'
                                                 ORDER BY `order`.`start_date` ASC";
 
-                                                $ct_feedback = "SELECT * 
+                                                $ct_feedback = "SELECT *,`custom_tour_feedback`.`date_time` AS `feedback_time`
                                                 FROM `custom_tour` 
                                                 INNER JOIN `order_status` ON `order_status`.`id` = `custom_tour`.`order_status_id`
                                                 INNER JOIN `guide` ON `guide`.`id` = `custom_tour`.`guide_id`
@@ -276,13 +277,16 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
                                                 $feedbackList = getOrders::getOrderList($feedback, $ct_feedback);
 
-                                                echo (sizeof($feedbackList));
+                                                for ($feedback_iteration = 0; $feedback_iteration < sizeof($feedbackList); $feedback_iteration++) {
 
-                                                for ($x = 0; $x < 5; $x++) {
+                                                    $feedbackTime = $feedbackList[$feedback_iteration]["date_time"];
+                                                    $convertFeedbackTime = date("Y-m-d", timeConverter::convert($feedbackTime));
+                                                    echo ($convertFeedbackTime);
+
                                                 ?>
                                                     <div class="customer-feedback p-1">
                                                         <div class="d-flex justify-content-between flex-column flex-md-row">
-                                                            <span class="d-block quicksand-Bold">Tour plan Name Lorem, ipsum.</span>
+                                                            <span class="d-block quicksand-Bold"><?php echo ($feedbackList[$feedback_iteration]["tour_name"]); ?></span>
                                                             <span class="d-block d-flex align-items-center gap-2">
                                                                 <iconify-icon icon="octicon:dot-fill-24" class="text-success"></iconify-icon>
                                                                 <span class="text-success">Positive</span>
@@ -290,7 +294,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                         </div>
                                                         <div class="mt-2 quicksand-Bold" style="line-height: 1.2rem;">
                                                             <span class="fs-3">"</span>
-                                                            <span class="feedback-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam ipsa error nam repellat magni aliquam iste officiis adipisci perspiciatis earum? Recusandae doloremque quam facere itaque ad accusamus, architecto sapiente tempora.</span>
+                                                            <span class="feedback-text"><?php echo ($feedbackList[$feedback_iteration]["guide_message"]); ?></span>
                                                             <span class="fs-3">"</span>
                                                         </div>
                                                         <div class="d-flex justify-content-end">
