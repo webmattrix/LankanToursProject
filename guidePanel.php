@@ -1,12 +1,21 @@
 <?php
 
 session_start();
-require "assets/model/sqlConnection.php";
+
 if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
     header("Location: ../guide");
 } else {
 
+    // require "assets/model/sqlConnection.php";
+    require "assets/model/getOrdersList.php";
+
     $guide = $_SESSION["lt_guide"];
+
+    $employee_rs = Database::search("SELECT *,`employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`, `employee`.`id` AS `emp_id`
+    FROM `employee`
+    INNER JOIN `guide` ON `employee`.`id`=`guide`.`employee_id`
+    INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` WHERE `employee`.`id`='" . $guide["employee_id"] . "'");
+    $employee_data = $employee_rs->fetch_assoc();
 
 ?>
     <!DOCTYPE html>
@@ -54,7 +63,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                 $query = "SELECT * FROM `order_status`
                                 INNER JOIN `order` ON `order`.`order_status_id`=`order_status`.`id`
                                 INNER JOIN `employee` ON `employee`.`id`=`order`.`guide_id`
-                                WHERE `order_status`.`name`='Assigned' AND `order`.`guide_id`='" . $guide["guide_id"] . "' AND `order`.`end_date`<'" . $today . "'";
+                                WHERE `order_status`.`name`='Assigned' AND `order`.`guide_id`='" . $guide["employee_id"] . "' AND `order`.`end_date`<'" . $today . "'";
                                 $order_rs = Database::search($query);
 
                                 $tour_count = $tour_count + $order_rs->num_rows;
@@ -62,7 +71,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                 $query = "SELECT * FROM `order_status`
                                 INNER JOIN `custom_tour` ON `custom_tour`.`order_status_id`=`order_status`.`id`
                                 INNER JOIN `employee` ON `employee`.`id`=`custom_tour`.`guide_id`
-                                WHERE `order_status`.`name`='Assigned' AND `custom_tour`.`guide_id`='" . $guide["guide_id"] . "' AND `custom_tour`.`end_date`<'" . $today . "'";
+                                WHERE `order_status`.`name`='Assigned' AND `custom_tour`.`guide_id`='" . $guide["employee_id"] . "' AND `custom_tour`.`end_date`<'" . $today . "'";
                                 $custom_order_rs = Database::search($query);
 
                                 $tour_count = $tour_count + $custom_order_rs->num_rows;
@@ -85,8 +94,8 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                         <div class="content p-3">
                                             <img src="../assets/img/profile/guide/boy_profile_picture.png" alt="" class="admin_panel-profile-image">
                                             <div class="admin-name">
-                                                <span class="name segoeui-bold">John Luther</span>
-                                                <span class="type quicksand-SemiBold">Owner</span>
+                                                <span class="name segoeui-bold"><?php echo ($employee_data["emp_name"]); ?></span>
+                                                <span class="type quicksand-SemiBold"><?php echo ($employee_data["emp_type"]); ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -124,95 +133,55 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                             <div class="guide_assign-tour-box px-2">
                                                 <?php
 
-                                                $date = new DateTime();
-                                                $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
+                                                $today = new DateTime();
+                                                $today->setTimezone(new DateTimeZone("Asia/Colombo"));
                                                 $today = $today->format("Y-m-d");
 
-                                                $order_rs = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name` FROM `order` 
-                                                INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-                                                INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-                                                WHERE `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
-                                                ORDER BY `start_date` ASC");
+                                                $query1 = "SELECT *,`tour`.`name` AS `tour_name`
+                                                    FROM `order` 
+                                                    INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id`
+                                                    INNER JOIN `order_status` ON `order_status`.`id` = `order`.`order_status_id`
+                                                    INNER JOIN `guide` ON `guide`.`id` = `order`.`guide_id`
+                                                    INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
+                                                    WHERE `order_status`.`name` = 'Assigned' 
+                                                    AND `employee`.`id` = '" . $guide["employee_id"] . "' 
+                                                    AND `order`.`end_date` > '" . $today . "'
+                                                    ORDER BY `order`.`start_date` ASC";
 
-                                                $ct_order_rs = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `custom_tour`
-                                                INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-                                                WHERE `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' ORDER BY `start_date` ASC");
+                                                $query2 = "SELECT * 
+                                                    FROM `custom_tour` 
+                                                    INNER JOIN `order_status` ON `order_status`.`id` = `custom_tour`.`order_status_id`
+                                                    INNER JOIN `guide` ON `guide`.`id` = `custom_tour`.`guide_id`
+                                                    INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
+                                                    WHERE `order_status`.`name` = 'Assigned' 
+                                                    AND `employee`.`id` = '" . $guide["employee_id"] . "' 
+                                                    AND `custom_tour`.`end_date` > '" . $today . "'
+                                                    ORDER BY `custom_tour`.`start_date` ASC";
 
-                                                $order_num = $order_rs->num_rows;
-                                                $ct_order_num = $ct_order_rs->num_rows;
+                                                $orderList = getOrders::getOrderList($query1, $query2);
 
-                                                $order_iteration = 0;
-                                                $ct_order_iteration = 0;
-
-                                                $loop = true;
-
-                                                $order_previouse = null;
-                                                $ct_order_previouse = null;
-
-                                                $order_data = null;
-                                                $ct_order_data = null;
-
-                                                $order_start = null;
-                                                $ct_order_start = null;
-
-                                                while ($loop) {
-
-                                                    if ($order_previouse == null) {
-                                                        if ($order_iteration < $order_num) {
-                                                            $order_data = $order_rs->fetch_assoc();
-                                                            $order_start = strtotime($order_data["start_date"]);
-                                                            $order_iteration = $order_iteration + 1;
-                                                        } else {
-                                                            $order_start = "9999-99-99";
-                                                        }
-                                                    } else {
-                                                    }
-
-                                                    if ($ct_order_previouse == null) {
-                                                        if ($ct_order_iteration < $ct_order_num) {
-                                                            $ct_order_data = $ct_order_rs->fetch_assoc();
-                                                            $ct_order_start = strtotime($ct_order_data["start_date"]);
-                                                            $ct_order_iteration = $ct_order_iteration + 1;
-                                                        } else {
-                                                            $ct_order_start = "9999-99-99";
-                                                        }
-                                                    } else {
-                                                    }
-
-                                                    if ($order_start > $ct_order_start) {
-                                                        $order_previouse = $order_data;
-                                                        $ct_order_previouse = null;
-                                                        $main_data = $ct_order_data;
-                                                        $tour_name = "Custom Tour";
-                                                    } else {
-                                                        $ct_order_previouse = $ct_order_data;
-                                                        $order_previouse = null;
-                                                        $main_data = $order_data;
-                                                        $tour_name = $main_data["tour_name"];
-                                                    }
-
-
-                                                    if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
-                                                        $loop = false;
-                                                    }
+                                                for ($order_iteration = 0; $order_iteration < sizeof($orderList); $order_iteration++) {
 
                                                 ?>
+
                                                     <div class="msg-box px-2 quicksand-Medium">
                                                         <div class="border-bottom d-flex justify-content-between">
-                                                            <span>Tour Plan Name</span>
-                                                            <span style="color: #797979; font-size: 14px;">2023-05-05</span>
+                                                            <span><?php echo ($orderList[$order_iteration]["tour_name"]); ?></span>
+                                                            <span style="color: #797979; font-size: 14px;"><?php echo ("Start Date: " . $orderList[$order_iteration]["start_date"]); ?></span>
                                                         </div>
                                                         <div class="mt-1" style="font-size: 15px;">
-                                                            <span class="tour-details-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, asperiores! Esse autem laboriosam aperiam blanditiis numquam dicta ab officiis asperiores!</span>
+                                                            <span class="tour-details-text"><?php echo ($orderList[$order_iteration]["guide_message"]); ?></span>
                                                             <a href="#">View more...</a>
                                                         </div>
                                                     </div>
+
                                                 <?php
 
                                                 }
+
                                                 ?>
+                                                <!-- Repeat Content -->
+
                                             </div>
                                         </div>
                                         <div class="">
@@ -283,6 +252,32 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                             </div>
                                             <div class="guide_customer-feedback-grid p-2">
                                                 <?php
+
+                                                $feedback = "SELECT *,`tour`.`name` AS `tour_name`
+                                                FROM `order` 
+                                                INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id`
+                                                INNER JOIN `order_status` ON `order_status`.`id` = `order`.`order_status_id`
+                                                INNER JOIN `guide` ON `guide`.`id` = `order`.`guide_id`
+                                                INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
+                                                INNER JOIN `feedback` ON `feedback`.`order_id`=`order`.`id`
+                                                WHERE `employee`.`id`='1'
+                                                AND `order_status`.`name`='Assigned'
+                                                ORDER BY `order`.`start_date` ASC";
+
+                                                $ct_feedback = "SELECT * 
+                                                FROM `custom_tour` 
+                                                INNER JOIN `order_status` ON `order_status`.`id` = `custom_tour`.`order_status_id`
+                                                INNER JOIN `guide` ON `guide`.`id` = `custom_tour`.`guide_id`
+                                                INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
+                                                INNER JOIN `custom_tour_feedback` ON `custom_tour_feedback`.`custom_tour_id`=`custom_tour`.`id`
+                                                WHERE `employee`.`id`='1'
+                                                AND `order_status`.`name`='Assigned'
+                                                ORDER BY `custom_tour`.`start_date` ASC";
+
+                                                $feedbackList = getOrders::getOrderList($feedback, $ct_feedback);
+
+                                                echo (sizeof($feedbackList));
+
                                                 for ($x = 0; $x < 5; $x++) {
                                                 ?>
                                                     <div class="customer-feedback p-1">

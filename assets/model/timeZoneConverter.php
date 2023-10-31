@@ -11,7 +11,6 @@ class timeConverter
 
         $primary_time->setTimezone($clientTimeZone);
 
-
         $explodeTime = explode(" ", $db_time);
 
         if (sizeof($explodeTime) == 2) {
@@ -21,7 +20,6 @@ class timeConverter
             $responseTime = $primary_time->format("Y-m-d");
             return ($responseTime);
         }
-
 
     }
 }

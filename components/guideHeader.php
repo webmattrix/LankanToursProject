@@ -3,6 +3,13 @@
 // session_start();
 if (isset($_SESSION["lt_guide"])) {
     $guide = $_SESSION["lt_guide"];
+
+    // require "assets/model/sqlConnection.php";
+    $employee_rs = Database::search("SELECT *,`employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`
+    FROM `employee`
+    INNER JOIN `guide` ON `employee`.`id`=`guide`.`employee_id`
+    INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` WHERE `employee`.`id`='" . $guide["employee_id"] . "'");
+    $employee_data = $employee_rs->fetch_assoc();
 } else {
     $guide = null;
 }
@@ -54,8 +61,8 @@ if (isset($_SESSION["lt_guide"])) {
                     ?>
                 </div>
                 <div class="d-flex flex-column justify-content-center">
-                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;"><?php echo ($guide["guide_name"]); ?></span>
-                    <span style="font-size: 12px; font-family: sans-serif;"><?php echo ($guide["employee_type"]); ?></span>
+                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;"><?php echo ($employee_data["emp_name"]); ?></span>
+                    <span style="font-size: 12px; font-family: sans-serif;"><?php echo ($employee_data["emp_type"]); ?></span>
                 </div>
                 <div class="profile-menu-icon d-flex justify-content-center align-items-center p-1 rounded" onclick="viewProfileModel();">
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>
