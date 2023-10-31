@@ -18,7 +18,7 @@
 
             <?php
 
-            require "./assets/model/sqlConnection.php";
+            require "./assets/model/getOrdersList.php";
             require "./assets/model/timeZoneConverter.php";
 
             session_start();
@@ -677,86 +677,110 @@
 
                                                                         // $order_num = $order_details->num_rows;
 
-                                                                        $order_rs = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`order`.`id` AS `order_id`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `order_st_name` 
+                                                                        $order_rs = "SELECT *,`tour`.`name` AS `tour_name`,`order`.`id` AS `order_id`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `order_st_name` 
                                                                         FROM `order` INNER JOIN `tour` 
                                                                         ON `order`.`tour_id`=`tour`.`id` INNER JOIN `guide` 
                                                                         ON `order`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
                                                                         ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
                                                                         ON `order`.`order_status_id`=`order_status`.`id` 
-                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC");
+                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC";
 
-                                                                        $ct_order_rs = Database::search("SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `order_id`,`order_status`.`name` AS `order_st_name` 
+                                                                        $ct_order_rs = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `order_id`,`order_status`.`name` AS `order_st_name` 
                                                                         FROM `custom_tour` INNER JOIN `guide` 
                                                                         ON `custom_tour`.`guide_id`=`guide`.`id` INNER JOIN `employee` 
                                                                         ON `guide`.`employee_id`=`employee`.`id` INNER JOIN `order_status` 
                                                                         ON `custom_tour`.`order_status_id`=`order_status`.`id` 
-                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC;");
+                                                                        WHERE `end_date`>='" . $formatDate . "' AND `order_status`.`name`='Assigned' ORDER BY `start_date` ASC";
 
-                                                                        $order_num = $order_rs->num_rows;
-                                                                        $ct_order_num = $ct_order_rs->num_rows;
-
-                                                                        $order_iteration = 0;
-                                                                        $ct_order_iteration = 0;
-
-                                                                        $loop = true;
-
-                                                                        $order_previouse = null;
-                                                                        $ct_order_previouse = null;
-
-                                                                        $order_data = null;
-                                                                        $ct_order_data = null;
-
-                                                                        $order_start = null;
-                                                                        $ct_order_start = null;
-
-                                                                        $tour_name;
-                                                                        $table_name;
-
-                                                                        while ($loop) {
-
-                                                                            if ($order_previouse == null) {
-                                                                                if ($order_iteration < $order_num) {
-                                                                                    $order_data = $order_rs->fetch_assoc();
-                                                                                    $order_start = strtotime($order_data["start_date"]);
-                                                                                    $order_iteration = $order_iteration + 1;
-                                                                                } else {
-                                                                                    $order_start = "9999-99-99";
-                                                                                }
-                                                                            } else {
-                                                                            }
-
-                                                                            if ($ct_order_previouse == null) {
-                                                                                if ($ct_order_iteration < $ct_order_num) {
-                                                                                    $ct_order_data = $ct_order_rs->fetch_assoc();
-                                                                                    $ct_order_start = strtotime($ct_order_data["start_date"]);
-                                                                                    $ct_order_iteration = $ct_order_iteration + 1;
-                                                                                } else {
-                                                                                    $ct_order_start = "9999-99-99";
-                                                                                }
-                                                                            } else {
-                                                                            }
-
-                                                                            if ($order_start > $ct_order_start) {
-                                                                                $order_previouse = $order_data;
-                                                                                $ct_order_previouse = null;
-                                                                                $main_data = $ct_order_data;
-                                                                                $tour_name = "Custom Tour";
-                                                                                $table_name = "Custom_T";
-                                                                            } else {
-                                                                                $ct_order_previouse = $ct_order_data;
-                                                                                $order_previouse = null;
-                                                                                $main_data = $order_data;
-                                                                                $tour_name = $main_data["tour_name"];
-                                                                                $table_name = "Company_T";
-                                                                            }
+                                                                        $orderList = getOrders::getOrderList($order_rs, $ct_order_rs);
 
 
-                                                                            if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
-                                                                                $loop = false;
-                                                                            }
+                                                                        // $order_num = $order_rs->num_rows;
+                                                                        // $ct_order_num = $ct_order_rs->num_rows;
 
-                                                                            $timeSetStart = timeConverter::convert($main_data["start_date"]);
-                                                                            $timeSetEnd = timeConverter::convert($main_data["end_date"]);
+                                                                        // $order_iteration = 0;
+                                                                        // $ct_order_iteration = 0;
+
+                                                                        // $loop = true;
+
+                                                                        // $order_previouse = null;
+                                                                        // $ct_order_previouse = null;
+
+                                                                        // $order_data = null;
+                                                                        // $ct_order_data = null;
+
+                                                                        // $order_start = null;
+                                                                        // $ct_order_start = null;
+
+                                                                        // $tour_name;
+                                                                        // $table_name;
+
+                                                                        // while ($loop) {
+
+                                                                        //     if ($order_previouse == null) {
+                                                                        //         if ($order_iteration < $order_num) {
+                                                                        //             $order_data = $order_rs->fetch_assoc();
+                                                                        //             $order_start = strtotime($order_data["start_date"]);
+                                                                        //             $order_iteration = $order_iteration + 1;
+                                                                        //         } else {
+                                                                        //             $order_start = "9999-99-99";
+                                                                        //         }
+                                                                        //     } else {
+                                                                        //     }
+
+                                                                        //     if ($ct_order_previouse == null) {
+                                                                        //         if ($ct_order_iteration < $ct_order_num) {
+                                                                        //             $ct_order_data = $ct_order_rs->fetch_assoc();
+                                                                        //             $ct_order_start = strtotime($ct_order_data["start_date"]);
+                                                                        //             $ct_order_iteration = $ct_order_iteration + 1;
+                                                                        //         } else {
+                                                                        //             $ct_order_start = "9999-99-99";
+                                                                        //         }
+                                                                        //     } else {
+                                                                        //     }
+
+                                                                        //     if ($order_start > $ct_order_start) {
+                                                                        //         $order_previouse = $order_data;
+                                                                        //         $ct_order_previouse = null;
+                                                                        //         $main_data = $ct_order_data;
+                                                                        //         $tour_name = "Custom Tour";
+                                                                        //         $table_name = "Custom_T";
+                                                                        //     } else {
+                                                                        //         $ct_order_previouse = $ct_order_data;
+                                                                        //         $order_previouse = null;
+                                                                        //         $main_data = $order_data;
+                                                                        //         $tour_name = $main_data["tour_name"];
+                                                                        //         $table_name = "Company_T";
+                                                                        //     }
+
+
+                                                                        //     if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+                                                                        //         $loop = false;
+                                                                        //     }
+
+
+
+                                                                        // echo (json_encode($main_data) . "<br>");
+
+                                                                        // $new_tour_type;
+
+                                                                        // if($tour_type == "custom"){
+                                                                        //     $new_tour_type = "Custom_Tour";
+                                                                        // }else{
+                                                                        //     $new_tour_type = $main_data["tour_name"];
+                                                                        // }
+
+                                                                        // echo($new_tour_type);
+
+                                                                        ?>
+                                                                        <?php
+
+                                                                        for ($x = 0; $x < sizeof($orderList); $x++) {
+
+                                                                            $table_row = $orderList[$x];
+
+                                                                            $timeSetStart = timeConverter::convert($table_row["start_date"]);
+                                                                            $timeSetEnd = timeConverter::convert($table_row["end_date"]);
 
                                                                             $new_status;
 
@@ -765,26 +789,13 @@
                                                                             } else {
                                                                                 $new_status = "Pending";
                                                                             }
-
-                                                                            // echo (json_encode($main_data) . "<br>");
-
-                                                                            // $new_tour_type;
-
-                                                                            // if($tour_type == "custom"){
-                                                                            //     $new_tour_type = "Custom_Tour";
-                                                                            // }else{
-                                                                            //     $new_tour_type = $main_data["tour_name"];
-                                                                            // }
-
-                                                                            // echo($new_tour_type);
-
                                                                         ?>
 
                                                                             <tr>
                                                                                 <div class="row">
-                                                                                    <th class="col-3 py-2 text-center fw-normal tab-ord-textC"><?php echo $tour_name; ?></th>
-                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo $main_data["guide_name"]; ?></td>
-                                                                                    <td class="col-1 py-2 text-center tab-ord-textC"><?php echo $main_data["members"]; ?></td>
+                                                                                    <th class="col-3 py-2 text-center fw-normal tab-ord-textC"><?php echo $table_row["tour_name"]; ?></th>
+                                                                                    <td class="col-3 py-2 text-center tab-ord-textC"><?php echo $table_row["guide_name"]; ?></td>
+                                                                                    <td class="col-1 py-2 text-center tab-ord-textC"><?php echo $table_row["members"]; ?></td>
                                                                                     <td class="col-3 py-2 text-center tab-ord-textC"><?php echo date("d M, Y", strtotime($timeSetStart)) . " - " . (date("d M, Y", strtotime($timeSetEnd))); ?></td>
                                                                                     <td class="col-1 py-2 text-center <?php if ($new_status == "Pending") {
                                                                                                                             echo ("tab-ord-sts-pend-textC");
@@ -792,7 +803,7 @@
                                                                                                                             echo ("tab-ord-sts-ong-textC");
                                                                                                                         } ?>"><?php echo $new_status; ?></td>
                                                                                     <td class="col-1 text-center">
-                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" onclick="tableModalOpen('<?php echo $main_data['order_id']; ?>','<?php echo $table_name; ?>');" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                        <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" class="p-1 rounded-2" onclick="tableModalOpen('<?php echo $table_row['order_id']; ?>','<?php echo $table_row['tour_name']; ?>');" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                     </td>
                                                                                 </div>
                                                                             </tr>
@@ -906,12 +917,16 @@
 
                                                                 <?php
 
-                                                                $ung_tour = Database::search("SELECT *, `order_status`.`name` AS `status`,`tour`.`name` AS `tour_name` FROM `order` 
+                                                                $ung_tour_rs = "SELECT *, `order_status`.`name` AS `status`,`tour`.`name` AS `tour_name` FROM `order` 
                                                                 INNER JOIN `order_status` ON `order`.`order_status_id`=`order_status`.`id` 
                                                                 INNER JOIN `tour` ON `order`.`tour_id`=`tour`.`id` 
-                                                                WHERE `order_status`.`name`='Unassigned' ORDER BY `date_time` DESC");
+                                                                WHERE `order_status`.`name`='Unassigned' ORDER BY `date_time` ASC";
 
-                                                                $ung_tour_num = $ung_tour->num_rows;
+                                                                $ct_ung_tour_rs = "SELECT *, `order_status`.`name` AS `status` FROM `custom_tour` 
+                                                                INNER JOIN `order_status` ON `custom_tour`.`order_status_id`=`order_status`.`id` 
+                                                                WHERE `order_status`.`name`='Unassigned' ORDER BY `date_time` ASC";
+
+                                                                $orderList1 = getOrders::getOrderList($ung_tour_rs, $ct_ung_tour_rs);
 
                                                                 ?>
 
@@ -922,13 +937,13 @@
 
                                                                     <?php
 
-                                                                    for ($y = 0; $y < $ung_tour_num; $y++) {
+                                                                    for ($y = 0; $y < sizeof($orderList1); $y++) {
 
-                                                                        $ung_tour_data = $ung_tour->fetch_assoc();
+                                                                        $ung_tour_data = $orderList1[$y];
 
                                                                     ?>
 
-                                                                        <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="assignOpenModel(<?php echo $ung_tour_data['tour_id']; ?>);" style="border-radius: 4px; cursor: pointer;">
+                                                                        <div class="col-12 mb-2 unsg-collapse-cont1" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="assignOpenModel(<?php echo $ung_tour_data['id']; ?>);" style="border-radius: 4px; cursor: pointer;">
                                                                             <div class="row px-2 pb-3">
                                                                                 <div class="col-2 pt-4 pt-lg-3">
                                                                                     <img src="../assets/img/ordersPg_IMG/user_icon.png" class="d-grid d-lg-none d-sm-none" style="width: 40px; height: 40px;" alt="">

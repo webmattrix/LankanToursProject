@@ -8,7 +8,7 @@ $tab_name = $_GET["tabnm"];
 
 $tab_rs;
 
-if ($tab_name == "Custom_T") {
+if ($tab_name == "Custom Tour") {
     $tab_rs = Database::search("SELECT *,`user`.`f_name` AS `ts_f_name`,`user`.`l_name` AS `ts_l_name`,`employee`.`name` AS `guide_name` FROM `custom_tour` 
     INNER JOIN `user` ON `custom_tour`.`user_id`=`user`.`id`
     INNER JOIN `guide` ON `custom_tour`.`guide_id`=`guide`.`id`
@@ -27,7 +27,7 @@ $tab_data = $tab_rs->fetch_assoc();
 
 $tab_Ov_name;
 
-if ($tab_name == "Custom_T") {
+if ($tab_name == "Custom Tour") {
     $tab_Ov_name = "Custom Tour";
 } else {
     $tab_Ov_name = $tab_data['tour_name'];

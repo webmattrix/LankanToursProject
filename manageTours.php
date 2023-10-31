@@ -29,6 +29,13 @@
                     <!-- Page Content / body content eka methanin liyanna -->
                     <div>
 
+                    <?php
+                    
+                       require "./assets/model/sqlConnection.php";
+                       require "./assets/model/timeZoneConverter.php";
+
+                    ?>
+
                         <div class="col-12">
                             <div class="row m-0 p-0">
 
@@ -493,6 +500,12 @@
                                                                 </div>
                                                                 <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
                                                                     <div class="row">
+
+                                                                    <?php
+                                                                    
+                                                                     
+
+                                                                    ?>
 
                                                                         <table class="table-bordered" style=" font-family: 'Inter'; border: 1px solid #858585;">
                                                                             <thead>
