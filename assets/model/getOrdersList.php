@@ -30,6 +30,8 @@ class getOrders
 
         $responseArray = [];
 
+        $round_one = true;
+
         while ($loop) {
 
             if ($order_previouse == null) {
@@ -70,7 +72,11 @@ class getOrders
 
 
             if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
-                $loop = false;
+                if ($round_one == true) {
+                    $round_one = false;
+                } else {
+                    $loop = false;
+                }
             }
 
             array_push($responseArray, $main_data);
