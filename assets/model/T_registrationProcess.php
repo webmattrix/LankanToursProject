@@ -42,8 +42,8 @@ if($n > 0){
     $date = $d->format("Y-m-d H:i:s");
 
     Database::iud("INSERT INTO `user` 
-    (`name`,`email`,`password`,`reg_date`,`country_id`) VALUES 
-    ('".$F_Name."','".$Email."','".$Password."','".$date."','".$Country."')");
+    (`f_name`,`l_name`,`email`,`password`,`reg_date`,`country_id`) VALUES 
+    ('".$F_Name."','".$L_Name."','".$Email."','".$Password."','".$date."','".$Country."')");
 
     echo "success";
 }

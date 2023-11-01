@@ -20,7 +20,7 @@
     <h6 class="p-3 text-white  d-inline-block" style="font-family: QuickSand;"  onclick="register()"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
 
     <div class=" RegisterBox p-3 p-md-5 mb-2">
-        <div class="  p-lg-5 p-md-5 p-3 Registercard ">
+        <div class="  p-lg-4 p-md-5 p-3 Registercard ">
             <div class="row ">
                 <div class="col-12 mt-2 mt-lg-0">
                     <h1 style="font-family: QuickSand;">Registration</h1>
@@ -64,7 +64,7 @@
                                 ?>
                             </select>
                         </div>
-                        <div class="col-lg-6 offset-lg-3 col-10 offset-1 mt-3 mb-4 mb-lg-0 ">
+                        <div class="col-lg-6 offset-lg-3 col-10 offset-1 mt-3 mb-2 mb-lg-0 ">
                             <button class="form-control text-white" style="font-family: QuickSand; background-color: rgba(247, 247, 247, 0.415);" onclick="Register();"> Register</button>
                         </div>
                         

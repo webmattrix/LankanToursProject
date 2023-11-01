@@ -37,9 +37,9 @@
                             <div class="tour-plan-slider position-relative">
                                 <div class="position-absolute top-20 w-100 px-2 fs-5 d-flex " style="z-index: 3;">
                                     <div class="row" style=" font-family:Quicksand-Medium">
+                                    <?php ?>
                                         <span class="text-white fs-6 mt-1">&nbsp;<iconify-icon icon="mdi:eye" class=" text-white c-pointer  "></iconify-icon> &nbsp;&nbsp;23748</span>
                                     </div>
-
 
                                 </div>
                                 <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
@@ -126,7 +126,7 @@
             <button class="myToursTitle_button" style=" font-family:Quicksand-Medium">pervious Tours</button>
             <hr class="mt-0  mb-2">
         </div>
-        <div class="p-5 rounded-2 myToursD_table1 mb-3">
+        <div class="p-lg-5 p-2 rounded-2 myToursD_table1 mb-3">
             <!-- Large Device -->
             <div class="col-12 table-responsive d-none d-lg-block " style=" font-family:Quicksand-Medium">
                 <table class="table  align-middle  myToursD_table2   mb-3" style=" border-radius: 5px;">

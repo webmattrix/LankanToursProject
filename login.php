@@ -33,22 +33,22 @@
                         $email = "";
                         $password = "";
 
-                        if (isset($_COOKIE["LT_email"])) {
-                            $email = $_COOKIE["LT_email"];
+                        if (isset($_COOKIE["lt_tourist_email"])) {
+                            $email = $_COOKIE["lt_tourist_email"];
                         }
-                        if (isset($_COOKIE["LT_password"])) {
-                            $password = $_COOKIE["LT_password"];
+                        if (isset($_COOKIE["lt_tourist_password"])) {
+                            $password = $_COOKIE["lt_tourist_password"];
                         }
                         ?>
 
                         <div class="col-12 mb-2">
                             <h6 class="text-start" style="font-family: QuickSand;">Email</h6>
-                            <input type="text" class="form-control inputFeild" style="font-family: QuickSand;" id="L_Email" value="<?php echo $email?>">
+                            <input type="text" class="form-control inputFeild" style="font-family: QuickSand;" id="L_Email" value="<?php echo $email ?>">
                         </div>
 
                         <div class="col-12 mb-4">
                             <h6 class="text-start mb-2" style="font-family: QuickSand;">Password</h6>
-                            <input type="password" class="form-control inputFeild" style="font-family: QuickSand;" id="L_Password" value="<?php echo $password?>">
+                            <input type="password" class="form-control inputFeild" style="font-family: QuickSand;" id="L_Password" value="<?php echo $password ?>">
                         </div>
                         <div class="col-12 ">
                             <div class="row">
@@ -73,44 +73,68 @@
 
     </div>
 
-     <!-- model -->
-     <div class="modal" tabindex="-1" id="T_forgotPasswordModel">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" style="font-family: QuickSand;">Reset Password</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- model 01-->
+    <div class="modal" tabindex="-1" id="T_forgotPasswordModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-family: QuickSand;">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-lable" style="font-family: QuickSand;">New password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" id="npInput" style="font-family: QuickSand;">
+                                <button class="btn btn-outline-secondary" type="button" id="T_newPassword" onclick="T_ShowPassword1();"><i id="eye1" class="bi bi-eye-slash-fill"></i></button>
                             </div>
-                            <div class="modal-body">
-                                <div class="row g-3">
-                                    <div class="col-6">
-                                        <label class="form-lable" style="font-family: QuickSand;">New password</label>
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control" id="npInput" style="font-family: QuickSand;">
-                                            <button class="btn btn-outline-secondary" type="button" id="T_newPassword" onclick="T_ShowPassword1();"><i id="eye1" class="bi bi-eye-slash-fill"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-lable" style="font-family: QuickSand;">Retype New password</label>
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control" id="rnpInput" style="font-family: QuickSand;">
-                                            <button class="btn btn-outline-secondary" type="button" id="T_reNewPassword" onclick="T_ShowPassword2();"><i id="eye2" class="bi bi-eye-slash-fill"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-lable" style="font-family: QuickSand;">verification code</label>
-                                        <input type="text" class="form-control" id="T_vcode" style="font-family: QuickSand;">
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-lable" style="font-family: QuickSand;">Retype New password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" id="rnpInput" style="font-family: QuickSand;">
+                                <button class="btn btn-outline-secondary" type="button" id="T_reNewPassword" onclick="T_ShowPassword2();"><i id="eye2" class="bi bi-eye-slash-fill"></i></button>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-family: QuickSand;">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="T_resetPW();" style="font-family: QuickSand;">Reset Password</button>
-                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-lable" style="font-family: QuickSand;">verification code</label>
+                            <input type="text" class="form-control" id="T_vcode" style="font-family: QuickSand;">
                         </div>
                     </div>
                 </div>
-                <!-- model -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-family: QuickSand;">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="T_resetPW();" style="font-family: QuickSand;">Reset Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model 01-->
+
+    <!-- model 02-->
+    <div class="modal" tabindex="-1" id="T_verifyModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-family: QuickSand;">Verify Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <span>Code</span>
+                        <input type="text" class=" form-control" id="modalInput">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="modalLogin();" style="font-family: QuickSand;">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model 02 -->
+
+
 
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/login.js"></script>

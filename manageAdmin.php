@@ -35,7 +35,7 @@
 
                                         <h4 class="card-title" style="font-family: Inter;">Registerd Admins</h4>
                                         <?php
-                                        
+
                                         $rs1 = Database::search("SELECT * FROM `employee` WHERE `employe_type_id`='2' ");
                                         $number1 = $rs1->num_rows;
                                         ?>
@@ -60,37 +60,38 @@
                                 <div class="row p-3">
 
                                     <div class="col-lg-4 col-12">
-                                        <div class="AddAdminCard" style=" background-color: rgb(200, 200, 200);">
-                                            <img src="./assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg" class="card-img-top mb-2   " style="border-radius: 50%; height: 200px; width: 200px; margin: auto;">
+                                        <div class="AddAdminCard" style=" background-color: rgb(200, 200, 200);font-size: 14px;">
+                                            <img src="./assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg" class="card-img-top mb-2   " style="border-radius: 50%; height: 150px; width: 150px; margin: auto;">
 
-                                            <div class="col-12 mb-2">
+                                            <div class="col-12 mb-2 mt-2" style="font-family: QuickSand;">
                                                 <div class="row">
-                                                    <h6 class="text-start" style="font-family: QuickSand;">Full name</h6>
-                                                    <input type="text" class=" form-control " id="A_Name">
+                                                    <!-- <span class="text-start" style="font-family: QuickSand;">Full name</span> -->
+                                                    <input type="text" class=" form-control " id="A_Name" placeholder="Full name..">
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-2">
+                                            <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
-                                                    <h6 class="text-start" style="font-family: QuickSand;">Email</h6>
-                                                    <input type="text" class=" form-control " id="A_Email">
+                                                    <!-- <span class="text-start" >Email</span> -->
+                                                    <input type="text" class=" form-control " id="A_Email" placeholder="Email..">
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-2">
+
+                                            <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
-                                                    <h6 class="text-start" style="font-family: QuickSand;">NIC</h6>
-                                                    <input type="text" class=" form-control " id="A_NIC">
+                                                    <!-- <span class="text-start" >NIC</span> -->
+                                                    <input type="text" class=" form-control " id="A_NIC" placeholder="NIC..">
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-2">
+                                            <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
-                                                    <h6 class="text-start" style="font-family: QuickSand;">Mobile</h6>
-                                                    <input type="text" class=" form-control " id="A_Mobile">
+                                                    <!-- <span class="text-start" >Mobile</span> -->
+                                                    <input type="text" class=" form-control " id="A_Mobile" placeholder="Mobile..">
                                                 </div>
                                             </div>
-                                            <div class="col-12 mb-4">
+                                            <div class="col-12 mb-4" style="font-family: QuickSand;">
                                                 <div class="row">
-                                                    <h6 class="text-start" style="font-family: QuickSand;">Address</h6>
-                                                    <input type="text" class=" form-control " id="A_Address">
+                                                    <!-- <span class="text-start" >Address</span> -->
+                                                    <input type="text" class=" form-control " id="A_Address" placeholder="Address..">
                                                 </div>
                                             </div>
                                             <div class="col-12 ">
@@ -106,7 +107,7 @@
                                         <div class="col-12  mt-2" style="border-radius: 5px; background-color: rgb(200, 200, 200);">
                                             <div class="row">
                                                 <div class="col-10 offset-1 mt-3 mb-3">
-                                                    <input type="text" class="form-control" placeholder="Enter Email..">
+                                                    <input type="text" class="form-control" placeholder="Enter name.." id="searchIpnut" onkeyup="searchAdmin();">
                                                 </div>
                                                 <div class="col-1 mt-3 mb-3  d-none d-lg-block">
                                                     <iconify-icon icon="fluent:person-search-32-filled" class="fs-3"></iconify-icon>
@@ -127,193 +128,120 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-12 table-responsive">
-                                            <table class="table  align-middle table-hover table-striped " style="background-color: rgb(200, 200, 200); border-radius: 10px; font-family:Inter;">
-                                                <thead class="thead">
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col ">Email</th>
-                                                        <th scope="col">Name</th>
-                                                        <th scope="col">Mobile</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                    $query = " SELECT * FROM `employee` WHERE `employe_type_id`= '2' ORDER BY `reg_date` DESC ";
-                                                    //  admin_id = 2
-                                                    $pageno;
-
-                                                    if (isset($_GET["page"])) {
-                                                        $pageno = $_GET["page"];
-                                                    } else {
-                                                        $pageno = 1;
-                                                    }
-
-                                                    $admin_rs = Database::search($query);
-                                                    $n = $admin_rs->num_rows;
-                                                    $results_per_page = 1;
-                                                    $number_of_pages = ceil($n / $results_per_page);
-                                                    $page_results = ($pageno - 1) * $results_per_page;
-                                                    $admin_rs =  Database::search($query . " LIMIT " . $results_per_page . " OFFSET " . $page_results . "");
-                                                    $admin_num = $admin_rs->num_rows;
-
-                                                    for ($x = 0; $x < $admin_num; $x++) {
-                                                        $admin_data = $admin_rs->fetch_assoc();
-                                                    ?>
-                                                        <tr style="font-size: small;">
-
-                                                            <td><?php echo $x + 1 ?></td>
-                                                            <td><?php echo $admin_data["email"] ?></td>
-                                                            <td><?php echo $admin_data["name"] ?></td>
-                                                            <td><?php echo $admin_data["mobile"] ?></td>
-                                                            <td>
-                                                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="modalView('<?php echo $admin_data['id']; ?>');">
-                                                                    <i class="bi bi-eye-fill fs-4"></i>
-                                                                </button>
-                                                                <!-- modal -->
-                                                                <div class="modal" tabindex="-1" id="ViewModel<?php echo $admin_data['id']; ?>">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header" style="font-family: QuickSand;">
-                                                                                <h5 class="modal-title">Update Admin Deatails </h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <div class="col-12 p-3 border border-2 rounded-2" style="background-color: rgb(186, 186, 186);font-family: QuickSand;">
-                                                                                    <div class="col-12 mb-2">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-3">
-                                                                                                <h6 class="text-lg-end text-start mt-2">Full Name</h6>
-                                                                                            </div>
-                                                                                            <div class="col-lg-8">
-                                                                                                <input type="text" class=" form-control " value="<?php echo $admin_data["name"] ?>">
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 mb-2">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-3">
-                                                                                                <h6 class="text-lg-end text-start mt-2">Email</h6>
-                                                                                            </div>
-                                                                                            <div class="col-lg-8">
-                                                                                                <input type="text" class=" form-control " value="<?php echo $admin_data["email"] ?>">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 mb-2">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-3">
-                                                                                                <h6 class="text-lg-end text-start mt-2">Mobile</h6>
-                                                                                            </div>
-                                                                                            <div class="col-lg-8">
-                                                                                                <input type="text" class=" form-control " value="<?php echo $admin_data["mobile"] ?>">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 mb-2">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-3">
-                                                                                                <h6 class="text-lg-end text-start mt-2">Address</h6>
-                                                                                            </div>
-                                                                                            <div class="col-lg-8">
-                                                                                                <?php $rs3 = Database::search("SELECT * FROM `admin` WHERE `employee_id`='" . $admin_data["id"] . "'  ");
-                                                                                                $rs3_data = $rs3->fetch_assoc();
-                                                                                                ?>
-                                                                                                <input type="text" class=" form-control " value="<?php echo $rs3_data["address"] ?>">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-12 mb-4">
-                                                                                        <div class="row">
-                                                                                            <div class="col-lg-3">
-                                                                                                <h6 class="text-lg-end text-start mt-2">Status</h6>
-                                                                                            </div>
-                                                                                            <div class="col-lg-8">
-                                                                                                <?php if ($admin_data["status"] == 0) {
-                                                                                                ?>
-                                                                                                    <input type="text" class=" form-control text-primary  " readonly value="Active">
-                                                                                                <?php
-                                                                                                } else {
-                                                                                                ?>
-                                                                                                    <input type="text" class=" form-control text-danger disabled " readonly value="Unavailable">
-                                                                                                <?php
-                                                                                                }
-                                                                                                ?>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-10 offset-1">
-                                                                                        <div class="row ">
-                                                                                            <button type="button" class="btn text-white  mb-lg-3 mb-2" style="background-color:#83E873;" onclick="updateAdmin('<?php echo $admin_data['id']?>');">Update Admin Details</button>
-                                                                                            <button type="button" class="btn text-white " style="background-color: #FB7B53;"onclick="deleteAdmin('<?php echo $admin_data['id']?>');">Delete Admin Details</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- modal -->
-                                                            </td>
+                                        <div id="viewArea1">
+                                            <div class="col-12 table-responsive  ">
+                                                <table class="table  align-middle table-hover table-striped " style="background-color: rgb(200, 200, 200); border-radius: 10px; font-family: QuickSand;font-size: 14px;">
+                                                    <thead class="thead ">
+                                                        <tr class="">
+                                                            <th scope="col">#</th>
+                                                            <th scope="col ">Email</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Mobile</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
-                                                    <?php }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- pagination -->
-                                        <div class="col-10 offset-1 mt-3 d-flex justify-content-center align-content-center">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination  justify-content-center">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $query =  "SELECT * FROM `employee` INNER JOIN `admin` ON employee.id = admin.employee_id  ";
+
+                                                        $pageno;
+
+                                                        if (isset($_GET["page"])) {
+                                                            $pageno = $_GET["page"];
+                                                        } else {
+                                                            $pageno = 1;
+                                                        }
+
+                                                        $admin_rs = Database::search($query);
+                                                        $n = $admin_rs->num_rows;
+                                                        $results_per_page = 3;
+                                                        $number_of_pages = ceil($n / $results_per_page);
+                                                        $page_results = ($pageno - 1) * $results_per_page;
+                                                        $admin_rs =  Database::search($query . " LIMIT " . $results_per_page . " OFFSET " . $page_results . "");
+                                                        $admin_num = $admin_rs->num_rows;
+
+                                                        for ($x = 0; $x < $admin_num; $x++) {
+                                                            $admin_data = $admin_rs->fetch_assoc();
+                                                        ?>
+                                                            <tr>
+
+                                                                <td><?php echo $x + 1 ?></td>
+                                                                <td><?php echo $admin_data["email"] ?></td>
+                                                                <td><?php echo $admin_data["name"] ?></td>
+                                                                <td><?php echo $admin_data["mobile"] ?></td>
+                                                                <td>
+                                                                    <button type="button" class="btn" onclick="modalView('<?php echo $admin_data['email']; ?>');">
+                                                                        <i class="bi bi-eye-fill fs-4"></i>
+                                                                    </button>
+
+                                                                </td>
+                                                            </tr>
+                                                        <?php }
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                            <!-- pagination -->
+
+                                            <div class="col-10 offset-1 mt-3 d-flex justify-content-center align-content-center">
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination  justify-content-center">
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="
                                                 <?php if ($pageno <= 1) {
                                                     echo ("#");
                                                 } else {
                                                     echo "?page=" . ($pageno - 1);
                                                 } ?>
                                                 " aria-label="Previous">
-                                                            <span aria-hidden="true"><i class="bi bi-arrow-left-circle-fill"></i></span>
-                                                        </a>
-                                                    </li>
-                                                    <?php
-
-                                                    for ($x = 1; $x <= $number_of_pages; $x++) {
-                                                        if ($x == $pageno) {
-                                                    ?>
-                                                            <li class="page-item active">
-                                                                <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
-                                                            </li>
+                                                                <span aria-hidden="true"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                                                            </a>
+                                                        </li>
                                                         <?php
-                                                        } else {
-                                                        ?>
-                                                            <li class="page-item">
-                                                                <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
-                                                            </li>
-                                                    <?php
-                                                        }
-                                                    }
 
-                                                    ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="
+                                                        for ($x = 1; $x <= $number_of_pages; $x++) {
+                                                            if ($x == $pageno) {
+                                                        ?>
+                                                                <li class="page-item active">
+                                                                    <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                                </li>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <li class="page-item">
+                                                                    <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                                </li>
+                                                        <?php
+                                                            }
+                                                        }
+
+                                                        ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="
                                                 <?php if ($pageno >= $number_of_pages) {
                                                     echo ("#");
                                                 } else {
                                                     echo "?page=" . ($pageno + 1);
                                                 } ?>
                                                 " aria-label="Next">
-                                                            <span aria-hidden="true"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                                                <span aria-hidden="true"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <!-- pagination -->
                                         </div>
-                                        <!-- pagination -->
                                     </div>
+
+                                    <!-- modal -->
+                                    <div class="modal" tabindex="-1" id="ViewModel">
+                                        <div id="viewArea2">
+
+                                        </div>
+                                    </div>
+                                    <!-- modal -->
                                 </div>
                             </div>
                         </div>

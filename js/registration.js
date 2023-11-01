@@ -28,6 +28,7 @@ function Register() {
                 document.getElementById("AlertMSG").innerHTML = text;
                 document.getElementById("AlertMSG").className = "alert alert-success";
                 document.getElementById("AlertMSG").className = "d-block";
+                window.location ="./login.php" ;
 
 
             } else {

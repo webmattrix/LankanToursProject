@@ -29,7 +29,7 @@
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
-                    <div class="col-12  container-fluid">
+                    <div class="col-12  container-fluid" >
                         <div class="row mt-3 mb-3">
                             <div class="col-lg-5 offset-lg-1  col-md-5 offset-md-1 col-sm-5 offset-sm-1">
                                 <div class="GuidCard">
@@ -57,17 +57,15 @@
                                             </div>
                                             <div class="col-lg-8 col-12">
                                                 <?php
-                                                $guide_rs = Database::search(" SELECT * FROM `guide` ORDER BY `rating` DESC LIMIT 1");
+                                                ;
+                                                $guide_rs = Database::search("SELECT * FROM `employee` INNER JOIN `guide` ON employee.id = guide.employee_id ORDER BY `rating` DESC LIMIT 1 ");
                                                 $guide_data = $guide_rs->fetch_assoc();
-
-                                                $employee_rs = Database::search("SELECT * FROM `employee` WHERE `id`= '" . $guide_data["employee_id"] . "'");
-                                                $employee_data = $employee_rs->fetch_assoc();
 
                                                 ?>
                                                 <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Highest Rating Tour Guide</h5>
-                                                <h6 class="text-lg-end mt-3" style="font-family:QuickSand;"><?php echo $employee_data["name"] ?></h6>
+                                                <h6 class="text-lg-end mt-3" style="font-family:QuickSand;"><?php echo  $guide_data["name"] ?></h6>
                                                 <h6 class="text-lg-end" style="font-family:QuickSand;"><i class="bi bi-star-fill  text-warning"></i>&nbsp;&nbsp;<?php echo $guide_data["rating"] ?>/5</h6>
-                                                <h6 class="text-lg-end" style="font-family:QuickSand;"><i class="bi bi-telephone-inbound-fill"></i>&nbsp;&nbsp;<?php echo $employee_data["mobile"] ?></h6>
+                                                <h6 class="text-lg-end" style="font-family:QuickSand;"><i class="bi bi-telephone-inbound-fill"></i>&nbsp;&nbsp;<?php echo  $guide_data["mobile"] ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -77,125 +75,124 @@
                     </div>
                     <div class="col-12 p-3 mt-3 mb-3  " style="border-radius: 10px; background-color:rgb(255, 255, 255) ">
                         <div class="col-lg-3 offset-lg-9 col-10 offset-1  mb-3">
-                            <input type="text" class="form-control" placeholder=" Type Name ...">
+                            <input type="text" class="form-control" placeholder=" Type Name ..." id="searchInput" onkeyup="searchGuide();">
                         </div>
-                        <div class="col-12 table-responsive">
-                            <table class="table  align-middle table-hover   mb-3" style="background-color:#E8E8E8; border-radius: 5px; font-family:Inter;">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Guid Name</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Mobile</th>
-                                        <th scope="col">Rating</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-
-                                    $query = " SELECT * FROM `employee` WHERE `employe_type_id`= '3' ORDER BY `reg_date` DESC ";
-                                    //  guide_id = 3
-                                    $pageno;
-
-                                    if (isset($_GET["page"])) {
-                                        $pageno = $_GET["page"];
-                                    } else {
-                                        $pageno = 1;
-                                    }
-
-                                    $guideTable_rs = Database::search($query);
-                                    $n = $guideTable_rs->num_rows;
-
-                                    $results_per_page = 1;
-                                    $number_of_pages = ceil($n / $results_per_page);
-                                    $page_results = ($pageno - 1) * $results_per_page;
-                                    $guideTable_rs =  Database::search($query . " LIMIT " . $results_per_page . " OFFSET " . $page_results . "");
-                                    $guideTable_num = $guideTable_rs->num_rows;
-
-                                    for ($x = 0; $x < $guideTable_num; $x++) {
-                                        $guideTable_data = $guideTable_rs->fetch_assoc();
-                                        $guideTable_rs2 = Database::search(" SELECT * FROM `guide` WHERE `employee_id`= '" . $guideTable_data["id"] . "' ");
-                                        $guideTable_data2 = $guideTable_rs2->fetch_assoc();
-                                    ?>
-                                        <tr style="font-size: small;">
-                                            <td><?php echo $guideTable_data["name"] ?></td>
-                                            <td><?php echo $guideTable_data2["address"] ?></td>
-                                            <td><?php echo $guideTable_data["mobile"] ?></td>
-                                            <th><?php echo $guideTable_data2["rating"] ?></th>
-                                            
-                                            <?php if ($guideTable_data["status"] == 0) {
-                                            ?>
-                                                <td><button class="btn btn-primary " >Available</button>
-
-                                                <?php
-                                            } else {
-                                                ?>
-
-                                                <td><button class="btn btn-danger">Unavailable</button>
-
-                                                <?php
-                                            }
-                                                ?>
-                                                </td>
+                        <div id="ViewArea">
+                            <div class="col-12 table-responsive ">
+                                <table class="table  align-middle table-hover   mb-3" style="background-color:#E8E8E8; border-radius: 5px; font-family:Inter;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Guid Name</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Mobile</th>
+                                            <th scope="col">Rating</th>
+                                            <th scope="col">Status</th>
                                         </tr>
-                                    <?php
-                                    } ?>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $query =  "SELECT * FROM `employee` INNER JOIN `guide` ON employee.id = guide.employee_id ";
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- pagination -->
-                        <div class="col-10 offset-1 mt-3 d-flex justify-content-center align-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination  justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="
+                                        $pageno;
+
+                                        if (isset($_GET["page"])) {
+                                            $pageno = $_GET["page"];
+                                        } else {
+                                            $pageno = 1;
+                                        }
+
+                                        $G_rs = Database::search($query);
+                                        $n = $G_rs->num_rows;
+
+                                        $results_per_page = 2;
+                                        $number_of_pages = ceil($n / $results_per_page);
+                                        $page_results = ($pageno - 1) * $results_per_page;
+                                        $guideTable_rs =  Database::search($query . " LIMIT " . $results_per_page . " OFFSET " . $page_results . "");
+                                        $guideTable_num = $guideTable_rs->num_rows;
+
+                                        for ($x = 0; $x < $guideTable_num; $x++) {
+                                            $guideTable_data = $guideTable_rs->fetch_assoc();
+
+                                        ?>
+                                            <tr style="font-size: small;">
+                                                <td><?php echo $guideTable_data["name"] ?></td>
+                                                <td><?php echo $guideTable_data["address"] ?></td>
+                                                <td><?php echo $guideTable_data["mobile"] ?></td>
+                                                <th><?php echo $guideTable_data["rating"] ?></th>
+
+                                                <?php if ($guideTable_data["status"] == 0) {
+                                                ?>
+                                                    <td><button class="btn btn-primary ">Available</button>
+
+                                                    <?php
+                                                } else {
+                                                    ?>
+
+                                                    <td><button class="btn btn-danger">Unavailable</button>
+
+                                                    <?php
+                                                }
+                                                    ?>
+                                                    </td>
+                                            </tr>
+                                        <?php
+                                        } ?>
+
+                                    </tbody>
+                                </table>
+                                <!-- pagination -->
+                                <div class="col-10 offset-1 mt-3 d-flex justify-content-center align-content-center">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination  justify-content-center">
+                                            <li class="page-item">
+                                                <a class="page-link" href="
                                                 <?php if ($pageno <= 1) {
                                                     echo ("#");
                                                 } else {
                                                     echo "?page=" . ($pageno - 1);
                                                 } ?>
                                                 " aria-label="Previous">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-left-circle-fill"></i></span>
-                                        </a>
-                                    </li>
-                                    <?php
-
-                                    for ($x = 1; $x <= $number_of_pages; $x++) {
-                                        if ($x == $pageno) {
-                                    ?>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                    <span aria-hidden="true"><i class="bi bi-arrow-left-circle-fill"></i></span>
+                                                </a>
                                             </li>
-                                        <?php
-                                        } else {
-                                        ?>
+                                            <?php
+
+                                            for ($x = 1; $x <= $number_of_pages; $x++) {
+                                                if ($x == $pageno) {
+                                            ?>
+                                                    <li class="page-item active">
+                                                        <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                    </li>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                    </li>
+                                            <?php
+                                                }
+                                            }
+
+                                            ?>
+
                                             <li class="page-item">
-                                                <a class="page-link" href="<?php echo "?page=" . ($x); ?>"><?php echo $x; ?></a>
-                                            </li>
-                                    <?php
-                                        }
-                                    }
-
-                                    ?>
-
-                                    <li class="page-item">
-                                        <a class="page-link" href="
+                                                <a class="page-link" href="
                                                 <?php if ($pageno >= $number_of_pages) {
                                                     echo ("#");
                                                 } else {
                                                     echo "?page=" . ($pageno + 1);
                                                 } ?>
                                                 " aria-label="Next">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-right-circle-fill"></i></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                                    <span aria-hidden="true"><i class="bi bi-arrow-right-circle-fill"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- pagination -->
+                            </div>
                         </div>
-                        <!-- pagination -->
-
-
+                        
                         <div class="col-12 mt-4">
                             <h2 class="text-center" style="font-family: Inter;">Add New Guide</h2>
                         </div>
@@ -246,6 +243,7 @@
     <script src="./js/adminTemplate.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/manageGuide.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

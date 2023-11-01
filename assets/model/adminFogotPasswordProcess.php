@@ -1,34 +1,43 @@
 <?php
-require "../model/sqlConnection.php";
 
+require "sqlConnection.php";
 require "SMTP.php";
 require "PHPMailer.php";
 require "Exception.php";
 
+// $password = genaratepassword(6);
+
 use PHPMailer\PHPMailer\PHPMailer;
 
-if (!empty($_GET["Email"])) {
-    
+if (isset($_GET["e"])) {
+    $email = $_GET["e"];
 
-    $email = $_GET["Email"];
-    $rs = Database::search("SELECT * FROM `user` WHERE `email` ='" . $email . "'");
-    $n = $rs->num_rows;
+    $resultset = Database::search("SELECT * FROM 
+    `employee` INNER JOIN `employe_type` ON employee.employe_type_id = employe_type.id 
+    WHERE `employee`.`email`='" . $email . "' AND `employe_type`.`name`='admin'");
+
+    $n = $resultset->num_rows;
+
     if ($n == 1) {
+
         $code = uniqid();
-        Database::iud("UPDATE `user`SET `verification_code`='" . $code . "' WHERE `email`='" . $email . "'");
-        $mail = new PHPMailer;
-        $mail->IsSMTP();
-        $mail->Host = 'smtp.titan.email';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'contact@lankantravel.com';
-        $mail->Password = 'Ltp2023@#';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
-        $mail->setFrom('contact@lankantravel.com', 'Lankan Travel');
-        $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
-        $mail->addAddress($email);
-        $mail->isHTML(true);
-        $mail->Subject = 'Lankan Travel Reset Code';
+
+        Database::iud("UPDATE `employee` SET `verification_code`='" . $code . "' 
+    WHERE `email`='" . $email . "'");
+
+    $mail = new PHPMailer;
+    $mail->IsSMTP();
+    $mail->Host = 'smtp.titan.email';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'contact@lankantravel.com';
+    $mail->Password = 'Ltp2023@#';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
+    $mail->setFrom('contact@lankantravel.com', 'Lankan Travel');
+    $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
+    $mail->addAddress($email);
+    $mail->isHTML(true);
+        $mail->Subject = 'Lankan Tours Reset Code';
         $bodyContent = '<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -98,17 +107,16 @@ if (!empty($_GET["Email"])) {
             </div>
         </body>
         </html>';
-
         $mail->Body    = $bodyContent;
+
         if (!$mail->send()) {
-            echo "verification code sending failed";
+            echo 'Verification code sending failed';
         } else {
             echo 'success';
         }
     } else {
-        echo ("invalid email address");
+        echo "Email Address Not Found.";
     }
 } else {
     echo "Please Enter your Email Address.";
 }
-?>
