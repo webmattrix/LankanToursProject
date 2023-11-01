@@ -8,16 +8,16 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- <link rel="stylesheet" href="./css/home.css"> -->
   <link rel="stylesheet" href="./css/homeDark.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/scrolbar.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/font.css">
+  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
-<body onload="homeOnloadFunction();" class="c-default" id="body">
+<body onload="homeOnloadFunction();" class="c-default" id="body" style="overflow-x: hidden;">
 
   <?php
   include "./components/newHeader.php";
@@ -154,7 +154,7 @@
 
       <!-- Most beautiful places & top tour plans -->
       <div class="col-12 p-4">
-        <div class="row places-container rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
+        <div class="row mx-2 places-container rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
 
           <!-- Beautiful places -->
           <div class="col-12">
@@ -253,6 +253,7 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="./js/footer.js"></script>
   <script src="./js/newHeader.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

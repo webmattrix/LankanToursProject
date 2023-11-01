@@ -455,7 +455,7 @@
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="js/itinerary.js"></script>
-    <script src="js/home.js"></script>
+    <!-- <script src="js/home.js"></script> -->
     <script src="js/bootstrap.bundle.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/newHeader.js"></script>

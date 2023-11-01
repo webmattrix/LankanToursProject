@@ -10,7 +10,7 @@ function guideSignIn() {
 
   var r = new XMLHttpRequest();
 
-  r.onreadystatechange = function () {
+  r.onreadystatechange = function () { 
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "not verified") {
@@ -25,7 +25,7 @@ function guideSignIn() {
 
         req.onreadystatechange = function () {
           if (req.readyState == 4) {
-            window.location.href = "/lankanTours/LankanToursProject/Guide/Home";
+            window.location.href = "/LankanToursProject/Guide/Home";
           }
         };
 
@@ -69,7 +69,7 @@ function verifyGuide() {
 
   r.open(
     "POST",
-    "http://localhost/LankanToursProject/assets/model/guideVerification.php",
+    "../assets/model/guideVerification.php",
     true
   );
   r.send(form);
@@ -89,7 +89,7 @@ function guideForgotPassword() {
         bm = new bootstrap.Modal(m, {
           backdrop: "static",
         });
-        bm.show();
+        bm.show(); 
       } else {
         alert(t);
       }
@@ -98,8 +98,8 @@ function guideForgotPassword() {
 
   r.open(
     "GET",
-    "http://localhost/LankanToursProject/assets/model/guideForgotPasswordProcess.php?e=" +
-    email.value,
+    "../assets/model/guideForgotPasswordProcess.php?e=" +
+      email.value,
     true
   );
   r.send();
@@ -133,7 +133,7 @@ function resetpassword() {
 
   r.open(
     "POST",
-    "http://localhost/LankanToursProject/assets/model/guideResetPassword.php",
+    "../assets/model/guideResetPassword.php",
     true
   );
   r.send(form);

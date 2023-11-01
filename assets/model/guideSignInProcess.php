@@ -11,7 +11,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $rememberMe = $_POST["rememberme"];
 
-if (empty($email)) {
+if (empty($email)) { 
     echo "please enter your email address";
 } else if (strlen($email) > 100) {
     echo "Email address should contain less than 100 characters.";
@@ -139,13 +139,7 @@ if (empty($email)) {
                 setcookie("guide_email", "", -1);
                 setcookie("guide_password", "", -1);
             }
-
-            if (isset($_COOKIE['guide_email'])) {
-                echo $rememberMe;
-                $cookie = $_COOKIE['guide_email'];
-                echo $cookie;
-            }
-
+            
             echo "success";
         }
     } else {

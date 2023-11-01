@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Login</title>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="offset-1 col-10 text-start mt-2">
                     <input type="checkbox" id="guide_remember" class="form-check-input" style="border-radius: 100%;">
-                    <span class="text-white fs-6 quicksand-Medium">Keep Me Logged In</span>
+                    <label class="text-white fs-6 quicksand-Medium" for="guide_remember">Keep Me Logged In</label>
                 </div>
                 <div class="d-flex justify-content-center">
                     <button onclick="guideSignIn();" class="btn guide_login-btn quicksand-Medium d-flex justify-content-center gap-2 align-items-center text-white">
