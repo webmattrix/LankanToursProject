@@ -2,6 +2,7 @@
 require "sqlConnection.php";
 
 $name = $_POST["name"];
+$city = $_POST["city"];
 
 if (isset($_FILES["image"])) {
     $image = $_FILES["image"];
@@ -35,7 +36,7 @@ if (isset($_FILES["image"])) {
 
             move_uploaded_file($image["tmp_name"], $file_name);
 
-            Database::iud("INSERT INTO `place`(`name`) VALUES('" . $name . "')");
+            Database::iud("INSERT INTO `place`(`name`,`city_id`) VALUES('" . $name . "','" . $city . "')");
 
             $lastId = Database::$connection->insert_id;
 

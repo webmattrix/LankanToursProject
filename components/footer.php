@@ -11,7 +11,7 @@
 <body>
 
     <div class="col-12 position-sticky top-100 pt-3">
-        <div class="row">
+        <div class="row m-0">
 
             <footer class="footer p-2">
                 <div class="col-12 pb-2" style="border-bottom: 1px solid #2e2e2e;">

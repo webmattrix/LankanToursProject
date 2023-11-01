@@ -114,13 +114,19 @@ session_start();
 
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/overall_income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $overall_income); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall
+                                        Income</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ("$" . $overall_income); ?>
+                                    </span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $yearly_income); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly
+                                        Income</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ("$" . $yearly_income); ?>
+                                    </span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
@@ -134,23 +140,34 @@ session_start();
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/todayEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today Engagement</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ($total_users); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today
+                                        Engagement</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ($total_users); ?>
+                                    </span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
                                     <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Profit</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $saving_amount); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ("$" . $saving_amount); ?>
+                                    </span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/overall_outgoing.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Outgoing Income</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ("$" . $overall_income - $saving_amount); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Outgoing
+                                        Income</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ("$" . $overall_income - $saving_amount); ?>
+                                    </span>
                                 </div>
                                 <div class="admin_grid-item">
                                     <lottie-player src="../assets/animations/totalEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">New Engagements</span>
-                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3"><?php echo ($new_users); ?></span>
+                                    <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">New
+                                        Engagements</span>
+                                    <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
+                                        <?php echo ($new_users); ?>
+                                    </span>
                                 </div>
                             </div>
 
@@ -160,13 +177,15 @@ session_start();
 
                                 <div class="admin_body-grid">
                                     <div class="position-relative"> <!-- Income Chart (According to the months) -->
-                                        <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">- Year : 2023 -</span>
+                                        <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
+                                            Year : 2023 -</span>
                                         <div class="w-100 h-100">
                                             <canvas id="canvas" class="rounded p-2"></canvas>
                                         </div>
                                     </div>
                                     <div>
-                                        <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">- Visiters -</span>
+                                        <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
+                                            Visiters -</span>
                                         <div class="p-2 chart-container w-100 h-100">
                                             <canvas id="myChart" style="width: 100%; height: 100%; position: relative;"></canvas>
                                         </div>
@@ -194,11 +213,17 @@ session_start();
                                                                                             echo ("border border-secondary");
                                                                                         } ?>">
                                                         <div class="d-flex w-100 justify-content-between align-items-center">
-                                                            <span class="quicksand-SemiBold fs-6"><?php echo ($user_data["name"]); ?></span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php echo (date("d M, Y", $convertTime)); ?></span>
+                                                            <span class="quicksand-SemiBold fs-6">
+                                                                <?php echo ($user_data["name"]); ?>
+                                                            </span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">
+                                                                <?php echo (date("d M, Y", $convertTime)); ?>
+                                                            </span>
                                                         </div>
                                                         <div class="pt-2 quicksand-SemiBold position-relative">
-                                                            <span class="text-black-50 admin_panel-msg-text"><?php echo ($message_data["message"]); ?></span>
+                                                            <span class="text-black-50 admin_panel-msg-text">
+                                                                <?php echo ($message_data["message"]); ?>
+                                                            </span>
                                                             <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
                                                         </div>
                                                     </div>
@@ -209,11 +234,17 @@ session_start();
                                                                                             echo ("border border-secondary");
                                                                                         } ?>">
                                                         <div class="d-flex w-100 justify-content-between align-items-center">
-                                                            <span class="quicksand-SemiBold fs-6"><?php echo ($message_data["email"]); ?></span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular"><?php echo (date("d M, Y", $convertTime)); ?></span>
+                                                            <span class="quicksand-SemiBold fs-6">
+                                                                <?php echo ($message_data["email"]); ?>
+                                                            </span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">
+                                                                <?php echo (date("d M, Y", $convertTime)); ?>
+                                                            </span>
                                                         </div>
                                                         <div class="pt-2 quicksand-SemiBold position-relative">
-                                                            <span class="text-black-50 admin_panel-msg-text"><?php echo ($message_data["message"]); ?></span>
+                                                            <span class="text-black-50 admin_panel-msg-text">
+                                                                <?php echo ($message_data["message"]); ?>
+                                                            </span>
                                                             <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
                                                         </div>
                                                     </div>
@@ -235,45 +266,107 @@ session_start();
                                             <?php
 
                                             $date = new DateTime();
-                                            $date->setTimezone(new DateTimeZone("Asia/Colombo"));
-                                            $today = $date->format("Y-m-d");
+                                            $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
+                                            $today = $today->format("Y-m-d");
 
-                                            $query = "SELECT *, `tour`.`name` AS `tour_name`, `employee`.`name` AS `guide_name` FROM `order`
-                                            INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
+                                            $order_rs = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name` FROM `order` 
                                             INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-                                            INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id`
+                                            INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
+                                            INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
+                                            WHERE `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
+                                            ORDER BY `start_date` ASC");
+                                            $ct_order_rs = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `custom_tour`
+                                            INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
                                             INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-                                            INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id`
-                                            WHERE `order`.`end_date`>='" . $today . "' AND `order_status`.`name`='Assigned'
-                                            ORDER BY `order`.`end_date` ASC";
-                                            $ongoing_order_rs = Database::search($query);
+                                            WHERE `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' ORDER BY `start_date` ASC");
 
-                                            for ($x = 0; $x < $ongoing_order_rs->num_rows; $x++) {
-                                                $ongoing_order_data = $ongoing_order_rs->fetch_assoc();
+                                            $order_num = $order_rs->num_rows;
+                                            $ct_order_num = $ct_order_rs->num_rows;
+
+                                            $order_iteration = 0;
+                                            $ct_order_iteration = 0;
+
+                                            $loop = true;
+
+                                            $order_previouse = null;
+                                            $ct_order_previouse = null;
+
+                                            $order_data = null;
+                                            $ct_order_data = null;
+
+                                            $order_start = null;
+                                            $ct_order_start = null;
+
+                                            while ($loop) {
+
+                                                if ($order_previouse == null) {
+                                                    if ($order_iteration < $order_num) {
+                                                        $order_data = $order_rs->fetch_assoc();
+                                                        $order_start = strtotime($order_data["start_date"]);
+                                                        $order_iteration = $order_iteration + 1;
+                                                    } else {
+                                                        $order_start = "9999-99-99";
+                                                    }
+                                                } else {
+                                                }
+
+                                                if ($ct_order_previouse == null) {
+                                                    if ($ct_order_iteration < $ct_order_num) {
+                                                        $ct_order_data = $ct_order_rs->fetch_assoc();
+                                                        $ct_order_start = strtotime($ct_order_data["start_date"]);
+                                                        $ct_order_iteration = $ct_order_iteration + 1;
+                                                    } else {
+                                                        $ct_order_start = "9999-99-99";
+                                                    }
+                                                } else {
+                                                }
+
+                                                if ($order_start > $ct_order_start) {
+                                                    $order_previouse = $order_data;
+                                                    $ct_order_previouse = null;
+                                                    $main_data = $ct_order_data;
+                                                    $tour_name = "Custom Tour";
+                                                } else {
+                                                    $ct_order_previouse = $ct_order_data;
+                                                    $order_previouse = null;
+                                                    $main_data = $order_data;
+                                                    $tour_name = $main_data["tour_name"];
+                                                }
+
+
+                                                if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+                                                    $loop = false;
+                                                }
+
                                             ?>
                                                 <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2">
                                                     <?php
-                                                    if ($ongoing_order_data["profile_picture"] == null || empty($ongoing_order_data["profile_picture"])) {
+                                                    if ($main_data["profile_picture"] == null || empty($main_data["profile_picture"])) {
                                                     ?>
-                                                        <img src="../assets/img/profile/empty_profile.jpg" class="" style="width: 50px; clip-path: circle();" />
+                                                        <img src="../assets/img/profile/empty_profile.jpg" style="width: 50px; clip-path: circle();" />
                                                     <?php
                                                     } else {
                                                     ?>
-                                                        <img src="../<?php echo ($ongoing_order_data["profile_picture"]); ?>" class="" style="width: 50px; clip-path: circle();" />
+                                                        <img src="../assets/img/profile/guide/<?php echo ($main_data["profile_picture"]); ?>" style="width: 50px; clip-path: circle();" />
                                                     <?php
                                                     }
                                                     ?>
                                                     <div class="w-100 p-1">
                                                         <div class="w-100 d-flex justify-content-between">
-                                                            <span class="quicksand-SemiBold"><?php echo ($ongoing_order_data["tour_name"]); ?></span>
-                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Medium"><?php echo ((date_diff(new DateTime($today), new DateTime($ongoing_order_data["end_date"])))->d); ?> Days Left</span>
+                                                            <span class="quicksand-SemiBold">
+                                                                <?php echo ($tour_name); ?>
+                                                            </span>
+                                                            <span style="font-size: 14px;" class="text-black-50 quicksand-Medium"><?php echo ((date_diff(new DateTime($today), new DateTime($main_data["end_date"])))->d); ?> Days Left</span>
                                                         </div>
                                                         <div class="w-100 p-1">
-                                                            <span class="quicksand-Medium">Assigned Guide : <?php echo ($ongoing_order_data["guide_name"]); ?></span>
+                                                            <span class="quicksand-Medium">Assigned Guide :
+                                                                <?php echo ($main_data["guide_name"]); ?>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             <?php
+
                                             }
                                             ?>
                                         </div>

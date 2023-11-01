@@ -62,7 +62,7 @@ function guideForgotPassword() {
 
   r.open(
     "GET",
-    "http://localhost/LankanToursProject/LankanToursProject/assets/model/guideForgotPasswordProcess.php?e=" +
+    "./assets/model/guideForgotPasswordProcess.php?e=" +
       email.value,
     true
   );

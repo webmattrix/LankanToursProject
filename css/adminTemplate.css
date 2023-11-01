@@ -110,7 +110,7 @@
 .site_logo {
   width: 150px;
   height: 150px;
-  background-color: rgb(199, 199, 199);
+  background-color: rgb(255, 255, 255);
   clip-path: circle();
 }
 .site_name {
@@ -232,4 +232,33 @@
 
 #mobileSideBarModel {
   z-index: 1;
+}
+
+.profile-menu-icon:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+/* .profile-menu-icon > * {
+  color: #333333;
+} */
+
+.guide-profile-model {
+  position: absolute;
+  width: 300px;
+  border-radius: 6px;
+  padding: 20px;
+  background-color: #fff;
+  right: 50px;
+  top: 120%;
+  z-index: 3;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.guide-profile-model > img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.guide-profile-model > div:hover {
+  background-color: rgba(128, 128, 128, 0.25);
 }
