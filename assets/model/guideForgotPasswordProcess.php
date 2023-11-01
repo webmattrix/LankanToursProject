@@ -18,9 +18,11 @@ if (isset($_GET["e"])) {
 
     if ($n == 1) {
 
-        $code = uniqid();
+        $uniqueID = '';
+        $uniqueID .= mt_rand(1000, 999999999);
+        $uniqueID = substr($uniqueID, 0, 6);
 
-        Database::iud("UPDATE `employee` SET `verification_code`='" . $code . "' 
+        Database::iud("UPDATE `employee` SET `verification_code`='" . $uniqueID . "' 
     WHERE `email`='" . $email . "'");
 
         $mail = new PHPMailer;
@@ -96,7 +98,7 @@ if (isset($_GET["e"])) {
                 </div>
                 <div class="content">
                     <h2>Verification Code</h2>
-                    <h1>' . $code . '</h1>
+                    <h1>' . $uniqueID . '</h1>
                     <p>Use this verification code to reset your password!</p>
                 </div>
                 <div class="footer">
