@@ -101,6 +101,25 @@ function viewGuideHome() {
   window.location = "Home";
 }
 
+function viewTours() {
+  window.location = "Tours";
+}
+
 function viewProfileModel() {
   document.getElementById("guideProfileModel").classList.toggle("d-none");
+}
+
+function guideLogOut() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      if (req.responseText == "1") {
+        window.location.reload();
+      }
+    }
+  };
+
+  req.open("GET", "../assets/model/guideLogOut.php", true);
+  req.send();
 }

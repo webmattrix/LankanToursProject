@@ -93,7 +93,7 @@ if (isset($_SESSION["lt_guide"])) {
                         <iconify-icon icon="iconamoon:profile-thin"></iconify-icon>
                         <span>Profile</span>
                     </div>
-                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded">
+                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="guideLogOut();">
                         <iconify-icon icon="clarity:logout-line"></iconify-icon>
                         <span>Log Out</span>
                     </div>

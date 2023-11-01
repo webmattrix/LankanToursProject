@@ -28,7 +28,7 @@ ReWriteRule ^Admin/Order$ orders_page.php [NC,L]
 ReWriteRule ^Admin/Tours$ manageTours.php [NC,L]
 ReWriteRule ^Admin/Manage$ manageAdmin.php [NC,L]
 
-ReWriteRule ^Guide/Tours$ guideP_TourPage.php [NC,L]
+ReWriteRule ^Guide/Tours$ guideTour.php [NC,L]
 ReWriteRule ^Guide/Home$ guidePanel.php [NC,L]
 ReWriteRule ^Guide/Profile$ guideProfile.php [NC,L]
 ReWriteRule ^Guide$ guideLogin.php [NC,L]

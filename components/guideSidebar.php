@@ -40,7 +40,8 @@
                 </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');">
+                <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
+                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewTours();">
                     <span>Tours</span>
                     <iconify-icon icon="mingcute:right-fill" id="adminIcon"></iconify-icon>
                 </div>

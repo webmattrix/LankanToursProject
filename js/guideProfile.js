@@ -19,10 +19,11 @@ function notificationSwitch() {
 }
 
 function changeImageUploader() {
-  var profileImage = document.getElementById("adminProfilePicture");
-  alert(profileImage.files[0]);
+  var file = document.getElementById("adminProfilePicture");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
   document.getElementById("adminProfileViewImage").style.backgroundImage =
-    "url('" + profileImage.value + "')";
+    "url(" + fileUrl + ")";
 }
 
 document.getElementById("passwordEye").addEventListener("mousedown", () => {
@@ -30,10 +31,10 @@ document.getElementById("passwordEye").addEventListener("mousedown", () => {
     document.getElementById("passwordEye").getAttribute("icon") == "el:eye-open"
   ) {
     document.getElementById("passwordEye").setAttribute("icon", "el:eye-close");
-    document.getElementById("passwordField").type = "text";
+    document.getElementById("guidePassword").type = "password";
   } else {
     document.getElementById("passwordEye").setAttribute("icon", "el:eye-open");
-    document.getElementById("passwordField").type = "password";
+    document.getElementById("guidePassword").type = "text";
   }
 });
 
@@ -61,4 +62,78 @@ function socialMediaSlider(id) {
   document.getElementById("socialMedia2Icon").classList.remove("active");
   document.getElementById("socialMedia3Icon").classList.remove("active");
   document.getElementById("socialMedia" + id + "Icon").classList.add("active");
+}
+
+document
+  .getElementById("changeProfileBtn")
+  .addEventListener("mousedown", () => {
+    var form = new FormData();
+    form.append("name", document.getElementById("guideName").value);
+    form.append("mobile", document.getElementById("guideMobile").value);
+    form.append("address", document.getElementById("guideAddress").value);
+    form.append("password", document.getElementById("guidePassword").value);
+    form.append(
+      "profileImage",
+      document.getElementById("adminProfilePicture").files[0]
+    );
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4) {
+        var res = req.responseText;
+        var responseObj = JSON.parse(res);
+        if (responseObj.changeStatus == "failed") {
+          alert("You haven't change anything");
+        } else if (responseObj.emailStatus == "failed") {
+          alert("OTP Sending failed. Please try again later");
+        } else {
+          toggleProfileOtp();
+        }
+      }
+    };
+
+    req.open("POST", "../assets/model/sendOTPGuideProfile.php", true);
+    req.send(form);
+  });
+
+document
+  .getElementById("profileOtpModelToggle")
+  .addEventListener("mousedown", toggleProfileOtp);
+
+function toggleProfileOtp() {
+  document.getElementById("profileOtpModel").classList.toggle("d-none");
+}
+
+function changeGuideProfile() {
+  var form = new FormData();
+  form.append("name", document.getElementById("guideName").value);
+  form.append("mobile", document.getElementById("guideMobile").value);
+  form.append("address", document.getElementById("guideAddress").value);
+  form.append("password", document.getElementById("guidePassword").value);
+  form.append(
+    "verification_code",
+    document.getElementById("guideVerificationCode").value
+  );
+  form.append(
+    "profileImage",
+    document.getElementById("adminProfilePicture").files[0]
+  );
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      var res = req.responseText;
+      if (res == "failed") {
+        alert("OTP Verification Failed");
+      } else {
+        alert("Profile Updated");
+        window.location.reload();
+      }
+    }
+  };
+
+  req.open("POST", "../assets/model/changeGuideProfile.php", true);
+  req.send(form);
 }
