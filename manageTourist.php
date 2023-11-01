@@ -35,7 +35,7 @@ require "assets/model/sqlConnection.php";
                     $users = $result->fetch_all(MYSQLI_ASSOC);
 
                     $sevenDaysAgo = date('Y-m-d H:i:s', strtotime('-7 days'));
-                    $newly_added = Database::search("SELECT * FROM `user` WHERE `created_at` >= '$sevenDaysAgo'");
+                    $newly_added = Database::search("SELECT * FROM `user` WHERE `reg_date` >= '$sevenDaysAgo'");
                     $newly_added_count = $newly_added->num_rows;
                     ?>
                     <div class="col-12 px-5 py-3">
@@ -71,19 +71,22 @@ require "assets/model/sqlConnection.php";
                                                         <span class="fs-6 mx-2">Filter</span>
                                                     </div>
                                                     <div class="col-7">
-                                                        <select class="form-select">
-                                                            <option value="">Select</option>
+                                                        <select id="filter_tourist" onchange="filter();" class="form-select">
+                                                            <option value="select">Select</option>
+                                                            <option value="name">By Name</option>
+                                                            <option value="email">By Email</option>
+                                                            <option value="date">By Register Date</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-3 offset-4">
                                                 <div class="row">
-                                                    <input type="text" class="form-control" placeholder="type name or ID">
+                                                    <input type="text" id="search_tourist" onchange="search();" class="form-control" placeholder="type name or ID">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mt-4 p-3">
+                                        <div class="row mt-4 p-3" id="table_container">
                                             <table class="table table-striped rounded-3">
                                                 <tr class="border border-secondary">
                                                     <th>Tourist ID</th>
@@ -92,7 +95,8 @@ require "assets/model/sqlConnection.php";
                                                     <th>Registration Date</th>
                                                     <th>Action</th>
                                                 </tr>
-                                                <?php
+
+                                                    <?php
                                                 foreach ($users as $user) {
                                                 ?>
                                                     <tr class="border border-secondary">
@@ -100,13 +104,13 @@ require "assets/model/sqlConnection.php";
                                                             echo $user['id'];
                                                             ?></td>
                                                         <td><?php
-                                                            echo $user['name'];
+                                                            echo $user['f_name']." ".$user['l_name'];
                                                             ?></td>
                                                         <td><?php
                                                             echo $user['email'];
                                                             ?></td>
                                                         <td><?php
-                                                            $created_at = new DateTime($user['created_at']);
+                                                            $created_at = new DateTime($user['reg_date']);
                                                             echo $formattedDate = $created_at->format('F j, Y');;
                                                             ?></td>
                                                         <td>
@@ -121,6 +125,7 @@ require "assets/model/sqlConnection.php";
                                                 <?php
                                                 }
                                                 ?>
+                                          
                                             </table>
                                         </div>
                                     </div>

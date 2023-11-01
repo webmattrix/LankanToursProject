@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Login</title>
@@ -45,6 +45,31 @@
                 <div>
                     <span class="text-danger quicksand-Medium" style="cursor:pointer" onclick="guideForgotPassword();">Forgot Password?</span>
                 </div>
+
+                <!-- verification modal -->
+                <div class="modal" tabindex="-1" id="verificationModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row g-3">
+
+                                    <div class="col-12 text-start">
+                                        <label class="form-label">OTP Verification</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="otp">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="verifyGuide();">Verify</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- verification model -->
 
                 <!-- modal -->
                 <div class="modal" tabindex="-1" id="fogotPasswordModal">
