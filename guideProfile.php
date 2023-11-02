@@ -55,7 +55,13 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
                                     <!-- Profile Image -->
                                     <div class="d-flex gap-3 pt-3 admin-profile">
-                                        <img src="../assets/img/boy_profile_picture.png" alt="" style="height: 150px; width: 150px; object-fit: cover; border-radius: 4px;" />
+                                        <img src="<?php
+                                                    if (empty($employee_data["profile_picture"])) {
+                                                        echo ("../assets/img/profile/empty_profile.jpg");
+                                                    } else {
+                                                        echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                                    }
+                                                    ?>" alt="" style="height: 150px; width: 150px; object-fit: cover; border-radius: 4px;" />
                                         <div class="d-flex flex-column quicksand-SemiBold">
                                             <span class="fs-5"><?php echo ($employee_data["emp_name"]); ?></span>
                                             <span class="text-black-50"><?php echo ($employee_data["email"]); ?></span>
@@ -93,27 +99,33 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                     </div>
                                                     <div class="d-flex mt-2">
                                                         <span>Mobile</span>
-                                                        <span>: &nbsp; <?php echo ($employee_data["mobile"]); ?></span>
+                                                        <span>: &nbsp; <?php echo ($employee_data["email"]); ?></span>
                                                     </div>
 
                                                     <hr class="w-75">
 
                                                     <div class="d-flex mt-2">
                                                         <span>Address</span>
-                                                        <span>: &nbsp; ...</span>
+                                                        <span>: &nbsp; <?php
+                                                                        if (empty($employee_data["address"])) {
+                                                                            echo ("...");
+                                                                        } else {
+                                                                            echo ($employee_data["address"]);
+                                                                        }
+                                                                        ?></span>
                                                     </div>
-                                                    <div class="d-flex mt-2">
+                                                    <!-- <div class="d-flex mt-2">
                                                         <span>Work Time</span>
-                                                        <span>: &nbsp; 10h 35m / Sep</span>
-                                                    </div>
+                                                        <span>: &nbsp; coming soon...</span>
+                                                    </div> -->
                                                     <div class="d-flex mt-2">
                                                         <span>Registered Date</span>
                                                         <span>: &nbsp; <?php echo (date("d M, Y", strtotime(timeConverter::convert($employee_data["reg_date"])))); ?></span>
                                                     </div>
-                                                    <div class="d-flex mt-2">
+                                                    <!-- <div class="d-flex mt-2">
                                                         <span>Gender</span>
                                                         <span>: &nbsp; ...</span>
-                                                    </div>
+                                                    </div> -->
 
                                                     <hr class="w-75">
 
@@ -134,7 +146,13 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
                                                     <div class="d-flex flex-column">
                                                         <span class="d-block w-100">Profile Picture</span>
-                                                        <label for="adminProfilePicture" id="adminProfileViewImage" class="admin-profile-picture d-flex justify-content-center align-items-center">
+                                                        <label for="adminProfilePicture" id="adminProfileViewImage" class="admin-profile-picture d-flex justify-content-center align-items-center" style="<?php
+                                                                                                                                                                                                            if (empty($employee_data["profile_picture"])) {
+                                                                                                                                                                                                                echo ("background-image: url('../assets/img/profile/empty_profile.jpg');");
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                echo ("background-image: url('../assets/img/profile/guide/" . $employee_data["profile_picture"] . "');");
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                            ?>">
                                                             <iconify-icon icon="ph:camera-fill"></iconify-icon>
                                                         </label>
                                                         <input type="file" id="adminProfilePicture" class="d-none" onchange="changeImageUploader();" accept="image/*" />

@@ -82,3 +82,85 @@ function socialMediaSlider(id) {
   document.getElementById("socialMedia3Icon").classList.remove("active");
   document.getElementById("socialMedia" + id + "Icon").classList.add("active");
 }
+
+function changeAdminImageUploader() {
+  var file = document.getElementById("adminProfilePicture");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
+  document.getElementById("adminProfileViewImage").style.backgroundImage =
+    "url(" + fileUrl + ")";
+}
+
+document
+  .getElementById("changeProfileBtn")
+  .addEventListener("mousedown", () => {
+    var form = new FormData();
+    form.append("name", document.getElementById("adminName").value);
+    form.append("mobile", document.getElementById("adminMobile").value);
+    form.append("address", document.getElementById("adminAddress").value);
+    form.append("password", document.getElementById("adminPassword").value);
+    form.append(
+      "profileImage",
+      document.getElementById("adminProfilePicture").files[0]
+    );
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4) {
+        var res = req.responseText;
+        var responseObj = JSON.parse(res);
+        if (responseObj.changeStatus == "failed") {
+          alert("You haven't change anything");
+        } else if (responseObj.emailStatus == "failed") {
+          alert("OTP Sending failed. Please try again later");
+        } else {
+          toggleProfileOtp();
+        }
+      }
+    };
+
+    req.open("POST", "../assets/model/sendOTPAdminProfile.php", true);
+    req.send(form);
+  });
+
+document
+  .getElementById("profileOtpModelToggle")
+  .addEventListener("mousedown", toggleProfileOtp);
+
+function toggleProfileOtp() {
+  document.getElementById("profileOtpModel").classList.toggle("d-none");
+}
+
+function changeAdminProfile() {
+  var form = new FormData();
+  form.append("name", document.getElementById("adminName").value);
+  form.append("mobile", document.getElementById("adminMobile").value);
+  form.append("address", document.getElementById("adminAddress").value);
+  form.append("password", document.getElementById("adminPassword").value);
+  form.append(
+    "verification_code",
+    document.getElementById("guideVerificationCode").value
+  );
+  form.append(
+    "profileImage",
+    document.getElementById("adminProfilePicture").files[0]
+  );
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      var res = req.responseText;
+      if (res == "failed") {
+        alert("OTP Verification Failed");
+      } else {
+        alert("Profile Updated");
+        window.location.reload();
+      }
+    }
+  };
+
+  req.open("POST", "../assets/model/changeAdminProfile.php", true);
+  req.send(form);
+}

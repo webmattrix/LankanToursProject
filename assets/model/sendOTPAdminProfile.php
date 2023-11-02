@@ -48,7 +48,7 @@ if (empty($name) && empty($mobile) && empty($address) && empty($password) && (em
         $responseObj->emailStatus = "failed";
     } else {
         $responseObj->emailStatus = "success";
-        Database::iud("UPDATE `employee` SET `employee`.`verification_code`='" . $verification_code . "' WHERE `employee`.`id`='" . $_SESSION["lt_guide"]["employee_id"] . "'");
+        Database::iud("UPDATE `employee` SET `employee`.`verification_code`='" . $verification_code . "' WHERE `employee`.`id`='" . $_SESSION["lt_admin"]["employee_id"] . "'");
     }
 }
 echo (json_encode($responseObj));

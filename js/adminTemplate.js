@@ -123,3 +123,49 @@ function guideLogOut() {
   req.open("GET", "../assets/model/guideLogOut.php", true);
   req.send();
 }
+
+function openAdminDashboard() {
+  window.location = "Home";
+}
+
+function openManageAdmin() {
+  window.location = "Manage";
+}
+
+function openManageGuide() {
+  window.location = "Guide";
+}
+
+function openManageTourist() {
+  window.location = "Tourist";
+}
+
+function openManageTour() {
+  window.location = "Tours";
+}
+function openNewTour() {
+  window.location = "NewTours";
+}
+
+function openManageOrders() {
+  window.location = "Order";
+}
+
+function openTouristHome() {
+  window.location = "../Home";
+}
+function openTouristTours() {
+  window.location = "../Tours";
+}
+function openTouristGallery() {
+  window.location = "../Gallery";
+}
+function openTouristContact() {
+  window.location = "../Contact";
+}
+function openTouristLogin() {
+  window.location = "../Login";
+}
+function openTouristRegistration() {
+  window.location = "../Registration";
+}

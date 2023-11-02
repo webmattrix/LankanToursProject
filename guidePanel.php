@@ -93,7 +93,13 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <div class="content p-3">
-                                            <img src="../assets/img/profile/guide/boy_profile_picture.png" alt="" class="admin_panel-profile-image">
+                                            <img src="<?php
+                                                        if (empty($employee_data["profile_picture"])) {
+                                                            echo ("../assets/img/profile/empty_profile.jpg");
+                                                        } else {
+                                                            echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                                        }
+                                                        ?>" alt="" class="admin_panel-profile-image">
                                             <div class="admin-name">
                                                 <span class="name segoeui-bold"><?php echo ($employee_data["emp_name"]); ?></span>
                                                 <span class="type quicksand-SemiBold"><?php echo ($employee_data["emp_type"]); ?></span>
@@ -160,7 +166,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                     ORDER BY `custom_tour`.`start_date` ASC";
 
                                                 // ["name":"Vihanga","dob","2002-03-07"];
-                                                
+
                                                 // ["0":["name":"Vihanga","dob","2002-03-07"], "1":["name":"Vihanga","dob","2002-03-07"]];
 
                                                 $orderList = getOrders::getOrderList($query1, $query2);

@@ -16,7 +16,7 @@ if (isset($_FILES["profileImage"])) {
 $query = "UPDATE `employee` SET ";
 $query_status = false;
 
-$employee_rs = Database::search("SELECT * FROM `employee` WHERE `email`='" . $_SESSION["lt_guide"]["email"] . "' AND verification_code='" . $verification_code . "'");
+$employee_rs = Database::search("SELECT * FROM `employee` WHERE `email`='" . $_SESSION["lt_admin"]["email"] . "' AND verification_code='" . $verification_code . "'");
 if ($employee_rs->num_rows == 1) {
     $employee_data = $employee_rs->fetch_assoc();
 
@@ -45,11 +45,11 @@ if ($employee_rs->num_rows == 1) {
         }
     }
 
-    $query .= ",verification_code=NULL WHERE `email`='" . $_SESSION["lt_guide"]["email"] . "' AND verification_code='" . $verification_code . "'";
+    $query .= ",verification_code=NULL WHERE `email`='" . $_SESSION["lt_admin"]["email"] . "' AND verification_code='" . $verification_code . "'";
     Database::iud($query);
 
     if (!empty($address)) {
-        Database::iud("UPDATE `guide` SET `guide`.`address`='" . $address . "' WHERE `guide`.`employee_id`='" . $_SESSION["lt_guide"]["employee_id"] . "'");
+        Database::iud("UPDATE `admin` SET `admin`.`address`='" . $address . "' WHERE `admin`.`employee_id`='" . $_SESSION["lt_admin"]["employee_id"] . "'");
     }
 
     if (!empty($profile_picture)) {
@@ -64,10 +64,10 @@ if ($employee_rs->num_rows == 1) {
         }
 
 
-        $file_path = "../img/profile/guide/" . $employee_data["email"] . "_profile_img" . $img_type . "";
+        $file_path = "../img/profile/admin/" . $employee_data["email"] . "_profile_img" . $img_type . "";
         move_uploaded_file($profile_picture["tmp_name"], $file_path);
 
-        Database::iud("UPDATE `guide` SET `guide`.`profile_picture`='" . $employee_data["name"] . "_profile_img" . $img_type . "' WHERE `guide`.`employee_id`='" . $_SESSION["lt_guide"]["employee_id"] . "'");
+        Database::iud("UPDATE `admin` SET `admin`.`profile_picture`='" . $employee_data["name"] . "_profile_img" . $img_type . "' WHERE `admin`.`employee_id`='" . $_SESSION["lt_admin"]["employee_id"] . "'");
     }
 
     echo ("success");

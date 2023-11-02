@@ -214,7 +214,7 @@ session_start();
                                                                                         } ?>">
                                                         <div class="d-flex w-100 justify-content-between align-items-center">
                                                             <span class="quicksand-SemiBold fs-6">
-                                                                <?php echo ($user_data["name"]); ?>
+                                                                <?php echo ($user_data["f_name"] . " " . $user_data["l_name"]); ?>
                                                             </span>
                                                             <span style="font-size: 14px;" class="text-black-50 quicksand-Regular">
                                                                 <?php echo (date("d M, Y", $convertTime)); ?>
