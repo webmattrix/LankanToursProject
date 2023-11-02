@@ -25,7 +25,7 @@ function guideSignIn() {
 
         req.onreadystatechange = function () {
           if (req.readyState == 4) {
-            window.location.href = "/LankanToursProject/Guide/Home";
+            window.location.href = "/Home";
           }
         };
 
@@ -42,7 +42,7 @@ function guideSignIn() {
     }
   };
 
-  r.open("POST", "./assets/model/guideSignInProcess.php", true);
+  r.open("POST", "../assets/model/guideSignInProcess.php", true);
   r.send(form);
 }
 
@@ -60,7 +60,7 @@ function verifyGuide() {
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "success") {
-        window.location.href = "/LankanToursProject/guideLogin";
+        window.location.href = "/Guide";
       } else {
         alert(t);
       }
@@ -124,7 +124,7 @@ function resetpassword() {
       var t = r.responseText;
       if (t == "success") {
         alert("password reset success");
-        window.location.href = "/LankanToursProject/guideLogin";
+        window.location.href = "/Guide";
       } else {
         alert(t);
       }

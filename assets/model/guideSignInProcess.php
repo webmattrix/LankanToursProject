@@ -133,11 +133,11 @@ if (empty($email)) {
             $_SESSION["lt_guide"] = $d;
 
             if ($rememberMe == true) {
-                setcookie("guide_email", $email, time() + (60 * 60 * 24 * 365));
-                setcookie("guide_password", $password, time() + (60 * 60 * 24 * 365));
+                setcookie("lt_guide_email", $email, time() + (60 * 60 * 24 * 365));
+                setcookie("lt_guide_password", $password, time() + (60 * 60 * 24 * 365));
             } else {
-                setcookie("guide_email", "", -1);
-                setcookie("guide_password", "", -1);
+                setcookie("lt_guide_email", "", -1);
+                setcookie("lt_guide_password", "", -1);
             }
             
             echo "success";
