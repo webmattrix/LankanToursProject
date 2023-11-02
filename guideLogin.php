@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Login</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/guideLogin.css">
-    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/guideLogin.css">
+    <link rel="stylesheet" href="../css/font.css">
 </head>
 
 <body>
@@ -22,11 +22,31 @@
                 <div class="guide_login-user-image">
                 </div>
                 <div class="offset-1 col-10 guide_login-input position-relative">
+                    <?php
+                    if(isset($_COOKIE["lt_guide_email"])){
+                    ?>
+                    <input type="email" id="guide_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email" value="<?php echo $_COOKIE["lt_guide_email"]?>">
+                    <?php
+                    }else{
+                    ?>
                     <input type="email" id="guide_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email">
+                    <?php
+                    }
+                    ?>
                     <iconify-icon icon="material-symbols:mail" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 guide_login-input position-relative">
+                <?php
+                    if(isset($_COOKIE["lt_guide_password"])){
+                    ?>
+                    <input type="password" id="guide_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password" value="<?php echo $_COOKIE["lt_guide_password"]?>">
+                    <?php
+                    }else{
+                    ?>
                     <input type="password" id="guide_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password">
+                    <?php
+                    }
+                    ?>
                     <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 text-start mt-2">
@@ -116,8 +136,8 @@
         </div>
     </div>
 
-    <script src="./js/bootstrap.js"></script>
-    <script src="js/guideLogin.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="./js/guideLogin.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
