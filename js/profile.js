@@ -17,7 +17,7 @@ document
     }
   });
 
-  document
+document
   .getElementById("profileChangeHeader")
   .addEventListener("mousedown", () => {
     var changeContainer = document.getElementById("profileChangeBody");
@@ -32,4 +32,38 @@ document
     }
   });
 
+document
+  .getElementById("changeTouristProfile")
+  .addEventListener("mousedown", () => {
+    var form = new FormData();
+    form.append("touristName", document.getElementById("touristName").value);
+    form.append(
+      "touristMobile",
+      document.getElementById("touristMobile").value
+    );
+    form.append("touristDOB", document.getElementById("touristDOB").value);
+    form.append(
+      "touristGender",
+      document.getElementById("touristGender").value
+    );
+    form.append(
+      "touristCountry",
+      document.getElementById("touristCountry").value
+    );
 
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4 && req.status == 200) {
+        if (req.responseText == "1") {
+          alert("Profile Updated");
+          window.location.reload();
+        } else {
+          alert(req.responseText);
+        }
+      }
+    };
+
+    req.open("POST", "./assets/model/changeTouristProfile.php", true);
+    req.send(form);
+  });

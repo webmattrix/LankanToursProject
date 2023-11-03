@@ -1,3 +1,21 @@
+<?php
+
+// session_start();
+if (isset($_SESSION["lt_admin"])) {
+    $admin = $_SESSION["lt_admin"];
+
+    // require "assets/model/sqlConnection.php";
+    $employee_rs = Database::search("SELECT *,`employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`
+    FROM `employee`
+    INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id`
+    INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` WHERE `employee`.`id`='" . $admin["employee_id"] . "'");
+    $employee_data = $employee_rs->fetch_assoc();
+} else {
+    $admin = null;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,15 +38,46 @@
                 <iconify-icon icon="mdi:bell-outline"></iconify-icon>
                 <iconify-icon icon="material-symbols:mail-outline"></iconify-icon>
             </div>
-            <div class="d-flex px-2 gap-2 align-items-center" style="cursor: pointer;">
-                <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();"></div>
-                <div class="d-flex flex-column justify-content-center">
-                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;">Admin Name</span>
-                    <span style="font-size: 12px; font-family: sans-serif;">type</span>
+            <div class="d-flex px-2 gap-2 align-items-center position-relative" style="cursor: pointer;">
+                <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();">
+                    <img src="<?php
+                                if (empty($employee_data["profile_picture"])) {
+                                    echo ("../assets/img/profile/empty_profile.jpg");
+                                } else {
+                                    echo ("../assets/img/profile/admin/" . $employee_data["profile_picture"]);
+                                }
+                                ?>" alt="" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
-                <div class="">
+                <div class="d-flex flex-column justify-content-center">
+                    <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;"><?php echo ($employee_data["emp_name"]); ?></span>
+                    <span style="font-size: 12px; font-family: sans-serif;"><?php echo ($employee_data["emp_type"]); ?></span>
+                </div>
+                <div class="profile-menu-icon d-flex justify-content-center align-items-center p-1 rounded" onclick="viewProfileModel();">
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>
                 </div>
+
+
+                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="headerProfileModel">
+                    <img src="<?php
+                                if (empty($employee_data["profile_picture"])) {
+                                    echo ("../assets/img/profile/empty_profile.jpg");
+                                } else {
+                                    echo ("../assets/img/profile/admin/" . $employee_data["profile_picture"]);
+                                }
+                                ?>">
+
+                    <div class="w-100 mt-3 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="viewAdminProfile();">
+                        <iconify-icon icon="iconamoon:profile-thin"></iconify-icon>
+                        <span>Profile</span>
+                    </div>
+                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="adminLogOut();">
+                        <iconify-icon icon="clarity:logout-line"></iconify-icon>
+                        <span>Log Out</span>
+                    </div>
+
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -66,7 +115,7 @@
                 </div>
                 <div class="d-flex gap-3 align-items-center">
                     <iconify-icon icon="dashicons:admin-users" class="fs-4"></iconify-icon>
-                    <div class="">Guide</div>
+                    <div class="">admin</div>
                 </div>
                 <div class="d-flex gap-3 align-items-center">
                     <iconify-icon icon="fa-solid:hiking" class="fs-4"></iconify-icon>

@@ -56,7 +56,7 @@ if (isset($_SESSION["lt_guide"])) {
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>
                 </div>
 
-                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="guideProfileModel">
+                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="headerProfileModel">
                     <img src="<?php
                                 if (empty($employee_data["profile_picture"])) {
                                     echo ("../assets/img/profile/empty_profile.jpg");

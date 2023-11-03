@@ -67,7 +67,7 @@ if ($employee_rs->num_rows == 1) {
         $file_path = "../img/profile/admin/" . $employee_data["email"] . "_profile_img" . $img_type . "";
         move_uploaded_file($profile_picture["tmp_name"], $file_path);
 
-        Database::iud("UPDATE `admin` SET `admin`.`profile_picture`='" . $employee_data["name"] . "_profile_img" . $img_type . "' WHERE `admin`.`employee_id`='" . $_SESSION["lt_admin"]["employee_id"] . "'");
+        Database::iud("UPDATE `admin` SET `admin`.`profile_picture`='" . $employee_data["email"] . "_profile_img" . $img_type . "' WHERE `admin`.`employee_id`='" . $_SESSION["lt_admin"]["employee_id"] . "'");
     }
 
     echo ("success");

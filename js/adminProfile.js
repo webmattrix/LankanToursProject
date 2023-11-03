@@ -164,3 +164,5 @@ function changeAdminProfile() {
   req.open("POST", "../assets/model/changeAdminProfile.php", true);
   req.send(form);
 }
+
+

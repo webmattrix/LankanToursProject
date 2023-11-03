@@ -97,6 +97,10 @@ function viewGuideProfile() {
   window.location = "Profile";
 }
 
+function viewAdminProfile() {
+  window.location = "Profile";
+}
+
 function viewGuideHome() {
   window.location = "Home";
 }
@@ -106,7 +110,7 @@ function viewTours() {
 }
 
 function viewProfileModel() {
-  document.getElementById("guideProfileModel").classList.toggle("d-none");
+  document.getElementById("headerProfileModel").classList.toggle("d-none");
 }
 
 function guideLogOut() {
@@ -116,11 +120,30 @@ function guideLogOut() {
     if (req.readyState == 4) {
       if (req.responseText == "1") {
         window.location.reload();
+      } else {
+        alert("Something goes wrong. Please try again later");
       }
     }
   };
 
   req.open("GET", "../assets/model/guideLogOut.php", true);
+  req.send();
+}
+
+function adminLogOut() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      if (req.responseText == "1") {
+        window.location.reload();
+      } else {
+        alert("Something goes wrong. Please try again later");
+      }
+    }
+  };
+
+  req.open("GET", "../assets/model/adminLogOut.php", true);
   req.send();
 }
 

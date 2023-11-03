@@ -1,3 +1,25 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["lt_tourist"])) {
+    header("Location: Profile");
+} else {
+
+    require "./assets/model/sqlConnection.php";
+
+    $tourist = $_SESSION["lt_tourist"];
+
+    $tourist_rs = Database::search("SELECT *,`country`.`name` AS `country_name`,`gender`.`name` AS `gender` 
+    FROM `user` 
+    INNER JOIN `country` ON `user`.`country_id`=`country`.`id` 
+    INNER JOIN `gender` ON `gender`.`id`=`user`.`gender_id`
+    WHERE `user`.`id`='" . $tourist["id"] . "'");
+    $tourist_data = $tourist_rs->fetch_assoc();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +32,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/profileDark.css">
+    <link rel="stylesheet" href="./css/profile.css">
 </head>
 
 <body class="c-default" id="body">
@@ -64,27 +86,40 @@
                         <div class="quicksand-Medium">
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Name</label>
-                                <input type="text" disabled value="John Doe" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php echo ($tourist_data["f_name"] . " " . $tourist_data["l_name"]); ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Mobile</label>
-                                <input type="text" disabled value="0712345678" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php
+                                                                    if (!empty($tourist_data["mobile"])) {
+                                                                        echo ($tourist_data["mobile"]);
+                                                                    }
+                                                                    ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Email</label>
-                                <input type="text" disabled value="johndoe@gmail.com" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php echo ($tourist_data["email"]); ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Date of Birth</label>
-                                <input type="text" disabled value="2023-09-29" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php
+                                                                    if (!empty($tourist_data["dob"])) {
+                                                                        $dob = strtotime($tourist_data["dob"]);
+                                                                        echo (date("d M, Y", $dob));
+                                                                    }
+                                                                    ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Gender</label>
-                                <input type="text" disabled value="Male" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php
+                                                                    if (!empty($tourist_data["gender"])) {
+                                                                        echo ($tourist_data["gender"]);
+                                                                    }
+                                                                    ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Country</label>
-                                <input type="text" disabled value="England" class="bg-transparent border-0 border-bottom text-center mt-1" />
+                                <input type="text" disabled value="<?php echo ($tourist_data["country_name"]); ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>
                         </div>
                         <!-- Profile Card -->
@@ -93,6 +128,90 @@
                 </div>
                 <!-- Profile Content -->
 
+                <!-- Change Profile Content -->
+                <div class="my-3 px-4">
+                    <div class="profile-change-container px-3">
+                        <div class="header d-flex justify-content-between quicksand-Bold py-1 align-items-center" id="profileChangeHeader">
+                            <span>Change Profile</span>
+                            <iconify-icon icon="mingcute:down-line" class="fs-5" id="profileChangeIcon"></iconify-icon>
+                        </div>
+                        <div class="body quicksand-SemiBold" id="profileChangeBody" data-position="down" style="height: auto;">
+                            <div class="pt-3 pb-2">
+                                <div class="d-flex flex-column">
+                                    <label for="">Name</label>
+                                    <input type="text" id="touristName" value="<?php
+                                                                                if (!empty($tourist_data["f_name"])) {
+                                                                                    echo ($tourist_data["f_name"]);
+                                                                                    if (!empty($tourist_data["l_name"])) {
+                                                                                        echo (" " . $tourist_data["l_name"]);
+                                                                                    }
+                                                                                } ?>" />
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <label for="">Mobile</label>
+                                    <input type="tel" id="touristMobile" value="<?php
+                                                                                if (!empty($tourist_data["mobile"])) {
+                                                                                    echo ($tourist_data["mobile"]);
+                                                                                }
+                                                                                ?>" />
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <label for="">Date of Birth</label>
+                                    <input type="date" id="touristDOB" value="<?php
+                                                                                if (!empty($tourist_data["dob"])) {
+                                                                                    echo ($tourist_data["dob"]);
+                                                                                }
+                                                                                ?>" />
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <label for="">Gender</label>
+                                    <select id="touristGender">
+                                        <option value="0">Select</option>
+                                        <?php
+                                        $gender_rs = Database::search("SELECT * FROM `gender`");
+                                        for ($gender_iteration = 0; $gender_iteration < $gender_rs->num_rows; $gender_iteration++) {
+                                            $gender_data = $gender_rs->fetch_assoc();
+                                        ?>
+                                            <option value="<?php echo ($gender_data["id"]); ?>" <?php
+                                                                                                if ($tourist_data["gender_id"] == $gender_data["id"]) {
+                                                                                                    echo ("selected");
+                                                                                                }
+                                                                                                ?>><?php echo ($gender_data["name"]); ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <label for="">Country</label>
+                                    <select id="touristCountry">
+                                        <option value="0">Select</option>
+
+                                        <?php
+                                        $country_rs = Database::search("SELECT * FROM `country` ORDER BY `name` ASC");
+                                        for ($country_iteration = 0; $country_iteration < $country_rs->num_rows; $country_iteration++) {
+                                            $country_data = $country_rs->fetch_assoc();
+                                        ?>
+                                            <option value="<?php echo ($country_data["id"]); ?>" <?php
+                                                                                                    if ($tourist_data["country_id"] == $country_data["id"]) {
+                                                                                                        echo ("selected");
+                                                                                                    }
+                                                                                                    ?>><?php echo ($country_data["name"]); ?></option>
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-100 d-flex justify-content-end pb-2">
+                                <button class="btn btn-secondary px-4">Cancel</button>
+                                <button class="btn btn-success px-4" id="changeTouristProfile">Change</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Change Profile Content -->
 
                 <!-- Profile setting content -->
                 <div class="my-3 px-4">
@@ -124,51 +243,6 @@
                     </div>
                 </div>
                 <!-- Profile setting content -->
-
-                <!-- Change Profile Content -->
-                <div class="my-3 px-4">
-                    <div class="profile-change-container px-3">
-                        <div class="header d-flex justify-content-between quicksand-Bold py-1 align-items-center" id="profileChangeHeader">
-                            <span>Change Profile</span>
-                            <iconify-icon icon="mingcute:down-line" class="fs-5" id="profileChangeIcon"></iconify-icon>
-                        </div>
-                        <div class="body quicksand-SemiBold" id="profileChangeBody" data-position="down" style="height: auto;">
-                            <div class="pt-3 pb-2">
-                                <div class="d-flex flex-column">
-                                    <label for="">Name</label>
-                                    <input type="text" />
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <label for="">Mobile</label>
-                                    <input type="tel" />
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <label for="">Date of Birth</label>
-                                    <input type="date" />
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <label for="">Gender</label>
-                                    <select>
-                                        <option>Select</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <label for="">Country</label>
-                                    <select>
-                                        <option>Select</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="w-100 d-flex justify-content-end pb-2">
-                                <button class="btn btn-secondary px-4">Cancel</button>
-                                <button class="btn btn-success px-4">Change</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Change Profile Content -->
 
             </div>
 

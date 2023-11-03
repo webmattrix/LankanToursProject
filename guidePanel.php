@@ -91,7 +91,6 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                         <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$00</span>
                                     </div>
                                     <div class="admin_grid-item">
-                                        <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <div class="content p-3">
                                             <img src="<?php
                                                         if (empty($employee_data["profile_picture"])) {
