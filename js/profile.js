@@ -50,6 +50,14 @@ document
       "touristCountry",
       document.getElementById("touristCountry").value
     );
+    form.append(
+      "profileImage",
+      document.getElementById("profileImage").files[0]
+    );
+    form.append(
+      "profileBackground",
+      document.getElementById("profileBackground").files[0]
+    );
 
     var req = new XMLHttpRequest();
 
@@ -67,3 +75,18 @@ document
     req.open("POST", "./assets/model/changeTouristProfile.php", true);
     req.send(form);
   });
+
+document.getElementById("profileImage").addEventListener("change", () => {
+  var file = document.getElementById("profileImage");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
+  document.getElementById("profileImageViewer").src = fileUrl;
+});
+
+document.getElementById("profileBackground").addEventListener("change", () => {
+  var file = document.getElementById("profileBackground");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
+  document.getElementById("profileBackgroundImage").style.backgroundImage =
+    "url(" + fileUrl + ")";
+});

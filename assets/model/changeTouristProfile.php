@@ -10,7 +10,15 @@ if (isset($_SESSION["lt_tourist"])) {
     $dOB = $_POST["touristDOB"];
     $gender = $_POST["touristGender"];
     $country = $_POST["touristCountry"];
+    $profileImage = null;
+    $profileBackground = null;
 
+    if (isset($_FILES["profileImage"])) {
+        $profileImage = $_FILES["profileImage"];
+    }
+    if (isset($_FILES["profileBackground"])) {
+        $profileBackground = $_FILES["profileBackground"];
+    }
 
     function validatePhoneNumber($phoneNumber)
     {
@@ -99,6 +107,42 @@ if (isset($_SESSION["lt_tourist"])) {
                 $query .= " WHERE `user`.`email`='" . $_SESSION["lt_tourist"]["email"] . "'";
 
                 Database::iud($query);
+
+                if (!empty($profileImage)) {
+
+                    $img_type = null;
+                    if ($profileImage["type"] == "image/jpeg") {
+                        $img_type = ".jpeg";
+                    } else if ($profileImage["type"] == "image/jpg") {
+                        $img_type = ".jpg";
+                    } else if ($profileImage["type"] == "image/png") {
+                        $img_type = ".png";
+                    }
+
+
+                    $file_path = "../img/profile/user/" . $_SESSION["lt_tourist"]["email"] . "_profile_img" . $img_type . "";
+                    move_uploaded_file($profileImage["tmp_name"], $file_path);
+
+                    Database::iud("UPDATE `user` SET `user`.`profile_picture`='" . $_SESSION["lt_tourist"]["email"] . "_profile_img" . $img_type . "' WHERE `user`.`id`='" . $_SESSION["lt_tourist"]["id"] . "'");
+                }
+
+                if (!empty($profileBackground)) {
+
+                    $img_type = null;
+                    if ($profileBackground["type"] == "image/jpeg") {
+                        $img_type = ".jpeg";
+                    } else if ($profileBackground["type"] == "image/jpg") {
+                        $img_type = ".jpg";
+                    } else if ($profileBackground["type"] == "image/png") {
+                        $img_type = ".png";
+                    }
+
+
+                    $file_path = "../img/profile/user/" . $_SESSION["lt_tourist"]["email"] . "_profile_background" . $img_type . "";
+                    move_uploaded_file($profileBackground["tmp_name"], $file_path);
+
+                    Database::iud("UPDATE `user` SET `user`.`profile_background`='" . $_SESSION["lt_tourist"]["email"] . "_profile_background" . $img_type . "' WHERE `user`.`id`='" . $_SESSION["lt_tourist"]["id"] . "'");
+                }
 
                 echo ("1");
             } else {

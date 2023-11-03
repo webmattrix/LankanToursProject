@@ -46,16 +46,29 @@ if (!isset($_SESSION["lt_tourist"])) {
         <div class="row">
 
             <div class="col-12 p-0">
-
                 <div class="profile_header-container position-relative">
-                    <div class="profile-background" style="background-image: url('./assets/img/profile/profile_background.png');"></div>
+                    <!-- <div class="profile-background" id="profileBackgroundImage" style="background-image: url('./assets/img/profile/profile_background.png');"></div> -->
+                    <div class="profile-background" id="profileBackgroundImage" style="<?php
+                                                                                        if (!empty($tourist_data["profile_background"])) {
+                                                                                            echo ("background-image: url('./assets/img/profile/user/" . $tourist_data["profile_background"] . "');");
+                                                                                        } else {
+                                                                                            echo ("background-image: url('./assets/img/profile/empty_profile.jpg');");
+                                                                                        }
+                                                                                        ?>"></div>
                     <div class="profile-image">
-                        <img src="./assets/img/boy_profile_picture.png" alt="Profile Image" class="">
+                        <!-- <img src="" alt="Profile Image" class="" id="profileImageViewer"> -->
+                        <img src="<?php
+                                    if (!empty($tourist_data["profile_picture"])) {
+                                        echo ("./assets/img/profile/user/" . $tourist_data["profile_picture"]);
+                                    } else {
+                                        echo ("./assets/img/profile/empty_profile.jpg");
+                                    }
+                                    ?>" alt="Profile Image" class="" id="profileImageViewer">
                         <label for="profileImage" class="position-absolute end-0 top-50">
                             <iconify-icon icon="solar:camera-bold"></iconify-icon>
                         </label>
                         <!-- Image Uploader for profile image -->
-                        <input type="file" name="" id="profileImage" class="d-none">
+                        <input type="file" name="" id="profileImage" class="d-none" accept="image/*">
                         <!-- Image Uploader for profile image -->
                     </div>
 
@@ -69,7 +82,7 @@ if (!isset($_SESSION["lt_tourist"])) {
                         </label>
 
                         <!-- Image Uploader for Profile background image -->
-                        <input type="file" name="" id="profileBackground" class="d-none">
+                        <input type="file" name="" id="profileBackground" class="d-none" accept="image/*">
                         <!-- Image Uploader for Profile background image -->
                     </div>
                 </div>
@@ -255,6 +268,7 @@ if (!isset($_SESSION["lt_tourist"])) {
 
 <script src="./js/profile.js"></script>
 <script src="./js/newHeader.js"></script>
+<script src="./js/footer.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

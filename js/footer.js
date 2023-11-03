@@ -1,12 +1,12 @@
 document.getElementById("home_msg_box").addEventListener("focus", () => {
-  if (document.getElementById("home_msg_box").innerHTML == "Message") {
-    document.getElementById("home_msg_box").innerHTML = "";
+  if (document.getElementById("home_msg_box").value == "Message") {
+    document.getElementById("home_msg_box").value = "";
   }
 });
 
 document.getElementById("home_msg_box").addEventListener("focusout", () => {
-  if (document.getElementById("home_msg_box").innerHTML == "") {
-    document.getElementById("home_msg_box").innerHTML = "Message";
+  if (document.getElementById("home_msg_box").value == "") {
+    document.getElementById("home_msg_box").value = "Message";
   }
 });
 
