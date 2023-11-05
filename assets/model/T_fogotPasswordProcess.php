@@ -4,6 +4,7 @@ require "../model/sqlConnection.php";
 require "SMTP.php";
 require "PHPMailer.php";
 require "Exception.php";
+require "passwordGenerator.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -14,7 +15,7 @@ if (!empty($_GET["Email"])) {
     $rs = Database::search("SELECT * FROM `user` WHERE `email` ='" . $email . "'");
     $n = $rs->num_rows;
     if ($n == 1) {
-        $code = uniqid();
+        $code = generatePassword(6);
         Database::iud("UPDATE `user`SET `verification_code`='" . $code . "' WHERE `email`='" . $email . "'");
         $mail = new PHPMailer;
         $mail->IsSMTP();

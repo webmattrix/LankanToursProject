@@ -37,7 +37,7 @@
                             <div class="tour-plan-slider position-relative">
                                 <div class="position-absolute top-20 w-100 px-2 fs-5 d-flex " style="z-index: 3;">
                                     <div class="row" style=" font-family:Quicksand-Medium">
-                                    <?php ?>
+                                        <?php ?>
                                         <span class="text-white fs-6 mt-1">&nbsp;<iconify-icon icon="mdi:eye" class=" text-white c-pointer  "></iconify-icon> &nbsp;&nbsp;23748</span>
                                     </div>
 
@@ -91,14 +91,14 @@
                                             <!-- small device -->
                                             <div class="row d-block d-md-none d-lg-none ">
                                                 <div class=" col-md-4 offset-md-0 col-10 offset-1  mt-3">
-                                                    <button class="btn btn-secondary MytoursButton" style="width: 100%;"><i class="bi bi-chat-left-quote text-white"></i> &nbsp;FeedBack</button>
+                                                    <button class="btn btn-secondary MytoursButton" style="width: 100%;" onclick="feedbackModal();"><i class="bi bi-chat-left-quote text-white"></i> &nbsp;Feedback</button>
                                                 </div>
                                                 <div class=" col-md-4  offset-md-0  col-10 offset-1  mt-2">
                                                     <button class="btn btn-danger MytoursButton" style="width: 100%;"><i class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
 
                                                 </div>
                                                 <div class=" col-md-4   offset-md-0 col-10 offset-1  mt-2">
-                                                    <button class="btn btn-primary MytoursButton" style="width: 100%;"><i class="bi bi-envelope text-white"></i> Message&nbsp;&nbsp;03</button>
+                                                    <button class="btn btn-primary MytoursButton" style="width: 100%;" onclick="messageModal();"><i class="bi bi-envelope text-white"></i> Message&nbsp;&nbsp;03</button>
 
                                                 </div>
                                             </div>
@@ -106,9 +106,9 @@
 
                                             <!-- large device -->
                                             <div class=" col-12 text-end mt-4 d-lg-block d-md-block d-none ">
-                                                <button class="btn btn-secondary MytoursButton"><i class="bi bi-chat-left-quote text-white"></i> &nbsp;FeedBack</button>
+                                                <button class="btn btn-secondary MytoursButton" onclick="feedbackModal();"><i class="bi bi-chat-left-quote text-white"></i> &nbsp;Feedback</button>
                                                 <button class="btn btn-danger MytoursButton">&nbsp;<i class="bi bi-trash3-fill text-white"></i>&nbsp; </button>
-                                                <button class="btn btn-primary MytoursButton"><i class="bi bi-envelope text-white"></i> &nbsp;&nbsp3</button>
+                                                <button class="btn btn-primary MytoursButton" onclick="messageModal();"><i class="bi bi-envelope text-white"></i> &nbsp;&nbsp;3</button>
                                             </div>
                                             <!-- large device -->
                                         </div>
@@ -197,23 +197,12 @@
             </div>
             <!-- small device -->
         </div>
-        <!-- <div class="col-10 offset-1 mt-3 d-flex justify-content-center align-content-center ">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-left-circle"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-arrow-right-circle"></i></a></li>
-                </ul>
-            </nav>
-        </div> -->
-        <?php
-        include "./components/footer.php";
-        ?>
     </div>
+    <?php
+    include "./components/footer.php";
+    ?>
 
-    <!-- Modal -->
+    <!-- Modal01 -->
     <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style=" font-family:Quicksand-Medium">
         <div class="modal-dialog ">
             <div class="modal-content">
@@ -258,15 +247,79 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+    <!-- Modal01 -->
+
+    <!-- Modal02 -->
+    <div class="modal" id="feedbackModal" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1" style=" font-family:Quicksand-Medium">
+        <div class="modal-dialog ">
+            <div class="modal-content" style=" font-family:Quicksand-Medium" style=" font-family:Quicksand-Medium">
+                <div class="modal-header modelBackGround ">
+                    <span class="modal-title  text-white fs-4" id="exampleModalLabel">Feedback</span>
+                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body  rounded-3 ">
+                    <div class="col-12 ">
+                        <div class="row  p-lg-3 p-2">
+
+                            <span class=" mt-0 "> • Rating </span>
+                            <div class=" mt-0">
+                                <span onclick="Fstar(1)" class="star">★
+                                </span>
+                                <span onclick="Fstar(2)" class="star">★
+                                </span>
+                                <span onclick="Fstar(3)" class="star">★
+                                </span>
+                                <span onclick="Fstar(4)" class="star">★
+                                </span>
+                                <span onclick="Fstar(5)" class="star">★
+                                </span>
+                                <span class="bg-primary rounded-3 text-white  p-1 feedbackCount">&nbsp;&nbsp;&nbsp;<b id="output" class="text-white">0</b><b class="text-white">/5</b>&nbsp;&nbsp;&nbsp;</span>
+                            </div>
+                            <hr class=" mt-3 border border-2">
+
+                            <span class=" mt-3 mb-3 ">• Type Feedback</span>
+                            <textarea name="" id="" cols="10" rows="5" placeholder="Describe Your Experience Here ..." class=" border border-2 rounded-2"></textarea>
+                            <button class="btn btn-primary text-center mt-3 mb-1">Submit</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal02 -->
+
+     <!-- Modal03 -->
+     <div class="modal" id="messageModal"  tabindex="-1" style=" font-family:Quicksand-Medium">
+        <div class="modal-dialog ">
+            <div class="modal-content" style=" font-family:Quicksand-Medium" style=" font-family:Quicksand-Medium">
+                <div class="modal-header modelBackGround ">
+                    <span class="modal-title  text-white fs-4" id="exampleModalLabel">Message</span>
+                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="p-3  border border-3 mb-3  rounded-3">
+                        <p> • Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, vel? Quis dolor deserunt, aliquid ex 
+                            voluptatibus inventore quia minima fugit eos sunt nulla, quos, exercitationem minus quae laudantium molestias itaque?</p>
+                    </div>
+                    <div class="p-3  border border-3 mb-3 rounded-3">
+                        <p>• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, vel? Quis dolor deserunt, aliquid ex 
+                            voluptatibus inventore quia minima fugit eos sunt nulla, quos, exercitationem minus quae laudantium molestias itaque?</p>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal03 -->
     <script src="./js/MyTours.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    </div>
+
 </body>
 
 </html>

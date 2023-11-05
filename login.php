@@ -112,30 +112,6 @@
     </div>
     <!-- model 01-->
 
-    <!-- model 02-->
-    <div class="modal" tabindex="-1" id="T_verifyModel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="font-family: QuickSand;">Verify Email</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="">
-                        <span>Code</span>
-                        <input type="text" class=" form-control" id="modalInput">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="modalLogin();" style="font-family: QuickSand;">Login</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- model 02 -->
-
-
-
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/login.js"></script>
 

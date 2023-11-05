@@ -1,3 +1,4 @@
+var vModal;
 function adminLogin() {
   var email = document.getElementById("admin_email");
   var password = document.getElementById("admin_password");
@@ -13,9 +14,13 @@ function adminLogin() {
   r.onreadystatechange = function () {
     if (r.readyState == 4) {
       var t = r.responseText;
-      if (t == "success") {
+      if (t == "success01") {
+        var modal = document.getElementById("verifyModel");
+        vModal = new bootstrap.Modal(modal);
+        vModal.show();
+        
+      } else if (t == "success02") {
         var req = new XMLHttpRequest();
-
         req.onreadystatechange = function () {
           if (req.readyState == 4) {
             window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
@@ -39,7 +44,41 @@ function adminLogin() {
   r.open("POST", "./assets/model/adminLoginProcess.php", true);
   r.send(form);
 }
-
+function adminVerify() {
+  var code = document.getElementById("adminVerificationCode");
+  var email = document.getElementById("admin_email");
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function () {
+    if (r.readyState == 4) {
+      var t = r.responseText;
+      if (t == "success") {
+        vModal.hide();
+        var reqest = new XMLHttpRequest();
+        reqest.onreadystatechange = function () {
+          if (reqest.readyState == 4) {
+            window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
+            // window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
+          }
+        };
+        reqest.open(
+          "GET",
+          "./assets/model/setTimeZoneSession.php?timeZone=" +
+            Intl.DateTimeFormat().resolvedOptions().timeZone,
+          true
+        );
+        // req.open("GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
+        reqest.send();
+      } else alert(t);
+    }
+  };
+  r.open(
+    "GET",
+    "./assets/model/adminModalLogin.php?code=" + code.value + "&email=" +  email.value,
+    true
+  );
+  // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
+  r.send();
+}
 function adminForgotPassword() {
   var email = document.getElementById("admin_email");
 

@@ -4,6 +4,7 @@ function register(){
     // window.location ="../login.php" ;
    
 }
+var T_modal;
 function Register() {
 
     var F_Name = document.getElementById("F_Name");
@@ -25,10 +26,13 @@ function Register() {
             var text = request.responseText;
 
             if (text == "success") {
-                document.getElementById("AlertMSG").innerHTML = text;
-                document.getElementById("AlertMSG").className = "alert alert-success";
-                document.getElementById("AlertMSG").className = "d-block";
-                window.location ="./login.php" ;
+                // document.getElementById("AlertMSG").innerHTML = text;
+                // document.getElementById("AlertMSG").className = "alert alert-success";
+                // document.getElementById("AlertMSG").className = "d-block";
+                // window.location ="./login.php" ;
+                var modal01 = document.getElementById("T_verifyModel");
+                T_modal = new bootstrap.Modal(modal01);
+                T_modal.show();
 
 
             } else {
@@ -44,3 +48,23 @@ function Register() {
     request.send(form);
 
 }
+
+function modalRegister() {
+    var code = document.getElementById("modalInput");
+    var email = document.getElementById("Email");
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function () {
+      if (r.readyState == 4) {
+        var t = r.responseText;
+        if (t == "success") {
+          T_modal.hide();
+          window.location ="./login.php" ;
+         
+        } else alert(t);
+      }
+    };
+    r.open(
+      "GET", "./assets/model/T_modalRegistration.php?code=" + code.value + "&email=" + email.value,true);
+    // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
+    r.send();
+  }

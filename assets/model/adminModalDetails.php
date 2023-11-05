@@ -2,13 +2,7 @@
 
 require "../model/sqlConnection.php";
 $Email = $_GET["email"];
-// $rs = Database::search("SELECT * FROM `employee` INNER JOIN `admin` ON employee.id = admin.employee_id  WHERE `email`='" . $Email . "' ");
 $rs = Database::search("SELECT * FROM `employee`INNER JOIN `admin` ON employee.id = admin.employee_id WHERE `email`='" . $Email . "' ");
-// SELECT Products.ProductID, Products.ProductName, admin.address
-// FROM `employee`
-// JOIN `admin` ON employee.id = admin.employee_id;
-
-
 $admin_data = $rs->fetch_assoc();
 
 ?>

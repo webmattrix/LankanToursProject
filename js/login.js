@@ -2,7 +2,7 @@ function login() {
   window.location = "./registration.php";
   // window.location = "../registration.php";
 }
-var T_modal;
+
 function Login() {
   var Email = document.getElementById("L_Email");
   var Password = document.getElementById("L_Password");
@@ -17,7 +17,7 @@ function Login() {
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
       var text = req.responseText;
-      if (text == "success01") {
+      if (text == "success") {
         var req2 = new XMLHttpRequest();
         req2.onreadystatechange = function () {
           if (req2.readyState == 4) {
@@ -33,10 +33,6 @@ function Login() {
         );
         // req.open("GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
         req2.send();
-      } else if (text == "success02") {
-        var modal01 = document.getElementById("T_verifyModel");
-        T_modal = new bootstrap.Modal(modal01);
-        T_modal.show();
       } else {
         document.getElementById("L_AlertMSG").innerHTML = text;
         document.getElementById("L_AlertMSG").className = "d-block";
@@ -47,39 +43,6 @@ function Login() {
   req.open("POST", "./assets/model/T_loginProcess.php", true);
   // req.open("POST", "../assets/model/T_loginProcess.php", true);
   req.send(form);
-}
-
-function modalLogin() {
-  var code = document.getElementById("modalInput");
-  var email = document.getElementById("L_Email");
-  var r = new XMLHttpRequest();
-  r.onreadystatechange = function () {
-    if (r.readyState == 4) {
-      var t = r.responseText;
-      if (t == "success") {
-        T_modal.hide();
-        var reqest = new XMLHttpRequest();
-        reqest.onreadystatechange = function () {
-          if (reqest.readyState == 4) {
-            window.location = "./home.php";
-            // window.location = "../home.php";
-          }
-        };
-        reqest.open(
-          "GET",
-          "./assets/model/setTimeZoneSession.php?timeZone=" +
-            Intl.DateTimeFormat().resolvedOptions().timeZone,
-          true
-        );
-        // req.open("GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
-        reqest.send();
-      } else alert(t);
-    }
-  };
-  r.open(
-    "GET", "./assets/model/T_modalLogin.php?code=" + code.value + "&email=" + email.value,true);
-  // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
-  r.send();
 }
 
 var T_bm;

@@ -17,7 +17,7 @@
 <body class="registerBackground">
     <div class="col-1 Registercard2  d-block" style=" position: absolute; z-index:-5;">
     </div>
-    <h6 class="p-3 text-white  d-inline-block" style="font-family: QuickSand;"  onclick="register()"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
+    <h6 class="p-3 text-white  d-inline-block" style="font-family: QuickSand;" onclick="register()"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
 
     <div class=" RegisterBox p-3 p-md-5 mb-2">
         <div class="  p-lg-4 p-md-5 p-3 Registercard ">
@@ -50,31 +50,50 @@
                             <h6 class="text-start " style="font-family: QuickSand;">Country</h6>
                             <select class="form-select  text-white-70 inputFeild" style="font-family: QuickSand;" id="Country">
                                 <option value="0">Select country</option>
-                                
+
                                 <?php
                                 $rs = Database::search("SELECT * FROM `country`");
                                 $n = $rs->num_rows;
                                 ?> <?php
-                                for ($x = 0; $x < $n; $x++) {
-                                    $d = $rs->fetch_assoc();
-                                ?>
+                                    for ($x = 0; $x < $n; $x++) {
+                                        $d = $rs->fetch_assoc();
+                                    ?>
                                     <option value="<?php echo $d["id"]; ?>"><?php echo $d["name"]; ?></option>
                                 <?php
-                                }
+                                    }
                                 ?>
                             </select>
                         </div>
                         <div class="col-lg-6 offset-lg-3 col-10 offset-1 mt-3 mb-2 mb-lg-0 ">
                             <button class="form-control text-white" style="font-family: QuickSand; background-color: rgba(247, 247, 247, 0.415);" onclick="Register();"> Register</button>
                         </div>
-                        
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+
+    <!-- model 02-->
+    <div class="modal" tabindex="-1" id="T_verifyModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-family: QuickSand;">Verify Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <span>Check your email to get the OTP code</span>
+                        <input type="text" class=" form-control" id="modalInput" placeholder="OTP code ...">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="modalRegister();" style="font-family: QuickSand;">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model 02 -->
 
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/registration.js"></script>

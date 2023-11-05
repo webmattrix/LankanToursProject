@@ -4,6 +4,8 @@ require "sqlConnection.php";
 require "SMTP.php";
 require "PHPMailer.php";
 require "Exception.php";
+require "passwordGenerator.php";
+
 
 // $password = genaratepassword(6);
 
@@ -20,7 +22,7 @@ if (isset($_GET["e"])) {
 
     if ($n == 1) {
 
-        $code = uniqid();
+        $code = generatePassword(6);
 
         Database::iud("UPDATE `employee` SET `verification_code`='" . $code . "' 
     WHERE `email`='" . $email . "'");

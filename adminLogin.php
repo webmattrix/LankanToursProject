@@ -23,22 +23,22 @@
                 </div>
                 <?php
 
-                        $email = "";
-                        $password = "";
+                $email = "";
+                $password = "";
 
-                        if (isset($_COOKIE["lt_admin_email"])) {
-                            $email = $_COOKIE["lt_admin_email"];
-                        }
-                        if (isset($_COOKIE["lt_admin_password"])) {
-                            $password = $_COOKIE["lt_admin_password"];
-                        }
-                        ?>
+                if (isset($_COOKIE["lt_admin_email"])) {
+                    $email = $_COOKIE["lt_admin_email"];
+                }
+                if (isset($_COOKIE["lt_admin_password"])) {
+                    $password = $_COOKIE["lt_admin_password"];
+                }
+                ?>
                 <div class="offset-1 col-10 admin_login-input position-relative">
-                    <input type="email" id="admin_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email" value="<?php echo $email?>">
+                    <input type="email" id="admin_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email" value="<?php echo $email ?>">
                     <iconify-icon icon="material-symbols:mail" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 admin_login-input position-relative">
-                    <input type="password" id="admin_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password" value="<?php echo $password?>">
+                    <input type="password" id="admin_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password" value="<?php echo $password ?>">
                     <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 text-start mt-2">
@@ -99,6 +99,26 @@
                 </div>
                 <!-- modal -->
 
+                <!-- modal 02-->
+                <div class="modal" tabindex="-1" id="verifyModel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modelBackGround " style="background-color: #0F6884;">
+                                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">OTP Verification</h1>
+                                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="px-2 pb-3 pt-5 d-flex flex-column gap-2">
+                                    <input type="text" class="form-control" placeholder="OTP Code" id="adminVerificationCode">
+                                    <span class="text-black-50 ps-2 content-heading">Check your email to get the OTP code</span>
+                                    <button class="btn px-4 text-white col-6 offset-3" style="background-color: #0F6884;" onclick="adminVerify();">Verify</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- modal 02-->
+
             </div>
         </div>
     </div>
@@ -109,4 +129,3 @@
 </body>
 
 </html>
-

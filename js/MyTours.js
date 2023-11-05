@@ -1,50 +1,86 @@
 function tourPlanSlideMover(slideNumber, direction) {
-    var slider = document.getElementById("slide" + slideNumber + "Container");
-    var sliderImageNumber = document.getElementById(
-      "slide" + slideNumber + "ImageNumber"
-    );
+  var slider = document.getElementById("slide" + slideNumber + "Container");
+  var sliderImageNumber = document.getElementById(
+    "slide" + slideNumber + "ImageNumber"
+  );
 
-    var currentMargin = slider.getAttribute("data-marginLeft");
+  var currentMargin = slider.getAttribute("data-marginLeft");
 
-    slider.style.transitionDuration = 0.8 + "s";
-    if (direction == "right") {
-      if (currentMargin > -(slider.getAttribute("data-maxWidth") - 100)) {
-        slider.style.marginLeft = parseInt(currentMargin) - 100 + "%";
-        slider.setAttribute("data-marginLeft", parseInt(currentMargin) - 100);
-        sliderImageNumber.innerHTML =
-          parseInt(sliderImageNumber.getAttribute("data-imageNumber")) + 1;
-        sliderImageNumber.setAttribute(
-          "data-imageNumber",
-          parseInt(sliderImageNumber.getAttribute("data-imageNumber")) + 1
-        );
-      }
-    } else if (direction == "left") {
-      if (currentMargin < 0) {
-        slider.style.marginLeft = parseInt(currentMargin) + 100 + "%";
-        slider.setAttribute("data-marginLeft", parseInt(currentMargin) + 100);
-        sliderImageNumber.innerHTML =
-          parseInt(sliderImageNumber.getAttribute("data-imageNumber")) - 1;
-        sliderImageNumber.setAttribute(
-          "data-imageNumber",
-          parseInt(sliderImageNumber.getAttribute("data-imageNumber")) - 1
-        );
-      }
+  slider.style.transitionDuration = 0.8 + "s";
+  if (direction == "right") {
+    if (currentMargin > -(slider.getAttribute("data-maxWidth") - 100)) {
+      slider.style.marginLeft = parseInt(currentMargin) - 100 + "%";
+      slider.setAttribute("data-marginLeft", parseInt(currentMargin) - 100);
+      sliderImageNumber.innerHTML =
+        parseInt(sliderImageNumber.getAttribute("data-imageNumber")) + 1;
+      sliderImageNumber.setAttribute(
+        "data-imageNumber",
+        parseInt(sliderImageNumber.getAttribute("data-imageNumber")) + 1
+      );
+    }
+  } else if (direction == "left") {
+    if (currentMargin < 0) {
+      slider.style.marginLeft = parseInt(currentMargin) + 100 + "%";
+      slider.setAttribute("data-marginLeft", parseInt(currentMargin) + 100);
+      sliderImageNumber.innerHTML =
+        parseInt(sliderImageNumber.getAttribute("data-imageNumber")) - 1;
+      sliderImageNumber.setAttribute(
+        "data-imageNumber",
+        parseInt(sliderImageNumber.getAttribute("data-imageNumber")) - 1
+      );
     }
   }
+}
 
-  var startX;
-  var endX;
+var startX;
+var endX;
 
-  function touchStartDetector(evt) {
-    startX = evt.touches[0].clientX;
+function touchStartDetector(evt) {
+  startX = evt.touches[0].clientX;
+}
+
+function touchEndDetector(evt, slideNumber) {
+  endX = evt.changedTouches[0].clientX;
+
+  if (startX > endX) {
+    tourPlanSlideMover(slideNumber, "right");
+  } else {
+    tourPlanSlideMover(slideNumber, "left");
   }
+}
+var F_modal;
+function feedbackModal() {
+  var modal01 = document.getElementById("feedbackModal");
+  F_modal = new bootstrap.Modal(modal01);
+  F_modal.show();
+}
+var M_modal;
+function messageModal() {
+  var modal01 = document.getElementById("messageModal");
+  M_modal = new bootstrap.Modal(modal01);
+  M_modal.show();
+}
 
-  function touchEndDetector(evt, slideNumber) {
-    endX = evt.changedTouches[0].clientX;
 
-    if (startX > endX) {
-      tourPlanSlideMover(slideNumber, "right");
-    } else {
-      tourPlanSlideMover(slideNumber, "left");
-    }
+let stars = document.getElementsByClassName("star");
+let output = document.getElementById("output");
+
+function Fstar(n) {
+  remove();
+  for (let i = 0; i < n; i++) {
+    if (n == 1) cls = "F_one";
+    else if (n == 2) cls = "F_two";
+    else if (n == 3) cls = "F_three";
+    else if (n == 4) cls = "F_four";
+    else if (n == 5) cls = "F_five";
+    stars[i].className = "star " + cls;
   }
+  output.innerText = n;
+}
+function remove() {
+  let i = 0;
+  while (i < 5) {
+    stars[i].className = "star";
+    i++;
+  }
+}
