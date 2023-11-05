@@ -7,10 +7,10 @@ require "assets/model/sqlConnection.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/manageTourist.css">
+    <title>Admin | Manage Tourist</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/manageTourist.css">
 </head>
 
 <body>
@@ -218,9 +218,9 @@ require "assets/model/sqlConnection.php";
         </div>
     </div>
 
-    <script src="./js/manageTourist.js"></script>
-    <script src="./js/adminTemplate.js"></script>
-    <script src="./js/bootstrap.js"></script>
+    <script src="../js/manageTourist.js"></script>
+    <script src="../js/adminTemplate.js"></script>
+    <script src="../js/bootstrap.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
