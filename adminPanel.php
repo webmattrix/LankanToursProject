@@ -72,7 +72,11 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                     $year = $dateTimeObject->format("Y");
                                     $month = $dateTimeObject->format("m");
 
-                                    $query = "SELECT * FROM `order`";
+                                    $date = new DateTime();
+                                    $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
+                                    $today = $today->format("Y-m-d");
+
+                                    $query = "SELECT * FROM `order` WHERE `end_date`<'" . $today . "'";
                                     $order_rs = Database::search($query);
                                     $order_num = $order_rs->num_rows;
                                     for ($order_iteration = 0; $order_iteration < $order_num; $order_iteration++) {
@@ -91,7 +95,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                         }
                                     }
 
-                                    $query = "SELECT * FROM `custom_tour`";
+                                    $query = "SELECT * FROM `custom_tour` WHERE `end_date`<'" . $today . "'";
                                     $ct_order_rs = Database::search($query);
                                     $ct_order_num = $ct_order_rs->num_rows;
                                     for ($ct_order_iteration = 0; $ct_order_iteration < $ct_order_num; $ct_order_iteration++) {
@@ -293,6 +297,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
                                                 WHERE `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
                                                 ORDER BY `start_date` ASC";
+                                                
                                                 $ct_order_query = "SELECT *,`employee`.`name` AS `guide_name` FROM `custom_tour`
                                                 INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
                                                 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`

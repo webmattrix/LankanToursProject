@@ -93,19 +93,57 @@ document.getElementById("profileBackground").addEventListener("change", () => {
 
 document
   .getElementById("passwordOtpModelToggle")
-  .addEventListener("mousedown", passwordModdleToggle);
+  .addEventListener("mousedown", () => {
+    document.getElementById("passwordOtpModel").classList.toggle("d-none");
+  });
 
 function passwordModdleToggle() {
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {
     if (req.readyState == 4 && req.status == 200) {
-      alert(req.responseText);
+      if (req.responseText == "1") {
+        alert("Verification Failed");
+      } else if (req.responseText == "2") {
+        document.getElementById("passwordOtpModel").classList.toggle("d-none");
+      } else {
+        alert(req.responseText);
+      }
     }
   };
 
   req.open("POST", "./assets/model/sendTouristOtp.php", true);
   req.send();
+}
 
-  document.getElementById("passwordOtpModel").classList.toggle("d-none");
+function changeTouristPassword() {
+  var form = new FormData();
+  form.append(
+    "touristPassword1",
+    document.getElementById("touristPassword1").value
+  );
+  form.append(
+    "touristPassword2",
+    document.getElementById("touristPassword2").value
+  );
+  form.append(
+    "touristVerificationCode",
+    document.getElementById("touristVerificationCode").value
+  );
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4 && req.status == 200) {
+      if (req.responseText == "success") {
+        alert("Your password is changed");
+        window.location.reload();
+      } else {
+        alert(req.responseText);
+      }
+    }
+  };
+
+  req.open("POST", "./assets/model/changeTouristPassword.php", true);
+  req.send(form);
 }
