@@ -103,11 +103,16 @@
   overflow: hidden;
 }
 
-.profile-setting-container .body > ul > li:hover *:not(ul > li > ul > li *) {
+/* .profile-setting-container .body > ul > li:hover *:not(ul > li > ul > li *) {
+  color: #2452f2;
+} */
+
+.profile-setting-container .body > ul > li ul > li:hover * {
   color: #2452f2;
 }
 
-.profile-setting-container .body > ul > li ul > li:hover * {
+.profile-setting-container .body > ul > li:hover > span,
+.profile-setting-container .body > ul > li:hover > iconify-icon {
   color: #2452f2;
 }
 

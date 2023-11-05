@@ -7,6 +7,7 @@ if (!isset($_SESSION["lt_tourist"])) {
 } else {
 
     require "./assets/model/sqlConnection.php";
+    require "./assets/model/hideEmail.php";
 
     $tourist = $_SESSION["lt_tourist"];
 
@@ -239,8 +240,7 @@ if (!isset($_SESSION["lt_tourist"])) {
                                     <iconify-icon icon="material-symbols:security"></iconify-icon>
                                     <span>Security</span>
                                     <ul class="list-unstyled ps-4">
-                                        <li><span>Change Password</span></li>
-                                        <li><span>Forgot Password</span></li>
+                                        <li onclick="passwordModdleToggle();"><span>Change Password</span></li>
                                     </ul>
                                 </li>
                                 <li class="mt-2">
@@ -257,6 +257,24 @@ if (!isset($_SESSION["lt_tourist"])) {
                 </div>
                 <!-- Profile setting content -->
 
+            </div>
+
+            <div class="position-fixed top-0 start-0 vh-100 vw-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 2;" id="passwordOtpModel">
+                <div class="bg-white rounded overflow-hidden" style="height: fit-content; width: 500px; max-width: 80vw;">
+                    <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background-color: #0F6884;">
+                        <span class="text-white">Change Password</span>
+                        <iconify-icon icon="ic:round-close" class="text-white fs-5 c-pointer" id="passwordOtpModelToggle"></iconify-icon>
+                    </div>
+                    <div class="px-2 pb-3 pt-5 d-flex flex-column gap-2">
+                        <input type="text" class="form-control" placeholder="OTP Code" id="touristVerificationCode">
+                        <span class="quicksand-light ps-2 content-heading">OTP code is send to your email <span style="color: #467ADE;">'<?php echo (hideEmailBeforeDomain($_SESSION["lt_tourist"]["email"])); ?>'</span></span>
+                        <hr>
+                        <input type="password" class="form-control" placeholder="New Password" id="touristPassword1">
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="touristPassword2">
+                        <button class="btn px-4 text-white col-6 offset-3" style="background-color: #0F6884;" onclick="changeTouristPassword();">Change</button>
+                    </div>
+
+                </div>
             </div>
 
         </div>

@@ -90,3 +90,22 @@ document.getElementById("profileBackground").addEventListener("change", () => {
   document.getElementById("profileBackgroundImage").style.backgroundImage =
     "url(" + fileUrl + ")";
 });
+
+document
+  .getElementById("passwordOtpModelToggle")
+  .addEventListener("mousedown", passwordModdleToggle);
+
+function passwordModdleToggle() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4 && req.status == 200) {
+      alert(req.responseText);
+    }
+  };
+
+  req.open("POST", "./assets/model/sendTouristOtp.php", true);
+  req.send();
+
+  document.getElementById("passwordOtpModel").classList.toggle("d-none");
+}
