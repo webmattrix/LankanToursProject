@@ -279,9 +279,9 @@ if (!isset($_SESSION["lt_tourist"])) {
 
         </div>
 
-        <?php include "./components/footer.php"; ?>
-
+        
     </div>
+    <?php include "./components/footer.php"; ?>
 </body>
 
 <script src="./js/profile.js"></script>
