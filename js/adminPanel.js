@@ -6,6 +6,7 @@ window.onload = function () {
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
       var res = req.responseText;
+
       var responseObj = JSON.parse(res);
 
       var barChartData = {
@@ -42,6 +43,17 @@ window.onload = function () {
             tension: 20,
             width: 5,
             data: responseObj.outcome,
+            barPercentage: 0.6,
+          },
+          {
+            label: "Profite",
+            backgroundColor: "rgba(252, 111, 3,0.5)",
+            borderColor: "#fc6f03",
+            borderRadius: 0,
+            borderWidth: 1,
+            tension: 20,
+            width: 5,
+            data: responseObj.profite,
             barPercentage: 0.6,
           },
         ],

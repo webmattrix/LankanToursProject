@@ -40,25 +40,13 @@ if (isset($_SESSION["lt_guide"])) {
             </div>
             <div class="d-flex px-2 gap-2 align-items-center position-relative" style="cursor: pointer;">
                 <div class="bg-secondary bg-opacity-25" style="width: 30px; height: 30px; clip-path: circle();">
-                    <?php
-                    if ($guide == null) {
-                    ?>
-                        <img src="../assets/img/profile/empty_profile.jpg" alt="" style="object-fit: cover; width: 100%; height: 100%;">
-                        <?php
-                    } else {
-                        if (isset($guide["profile_picture"])) {
-                        ?>
-                            <img src="../assets/img/profile/guide/<?php echo ($guide["profile_picture"]); ?>" alt="" style="object-fit: cover; width: 100%; height: 100%;">
-                        <?php
-                        } else {
-                        ?>
-                            <img src="../assets/img/profile/empty_profile.jpg" alt="" style="object-fit: cover; width: 100%; height: 100%;">
-                        <?php
-                        }
-                        ?>
-                    <?php
-                    }
-                    ?>
+                    <img src="<?php
+                                if (empty($employee_data["profile_picture"])) {
+                                    echo ("../assets/img/profile/empty_profile.jpg");
+                                } else {
+                                    echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                }
+                                ?>" alt="" style="object-fit: cover; width: 100%; height: 100%;">
                 </div>
                 <div class="d-flex flex-column justify-content-center">
                     <span style="font-size: 12px; font-family: sans-serif; font-weight: bold; border-bottom: 1px solid #888888;"><?php echo ($employee_data["emp_name"]); ?></span>
@@ -68,32 +56,20 @@ if (isset($_SESSION["lt_guide"])) {
                     <iconify-icon icon="mingcute:down-fill"></iconify-icon>
                 </div>
 
-                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="guideProfileModel">
-                    <?php
-                    if ($guide == null) {
-                    ?>
-                        <img src="../assets/img/profile/empty_profile.jpg" />
-                        <?php
-                    } else {
-                        if (isset($guide["profile_picture"])) {
-                        ?>
-                            <img src="../assets/img/profile/guide/<?php echo ($guide["profile_picture"]); ?>" />
-                        <?php
-                        } else {
-                        ?>
-                            <img src="../assets/img/profile/empty_profile.jpg" />
-                        <?php
-                        }
-                        ?>
-                    <?php
-                    }
-                    ?>
+                <div class="guide-profile-model d-flex flex-column align-items-center d-none" id="headerProfileModel">
+                    <img src="<?php
+                                if (empty($employee_data["profile_picture"])) {
+                                    echo ("../assets/img/profile/empty_profile.jpg");
+                                } else {
+                                    echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                }
+                                ?>">
 
                     <div class="w-100 mt-3 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="viewGuideProfile();">
                         <iconify-icon icon="iconamoon:profile-thin"></iconify-icon>
                         <span>Profile</span>
                     </div>
-                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded">
+                    <div class="w-100 mt-1 d-flex align-items-center gap-2 px-3 py-1 rounded" onclick="guideLogOut();">
                         <iconify-icon icon="clarity:logout-line"></iconify-icon>
                         <span>Log Out</span>
                     </div>

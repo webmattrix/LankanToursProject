@@ -84,7 +84,8 @@
   .content
   .admin_panel-profile-image {
   width: 80%;
-  clip-path: circle();
+  /* clip-path: circle(); */
+  border-radius: 20px;
   object-fit: cover;
   object-position: center;
   background-color: rgb(207, 207, 207);

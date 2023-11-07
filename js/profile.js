@@ -17,7 +17,7 @@ document
     }
   });
 
-  document
+document
   .getElementById("profileChangeHeader")
   .addEventListener("mousedown", () => {
     var changeContainer = document.getElementById("profileChangeBody");
@@ -32,4 +32,118 @@ document
     }
   });
 
+document
+  .getElementById("changeTouristProfile")
+  .addEventListener("mousedown", () => {
+    var form = new FormData();
+    form.append("touristName", document.getElementById("touristName").value);
+    form.append(
+      "touristMobile",
+      document.getElementById("touristMobile").value
+    );
+    form.append("touristDOB", document.getElementById("touristDOB").value);
+    form.append(
+      "touristGender",
+      document.getElementById("touristGender").value
+    );
+    form.append(
+      "touristCountry",
+      document.getElementById("touristCountry").value
+    );
+    form.append(
+      "profileImage",
+      document.getElementById("profileImage").files[0]
+    );
+    form.append(
+      "profileBackground",
+      document.getElementById("profileBackground").files[0]
+    );
 
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4 && req.status == 200) {
+        if (req.responseText == "1") {
+          alert("Profile Updated");
+          window.location.reload();
+        } else {
+          alert(req.responseText);
+        }
+      }
+    };
+
+    req.open("POST", "./assets/model/changeTouristProfile.php", true);
+    req.send(form);
+  });
+
+document.getElementById("profileImage").addEventListener("change", () => {
+  var file = document.getElementById("profileImage");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
+  document.getElementById("profileImageViewer").src = fileUrl;
+});
+
+document.getElementById("profileBackground").addEventListener("change", () => {
+  var file = document.getElementById("profileBackground");
+  var selectedFile = file.files[0];
+  var fileUrl = URL.createObjectURL(selectedFile);
+  document.getElementById("profileBackgroundImage").style.backgroundImage =
+    "url(" + fileUrl + ")";
+});
+
+document
+  .getElementById("passwordOtpModelToggle")
+  .addEventListener("mousedown", () => {
+    document.getElementById("passwordOtpModel").classList.toggle("d-none");
+  });
+
+function passwordModdleToggle() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4 && req.status == 200) {
+      if (req.responseText == "1") {
+        alert("Verification Failed");
+      } else if (req.responseText == "2") {
+        document.getElementById("passwordOtpModel").classList.toggle("d-none");
+      } else {
+        alert(req.responseText);
+      }
+    }
+  };
+
+  req.open("POST", "./assets/model/sendTouristOtp.php", true);
+  req.send();
+}
+
+function changeTouristPassword() {
+  var form = new FormData();
+  form.append(
+    "touristPassword1",
+    document.getElementById("touristPassword1").value
+  );
+  form.append(
+    "touristPassword2",
+    document.getElementById("touristPassword2").value
+  );
+  form.append(
+    "touristVerificationCode",
+    document.getElementById("touristVerificationCode").value
+  );
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4 && req.status == 200) {
+      if (req.responseText == "success") {
+        alert("Your password is changed");
+        window.location.reload();
+      } else {
+        alert(req.responseText);
+      }
+    }
+  };
+
+  req.open("POST", "./assets/model/changeTouristPassword.php", true);
+  req.send(form);
+}
