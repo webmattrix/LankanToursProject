@@ -2,17 +2,17 @@
 
 require "sqlConnection.php";
 session_start();
-
-if ($_GET["user"] == "guide") {
-    Test::loadGuideSession();
-} else if ($_GET["user"] == "admin") {
-    Test::loadAdminSession();
-} else if ($_GET["user"] == "tourist") {
-    Test::loadTouristSession();
-} else {
-    echo ("Access Denied!");
+if (isset($_GET["user"])) {
+    if ($_GET["user"] == "guide") {
+        Test::loadGuideSession();
+    } else if ($_GET["user"] == "admin") {
+        Test::loadAdminSession();
+    } else if ($_GET["user"] == "tourist") {
+        Test::loadTouristSession();
+    } else {
+        echo ("Access Denied!");
+    }
 }
-
 class Test
 {
     public static function loadGuideSession()
@@ -48,3 +48,8 @@ class Test
         echo (json_encode($_SESSION["lt_user"]));
     }
 }
+?>
+<a href="?user=guide"><button>guide</button></a>
+<a href="?user=admin"><button>admin</button></a>
+<a href="?user=tourist"><button>tourist</button></a>
+<a href="http://localhost/TourpageFinal/LankanToursProject/assets/model/setTimeZoneSession?timeZone=Asia/Colombo"><button>Time Zone</button></a>

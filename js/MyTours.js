@@ -49,10 +49,12 @@ function touchEndDetector(evt, slideNumber) {
   }
 }
 var F_modal;
-function feedbackModal() {
-  var modal01 = document.getElementById("feedbackModal");
-  F_modal = new bootstrap.Modal(modal01);
-  F_modal.show();
+
+function feedbackModal(id02) {
+  // var modal01 = document.getElementById("feedbackModal");
+  // F_modal = new bootstrap.Modal(modal01);
+  // F_modal.show();
+  alert(id02);
 }
 var M_modal;
 function messageModal() {
@@ -83,4 +85,23 @@ function remove() {
     stars[i].className = "star";
     i++;
   }
+}
+
+var D_modal;
+function myTourmodal01(t_name,userId) {
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var txt = request.responseText;
+      document.getElementById("viewArea01").innerHTML = txt;
+
+      var m = document.getElementById("myTourDetails");
+      D_modal = new bootstrap.Modal(m);
+      D_modal.show();
+    }
+  };
+  request.open("GET", "./assets/model/myTouDetailsrModal.php?T_name=" + t_name + "&userId=" + userId, true);
+  
+  request.send();
 }
