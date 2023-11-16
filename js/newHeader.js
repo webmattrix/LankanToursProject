@@ -41,3 +41,15 @@ function goWatchlist() {
 function goMyTours() {
   window.location = "Orders";
 }
+
+function mobileMenuToggle() {
+  var menu = document.getElementById("mobileMenuContainer");
+  var menuMargin = parseInt(getComputedStyle(menu).marginLeft);
+  menu.style.transitionDuration = 0.5 + "s";
+  if (menuMargin == 0) {
+    menu.classList.remove("bg-black");
+    menu.style.marginLeft = -100 + "%";
+  } else {
+    menu.style.marginLeft = 0 + "%";
+  }
+}
