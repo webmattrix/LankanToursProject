@@ -10,7 +10,7 @@ function guideSignIn() {
 
   var r = new XMLHttpRequest();
 
-  r.onreadystatechange = function () { 
+  r.onreadystatechange = function () {
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "not verified") {
@@ -25,14 +25,14 @@ function guideSignIn() {
 
         req.onreadystatechange = function () {
           if (req.readyState == 4) {
-            window.location.href = "/Home";
+            window.location.href += "/Home";
           }
         };
 
         req.open(
           "GET",
-          "../assets/model/setTimeZoneSession.php?timeZone=" +
-          Intl.DateTimeFormat().resolvedOptions().timeZone,
+          "./assets/model/setTimeZoneSession.php?timeZone=" +
+            Intl.DateTimeFormat().resolvedOptions().timeZone,
           true
         );
         req.send();
@@ -42,7 +42,7 @@ function guideSignIn() {
     }
   };
 
-  r.open("POST", "../assets/model/guideSignInProcess.php", true);
+  r.open("POST", "./assets/model/guideSignInProcess.php", true);
   r.send(form);
 }
 
@@ -67,11 +67,7 @@ function verifyGuide() {
     }
   };
 
-  r.open(
-    "POST",
-    "../assets/model/guideVerification.php",
-    true
-  );
+  r.open("POST", "../assets/model/guideVerification.php", true);
   r.send(form);
 }
 
@@ -89,7 +85,7 @@ function guideForgotPassword() {
         bm = new bootstrap.Modal(m, {
           backdrop: "static",
         });
-        bm.show(); 
+        bm.show();
       } else {
         alert(t);
       }
@@ -98,8 +94,7 @@ function guideForgotPassword() {
 
   r.open(
     "GET",
-    "../assets/model/guideForgotPasswordProcess.php?e=" +
-      email.value,
+    "../assets/model/guideForgotPasswordProcess.php?e=" + email.value,
     true
   );
   r.send();
@@ -131,14 +126,9 @@ function resetpassword() {
     }
   };
 
-  r.open(
-    "POST",
-    "../assets/model/guideResetPassword.php",
-    true
-  );
+  r.open("POST", "../assets/model/guideResetPassword.php", true);
   r.send(form);
 }
-
 
 function showpassword1() {
   var new_password = document.getElementById("new_password");

@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION["lt_tourist"])) {
-    header("Location: Profile");
+    header("Location: Login");
 } else {
 
     require "./assets/model/sqlConnection.php";
