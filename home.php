@@ -225,38 +225,53 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
 
               <div class="home_tour-plan">
                 <?php
-                for ($x = 1; $x < 8; $x++) {
+
+                $tour_rs = Database::search("SELECT * FROM `tour`");
+
+                for ($x = 1; $x < $tour_rs->num_rows; $x++) {
+                  $tour_data = $tour_rs->fetch_assoc();
+
+                  $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' LIMIT 5");
+                  $tour_places_count = $tour_place_rs->num_rows;
+
                 ?>
                   <div>
                     <div class="head position-relative">
                       <div class="position-absolute w-100 d-flex justify-content-between px-2 pt-2" style="z-index: 2;">
                         <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer"></iconify-icon>
-                        <span class="text-uppercase text-white segoeui-bold">12 Days</span>
+                        <span class="text-uppercase text-white segoeui-bold"><?php echo ($tour_data["date_count"]); ?> Days</span>
                       </div>
                       <div class="tour-plan-slider position-relative">
                         <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
                           <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');"></iconify-icon>
                           <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');"></iconify-icon>
                         </div>
-                        <div class="slides" style="width: 300%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="300" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
-                          <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');">
-                          </div>
-                          <div class="slide" id="sliderSlide2" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');">
-                          </div>
-                          <div class="slide" id="sliderSlide3" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');">
-                          </div>
+                        <div class="slides" style="width: <?php echo ($tour_places_count); ?>00%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_places_count); ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
+                          <?php
+                          for ($tourPlaceIteration = 0; $tourPlaceIteration < $tour_places_count; $tourPlaceIteration++) {
+                            $tour_places_data = $tour_place_rs->fetch_assoc();
+                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' LIMIT 1");
+                            $place_image_data = $place_image_rs->fetch_assoc();
+                          ?>
+                            <div class="slide" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
+                          <?php
+                          }
+                          ?>
+                          <!-- <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg');"></div>
+                          <div class="slide" id="sliderSlide2" style="background-image: url('./assets/img/tour_plan_images/img (2).jpg');"></div>
+                          <div class="slide" id="sliderSlide3" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');"></div> -->
                         </div>
                         <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
                           <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
-                          <span class="text-white"> / 3</span>
+                          <span class="text-white"> / <?php echo ($tour_places_count); ?></span>
                         </div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <div class="segoeui-bold text-center mt-1 fs-5">Plan Name</div>
-                      <div class="quicksand-Medium sub-heading py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo eum similique ipsam, alias rem deserunt ab assumenda adipisci nesciunt dolore perspiciatis, id impedit praesentium dignissimos, cupiditate iusto quisquam ducimus mollitia libero voluptatem ex. Minima hic pariatur ipsam voluptate aut eaque?</div>
+                      <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2"><?php echo ($tour_data["description"]); ?></div>
                       <div class="w-100 d-flex justify-content-center">
-                        <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary">
+                        <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>
                           <iconify-icon icon="ph:map-pin-line"></iconify-icon>
                         </a>
