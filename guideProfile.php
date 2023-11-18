@@ -4,6 +4,18 @@ session_start();
 if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
     header("Location: ../guide");
 } else {
+
+    require "assets/model/sqlConnection.php";
+    require "assets/model/timeZoneConverter.php";
+
+    $guide = $_SESSION["lt_guide"];
+
+    $employee_rs = Database::search("SELECT *,`employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`, `employee`.`id` AS `emp_id`
+    FROM `employee`
+    INNER JOIN `guide` ON `employee`.`id`=`guide`.`employee_id`
+    INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` WHERE `employee`.`id`='" . $guide["employee_id"] . "'");
+    $employee_data = $employee_rs->fetch_assoc();
+
 ?>
 
     <!DOCTYPE html>
@@ -43,11 +55,17 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
                                     <!-- Profile Image -->
                                     <div class="d-flex gap-3 pt-3 admin-profile">
-                                        <img src="../assets/img/boy_profile_picture.png" alt="" style="height: 150px; width: 150px; object-fit: cover; border-radius: 4px;" />
+                                        <img src="<?php
+                                                    if (empty($employee_data["profile_picture"])) {
+                                                        echo ("../assets/img/profile/empty_profile.jpg");
+                                                    } else {
+                                                        echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                                    }
+                                                    ?>" alt="" style="height: 150px; width: 150px; object-fit: cover; border-radius: 4px;" />
                                         <div class="d-flex flex-column quicksand-SemiBold">
-                                            <span class="fs-5">Vihanga Heshan</span>
-                                            <span class="text-black-50">vihangaheshan@gmail.com</span>
-                                            <span class="text-black-50">0712345678</span>
+                                            <span class="fs-5"><?php echo ($employee_data["emp_name"]); ?></span>
+                                            <span class="text-black-50"><?php echo ($employee_data["email"]); ?></span>
+                                            <span class="text-black-50"><?php echo ($employee_data["mobile"]); ?></span>
                                         </div>
                                     </div>
                                     <!-- Profile Image -->
@@ -73,35 +91,41 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                     <h3 class="segoeui-bold">Tour Guide</h3>
                                                     <div class="d-flex">
                                                         <span>Name</span>
-                                                        <span>: &nbsp; Vihanga Heshan</span>
+                                                        <span>: &nbsp; <?php echo ($employee_data["emp_name"]); ?></span>
                                                     </div>
                                                     <div class="d-flex mt-2">
                                                         <span>Email</span>
-                                                        <span>: &nbsp; vihangaheshan@gmail.com</span>
+                                                        <span>: &nbsp; <?php echo ($employee_data["email"]); ?></span>
                                                     </div>
                                                     <div class="d-flex mt-2">
                                                         <span>Mobile</span>
-                                                        <span>: &nbsp; 0712345678</span>
+                                                        <span>: &nbsp; <?php echo ($employee_data["email"]); ?></span>
                                                     </div>
 
                                                     <hr class="w-75">
 
                                                     <div class="d-flex mt-2">
                                                         <span>Address</span>
-                                                        <span>: &nbsp; ...</span>
+                                                        <span>: &nbsp; <?php
+                                                                        if (empty($employee_data["address"])) {
+                                                                            echo ("...");
+                                                                        } else {
+                                                                            echo ($employee_data["address"]);
+                                                                        }
+                                                                        ?></span>
                                                     </div>
-                                                    <div class="d-flex mt-2">
+                                                    <!-- <div class="d-flex mt-2">
                                                         <span>Work Time</span>
-                                                        <span>: &nbsp; 10h 35m / Sep</span>
-                                                    </div>
+                                                        <span>: &nbsp; coming soon...</span>
+                                                    </div> -->
                                                     <div class="d-flex mt-2">
                                                         <span>Registered Date</span>
-                                                        <span>: &nbsp; 2023-06-06</span>
+                                                        <span>: &nbsp; <?php echo (date("d M, Y", strtotime(timeConverter::convert($employee_data["reg_date"])))); ?></span>
                                                     </div>
-                                                    <div class="d-flex mt-2">
+                                                    <!-- <div class="d-flex mt-2">
                                                         <span>Gender</span>
                                                         <span>: &nbsp; ...</span>
-                                                    </div>
+                                                    </div> -->
 
                                                     <hr class="w-75">
 
@@ -119,40 +143,47 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                             <!-- Setting Slide -->
                                             <div class="body" style="min-width: 100%;">
                                                 <div class="quicksand-SemiBold">
+
                                                     <div class="d-flex flex-column">
-                                                        <span class="">Profile Picture</span>
-                                                        <label for="adminProfilePicture" id="adminProfileViewImage" class="admin-profile-picture d-flex justify-content-center align-items-center">
+                                                        <span class="d-block w-100">Profile Picture</span>
+                                                        <label for="adminProfilePicture" id="adminProfileViewImage" class="admin-profile-picture d-flex justify-content-center align-items-center" style="<?php
+                                                                                                                                                                                                            if (empty($employee_data["profile_picture"])) {
+                                                                                                                                                                                                                echo ("background-image: url('../assets/img/profile/empty_profile.jpg');");
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                echo ("background-image: url('../assets/img/profile/guide/" . $employee_data["profile_picture"] . "');");
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                            ?>">
                                                             <iconify-icon icon="ph:camera-fill"></iconify-icon>
                                                         </label>
-                                                        <input type="file" id="adminProfilePicture" class="d-none" onchange="changeImageUploader();" />
+                                                        <input type="file" id="adminProfilePicture" class="d-none" onchange="changeImageUploader();" accept="image/*" />
                                                     </div>
                                                     <div class="d-flex mt-4 flex-column">
                                                         <span class="">Name</span>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id="guideName" value="<?php echo ($employee_data["emp_name"]); ?>">
                                                     </div>
                                                     <div class="d-flex mt-4 flex-column">
                                                         <span class="">Mobile</span>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id="guideMobile" value="<?php echo ($employee_data["mobile"]); ?>">
                                                     </div>
                                                     <div class="d-flex mt-4 flex-column">
                                                         <span class="">Address</span>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id="guideAddress" value="<?php echo ($employee_data["address"]); ?>">
                                                     </div>
                                                     <div class="d-flex mt-5 flex-column">
                                                         <div class="d-flex mt-3 flex-column">
-                                                            <span>Username</span>
-                                                            <input type="text" class="form-control">
+                                                            <span>Email</span>
+                                                            <input type="text" class="form-control" id="guideEmail" disabled="true" value="<?php echo ($employee_data["email"]); ?>">
                                                         </div>
                                                         <div class="d-flex mt-3 flex-column">
                                                             <span>Password</span>
                                                             <div class="position-relative">
-                                                                <input type="password" id="passwordField" placeholder="********" class="form-control pe-5">
-                                                                <iconify-icon icon="el:eye-open" id="passwordEye" class="position-absolute end-0 me-2" style="top: 50%; transform: translateY(-50%); color: #4a4a4a; cursor: pointer;"></iconify-icon>
+                                                                <input type="password" id="guidePassword" placeholder="********" class="form-control pe-5">
+                                                                <iconify-icon icon="el:eye-close" id="passwordEye" class="position-absolute end-0 me-2" style="top: 50%; transform: translateY(-50%); color: #4a4a4a; cursor: pointer;"></iconify-icon>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="d-flex justify-content-end gap-2 mt-2">
-                                                        <button class="btn btn-success px-4">Change</button>
+                                                        <button class="btn btn-success px-4" id="changeProfileBtn">Change</button>
                                                         <button class="btn btn-primary px-4">Cancel</button>
                                                     </div>
                                                 </div>
@@ -287,6 +318,22 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                             <!-- Social Media Slide -->
 
                                         </div>
+
+                                        <div class="position-fixed top-0 start-0 vh-100 vw-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" id="profileOtpModel">
+                                            <div class="bg-white rounded overflow-hidden" style="height: fit-content; width: 500px; max-width: 80vw;">
+                                                <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background-color: #0F6884;">
+                                                    <span class="text-white">OTP Verification</span>
+                                                    <iconify-icon icon="ic:round-close" class="text-white fs-5 c-pointer" id="profileOtpModelToggle"></iconify-icon>
+                                                </div>
+                                                <div class="px-2 pb-3 pt-5 d-flex flex-column gap-2">
+                                                    <input type="text" class="form-control" placeholder="OTP Code" id="guideVerificationCode">
+                                                    <span class="text-black-50 ps-2 content-heading">Check your email to get the OTP code</span>
+                                                    <button class="btn px-4 text-white col-6 offset-3" style="background-color: #0F6884;" onclick="changeGuideProfile();">Verify</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>

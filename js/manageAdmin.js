@@ -19,10 +19,10 @@ function adminReister() {
       var text = request.responseText;
 
       if (text == "success") {
-        alert(text);
+        alert("success");
         location.reload();
       } else {
-        alert(text);
+        alert("something went to wrong !");
       }
     }
   };
@@ -53,12 +53,13 @@ function modalView(email) {
 
 
 function updateAdmin(id) {
-
+  
  var name = document.getElementById("A_name");
  var email = document.getElementById("A_email");
  var mobile = document.getElementById("A_mobile");
  var address = document.getElementById("A_address");
 //  var NIC = document.getElementById("A_NIC");
+//  alert(NIC.value);
 
  var form = new FormData();
   form.append("name", name.value);
@@ -75,18 +76,37 @@ function updateAdmin(id) {
 
       if (text == "success") {
         alert("Details Updated");
+        location.reload();
       } else {
         alert(text);
+        // alert("something went to wrong !");
       }
     }
   };
   request.open("POST", "./assets/model/adminUpdateDetails.php", true);
-  // request.open("POST", "./assets/model/adminUpdateDetails.php", true);
+  // request.open("POST", "../assets/model/adminUpdateDetails.php", true);
   request.send(form);
 
 }
 function deleteAdmin(id) {
-  alert(id);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var text = request.responseText;
+
+      if (text == "success") {
+        alert("Details Updated");
+        location.reload();
+      } else {
+        
+        alert("something went to wrong !");
+      }
+    }
+  };
+  request.open("GET", "./assets/model/adminDeactive.php?id=" + id, true);
+  // request.open("GET", "../assets/model/adminDeactive.php?id=" + id, true);
+  request.send();
 }
 
 function searchAdmin(){
@@ -96,7 +116,6 @@ function searchAdmin(){
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
       var text01 = request.responseText;
-      // alert(text01)
       document.getElementById('viewArea1').innerHTML = text01;
     }
   };

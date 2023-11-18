@@ -153,7 +153,7 @@
   width: 200px;
   height: 200px;
   border-radius: 10px;
-  background-image: url("../assets/img/boy_profile_picture.png");
+  /* background-image: url("../assets/img/boy_profile_picture.png"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

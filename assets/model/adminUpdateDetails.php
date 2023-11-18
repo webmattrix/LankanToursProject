@@ -1,11 +1,11 @@
 <?php
-require "sqlConnection.php";
+require "../model/sqlConnection.php";
 $name = $_POST["name"];
 $email = $_POST["email"];
 $mobile = $_POST["mobile"];
-// $NIC = $_POST["NIC"];
 $address = $_POST["address"];
 $id = $_POST["id"];
+
 
 Database::iud("UPDATE `employee` SET `name` ='".$name."', `email` ='".$email."',`mobile` ='".$mobile."' WHERE `id` = '".$id."' ");
 

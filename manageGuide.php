@@ -218,7 +218,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    for ($x = 0; $x < 6; $x++) {
+                                    for ($x = 0; $x < 2; $x++) {
                                     ?>
                                         <tr style="font-size: small;">
                                             <td>UserEmail@gmail.com</td>

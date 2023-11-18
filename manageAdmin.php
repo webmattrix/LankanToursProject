@@ -104,7 +104,7 @@
                                     </div>
 
                                     <div class="col-lg-8 col-12   ">
-                                        <div class="col-12  mt-2" style="border-radius: 5px; background-color: rgb(200, 200, 200);">
+                                        <div class="col-12  mt-2 mb-2" style="border-radius: 5px; background-color: rgb(200, 200, 200);">
                                             <div class="row">
                                                 <div class="col-10 offset-1 mt-3 mb-3">
                                                     <input type="text" class="form-control" placeholder="Enter name.." id="searchIpnut" onkeyup="searchAdmin();">
@@ -115,19 +115,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 offset-lg-6 col-12  text-end mt-2 mb-2">
-                                            <div class="dropdown">
-                                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 180px;background-color: rgb(200, 200, 200);">
-                                                    Sort By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </button>
-                                                <ul class="dropdown-menu" style="font-family: QuickSand;">
-                                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                </ul>
-                                            </div>
-
-                                        </div>
+                                        
                                         <div id="viewArea1">
                                             <div class="col-12 table-responsive  ">
                                                 <table class="table  align-middle table-hover table-striped " style="background-color: rgb(200, 200, 200); border-radius: 10px; font-family: QuickSand;font-size: 14px;">

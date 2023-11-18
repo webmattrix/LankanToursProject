@@ -40,15 +40,16 @@
                 </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');">
+                <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
+                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewTours();">
                     <span>Tours</span>
                     <iconify-icon icon="mingcute:right-fill" id="adminIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="adminSubContent">
+                <!-- <div class="SubContent ps-3" id="adminSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');">
@@ -67,14 +68,15 @@
 
         <div class="mobileMode d-block d-lg-block d-none d-xl-none" id="mobileMode">
             <div class="site_details">
-                <div class="siteLogo"></div>
+                <div class="siteLogo">
+                    <img src="../assets/img/favicon.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
             </div>
             <hr style="margin-top: 100px;">
 
             <div class="d-flex flex-column gap-5 fs-3 icon-list">
                 <iconify-icon icon="ic:round-dashboard"></iconify-icon>
                 <iconify-icon icon="mdi:flight"></iconify-icon>
-                <iconify-icon icon="solar:gallery-bold"></iconify-icon>
             </div>
         </div>
 

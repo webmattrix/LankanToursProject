@@ -46,6 +46,16 @@ $admin_data = $rs->fetch_assoc();
                         </div>
                     </div>
                 </div>
+                <div class="col-12 mb-2">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h6 class="text-lg-end text-start mt-2">NIC</h6>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="text" class=" form-control " value="<?php echo $admin_data["nic"] ?>" readonly >
+                        </div>
+                    </div>
+                </div>
               
                 <div class="col-12 mb-2">
                     <div class="row">
@@ -53,7 +63,7 @@ $admin_data = $rs->fetch_assoc();
                             <h6 class="text-lg-end text-start mt-2">Address</h6>
                         </div>
                         <div class="col-lg-8">
-                            <input type="text" class=" form-control " value="<?php echo $admin_data["address"] ?>" id="A_mobile">
+                            <input type="text" class=" form-control " value="<?php echo $admin_data["address"] ?>" id="A_address">
                         </div>
                     </div>
                 </div>
@@ -79,8 +89,20 @@ $admin_data = $rs->fetch_assoc();
                 </div>
                 <div class="col-10 offset-1">
                     <div class="row ">
-                        <button type="button" class="btn text-white  mb-lg-3 mb-2" style="background-color:#83E873;" onclick="updateAdmin('<?php echo $admin_data['id'] ?>');">Update Admin Details</button>
-                        <button type="button" class="btn text-white " style="background-color: #FB7B53;" onclick="deleteAdmin('<?php echo $admin_data['id'] ?>');">Delete Admin Details</button>
+                        <button type="button" class="btn text-white  mb-lg-3 mb-2" style="background-color:#83E873;" onclick="updateAdmin('<?php echo $admin_data['employee_id'] ?>');">Update Admin Details</button>
+                        <?php if ($admin_data["status"] == 0) {
+                            ?>
+                                
+                                <button type="button" class="btn text-white " style="background-color: #FB7B53;" onclick="deleteAdmin('<?php echo $admin_data['employee_id'] ?>');">Deacive Admin Details</button>
+                            <?php
+                            } else {
+                            ?>
+                                
+                                <button type="button" class="btn text-white " style="background-color: #FB7B53;" onclick="deleteAdmin('<?php echo $admin_data['employee_id'] ?>');">Acive Admin Details</button>
+                            <?php
+                            }
+                            ?>
+                       
                     </div>
                 </div>
             </div>

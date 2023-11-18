@@ -105,3 +105,11 @@
     font-size: calc(0.51rem + 0.51vh);
   }
 }
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.c-default {
+  cursor: default;
+}

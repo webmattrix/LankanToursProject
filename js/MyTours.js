@@ -48,28 +48,53 @@ function touchEndDetector(evt, slideNumber) {
     tourPlanSlideMover(slideNumber, "left");
   }
 }
+
 var F_modal;
+function feedbackModal(id) {
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var txt = request.responseText;
 
-function feedbackModal(id02) {
-  // var modal01 = document.getElementById("feedbackModal");
-  // F_modal = new bootstrap.Modal(modal01);
-  // F_modal.show();
-  alert(id02);
+      document.getElementById("viewArea02").innerHTML = txt;
+
+      var modal02 = document.getElementById("feedbackModal");
+      F_modal = new bootstrap.Modal(modal02);
+      F_modal.show();
+    }
+  };
+  request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, true);
+  // request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, truee);
+  request.send();
 }
+
 var M_modal;
-function messageModal() {
-  var modal01 = document.getElementById("messageModal");
-  M_modal = new bootstrap.Modal(modal01);
-  M_modal.show();
+function messageModal(id,name) {
+  
+var form = new FormData();
+form.append("order_Id", id);
+form.append("Order_name", name);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var txt = request.responseText;
+      // alert(txt);
+      document.getElementById("viewArea03").innerHTML = txt;
+
+      var m = document.getElementById("messageModal");
+      M_modal = new bootstrap.Modal(m);
+      M_modal.show();
+    }
+  };
+  request.open("POST", "./assets/model/myTourViewMessage.php", true);
+  request.send(form);
 }
 
-
-let stars = document.getElementsByClassName("star");
-let output = document.getElementById("output");
-
+var stars = document.getElementsByClassName("star");
 function Fstar(n) {
   remove();
-  for (let i = 0; i < n; i++) {
+  for (var i = 0; i < n; i++) {
     if (n == 1) cls = "F_one";
     else if (n == 2) cls = "F_two";
     else if (n == 3) cls = "F_three";
@@ -77,7 +102,7 @@ function Fstar(n) {
     else if (n == 5) cls = "F_five";
     stars[i].className = "star " + cls;
   }
-  output.innerText = n;
+  document.getElementById("output").innerText = n;
 }
 function remove() {
   let i = 0;
@@ -87,13 +112,45 @@ function remove() {
   }
 }
 
+function feedbackSubmit(id) {
+  var feedbackMessage = document.getElementById("feedbackMessage").value;
+  var rating = document.getElementById("output").textContent;
+
+  var form = new FormData();
+  form.append("id", id);
+  form.append("rating", rating);
+  form.append("feedbackMessage", feedbackMessage);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var text = request.responseText;
+
+      if (text == "success") {
+        F_modal.hide();
+        location.reload();
+      } else {
+        alert("Please Try Again");
+      }
+    }
+  };
+  request.open("POST", "./assets/model/myTourFeedbackSend.php", true);
+  // request.open("POST","../assets/model/myTourFeedbackSend.php", true);
+  request.send(form);
+}
+
 var D_modal;
-function myTourmodal01(t_name,userId) {
+function myTourmodal01(t_name, userId, id) {
+  var form = new FormData();
+  form.append("orderId", id);
+  form.append("T_name", t_name);
+  form.append("userId", userId);
 
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
       var txt = request.responseText;
+      // alert(txt);
       document.getElementById("viewArea01").innerHTML = txt;
 
       var m = document.getElementById("myTourDetails");
@@ -101,7 +158,6 @@ function myTourmodal01(t_name,userId) {
       D_modal.show();
     }
   };
-  request.open("GET", "./assets/model/myTouDetailsrModal.php?T_name=" + t_name + "&userId=" + userId, true);
-  
-  request.send();
+  request.open("POST", "./assets/model/myTouDetailsrModal.php", true);
+  request.send(form);
 }

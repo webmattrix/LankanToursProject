@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./css/MyTours.css">
 </head>
 
-<body  class="c-default MyToursBackground">
+<body class="c-default MyToursBackground">
     <?php
     include "./components/newHeader.php";
     ?>
@@ -29,26 +29,25 @@
             <?php
 
             require "assets/model/getOrdersList.php";
+            
 
             $date = new DateTime();
             $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
             $today = $today->format("Y-m-d");
-            $user_id=2;
+            $user_id = 1;
 
-            $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `order` 
+            $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
 INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
-INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-WHERE  `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
+INNER JOIN `employee` ON `employee`.`id`=`order`.`guide_id` 
+WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
 ORDER BY `start_date` ASC";
 
-            $ct_order_query = "SELECT *,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `custom_tour`
-INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+$ct_order_query = "SELECT *,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "'  ORDER BY `start_date` ASC";
-
+INNER JOIN `employee` ON `employee`.`id`=`custom_tour`.`guide_id` 
+WHERE `custom_tour`.`user_id` = '" . $user_id . "' AND `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' 
+ORDER BY `start_date` ASC";
             $ongoingTourList = getOrders::getOrderList($order_query, $ct_order_query);
 
 
@@ -61,7 +60,7 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                             <!-- slide -->
                             <div class="tour-plan-slider position-relative">
                                 <?php
-                                if ( $main_data["tour_name"] != "Custom Tour") {
+                                if ($main_data["tour_name"] != "Custom Tour") {
                                     ?>
                                     <div class="position-absolute top-20 w-100 px-2 fs-5 d-flex " style="z-index: 3;">
                                         <div class="row" style=" font-family:Quicksand-Medium">
@@ -71,14 +70,11 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                                             </span>
                                         </div>
                                     </div>
-
                                     <?php
-
                                 } else {
-                                   
+
                                 }
                                 ?>
-
                                 <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container"
                                     style="z-index: 3;">
                                     <iconify-icon icon="mingcute:left-line" class="text-white c-pointer"
@@ -111,14 +107,25 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                         <div class="col-lg-9 col-12">
                             <div class="col-lg-11 offset-lg-1 col-12">
                                 <div class="row mt-2 mt-lg-0">
-                                    <div class="col-lg-8 col-12 text-start">
+                                    <div class="col-lg-8 col-12 text-start mt-2 mt-lg-0">
                                         <h5 style=" font-family:Segoe UI">
                                             <?php echo ($main_data["tour_name"]); ?>
                                         </h5>
                                     </div>
                                     <div class="col-lg-4 col-12 text-start text-lg-end">
-                                        <a href="" class="text-primary text-decoration-none" style=" font-family:Segoe UI">
-                                            View tour </a>
+                                        <?php
+                                        if ($main_data["tour_name"] != "Custom Tour") {
+                                            ?>
+                                            <a href="" class="text-primary text-decoration-none" style=" font-family:Segoe UI">
+                                                View tour </a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <!-- <a href="" class="text-primary text-decoration-none disabled" style=" font-family:Segoe UI">
+                                                View tour </a> -->
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                     <hr>
                                 </div>
@@ -126,35 +133,45 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                             <div class="col-lg-11 offset-lg-1 col-12" style=" font-family:Quicksand-Medium">
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
-                                        <h6>Request Date : <span class="text-warning"></span>
-                                            <?php echo ($main_data["date_time"]); ?>/ <?php echo ($main_data["user_id"]); ?>
-                                        </h6>
+                                        <span> Request Date  : <?php echo ($main_data["date_time"]); ?>
+                                        </span>
                                         <h6>Request Status : <span class="text-warning">
                                                 <?php echo ($main_data["Orderstatus"]); ?>
                                             </span> </h6>
                                         <h6>Tour Guide : <span class="text-warning">
                                                 <?php echo ($main_data["guide_name"]); ?>
                                             </span> </h6>
-                                        <h6>Payment : <span class="text-warning">
-                                                <?php echo ($main_data["tour_name"]); ?>
+                                        <h6>cost : <span class="text-warning">
+                                                $<?php echo ($main_data["cost"]); ?>
                                             </span> </h6>
                                     </div>
-                                    <div class="col-lg-6 col-12 mt-3 mt-lg-0">
-                                        <h6>Your Message</h6>
-                                        <div class="col-12 p-2 rounded-2 myTourMsgBox">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nulla eius,
-                                                beatae placeat fugiat neque. Sint voluptas doloremque
-                                                facilis officiis dolore, cumque sed odit, neque consectetur itaque,
-                                                excepturi quis ullam.</p>
+                                    <div class="col-lg-6 col-12 mt-4  mt-lg-0">
+                                        <h6> Your Message</h6>
+                                        <div class="col-12 p-2 rounded-2 myTourMsgBox mb-4 mb-lg-0">
+                                            <p>
+                                                <?php echo ($main_data["request_message"]); ?>
+                                            </p>
                                         </div>
                                         <div class=" col-12 text-end mt-2 ">
                                             <!-- small device -->
                                             <div class="row d-block d-md-none d-lg-none ">
                                                 <div class=" col-md-4 offset-md-0 col-10 offset-1  mt-3">
-                                                    <button class="btn btn-secondary MytoursButton" style="width: 100%;"
-                                                        onclick="feedbackModal( '<?php echo $main_data['tour_name']; ?>');"><i
-                                                            class="bi bi-chat-left-quote text-white"></i>
-                                                        &nbsp;Feedback</button>
+                                                    <?php
+                                                    if ($main_data["tour_name"] != "Custom Tour") {
+                                                        ?>
+                                                        <button class="btn btn-secondary MytoursButton" style="width: 100%;"
+                                                            onclick="feedbackModal( '<?php echo $main_data['Orderid']; ?>');"><i
+                                                                class="bi bi-chat-left-quote text-white"></i>
+                                                            &nbsp;Feedback</button>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <button class="btn btn-secondary MytoursButton" style="width: 100%;"><i
+                                                                class="bi bi-chat-left-quote text-white"></i>
+                                                            &nbsp;Feedback</button>
+                                                        <?php
+
+                                                    } ?>
                                                 </div>
                                                 <div class=" col-md-4  offset-md-0  col-10 offset-1  mt-2">
                                                     <button class="btn btn-danger MytoursButton" style="width: 100%;"><i
@@ -163,8 +180,9 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                                                 </div>
                                                 <div class=" col-md-4   offset-md-0 col-10 offset-1  mt-2">
                                                     <button class="btn btn-primary MytoursButton" style="width: 100%;"
-                                                        onclick="messageModal();"><i class="bi bi-envelope text-white"></i>
-                                                        Message&nbsp;&nbsp;03</button>
+                                                        onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i
+                                                            class="bi bi-envelope text-white"></i>
+                                                        Message</button>
 
                                                 </div>
                                             </div>
@@ -172,17 +190,31 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
 
                                             <!-- large device -->
                                             <div class=" col-12 text-end mt-4 d-lg-block d-md-block d-none ">
-                                                <button class="btn btn-secondary MytoursButton"
-                                                    onclick="feedbackModal();"><i
-                                                        class="bi bi-chat-left-quote text-white"></i>
-                                                    &nbsp;Feedback</button>
+                                                <?php
+                                                if ($main_data["tour_name"] != "Custom Tour") {
+                                                    ?>
+                                                    <button class="btn btn-secondary MytoursButton"
+                                                        onclick="feedbackModal( '<?php echo $main_data['Orderid']; ?>');"><i
+                                                            class="bi bi-chat-left-quote text-white"></i>
+                                                        &nbsp;Feedback</button>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <button class="btn btn-secondary MytoursButton"><i
+                                                            class="bi bi-chat-left-quote text-white"></i>
+                                                        &nbsp;Feedback</button>
+                                                    <?php
+
+                                                } ?>
                                                 <button class="btn btn-danger MytoursButton">&nbsp;<i
                                                         class="bi bi-trash3-fill text-white"></i>&nbsp; </button>
-                                                <button class="btn btn-primary MytoursButton" onclick="messageModal();"><i
-                                                        class="bi bi-envelope text-white"></i> &nbsp;&nbsp;3</button>
+                                                <button class="btn btn-primary MytoursButton"
+                                                    onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-envelope-fill text-white"></i> </button>
                                             </div>
                                             <!-- large device -->
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -215,16 +247,17 @@ WHERE  `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_dat
                     <tbody>
                         <?php
 
-                        $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`FROM `order` 
+                        $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-WHERE  `order`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
+WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
 
-                        $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`FROM `custom_tour`
+
+                        $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
 INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-WHERE  `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
+WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
 
                         $ongoingTourList02 = getOrders::getOrderList($order_query02, $ct_order_query02);
 
@@ -249,9 +282,11 @@ WHERE  `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
                                     <?php echo ($main_data02["start_date"]); ?> ➝
                                     <?php echo ($main_data02["end_date"]); ?>
                                 </td>
+
                                 <td>Custom Plane</td>
                                 <td> <button type="button" class="btn"
-                                        onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>,<?php echo $main_data02['user_id']; ?>');">
+                                        onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
+
                                         <i class="bi bi-eye-fill"></i>
                                     </button>
                                 </td>
@@ -286,8 +321,9 @@ WHERE  `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
                                 <td>
                                     <?php echo ($main_data02["tour_name"]); ?>
                                 </td>
-                                <td> <button type="button" class="btn " data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
+                                <td> <button type="button" class="btn"
+                                        onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
+
                                         <i class="bi bi-eye-fill"></i>
                                     </button>
                                 </td>
@@ -307,85 +343,28 @@ WHERE  `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
     ?>
 
     <!-- Modal01 -->
-    <div class="modal fade " id="myTourDetails" tabindex="-1"  style=" font-family:Quicksand-Medium">
+    <div class="modal fade " id="myTourDetails" tabindex="-1" style=" font-family:Quicksand-Medium">
         <div id="viewArea01">
-            
+
         </div>
     </div>
     <!-- Modal01 -->
-
     <!-- Modal02 -->
-    <div class="modal" id="feedbackModal" aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1"
-        style=" font-family:Quicksand-Medium">
-        <div class="modal-dialog ">
-            <div class="modal-content" style=" font-family:Quicksand-Medium" style=" font-family:Quicksand-Medium">
-                <div class="modal-header modelBackGround ">
-                    <span class="modal-title  text-white fs-4" id="exampleModalLabel">Feedback</span>
-                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body  rounded-3 ">
-                    <div class="col-12 ">
-                        <div class="row  p-lg-3 p-2">
+    <div class="modal" id="feedbackModal" tabindex="-1" style=" font-family:Quicksand-Medium">
+        <div id="viewArea02">
 
-                            <span class=" mt-0 "> • Rating </span>
-                            <div class=" mt-0">
-                                <span onclick="Fstar(1)" class="star">★
-                                </span>
-                                <span onclick="Fstar(2)" class="star">★
-                                </span>
-                                <span onclick="Fstar(3)" class="star">★
-                                </span>
-                                <span onclick="Fstar(4)" class="star">★
-                                </span>
-                                <span onclick="Fstar(5)" class="star">★
-                                </span>
-                                <span class="bg-primary rounded-3 text-white  p-1 feedbackCount">&nbsp;&nbsp;&nbsp;<b
-                                        id="output" class="text-white">0</b><b
-                                        class="text-white">/5</b>&nbsp;&nbsp;&nbsp;</span>
-                            </div>
-                            <hr class=" mt-3 border border-2">
-
-                            <span class=" mt-3 mb-3 ">• Type Feedback</span>
-                            <textarea name="" id="" cols="10" rows="5" placeholder="Describe Your Experience Here ..."
-                                class=" border border-2 rounded-2"></textarea>
-                            <button class="btn btn-primary text-center mt-3 mb-1">Submit</button>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
     <!-- Modal02 -->
-
     <!-- Modal03 -->
     <div class="modal" id="messageModal" tabindex="-1" style=" font-family:Quicksand-Medium">
-        <div class="modal-dialog ">
-            <div class="modal-content" style=" font-family:Quicksand-Medium" style=" font-family:Quicksand-Medium">
-                <div class="modal-header modelBackGround ">
-                    <span class="modal-title  text-white fs-4" id="exampleModalLabel">Message</span>
-                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body ">
-                    <div class="p-3  border border-3 mb-3  rounded-3">
-                        <p> • Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, vel? Quis dolor
-                            deserunt, aliquid ex
-                            voluptatibus inventore quia minima fugit eos sunt nulla, quos, exercitationem minus quae
-                            laudantium molestias itaque?</p>
-                    </div>
-                    <div class="p-3  border border-3 mb-3 rounded-3">
-                        <p>• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, vel? Quis dolor
-                            deserunt, aliquid ex
-                            voluptatibus inventore quia minima fugit eos sunt nulla, quos, exercitationem minus quae
-                            laudantium molestias itaque?</p>
-                    </div>
+        <div id="viewArea03">
 
-                </div>
-            </div>
         </div>
     </div>
     <!-- Modal03 -->
+
+
     <script src="./js/MyTours.js"></script>
     <script src="./js/newHeader.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>

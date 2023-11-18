@@ -1,47 +1,29 @@
+<?php
+require "../model/sqlConnection.php";
 
- <?php
-require "assets/model/getOrdersList.php";
-$tour_name = $_GET["T_name"];
-$userId = $_GET["userId"];
-$main_data["tour_name"] != "Custom Tour";
+$tour_name = $_POST["T_name"];
+$userId = $_POST["userId"];
+$orderId = $_POST["orderId"];
 
-// $date = new DateTime();
-// $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
-// $today = $today->format("Y-m-d");
-if($tour_name=="Custom Tour"){
-    $rs01 = Database::search("SELECT *,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `custom_tour`
+
+if ($tour_name == "Custom Tour") {
+    $rs01 = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `custom_tour`
     INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
     INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-    INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-    WHERE `custom_tour`.`user_id` = '" . $userId ."");
-$admin_data01 = $rs01->fetch_assoc();
+    WHERE `custom_tour`.`user_id` = '".$userId."' AND `custom_tour`.`id` = '".$orderId."'");
+    $admin_data = $rs01->fetch_assoc();
+
+} else {
     
-}else{
-    $rs02 = Database::search("SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `order` 
-    INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-    INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-    INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
+    $rs01 = Database::search("SELECT *,`employee`.`name` AS `guide_name` FROM `order` 
+    INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id`  
     INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-    WHERE `order`.`user_id` = '" . $userId ." ");
-$admin_data02 = $rs02->fetch_assoc();
+    WHERE `order`.`user_id` = '".$userId."'  AND `order`.`id` = '".$orderId."' ");
+    $admin_data = $rs01->fetch_assoc();
 }
 
-// $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `order` 
-// INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-// INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-// INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
-// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-// WHERE `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
-// ORDER BY `start_date` ASC";
 
-// $ct_order_query = "SELECT *,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus` FROM `custom_tour`
-// INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-// INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-// WHERE `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' ORDER BY `start_date` ASC";
-
-
-    ?>
+?>
 
 <div class="modal-dialog ">
     <div class="modal-content">
@@ -56,31 +38,43 @@ $admin_data02 = $rs02->fetch_assoc();
                         <span class="">Tour Name </span>
                     </div>
                     <div class="col-7 ">
-                        <span> <b> 12 day tour</b> </span>
+                        <span> <b>
+                                <?php echo ($tour_name); ?>
+                            </b> </span>
                     </div>
                     <div class="col-lg-4 offset-lg-1 col-5">
                         <span>Guide Name</span>
                     </div>
                     <div class="col-7">
-                        <span> <b> Mr . Grimble</b> </span>
+
+                        <span> <b>
+                        <?php echo ($admin_data["guide_name"]); ?>
+                            </b> </span>
                     </div>
                     <div class="col-lg-4 offset-lg-1 col-5">
                         <span>Cost</span>
                     </div>
                     <div class="col-7 ">
-                        <span> <b> 1200$</b> </span>
+                        <span> <b>
+                       $<?php echo ($admin_data["cost"]); ?>
+                            </b> </span>
                     </div>
                     <div class="col-lg-4 offset-lg-1 col-5">
                         <span>Time Line</span>
                     </div>
                     <div class="col-7">
-                        <span> <b>2023-06-23 ➝ 2023-06-30</b> </span>
+                        <span> <b>
+                        <?php echo ($admin_data["start_date"]); ?> ➝
+                        <?php echo ($admin_data["end_date"]); ?>
+                            </b> </span>
                     </div>
                     <div class="col-lg-4 offset-lg-1 col-5">
                         <span>Type</span>
                     </div>
                     <div class="col-7">
-                        <span><b> Custom Tour</b></span>
+                        <span><b>
+                        <?php echo ($admin_data["guide_name"]); ?>
+                            </b></span>
                     </div>
                 </div>
             </div>
