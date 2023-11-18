@@ -1,10 +1,27 @@
+<?php
+session_start();
+require "assets/model/sqlConnection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lankan Tours</title>
+  <title>Lankan Travel</title>
+  <meta name="title" content="Lankan Travel" />
+  <meta name="description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
+
+Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lankantravel.com/" />
+  <meta property="og:title" content="Lankan Travel" />
+  <meta property="og:description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
+
+Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -162,13 +179,29 @@
             <div class="home_places-grid">
 
               <?php
-              for ($x = 0; $x < 8; $x++) {
-              ?>
 
-                <div class="place" style="background-image: url('./assets/img/places/Ella_Sri_Lanka.jpg');">
-                  <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
-                  <div class="home_place-name">Ella</div>
-                </div>
+              $places_rs = Database::search("SELECT * FROM `place` ORDER BY `place`.`rating` DESC LIMIT 8");
+
+              for ($x = 0; $x < $places_rs->num_rows; $x++) {
+                $places_data = $places_rs->fetch_assoc();
+                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' LIMIT 1");
+                if ($places_image_rs->num_rows > 0) {
+                  $places_image_data = $places_image_rs->fetch_assoc();
+              ?>
+                  <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
+                    <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                    <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
+                  </div>
+                <?php
+                } else {
+                ?>
+                  <div class="place" style="background-image: url('./assets/img/places/Kandy/Dalada Maligawa (1).jpg');">
+                    <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                    <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
+                  </div>
+                <?php
+                }
+                ?>
 
               <?php
               }

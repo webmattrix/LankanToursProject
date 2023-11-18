@@ -170,23 +170,37 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
 
                                                 $orderList = getOrders::getOrderList($query1, $query2);
 
-                                                for ($order_iteration = 0; $order_iteration < sizeof($orderList); $order_iteration++) {
+                                                if (sizeof($orderList) != 0) {
+
+                                                    for ($order_iteration = 0; $order_iteration < sizeof($orderList); $order_iteration++) {
 
                                                 ?>
 
+                                                        <div class="msg-box px-2 quicksand-Medium">
+                                                            <div class="border-bottom d-flex justify-content-between">
+                                                                <span><?php echo ($orderList[$order_iteration]["tour_name"]); ?></span>
+                                                                <span style="color: #797979; font-size: 14px;"><?php echo ("Start Date: " . $orderList[$order_iteration]["start_date"]); ?></span>
+                                                            </div>
+                                                            <div class="mt-1" style="font-size: 15px;">
+                                                                <span class="tour-details-text"><?php echo ($orderList[$order_iteration]["guide_message"]); ?></span>
+                                                                <a href="#">View more...</a>
+                                                            </div>
+                                                        </div>
+
+                                                    <?php
+
+                                                    }
+                                                } else {
+                                                    ?>
+
                                                     <div class="msg-box px-2 quicksand-Medium">
                                                         <div class="border-bottom d-flex justify-content-between">
-                                                            <span><?php echo ($orderList[$order_iteration]["tour_name"]); ?></span>
-                                                            <span style="color: #797979; font-size: 14px;"><?php echo ("Start Date: " . $orderList[$order_iteration]["start_date"]); ?></span>
-                                                        </div>
-                                                        <div class="mt-1" style="font-size: 15px;">
-                                                            <span class="tour-details-text"><?php echo ($orderList[$order_iteration]["guide_message"]); ?></span>
-                                                            <a href="#">View more...</a>
+                                                            <span class="text-danger">Tours not assigned at this moment</span>
+                                                            <span style="color: #797979; font-size: 14px;">...</span>
                                                         </div>
                                                     </div>
 
                                                 <?php
-
                                                 }
 
                                                 ?>

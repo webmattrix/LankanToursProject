@@ -40,7 +40,7 @@ class Test
     public static function loadTouristSession()
     {
 
-        $rs = Database::search("SELECT * FROM `user` WHERE `email`='vihangaheshan@gmail.com' AND `password`='asd321asd';");
+        $rs = Database::search("SELECT * FROM `user` WHERE `email`='vihangaheshan@gmail.com' AND `password`='ASD321ASD'");
 
         $_SESSION["lt_tourist"] = $rs->fetch_assoc();
     }
