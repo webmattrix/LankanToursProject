@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Tour" class="text-decoration-none c-pointer">
+                    <a href="Tours" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Tours</span>
                         <iconify-icon icon="carbon:plane" class="d-block fs-4 d-lg-none text-white" title="Tours"></iconify-icon>
                     </a>

@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "assets/model/sqlConnection.php";
+
+$location = "primary";
+
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +28,23 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
-  <!-- <link rel="stylesheet" href="./css/home.css"> -->
-  <link rel="stylesheet" href="./css/homeDark.css">
+  <?php
+  if (isset($_COOKIE["lt_theme"])) {
+    if ($_COOKIE["lt_theme"] === 'light') {
+  ?>
+      <link rel="stylesheet" href="./css/home.css">
+    <?php
+    } else {
+    ?>
+      <link rel="stylesheet" href="./css/homeDark.css">
+    <?php
+    }
+  } else {
+    ?>
+    <link rel="stylesheet" href="./css/home.css">
+  <?php
+  }
+  ?>
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/scrolbar.css">
   <link rel="stylesheet" href="./css/footer.css">
@@ -47,9 +65,9 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
       <div class="home-image-slider p-0">
         <div class="slides">
           <div class="slide-content">
-            <div class="text-white">Welcomte to Sri Lanka</div>
+            <div class="text-white main-heading">Welcomte to Sri Lanka</div>
             <div class="">
-              <span class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non totam dolorem quis voluptas. Earum, dignissimos ea cumque adipisci cupiditate ad deleniti culpa tenetur vero corrupti ratione maiores id iusto sit temporibus, omnis nisi dolores, odio incidunt. Totam repudiandae reiciendis quo quis, tempore accusantium modi itaque nam id suscipit nostrum similique?</span>
+              <span class="text-white content-heading">Welcome to Sri Lanka, where ancient wonders meet stunning landscapes. Explore historic treasures, wander through misty hills, and unwind on sun-kissed shores. Indulge in flavorful cuisine, experience warm hospitality, and create unforgettable memories. Embark on an enchanting journey in Sri Lanka – a land of timeless beauty and endless adventure.</span>
             </div>
             <a href="#home_tour_plans">
               <button class="get-start-btn">Get Start</button>
@@ -82,15 +100,6 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
     <div class="row">
 
       <div class="col-12 mt-3">
-        <div class="px-2 d-flex justify-content-center justify-content-md-end">
-          <div class="search-box quicksand-Regular" id="searchBox">
-            <input type="text" placeholder="Search here..." id="homeSearchField" />
-            <iconify-icon icon="ic:round-search"></iconify-icon>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 mt-3">
         <div class="row p-4">
 
           <div class="why-choosing-us">
@@ -98,19 +107,43 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
             <div class="content">
               <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
               <div class="right-side">
-                <div class="text-center quicksand-Medium sub-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, sequi laborum. Accusantium saepe repudiandae sequi rem. Maxime explicabo, magnam esse voluptas facilis, accusamus doloremque perspiciatis voluptatum officiis, voluptates expedita optio error? Culpa doloremque nihil optio soluta necessitatibus ipsa tenetur mollitia esse nostrum unde itaque dolorum possimus praesentium, ex deserunt, suscipit.</div>
+                <div class="text-center quicksand-SemiBold sub-heading">Discover the heart of Sri Lanka with Lankan Travel. We offer curated experiences led by passionate locals, ensuring personalized journeys that immerse you in authentic culture and unforgettable landscapes. Experience Sri Lanka like never before with Lankan Travel.</div>
                 <div class="list ps-5 mt-2">
                   <div class="d-flex gap-2">
                     <div class="d-flex justify-content-center align-items-center">
                       <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                     </div>
-                    <span class="quicksand-SemiBold content-heading">Lorem, ipsum dolor.</span>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Local Expertise:</span> Explore hidden gems with knowledgeable guides deeply rooted in Sri Lanka's heritage.</span>
                   </div>
                   <div class="d-flex gap-2">
                     <div class="d-flex justify-content-center align-items-center" sty>
                       <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
                     </div>
-                    <span class="quicksand-SemiBold content-heading">Lorem, ipsum dolor.</span>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Tailored Adventures:</span> Craft your trip - from ancient ruins to serene landscapes, it's personalized just for you.</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <div class="d-flex justify-content-center align-items-center" sty>
+                      <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Safety & Comfort:</span> Relax with our focus on safety, seamless travel, and quality accommodations.</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <div class="d-flex justify-content-center align-items-center" sty>
+                      <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Insightful Guides:</span> Our storytellers bring history alive, leading you off the beaten path.</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <div class="d-flex justify-content-center align-items-center" sty>
+                      <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Sustainable Travel:</span> Experience Sri Lanka responsibly, supporting local communities and preserving nature.</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <div class="d-flex justify-content-center align-items-center" sty>
+                      <iconify-icon icon="bx:trip" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="quicksand-Medium content-heading"><span class="quicksand-Bold">Memorable Moments:</span> Create lasting memories through Sri Lanka's beauty, warmth, and hospitality.</span>
                   </div>
                 </div>
               </div>
@@ -292,6 +325,7 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
       <!-- Most beautiful places & top tour plans -->
 
       <?php include "./components/footer.php"; ?>
+
 
     </div>
   </div>
