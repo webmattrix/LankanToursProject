@@ -58,6 +58,27 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   include "./components/newHeader.php";
   ?>
 
+  <div class="position-fixed top-50 start-50 col-10 col-md-8 col-lg-6 col-xl-4 px-1 rounded d-none" style="background-color: #2452F2; z-index: 999; transform: translate(-50%, -50%);" id="loginChekerModel">
+    <div class="d-flex justify-content-between px-2 align-items-center py-1">
+      <div class="d-flex gap-2 align-items-center">
+        <span class="text-white quicksand-SemiBold sub-heading">Alert</span>
+        <iconify-icon icon="jam:alert" class="text-white"></iconify-icon>
+      </div>
+      <iconify-icon icon="ic:round-close" class="text-white fs-5 c-pointer" onclick="loginChekerModelToggle();"></iconify-icon>
+    </div>
+    <div class="d-flex flex-column gap-1">
+      <div class="col-12 bg-white bg-opacity-10 p-2 rounded">
+        <span class="text-white content-heading">You have to login first</span>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button class="bg-white bg-opacity-10 p-2 rounded border-0 d-flex gap-1 align-items-center mb-1" style="outline: none;" onclick="goToLogin();">
+          <span class="text-white">Login</span>
+          <iconify-icon icon="ep:right" class="text-white fs-5"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Image Slider Content -->
   <div class="col-12">
     <div class="col-12">
@@ -65,7 +86,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
       <div class="home-image-slider p-0">
         <div class="slides">
           <div class="slide-content">
-            <div class="text-white main-heading">Welcomte to Sri Lanka</div>
+            <div class="text-white main-heading">Welcome to Sri Lanka</div>
             <div class="">
               <span class="text-white content-heading">Welcome to Sri Lanka, where ancient wonders meet stunning landscapes. Explore historic treasures, wander through misty hills, and unwind on sun-kissed shores. Indulge in flavorful cuisine, experience warm hospitality, and create unforgettable memories. Embark on an enchanting journey in Sri Lanka – a land of timeless beauty and endless adventure.</span>
             </div>
@@ -271,7 +292,19 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                   <div>
                     <div class="head position-relative">
                       <div class="position-absolute w-100 d-flex justify-content-between px-2 pt-2" style="z-index: 2;">
-                        <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer"></iconify-icon>
+                        <?php
+                        if (isset($_SESSION["lt_tourist"])) {
+                        ?>
+                          <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="()=>{
+                            alert('Hello');
+                          };"></iconify-icon>
+                        <?php
+                        } else {
+                        ?>
+                          <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="loginChekerModelToggle();"></iconify-icon>
+                        <?php
+                        }
+                        ?>
                         <span class="text-uppercase text-white segoeui-bold"><?php echo ($tour_data["date_count"]); ?> Days</span>
                       </div>
                       <div class="tour-plan-slider position-relative">
@@ -323,6 +356,12 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
         </div>
       </div>
       <!-- Most beautiful places & top tour plans -->
+
+
+
+
+
+
 
       <?php include "./components/footer.php"; ?>
 
