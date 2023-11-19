@@ -16,11 +16,12 @@ ReWriteRule ^Login$ login.php [NC,L]
 ReWriteRule ^Registration$ TouristRegistrationPage.php [NC,L]
 ReWriteRule ^Tours$ tour.php [NC,L]
 ReWriteRule ^Orders$ myTours.php [NC,L]
+ReWriteRule ^Orders/(\d+)$ myTours.php?page_no=$1 [NC,L]
 ReWriteRule ^Contact$ ContactPage.php [NC,L]
 ReWriteRule ^Gallery$ touristGallery.php [NC,L]
 ReWriteRule ^Profile$ profile.php [NC,L]
 ReWriteRule ^sample$ sample.php [NC,L]
-ReWriteRule ^sample/(\d+)$ sample.php?id=$1 [NC,L]
+ReWriteRule ^sample/(\d+)$ sample.php?page_no=$1 [NC,L]
 
 
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
