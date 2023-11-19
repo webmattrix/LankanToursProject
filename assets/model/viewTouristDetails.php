@@ -30,5 +30,4 @@ $responseObj->user_id = $user['id'];
 $responseObj->created_at = $user['reg_date']; 
 
 
-
 echo (json_encode($responseObj));
