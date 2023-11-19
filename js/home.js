@@ -96,3 +96,11 @@ function touchEndDetector(evt, slideNumber) {
     tourPlanSlideMover(slideNumber, "left");
   }
 }
+
+function loginChekerModelToggle() {
+  document.getElementById("loginChekerModel").classList.toggle("d-none");
+}
+
+function goToLogin() {
+  window.location = "Login";
+}
