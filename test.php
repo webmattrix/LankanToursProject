@@ -1,7 +1,1 @@
-<?php
-
-if (isset($_GET["id"])) {
-    echo ($_GET["id"]);
-} else {
-    echo ("Something went wrong");
-}
+<a href="sample/2"><button>2</button></a>
