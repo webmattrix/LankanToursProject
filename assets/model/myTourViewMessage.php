@@ -4,7 +4,6 @@ require "../model/sqlConnection.php";
 $orderID = $_POST["order_Id"];
 $orderName = $_POST["Order_name"];
 
-
 if ($orderName == "Custom Tour") {
     ?>
     <div class="modal-dialog ">

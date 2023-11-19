@@ -21,7 +21,7 @@
     include "./components/newHeader.php";
     ?>
     <div class="container-fluid" >
-        <!-- <h6 class="p-1"><i class="bi bi-arrow-left-circle-fill" style="font-family: 'QuickSand';"></i>&nbsp; Contact</h6> -->
+        
         <h4 class=" fw-bold mt-4 mx-4 title" style="font-family: 'QuickSand';">Customer Service Team</h4>
         <div class="col-12 cards ">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4 mb-4 " style="margin: auto;">

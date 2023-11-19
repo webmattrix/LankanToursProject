@@ -26,3 +26,58 @@
 .AdminButton{
     background-image: linear-gradient(1200deg,rgb(48, 94, 181),rgb(26, 156, 242));
 }
+
+
+.p_nation {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-shadow: 0px 3px 5px 0px black;
+    border-radius: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.p_nation a {
+    margin: 0px 5px;
+    padding: 10px;
+    border-radius: 100vh;
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.p_nation a:hover {
+    background-color: #0c0091;
+    color: white;
+}
+
+.p_nation a.p_nation_next {
+    min-width: 100px;
+}
+
+.p_nation a.p_nation_prev {
+    min-width: 100px;
+}
+
+@media (max-width: 992px) {
+    .p_nation a.p_nation_next {
+        min-width: 50px;
+        font-size: 20px;
+    }
+
+    .p_nation a.p_nation_prev {
+        min-width: 50px;
+        font-size: 20px;
+    }
+
+    .p_nation a {
+        margin: 0px 2px;
+    }
+}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyTours</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -29,34 +30,37 @@
             <?php
 
             require "assets/model/getOrdersList.php";
-            
+            require "assets/model/timeZoneConverter.php";
+
 
             $date = new DateTime();
             $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
             $today = $today->format("Y-m-d");
             $user_id = 1;
 
-            $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
+            $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
-INNER JOIN `employee` ON `employee`.`id`=`order`.`guide_id` 
 WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
 ORDER BY `start_date` ASC";
 
-$ct_order_query = "SELECT *,`employee`.`name` AS `guide_name`,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
+            $ct_order_query = "SELECT *,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-INNER JOIN `employee` ON `employee`.`id`=`custom_tour`.`guide_id` 
 WHERE `custom_tour`.`user_id` = '" . $user_id . "' AND `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' 
 ORDER BY `start_date` ASC";
+
             $ongoingTourList = getOrders::getOrderList($order_query, $ct_order_query);
 
 
             for ($ongoing_iteration = 0; $ongoing_iteration < sizeof($ongoingTourList); $ongoing_iteration++) {
                 $main_data = $ongoingTourList[$ongoing_iteration];
+                // if($main_data["tour_name"]=="Custom Tour"){
+                //     WERE
+                // }
                 ?>
                 <div class="col-12 myToursBg2 rounded-2 p-3 mb-3 border border-3">
                     <div class="row">
-                        <div class="col-lg-3 col-12 ">
+                        <div class="col-lg-4 col-12 ">
                             <!-- slide -->
                             <div class="tour-plan-slider position-relative">
                                 <?php
@@ -75,16 +79,23 @@ ORDER BY `start_date` ASC";
 
                                 }
                                 ?>
+                                
                                 <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container"
                                     style="z-index: 3;">
                                     <iconify-icon icon="mingcute:left-line" class="text-white c-pointer"
-                                        onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');"></iconify-icon>
+                                        onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'left');"></iconify-icon>
                                     <iconify-icon icon="mingcute:right-line" class="text-white c-pointer"
-                                        onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');"></iconify-icon>
+                                        onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
                                 </div>
-                                <div class="slides" style="width: 300%;" id="slide<?php echo ($x); ?>Container"
+                                <?php $image_query = "SELECT * FROM `order`
+                                                       INNER JOIN `tour_has_place` ON tour_has_place`.`tour_id`=`order`.`tour_id` 
+                                                       INNER JOIN `place_image` ON `place_image`.`place_id`=`tour_has_place`.`place_id`
+                                                        WHERE `order`.`tour_id` = '" . $main_data["Orderid"] . "'";
+                                                        $image_rs1 = Database::search($image_query);?>
+
+                                <div class="slides" style="width: 300%;" id="slide<?php echo ($ongoing_iteration); ?>Container"
                                     data-marginLeft="0" data-maxWidth="300" ontouchstart="touchStartDetector(event);"
-                                    ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
+                                    ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
                                     <div class="slide" id="sliderSlide1"
                                         style="background-image: url('./assets/img/Mytours_IMG/wp1857982.jpg');">
                                     </div>
@@ -95,16 +106,17 @@ ORDER BY `start_date` ASC";
                                         style="background-image: url('./assets/img/Mytours_IMG/a_wooden_house_forest-wallpaper-3554x1999.jpg');">
                                     </div>
                                 </div>
+
                                 <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1"
                                     style="text-shadow: 0px 0px 5px black;">
-                                    <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber"
+                                    <span class="text-white" id="slide<?php echo ($ongoing_iteration); ?>ImageNumber"
                                         data-imageNumber="1">1</span>
                                     <span class="text-white"> / 3</span>
                                 </div>
                             </div>
                             <!-- slide -->
                         </div>
-                        <div class="col-lg-9 col-12">
+                        <div class="col-lg-8 col-12">
                             <div class="col-lg-11 offset-lg-1 col-12">
                                 <div class="row mt-2 mt-lg-0">
                                     <div class="col-lg-8 col-12 text-start mt-2 mt-lg-0">
@@ -133,13 +145,49 @@ ORDER BY `start_date` ASC";
                             <div class="col-lg-11 offset-lg-1 col-12" style=" font-family:Quicksand-Medium">
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
-                                        <span> Request Date  : <?php echo ($main_data["date_time"]); ?>
-                                        </span>
+                                        <h6> Request Date :
+                                            <?php
+                                            // $convertTime = strtotime(timeConverter::convert($main_data["date_time"]));
+                                            //  echo (date("d-M-Y",$convertTime));
+                                            echo ($main_data["date_time"]); ?>
+                                        </h6>
                                         <h6>Request Status : <span class="text-warning">
                                                 <?php echo ($main_data["Orderstatus"]); ?>
                                             </span> </h6>
                                         <h6>Tour Guide : <span class="text-warning">
-                                                <?php echo ($main_data["guide_name"]); ?>
+                                                <?php
+                                                if ($main_data["tour_name"] != "Custom Tour") {
+                                                    if ($main_data["order_status_id"] == 1) {
+                                                        // order assign
+                                                        $guide_query = "SELECT * FROM `order`
+                                                       INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
+                                                       INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                        WHERE `order`.`id` = '" . $main_data["Orderid"] . "'";
+                                                        $guide_rs1 = Database::search($guide_query);
+                                                        $guide_data = $guide_rs1->fetch_assoc();
+                                                        echo ($guide_data["name"]);
+                                                    } else {
+                                                        // order unassign
+                                                        echo ("Unassign");
+                                                    }
+
+                                                } else {
+                                                    if ($main_data["order_status_id"] == 1) {
+                                                        // order assign
+                                                        $guide_query = "SELECT * FROM `custom_tour`
+                                                       INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id` 
+                                                       INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                        WHERE `custom_tour`.`id` = '" . $main_data["Orderid"] . "'";
+                                                        $guide_rs1 = Database::search($guide_query);
+                                                        $guide_data = $guide_rs1->fetch_assoc();
+                                                        echo ($guide_data["name"]);
+                                                    } else {
+                                                        // order unassign
+                                                        echo ("Unassign");
+                                                    }
+                                                }
+                                                ?>
+
                                             </span> </h6>
                                         <h6>cost : <span class="text-warning">
                                                 $<?php echo ($main_data["cost"]); ?>
@@ -207,9 +255,46 @@ ORDER BY `start_date` ASC";
 
                                                 } ?>
                                                 <button class="btn btn-danger MytoursButton">&nbsp;<i
-                                                        class="bi bi-trash3-fill text-white"></i>&nbsp; </button>
+                                                        class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
                                                 <button class="btn btn-primary MytoursButton"
-                                                    onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-envelope-fill text-white"></i> </button>
+                                                    onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i
+                                                        class="bi bi-envelope-fill text-white"></i> 
+                                                    <?php
+                                                    if ($main_data["tour_name"] == "Custom Tour") {
+                                                        $rs01 = Database::search("SELECT * FROM `custom_order_response` WHERE `custom_tour_id` = '" . $main_data["Orderid"] . "'");
+                                                        $message_num = $rs01->num_rows;
+                                                        if ($message_num == 0) {
+                                                            ?>
+                                                            <em class=" text-white"></em>
+                                                            <?php
+
+                                                        } else {
+                                                            ?>
+                                                            <em class=" text-white">
+                                                            &nbsp;0<?php echo ($message_num); ?>
+                                                            </em>
+                                                            <?php
+                                                        }
+
+                                                    } else {
+                                                        $rs01 = Database::search("SELECT * FROM `order_response` WHERE `order_id` = '" . $main_data["Orderid"] . "'");
+                                                        $message_num = $rs01->num_rows;
+                                                        if ($message_num == 0) {
+                                                            ?>
+                                                            <em class=" text-white"></em>
+                                                            <?php
+                                                        } else {
+                                                            ?>
+                                                            <em class=" text-white">
+                                                            &nbsp;0<?php echo ($message_num); ?>
+                                                            </em>
+                                                            <?php
+
+                                                        }
+                                                    }
+
+                                                    ?>
+                                                </button>
                                             </div>
                                             <!-- large device -->
                                         </div>
