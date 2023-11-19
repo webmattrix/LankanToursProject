@@ -16,7 +16,7 @@ $location = "primary";
   <meta name="title" content="Lankan Travel" />
   <meta name="description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
 
-Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
+Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -24,7 +24,7 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
   <meta property="og:title" content="Lankan Travel" />
   <meta property="og:description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
 
-Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
+Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -228,7 +228,7 @@ Experience the allure of Sri Lanka's wonders – from pristine beaches to ancien
                 <?php
                 } else {
                 ?>
-                  <div class="place" style="background-image: url('./assets/img/places/Kandy/Dalada Maligawa (1).jpg');">
+                  <div class="place" style="background-image: url('./assets/img/places/Place.jpg');">
                     <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
                     <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
                   </div>

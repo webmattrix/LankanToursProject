@@ -20,7 +20,6 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
 ?>
 
-
     <!DOCTYPE html>
     <html lang="en">
 
