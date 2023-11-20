@@ -2,6 +2,11 @@
     font-family: "QuickSand";
     src: url("../assets/fonts/Quicksand-Medium.ttf");
 }
+*{
+    margin: 0;
+    padding: 0;
+
+}
 .registerBackground {
     background-image: url("../assets/img/Login&Registration_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg");
     background-size: cover;
@@ -17,8 +22,8 @@
     border: 3px solid rgba(255, 255, 255, 0.766);
     background: rgba(85, 85, 85, 0.418);
     border-radius: 40px;
-    width: 250px;
-    height: 120px;
+    width: 220px;
+    height: 110px;
     margin-top: -50px;
     margin-left: -35px;
    
@@ -36,15 +41,15 @@
 .inputFeild{
     background-color: rgba(247, 247, 247, 0.415);
  }
- .LoginBox {
+ .RegisterBox {
     margin-left: 50vw;
-    margin-top: 50vh;
+    margin-top: 45vh;
     transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 1000px) {
 
-    .LoginBox {
+    .RegisterBox {
         margin-left: 0vw;
         margin-top: 50vh;
         transform: translate(0%, -50%);
