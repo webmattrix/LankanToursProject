@@ -446,9 +446,6 @@
 
                                 <!-- New Replace -->
 
-
-
-
                                 <!-- view Modal for small devices -->
 
                                 <!-- Open modal from unassign tours -->
