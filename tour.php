@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "assets/model/sqlConnection.php";
+
+$location = "primary";
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +50,14 @@ require "assets/model/sqlConnection.php";
                     for ($x = 0; $x < $tour_rs->num_rows; $x++) {
                         $tour_data = $tour_rs->fetch_assoc();
 
-                        // $tour_detail_rs = Database::search("");
+                        $tour_detail_rs = Database::search("SELECT * FROM `tour` WHERE `tour`.`id`='" . $tour_data["tour_id"] . "'");
+                        $tour_detail_data = $tour_detail_rs->fetch_assoc();
+
+                        $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` 
+                        INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` 
+                        WHERE `tour_has_place`.`tour_id`='" . $tour_data["tour_id"] . "' LIMIT 5");
+
+                        $tour_place_count = $tour_place_rs->num_rows;
 
                     ?>
                         <div class="tour_popular-tours-items">
@@ -59,27 +69,28 @@ require "assets/model/sqlConnection.php";
                                     <iconify-icon icon="mingcute:left-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');" class="position-absolute top-50 fs-5 text-white start-0 c-pointer rounded-start" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
                                     <iconify-icon icon="mingcute:right-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');" class="position-absolute top-50 fs-5 text-white end-0 c-pointer rounded-end" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
                                     <!-- Arrow Buttons -->
-                                    <div class="slides d-flex overflow-hidden" style="width: 500%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="500">
-                                        <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (1).jpg');">
-                                        </div>
-                                        <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (2).jpg');">
-                                        </div>
-                                        <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (3).jpg');">
-                                        </div>
-                                        <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (4).jpg');">
-                                        </div>
-                                        <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (5).jpg');">
-                                        </div>
+                                    <div class="slides d-flex overflow-hidden" style="width: <?php echo ($tour_place_count); ?>00%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_place_count); ?>00">
+                                        <?php
+                                        for ($tour_places_iteration = 0; $tour_places_iteration < $tour_place_count; $tour_places_iteration++) {
+                                            $tour_place_data = $tour_place_rs->fetch_assoc();
+                                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_place_data["place_id"] . "' LIMIT 1");
+                                            $place_image_data = $place_image_rs->fetch_assoc();
+                                        ?>
+                                            <div class="image" style="width: 100%; background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');">
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                     <!-- Image Number -->
                                     <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black; z-index: 2;">
                                         <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
-                                        <span class="text-white"> / 5</span>
+                                        <span class="text-white"> / <?php echo ($tour_place_count); ?></span>
                                     </div>
                                     <!-- Image Number -->
 
                                     <!-- Number of Days in a tour -->
-                                    <div class="bg-primary text-uppercase rounded mt-2 position-absolute top-0 start-50 px-4 py-1 text-white quicksand-SemiBold fst-italic text-center" style="width: 80%; transform: translateX(-50%); z-index: 2; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5); background-image: radial-gradient(#2662BD,#0048B5);">- 11 Days -</div>
+                                    <div class="bg-primary text-uppercase rounded mt-2 position-absolute top-0 start-50 px-4 py-1 text-white quicksand-SemiBold fst-italic text-center" style="width: 80%; transform: translateX(-50%); z-index: 2; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5); background-image: radial-gradient(#2662BD,#0048B5);">- <?php echo ($tour_detail_data["date_count"]); ?> Days -</div>
                                     <!-- Number of Days in a tour -->
 
                                 </div>
@@ -87,7 +98,7 @@ require "assets/model/sqlConnection.php";
 
                                 <div class="quicksand-Medium mt-2">
                                     <div class="content-heading">
-                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis id iusto tenetur commodi ducimus laborum qui quod voluptatibus deserunt esse!</span>
+                                        <span><?php echo ($tour_detail_data["description"]); ?></span>
                                     </div>
                                     <a class="d-flex align-items-center gap-2">
                                         <iconify-icon icon="mdi:airplane"></iconify-icon>
@@ -96,12 +107,12 @@ require "assets/model/sqlConnection.php";
                                     <div class="d-flex flex-column text-black-50 mt-2">
                                         <div class="" title="View Count">
                                             <iconify-icon icon="gridicons:visible"></iconify-icon>
-                                            <span class="content-heading">2351</span>
+                                            <span class="content-heading"><?php echo ($tour_detail_data["views"]); ?></span>
                                         </div>
 
                                         <div class="" title="Purchase Count">
                                             <iconify-icon icon="wi:time-9"></iconify-icon>
-                                            <span class="content-heading">4581</span>
+                                            <span class="content-heading"><?php echo ($tour_data["purchase_count"]); ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +135,19 @@ require "assets/model/sqlConnection.php";
 
                 <div class="tour-plan-grid">
                     <?php
-                    for ($i = 6; $i < 12; $i++) {
+
+                    $all_tour_rs = Database::search("SELECT * FROM `tour`");
+
+                    for ($i = 6; $i < (($all_tour_rs->num_rows) + 6); $i++) {
+                        $all_tour_data = $all_tour_rs->fetch_assoc();
+
+                        $all_tour_place_rs = Database::search("SELECT * FROM `tour_has_place` 
+                        INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` 
+                        WHERE `tour_has_place`.`tour_id`='" . $all_tour_data["id"] . "' LIMIT 5");
+
+                        $all_tour_place_count = $all_tour_place_rs->num_rows;
+
+
                     ?>
                         <div class="tour_popular-tours-items">
                             <div class="item dark-item p-0" style="border: none; ">
@@ -136,27 +159,32 @@ require "assets/model/sqlConnection.php";
                                         <iconify-icon icon="mingcute:left-line" onclick="tourPlanSlideMover(<?php echo ($i); ?>,'left');" class="position-absolute top-50 fs-5 text-white start-0 c-pointer rounded-start" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
                                         <iconify-icon icon="mingcute:right-line" onclick="tourPlanSlideMover(<?php echo ($i); ?>,'right');" class="position-absolute top-50 fs-5 text-white end-0 c-pointer rounded-end" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
                                         <!-- Arrow Buttons -->
-                                        <div class="slides d-flex overflow-hidden" style="width: 500%;" id="slide<?php echo ($i); ?>Container" data-marginLeft="0" data-maxWidth="500" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($i); ?>)">
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (1).jpg');">
-                                            </div>
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (2).jpg');">
-                                            </div>
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (3).jpg');">
-                                            </div>
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (4).jpg');">
-                                            </div>
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/tour_plan/img (5).jpg');">
-                                            </div>
+                                        <div class="slides d-flex overflow-hidden" style="width: <?php echo ($all_tour_place_count); ?>00%;" id="slide<?php echo ($i); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($all_tour_place_count); ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($i); ?>)">
+                                            <?php
+
+                                            for ($all_tour_places_iteration = 0; $all_tour_places_iteration < $all_tour_place_count; $all_tour_places_iteration++) {
+                                                $all_tour_place_data = $all_tour_place_rs->fetch_assoc();
+                                                $all_place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $all_tour_place_data["place_id"] . "' LIMIT 1");
+                                                $all_place_image_data = $all_place_image_rs->fetch_assoc();
+                                            ?>
+
+                                                <div class="image" style="width: 100%; background-image: url('./assets/img/places/<?php echo ($all_place_image_data["path"]); ?>');">
+                                                </div>
+
+                                            <?php
+                                            }
+
+                                            ?>
                                         </div>
                                         <!-- Image Number -->
                                         <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black; z-index: 2;">
                                             <span class="text-white" id="slide<?php echo ($i); ?>ImageNumber" data-imageNumber="1">1</span>
-                                            <span class="text-white"> / 5</span>
+                                            <span class="text-white"> / <?php echo ($all_tour_place_count); ?></span>
                                         </div>
                                         <!-- Image Number -->
 
                                         <!-- Number of Days in a tour -->
-                                        <div class="position-absolute top-0 w-100 text-uppercase text-center segoeui-bold fs-2 text-white" style="text-shadow: 0px 0px 5px rgba(00, 00, 00, 0.8);">- 12 Days -</div>
+                                        <div class="position-absolute top-0 w-100 text-uppercase text-center segoeui-bold fs-2 text-white" style="text-shadow: 0px 0px 5px rgba(00, 00, 00, 0.8);">- <?php echo ($all_tour_data["date_count"]) ?> Days -</div>
                                         <!-- Number of Days in a tour -->
 
                                     </div>
@@ -164,23 +192,35 @@ require "assets/model/sqlConnection.php";
 
                                     <div class="quicksand-Medium mt-2 p-2 tour-desc">
                                         <div class="">
-                                            <span class="theme-text content-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis id iusto tenetur commodi ducimus laborum qui quod voluptatibus deserunt esse!</span>
+                                            <span class="theme-text content-heading"><?php echo ($all_tour_data["description"]); ?></span>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="d-flex justify-content-between px-3 py-2 content-heading">
+
+                                    <?php
+                                    $places_rs = Database::search("SELECT * FROM `tour_has_place` 
+                                INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` 
+                                WHERE `tour_has_place`.`tour_id`='" . $all_tour_data["id"] . "'");
+                                    $order_rs = Database::search("SELECT * FROM `order` WHERE `tour_id`='" . $all_tour_data["id"] . "'");
+                                    ?>
+
                                     <div class="text-white d-flex flex-column align-items-center quicksand-SemiBold">
-                                        <span>20+</span>
+                                        <span><?php echo (floor($places_rs->num_rows / 5) * 5); ?>+</span>
                                         <span>Tour Places</span>
                                     </div>
                                     <div class="text-white d-flex flex-column align-items-center quicksand-SemiBold">
-                                        <span>4.7/5</span>
+                                        <span>.../5</span>
                                         <span>Ratings</span>
                                     </div>
                                     <div class="text-white d-flex flex-column align-items-center quicksand-SemiBold">
-                                        <span>3K+</span>
+                                        <span><?php if ((floor($order_rs->num_rows / 5) * 5) == 0) {
+                                                    echo ('5');
+                                                } else {
+                                                    echo (($order_rs->num_rows / 5) * 5);
+                                                }; ?>+</span>
                                         <span>Tours</span>
                                     </div>
                                 </div>
