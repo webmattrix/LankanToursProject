@@ -16,8 +16,23 @@ $location = "primary";
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
-    <!-- <link rel="stylesheet" href="./css/tour.css"> -->
-    <link rel="stylesheet" href="./css/tourDark.css">
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+            <link rel="stylesheet" href="./css/tour.css">
+        <?php
+        } else {
+        ?>
+            <link rel="stylesheet" href="./css/tourDark.css">
+        <?php
+        }
+    } else {
+        ?>
+        <link rel="stylesheet" href="./css/tour.css">
+    <?php
+    }
+    ?>
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
 </head>
@@ -29,6 +44,10 @@ $location = "primary";
 
     <div class="container-fluid pt-3">
         <div class="px-4 rounded py-2 mt-1 main-content">
+
+            <div class="w-100 d-flex justify-content-end">
+                <button class="btn btn-primary">Customize Your Tour</button>
+            </div>
 
             <!-- Popular Tour Contene -->
             <div class="px-2 py-2 col-12 mt-3 tour_popular-tours">
