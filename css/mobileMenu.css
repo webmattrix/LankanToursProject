@@ -4,11 +4,11 @@
   border-radius: 15px 15px 0 0;
 }
 
-.item {
+.mobileMenuListItems .item {
   position: relative;
 }
 
-.item .bottomBorder {
+.mobileMenuListItems .item .bottomBorder {
   width: 75%;
   height: 4px;
   position: absolute;
@@ -16,7 +16,7 @@
   border-radius: 100vh;
 }
 
-.item:hover {
+.mobileMenuListItems .item:hover {
   margin-left: 20px;
   transition-duration: 0.5s;
 }

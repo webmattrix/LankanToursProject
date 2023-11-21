@@ -7,7 +7,7 @@ Deny from all
 </Files>
 
 RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^%{REQUEST_URI}.php [NC,L]
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
 
 ReWriteRule ^Home$ home.php [NC,L]
 ReWriteRule ^Itinerary$ itinerary.php [NC,L]
@@ -23,7 +23,6 @@ ReWriteRule ^Profile$ profile.php [NC,L]
 ReWriteRule ^sample$ sample.php [NC,L]
 ReWriteRule ^sample/(\d+)$ sample.php?page_no=$1 [NC,L]
 
-
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]
 ReWriteRule ^Admin/Profile$ adminProfile.php [NC,L]
@@ -33,7 +32,6 @@ ReWriteRule ^Admin/NewTours$ newTourPlan.php [NC,L]
 ReWriteRule ^Admin/Manage$ manageAdmin.php [NC,L]
 ReWriteRule ^Admin/Guide$ manageGuide.php [NC,L]
 ReWriteRule ^Admin/Tourist$ manageTourist.php [NC,L]
-
 
 ReWriteRule ^Guide$ guideLogin.php [NC,L]
 ReWriteRule ^Guide/Tours$ guideTour.php [NC,L]
