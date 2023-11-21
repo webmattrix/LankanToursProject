@@ -9,7 +9,7 @@
     <title>Registration</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="icon" href="" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/TouristRegistrationPage.css">
 
 </head>

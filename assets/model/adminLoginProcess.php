@@ -23,7 +23,7 @@ if (empty($email)) {
 } else if (strlen($password) < 5 || strlen($password) > 20) {
     echo "Invalid Password";
 } else {
-    $resulset = Database::search("SELECT employee.email,employee.password,employe_type.name,employee.status FROM 
+    $resulset = Database::search("SELECT `employee`.`email`,`employee`.`password`,`employe_type`.`name`,`employee`.`status`,`employee`.`id` FROM 
     `employee` INNER JOIN `employe_type` ON employee.employe_type_id=employe_type.id 
     WHERE `employee`.`email`='" . $email . "' AND `employee`.`password`='" . $password . "' AND `employe_type`.`name`='admin'");
     $n = $resulset->num_rows;

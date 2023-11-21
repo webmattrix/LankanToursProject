@@ -1,3 +1,5 @@
+<?php $location = "primary";
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +22,16 @@
 <body class="c-default MyToursBackground">
     <?php
     include "./components/newHeader.php";
+ 
+    
+    if (isset($_SESSION["lt_tourist"])) {
+        $data = $_SESSION["lt_tourist"];
+        // u is user's details
+    }else{
+        echo("error");
+    }
+
+
     ?>
     <div class="container-fluid">
         <div class="col-12 mt-4">
@@ -28,15 +40,13 @@
         </div>
         <div class=" myToursBg1 p-3 rounded-2">
             <?php
-
             require "assets/model/getOrdersList.php";
             require "assets/model/timeZoneConverter.php";
-
 
             $date = new DateTime();
             $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
             $today = $today->format("Y-m-d");
-            $user_id = 1;
+            $user_id = $_SESSION['lt_tourist']['id']; 
 
             $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
@@ -79,7 +89,7 @@ ORDER BY `start_date` ASC";
 
                                 }
                                 ?>
-                                
+
                                 <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container"
                                     style="z-index: 3;">
                                     <iconify-icon icon="mingcute:left-line" class="text-white c-pointer"
@@ -87,32 +97,42 @@ ORDER BY `start_date` ASC";
                                     <iconify-icon icon="mingcute:right-line" class="text-white c-pointer"
                                         onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
                                 </div>
-                                <?php $image_query = "SELECT * FROM `order`
-                                                       INNER JOIN `tour_has_place` ON tour_has_place`.`tour_id`=`order`.`tour_id` 
-                                                       INNER JOIN `place_image` ON `place_image`.`place_id`=`tour_has_place`.`place_id`
-                                                        WHERE `order`.`tour_id` = '" . $main_data["Orderid"] . "'";
-                                                        $image_rs1 = Database::search($image_query);?>
+                                <?php $imagePlace_rs1 = Database::search("SELECT * FROM `order` INNER JOIN `tour_has_place` ON `tour_has_place`.`tour_id`=`order`.`tour_id` 
+                                    WHERE `order`.`tour_id` = '" . $main_data["tour_id"] . "' LIMIT 5 ");
+                                $place_num = $imagePlace_rs1->num_rows; ?>
 
-                                <div class="slides" style="width: 300%;" id="slide<?php echo ($ongoing_iteration); ?>Container"
-                                    data-marginLeft="0" data-maxWidth="300" ontouchstart="touchStartDetector(event);"
+                                <div class="slides" style="width: <?php echo $place_num ?>00%;"
+                                    id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
+                                    data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
                                     ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
-                                    <div class="slide" id="sliderSlide1"
-                                        style="background-image: url('./assets/img/Mytours_IMG/wp1857982.jpg');">
-                                    </div>
-                                    <div class="slide" id="sliderSlide2"
-                                        style="background-image: url('./assets/img/Mytours_IMG/sigiriya-srilanka-.-oc-wallpaper_.jpg');">
-                                    </div>
-                                    <div class="slide" id="sliderSlide3"
-                                        style="background-image: url('./assets/img/Mytours_IMG/a_wooden_house_forest-wallpaper-3554x1999.jpg');">
-                                    </div>
+
+                                    <?php
+                                    for ($x1 = 0; $x1 < $place_num; $x1++) {
+                                        $place_data = $imagePlace_rs1->fetch_assoc();
+
+                                        $image_path = "SELECT * FROM `place_image` INNER JOIN `tour_has_place` ON `tour_has_place`.`place_id`=`place_image`.`place_id` 
+                                    WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
+                                        $imagePath_rs1 = Database::search($image_path);
+                                        $path_data = $imagePath_rs1->fetch_assoc();
+                                        ?>
+
+                                        <div class="slide" id="sliderSlide1"
+                                            style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1"
                                     style="text-shadow: 0px 0px 5px black;">
                                     <span class="text-white" id="slide<?php echo ($ongoing_iteration); ?>ImageNumber"
                                         data-imageNumber="1">1</span>
-                                    <span class="text-white"> / 3</span>
+                                    <span class="text-white"> /
+                                        <?php echo $place_num ?>
+                                    </span>
                                 </div>
+
                             </div>
                             <!-- slide -->
                         </div>
@@ -190,7 +210,8 @@ ORDER BY `start_date` ASC";
 
                                             </span> </h6>
                                         <h6>cost : <span class="text-warning">
-                                                $<?php echo ($main_data["cost"]); ?>
+                                                $
+                                                <?php echo ($main_data["cost"]); ?>
                                             </span> </h6>
                                     </div>
                                     <div class="col-lg-6 col-12 mt-4  mt-lg-0">
@@ -218,7 +239,7 @@ ORDER BY `start_date` ASC";
                                                                 class="bi bi-chat-left-quote text-white"></i>
                                                             &nbsp;Feedback</button>
                                                         <?php
-
+                                                    
                                                     } ?>
                                                 </div>
                                                 <div class=" col-md-4  offset-md-0  col-10 offset-1  mt-2">
@@ -258,7 +279,7 @@ ORDER BY `start_date` ASC";
                                                         class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
                                                 <button class="btn btn-primary MytoursButton"
                                                     onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i
-                                                        class="bi bi-envelope-fill text-white"></i> 
+                                                        class="bi bi-envelope-fill text-white"></i>
                                                     <?php
                                                     if ($main_data["tour_name"] == "Custom Tour") {
                                                         $rs01 = Database::search("SELECT * FROM `custom_order_response` WHERE `custom_tour_id` = '" . $main_data["Orderid"] . "'");
@@ -271,7 +292,7 @@ ORDER BY `start_date` ASC";
                                                         } else {
                                                             ?>
                                                             <em class=" text-white">
-                                                            &nbsp;0<?php echo ($message_num); ?>
+                                                                &nbsp;0<?php echo ($message_num); ?>
                                                             </em>
                                                             <?php
                                                         }
@@ -286,7 +307,7 @@ ORDER BY `start_date` ASC";
                                                         } else {
                                                             ?>
                                                             <em class=" text-white">
-                                                            &nbsp;0<?php echo ($message_num); ?>
+                                                                &nbsp;0<?php echo ($message_num); ?>
                                                             </em>
                                                             <?php
 
