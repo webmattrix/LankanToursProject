@@ -296,7 +296,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
                                                 WHERE `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
                                                 ORDER BY `start_date` ASC";
-                                                
+
                                                 $ct_order_query = "SELECT *,`employee`.`name` AS `guide_name` FROM `custom_tour`
                                                 INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
                                                 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
@@ -324,7 +324,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                                 <span class="quicksand-SemiBold">
                                                                     <?php echo ($main_data["tour_name"]); ?>
                                                                 </span>
-                                                                <span style="font-size: 14px;" class="text-black-50 quicksand-Medium"><?php echo ((date_diff(new DateTime($today), new DateTime($main_data["end_date"])))->d); ?> Days Left</span>
+                                                                <span style="font-size: 14px;" class="text-black-50 quicksand-Medium"><?php echo ((new DateTime($today))->diff(new DateTime($ongoingTourList[$ongoing_iteration]["end_date"]))->days); ?> Days Left</span>
                                                             </div>
                                                             <div class="w-100 p-1">
                                                                 <span class="quicksand-Medium">Assigned Guide :
