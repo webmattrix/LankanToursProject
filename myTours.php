@@ -353,17 +353,17 @@ ORDER BY `start_date` ASC";
                     <tbody>
                         <?php
 
-                        $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
-INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
+//                         $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
+// INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
+// INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
+// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
+// WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
 
 
-                        $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
-INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
+//                         $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
+// INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
+// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+// WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
 
                         $ongoingTourList02 = getOrders::getOrderList($order_query02, $ct_order_query02);
 
