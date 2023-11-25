@@ -1,5 +1,4 @@
 ReWriteEngine On
-
 Options -Indexes
 
 <Files .htaccess>
@@ -7,28 +6,34 @@ Order allow,deny
 Deny from all
 </Files>
 
-
-
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^ %{REQUEST_URI}.php [NC,L]
 
 ReWriteRule ^Home$ home.php [NC,L]
 ReWriteRule ^Itinerary$ itinerary.php [NC,L]
-ReWriteRule ^Login$ TouristLoginPage.php [NC,L]
+ReWriteRule ^Itinerary/(\d+)$ itinerary.php?tour_id=$1 [NC,L]
+ReWriteRule ^Login$ login.php [NC,L]
 ReWriteRule ^Registration$ TouristRegistrationPage.php [NC,L]
 ReWriteRule ^Tours$ tour.php [NC,L]
 ReWriteRule ^Orders$ myTours.php [NC,L]
+ReWriteRule ^Orders/(\d+)$ myTours.php?page_no=$1 [NC,L]
 ReWriteRule ^Contact$ ContactPage.php [NC,L]
 ReWriteRule ^Gallery$ touristGallery.php [NC,L]
+ReWriteRule ^Profile$ profile.php [NC,L]
+ReWriteRule ^sample$ sample.php [NC,L]
+ReWriteRule ^sample/(\d+)$ sample.php?page_no=$1 [NC,L]
 
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]
 ReWriteRule ^Admin/Profile$ adminProfile.php [NC,L]
 ReWriteRule ^Admin/Order$ orders_page.php [NC,L]
 ReWriteRule ^Admin/Tours$ manageTours.php [NC,L]
+ReWriteRule ^Admin/NewTours$ newTourPlan.php [NC,L]
 ReWriteRule ^Admin/Manage$ manageAdmin.php [NC,L]
+ReWriteRule ^Admin/Guide$ manageGuide.php [NC,L]
+ReWriteRule ^Admin/Tourist$ manageTourist.php [NC,L]
 
-ReWriteRule ^Guide/Tours$ guideP_TourPage.php [NC,L]
+ReWriteRule ^Guide$ guideLogin.php [NC,L]
+ReWriteRule ^Guide/Tours$ guideTour.php [NC,L]
 ReWriteRule ^Guide/Home$ guidePanel.php [NC,L]
 ReWriteRule ^Guide/Profile$ guideProfile.php [NC,L]
-ReWriteRule ^Guide$ guideLogin.php [NC,L]

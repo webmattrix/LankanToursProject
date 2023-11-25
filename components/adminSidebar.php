@@ -26,48 +26,52 @@
             <div class="sideMenuList">
 
                 <!--  -->
-                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewSubMenu('dashboard');">
+                <!-- <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewSubMenu('dashboard');"> -->
+                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="openAdminDashboard();">
                     <span>Dashboard</span>
                     <iconify-icon icon="mingcute:right-fill" id="dashboardIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="dashboardSubContent">
+                <!-- <div class="SubContent ps-3" id="dashboardSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');">
+                <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
+                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="openManageAdmin();">
                     <span>Admin</span>
                     <iconify-icon icon="mingcute:right-fill" id="adminIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="adminSubContent">
+                <!-- <div class="SubContent ps-3" id="adminSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');">
+                <!-- <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');"> -->
+                <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="openManageGuide();">
                     <span>Guide</span>
                     <iconify-icon icon="mingcute:right-fill" id="guideIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="guideSubContent">
+                <!-- <div class="SubContent ps-3" id="guideSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist" onclick="viewSubMenu('tourist');">
+                <!-- <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist" onclick="viewSubMenu('tourist');"> -->
+                <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist" onclick="openManageTourist();">
                     <span>Tourist</span>
                     <iconify-icon icon="mingcute:right-fill" id="touristIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="touristSubContent">
+                <!-- <div class="SubContent ps-3" id="touristSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
                 <div class="listItem" data-value="tourPlanSubContent" statusNumber="0" id="tourPlan" onclick="viewSubMenu('tourPlan');">
@@ -75,21 +79,21 @@
                     <iconify-icon icon="mingcute:right-fill" id="tourPlanIcon"></iconify-icon>
                 </div>
                 <div class="SubContent ps-3" id="tourPlanSubContent">
-                    <div>Lorem, ipsum dolor.</div>
-                    <div>Lorem, ipsum dolor.</div>
-                    <div>Lorem, ipsum dolor.</div>
+                    <div class="c-pointer" onclick="openManageTour();">Manage Tour Plans</div>
+                    <div class="c-pointer" onclick="openNewTour();">Add New Tour Plan</div>
                 </div>
 
                 <!--  -->
-                <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="viewSubMenu('order');">
+                <!-- <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="viewSubMenu('order');"> -->
+                <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="openManageOrders();">
                     <span>Orders</span>
                     <iconify-icon icon="mingcute:right-fill" id="orderIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="ordersSubContent">
+                <!-- <div class="SubContent ps-3" id="ordersSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
                 <!--  -->
                 <div class="listItem" data-value="pagesdSubContent" statusNumber="0" id="pages" onclick="viewSubMenu('pages');">
@@ -97,21 +101,25 @@
                     <iconify-icon icon="mingcute:right-fill" id="pagesIcon"></iconify-icon>
                 </div>
                 <div class="SubContent ps-3" id="pagesdSubContent">
-                    <div>Lorem, ipsum dolor.</div>
-                    <div>Lorem, ipsum dolor.</div>
-                    <div>Lorem, ipsum dolor.</div>
+                    <div class="c-pointer" onclick="openTouristHome();">Home</div>
+                    <div class="c-pointer" onclick="openTouristTours();">Tours</div>
+                    <div class="c-pointer" onclick="openTouristGallery();">Gallery</div>
+                    <div class="c-pointer" onclick="openTouristContact();">Contact</div>
+                    <div class="c-pointer" onclick="openTouristLogin();">Login</div>
+                    <div class="c-pointer" onclick="openTouristRegistration();">Registration</div>
                 </div>
 
                 <!--  -->
-                <div class="listItem" data-value="settingSubContent" statusNumber="0" id="setting" onclick="viewSubMenu('setting');">
+                <!-- <div class="listItem" data-value="settingSubContent" statusNumber="0" id="setting" onclick="viewSubMenu('setting');"> -->
+                <div class="listItem opacity-50" style="cursor: default;" data-value="settingSubContent" statusNumber="0" id="setting">
                     <span>Setting</span>
                     <iconify-icon icon="mingcute:right-fill" id="settingIcon"></iconify-icon>
                 </div>
-                <div class="SubContent ps-3" id="settingSubContent">
+                <!-- <div class="SubContent ps-3" id="settingSubContent">
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
                     <div>Lorem, ipsum dolor.</div>
-                </div>
+                </div> -->
 
             </div>
 

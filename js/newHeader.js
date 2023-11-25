@@ -41,3 +41,38 @@ function goWatchlist() {
 function goMyTours() {
   window.location = "Orders";
 }
+
+function mobileMenuToggle() {
+  var menu = document.getElementById("mobileMenuContainer");
+  var menuMargin = parseInt(getComputedStyle(menu).marginLeft);
+  menu.style.transitionDuration = 0.5 + "s";
+  if (menuMargin == 0) {
+    menu.classList.remove("bg-black");
+    menu.style.marginLeft = -100 + "%";
+  } else {
+    menu.style.marginLeft = 0 + "%";
+  }
+}
+
+function changeTheme(theme) {
+  console.log(theme);
+
+  if (theme == "light") {
+    var requestPath = "./assets/model/changeToDark.php";
+  } else if (theme == "dark") {
+    var requestPath = "./assets/model/changeToLight.php";
+  } else {
+    var requestPath = "./assets/model/changeToLight.php";
+  }
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      window.location.reload();
+    }
+  };
+
+  req.open("GET", requestPath, true);
+  req.send();
+}

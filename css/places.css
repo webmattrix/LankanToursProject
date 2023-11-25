@@ -57,8 +57,8 @@ body {
 
 .card1 img {
   border-radius: 10px;
-  max-width: 70%;
-  height: auto;
+  max-width: 250px;
+  height: 180px; /* Adjust the height to your preferred value */
   display: block;
 }
 
@@ -200,6 +200,11 @@ img {
   margin-right: 10px;
 }
 
+.footer{
+  padding: 0;
+  margin: 0;
+}
+
 @media (max-width: 1140px) {
   .card1-content {
     font-size: 16px;
@@ -214,6 +219,10 @@ img {
   .card {
     flex: 0 0 calc(30% - 20px);
   }
+  .card1 img {
+    width: 200px;
+    max-height: 100px;
+  }
   .image-text {
     font-size: 16px;
     padding: 5px 10px;
@@ -225,7 +234,8 @@ img {
     display: none;
   }
   .card1 img {
-    max-width: 90%;
+    width: 200px;
+    max-height: 100px;
   }
   .card1:hover .card1-img {
     border-radius: 10px;
@@ -244,6 +254,10 @@ img {
 @media (max-width: 780px) {
   .card {
     flex: 0 0 calc(40% - 20px);
+  }
+  .card1 img {
+    width: 200px;
+    max-height: 100px;
   }
   .image-text {
     display: none;

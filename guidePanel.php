@@ -88,12 +88,17 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Overall Income</span>
-                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$00</span>
                                     </div>
                                     <div class="admin_grid-item">
-                                        <lottie-player src="../assets/animations/profile_card.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <div class="content p-3">
-                                            <img src="../assets/img/profile/guide/boy_profile_picture.png" alt="" class="admin_panel-profile-image">
+                                            <img src="<?php
+                                                        if (empty($employee_data["profile_picture"])) {
+                                                            echo ("../assets/img/profile/empty_profile.jpg");
+                                                        } else {
+                                                            echo ("../assets/img/profile/guide/" . $employee_data["profile_picture"]);
+                                                        }
+                                                        ?>" alt="" class="admin_panel-profile-image">
                                             <div class="admin-name">
                                                 <span class="name segoeui-bold"><?php echo ($employee_data["emp_name"]); ?></span>
                                                 <span class="type quicksand-SemiBold"><?php echo ($employee_data["emp_type"]); ?></span>
@@ -103,22 +108,22 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/cancel_animation.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Canceled Tours</span>
-                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">08</span>
+                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">00</span>
                                     </div>
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/income.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Yearly Income</span>
-                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$00</span>
                                     </div>
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/overall_outgoing.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Monthly Income</span>
-                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$120'000</span>
+                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">$00</span>
                                     </div>
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/Ranking_animation.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal" disableCheck="false"></lottie-player>
                                         <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Ranking</span>
-                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">02</span>
+                                        <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">00</span>
                                     </div>
                                 </div>
 
@@ -159,25 +164,43 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                     AND `custom_tour`.`end_date` > '" . $today . "'
                                                     ORDER BY `custom_tour`.`start_date` ASC";
 
+                                                // ["name":"Vihanga","dob","2002-03-07"];
+
+                                                // ["0":["name":"Vihanga","dob","2002-03-07"], "1":["name":"Vihanga","dob","2002-03-07"]];
+
                                                 $orderList = getOrders::getOrderList($query1, $query2);
 
-                                                for ($order_iteration = 0; $order_iteration < sizeof($orderList); $order_iteration++) {
+                                                if (sizeof($orderList) != 0) {
+
+                                                    for ($order_iteration = 0; $order_iteration < sizeof($orderList); $order_iteration++) {
 
                                                 ?>
 
+                                                        <div class="msg-box px-2 quicksand-Medium">
+                                                            <div class="border-bottom d-flex justify-content-between">
+                                                                <span><?php echo ($orderList[$order_iteration]["tour_name"]); ?></span>
+                                                                <span style="color: #797979; font-size: 14px;"><?php echo ("Start Date: " . $orderList[$order_iteration]["start_date"]); ?></span>
+                                                            </div>
+                                                            <div class="mt-1" style="font-size: 15px;">
+                                                                <span class="tour-details-text"><?php echo ($orderList[$order_iteration]["guide_message"]); ?></span>
+                                                                <a href="#">View more...</a>
+                                                            </div>
+                                                        </div>
+
+                                                    <?php
+
+                                                    }
+                                                } else {
+                                                    ?>
+
                                                     <div class="msg-box px-2 quicksand-Medium">
                                                         <div class="border-bottom d-flex justify-content-between">
-                                                            <span><?php echo ($orderList[$order_iteration]["tour_name"]); ?></span>
-                                                            <span style="color: #797979; font-size: 14px;"><?php echo ("Start Date: " . $orderList[$order_iteration]["start_date"]); ?></span>
-                                                        </div>
-                                                        <div class="mt-1" style="font-size: 15px;">
-                                                            <span class="tour-details-text"><?php echo ($orderList[$order_iteration]["guide_message"]); ?></span>
-                                                            <a href="#">View more...</a>
+                                                            <span class="text-danger">Tours not assigned at this moment</span>
+                                                            <span style="color: #797979; font-size: 14px;">...</span>
                                                         </div>
                                                     </div>
 
                                                 <?php
-
                                                 }
 
                                                 ?>
@@ -261,7 +284,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                 INNER JOIN `guide` ON `guide`.`id` = `order`.`guide_id`
                                                 INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
                                                 INNER JOIN `feedback` ON `feedback`.`order_id`=`order`.`id`
-                                                WHERE `employee`.`id`='1'
+                                                WHERE `employee`.`id`='" . $guide["employee_id"] . "'
                                                 AND `order_status`.`name`='Assigned'
                                                 ORDER BY `order`.`start_date` ASC";
 
@@ -271,7 +294,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                 INNER JOIN `guide` ON `guide`.`id` = `custom_tour`.`guide_id`
                                                 INNER JOIN `employee` ON `employee`.`id` = `guide`.`employee_id`
                                                 INNER JOIN `custom_tour_feedback` ON `custom_tour_feedback`.`custom_tour_id`=`custom_tour`.`id`
-                                                WHERE `employee`.`id`='1'
+                                                WHERE `employee`.`id`='" . $guide["employee_id"] . "'
                                                 AND `order_status`.`name`='Assigned'
                                                 ORDER BY `custom_tour`.`start_date` ASC";
 
@@ -280,11 +303,10 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                 for ($feedback_iteration = 0; $feedback_iteration < sizeof($feedbackList); $feedback_iteration++) {
 
                                                     $feedbackTime = $feedbackList[$feedback_iteration]["date_time"];
-                                                    $convertFeedbackTime = date("Y-m-d", timeConverter::convert($feedbackTime));
-                                                    echo ($convertFeedbackTime);
+                                                    $convertFeedbackTime = date("d M, Y", strtotime(timeConverter::convert($feedbackTime)));
 
                                                 ?>
-                                                    <div class="customer-feedback p-1">
+                                                    <div class="customer-feedback p-2 px-4">
                                                         <div class="d-flex justify-content-between flex-column flex-md-row">
                                                             <span class="d-block quicksand-Bold"><?php echo ($feedbackList[$feedback_iteration]["tour_name"]); ?></span>
                                                             <span class="d-block d-flex align-items-center gap-2">
@@ -293,12 +315,12 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                             </span>
                                                         </div>
                                                         <div class="mt-2 quicksand-Bold" style="line-height: 1.2rem;">
-                                                            <span class="fs-3">"</span>
-                                                            <span class="feedback-text"><?php echo ($feedbackList[$feedback_iteration]["guide_message"]); ?></span>
-                                                            <span class="fs-3">"</span>
+                                                            <span class="fs-3 text-warning">"</span>
+                                                            <span class="feedback-text quicksand-Medium"><?php echo ($feedbackList[$feedback_iteration]["feedback"]); ?></span>
+                                                            <span class="fs-3 text-warning">"</span>
                                                         </div>
                                                         <div class="d-flex justify-content-end">
-                                                            <span class="ms-auto text-black-50 quicksand-SemiBold">2023-06-06</span>
+                                                            <span class="ms-auto text-black-50 quicksand-SemiBold"><?php echo ($convertFeedbackTime); ?></span>
                                                         </div>
                                                     </div>
                                                 <?php

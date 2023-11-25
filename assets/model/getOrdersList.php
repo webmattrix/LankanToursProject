@@ -34,6 +34,12 @@ class getOrders
 
         while ($loop) {
 
+
+            // if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+            //     $loop = false;
+            //     break;
+            // }
+
             if ($order_previouse == null) {
                 if ($order_iteration < $order_num) {
                     $order_data = $order_rs->fetch_assoc();
@@ -72,10 +78,12 @@ class getOrders
 
 
             if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
+                if ($round_one == false) {
+                    $loop = false;
+                }
+            } else {
                 if ($round_one == true) {
                     $round_one = false;
-                } else {
-                    $loop = false;
                 }
             }
 

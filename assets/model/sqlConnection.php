@@ -24,6 +24,7 @@ class Database
         Database::setUpConnection();
         $resultSet = Database::$connection->query($q);
         return $resultSet;
+        
     }
 }
 

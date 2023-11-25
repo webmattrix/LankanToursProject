@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Login</title>
@@ -22,11 +22,31 @@
                 <div class="guide_login-user-image">
                 </div>
                 <div class="offset-1 col-10 guide_login-input position-relative">
+                    <?php
+                    if(isset($_COOKIE["lt_guide_email"])){
+                    ?>
+                    <input type="email" id="guide_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email" value="<?php echo $_COOKIE["lt_guide_email"]?>">
+                    <?php
+                    }else{
+                    ?>
                     <input type="email" id="guide_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email">
+                    <?php
+                    }
+                    ?>
                     <iconify-icon icon="material-symbols:mail" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 guide_login-input position-relative">
+                <?php
+                    if(isset($_COOKIE["lt_guide_password"])){
+                    ?>
+                    <input type="password" id="guide_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password" value="<?php echo $_COOKIE["lt_guide_password"]?>">
+                    <?php
+                    }else{
+                    ?>
                     <input type="password" id="guide_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password">
+                    <?php
+                    }
+                    ?>
                     <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
                 <div class="offset-1 col-10 text-start mt-2">
@@ -45,6 +65,31 @@
                 <div>
                     <span class="text-danger quicksand-Medium" style="cursor:pointer" onclick="guideForgotPassword();">Forgot Password?</span>
                 </div>
+
+                <!-- verification modal -->
+                <div class="modal" tabindex="-1" id="verificationModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row g-3">
+
+                                    <div class="col-12 text-start">
+                                        <label class="form-label">OTP Verification</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="otp">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="verifyGuide();">Verify</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- verification model -->
 
                 <!-- modal -->
                 <div class="modal" tabindex="-1" id="fogotPasswordModal">
@@ -91,9 +136,10 @@
         </div>
     </div>
 
-    <script src="./js/bootstrap.js"></script>
-    <script src="js/guideLogin.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="./js/guideLogin.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
 </html>
+

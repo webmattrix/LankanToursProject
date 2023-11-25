@@ -157,23 +157,15 @@ img {
 }
 
 @media (max-width: 992px) {
-  .home-image-slider
-    .slides
-    .slide:nth-child(1)
-    .slide-content
-    div:nth-child(1) {
-    font-size: 20px;
+  .slide-content > div:nth-child(1) {
+    font-size: 22px;
   }
-  .home-image-slider
-    .slides
-    .slide:nth-child(1)
-    .slide-content
-    div:nth-child(2) {
-    max-width: 70vw;
+  .slide-content > div:nth-child(2) {
+    max-width: 85vw;
     font-size: 14px;
   }
   .slide-content {
-    bottom: 50px;
+    bottom: 10px;
   }
 }
 
