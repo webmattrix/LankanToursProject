@@ -16,6 +16,7 @@ session_start(); ?>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
+    
     <link rel="stylesheet" href="./css/MyTours.css">
 </head>
 
