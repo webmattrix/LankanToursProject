@@ -78,12 +78,15 @@
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <?php
 
-                                         $watchlist_rs = Database::search("SELECT * FROM `watchlist`");
+                                         $watchlist_rs = Database::search("SELECT *, `tour`.`name` AS `t_name` FROM `watchlist` INNER JOIN `tour` ON `watchlist`.`tour_id`=`tour`.`id`");
                                          $watchlist_num = $watchlist_rs->num_rows;
 
 
 
                                         for ($watchlist_iteration = 0; $watchlist_iteration < $watchlist_num; $watchlist_iteration++) {
+
+                                            $watchlist_data = $watchlist_rs->fetch_assoc();
+
                                         ?>
                                             <div class="col-12">
                                                 <div class="col-12 py-3 wt-blog-area-field" style="border-radius: 6px; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
@@ -92,8 +95,8 @@
                                                             <div class="row justify-content-center">
                                                                 <div class="col-11">
                                                                     <div class="slider-container">
-                                                                        <span class="arrows left" onclick="sliderMover('left',<?php echo ($watchlist_iteration); ?>);">&lt;</span>
-                                                                        <span class="arrows right" onclick="sliderMover('right',<?php echo ($watchlist_iteration); ?>);">&gt;</span>
+                                                                        <span class="arrows left" onclick="sliderMover('left',<?php echo ($watchlist_iteration); ?>);"><iconify-icon icon="mynaui:arrow-left-square" style="color: white;"></iconify-icon></span>
+                                                                        <span class="arrows right" onclick="sliderMover('right',<?php echo ($watchlist_iteration); ?>);"><iconify-icon icon="mynaui:arrow-right-square" style="color: white;"></iconify-icon></span>
 
                                                                         <div class="slides" data-currentMargin="12.5" id="slider<?php echo ($watchlist_iteration); ?>" data-imageNumber="1">
                                                                             <div class="slide active" id="slide1_<?php echo ($watchlist_iteration); ?>">
@@ -122,8 +125,8 @@
                                                                     <div class="row ms-lg-3 mt-2">
                                                                         <div class="col-12 col-lg-7 m-2 m-lg-0 p-lg-0">
                                                                             <div class="row">
-                                                                                <span class="wt-slide-cont-textC pb-2" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700;">11 Day Tour Plan</span>
-                                                                                <p class="wt-slide-cont-textC2" style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400;">Lorem ipsum dolor sit amet consectetur. Praesent placerat ullamcorper enim tincidunt tempus nulla consequat dolor in. Tortor eu vestibulum tortor facilisi commodo. Magna euismod leo ullamcorper id aliquam.</p>
+                                                                                <span class="wt-slide-cont-textC pb-2" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700;"><?php echo $watchlist_data["t_name"];?></span>
+                                                                                <p class="wt-slide-cont-textC2" style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400;"><?php echo $watchlist_data["description"];?></p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-12">
