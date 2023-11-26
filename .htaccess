@@ -22,6 +22,7 @@ ReWriteRule ^Gallery$ touristGallery.php [NC,L]
 ReWriteRule ^Profile$ profile.php [NC,L]
 ReWriteRule ^sample$ sample.php [NC,L]
 ReWriteRule ^sample/(\d+)$ sample.php?page_no=$1 [NC,L]
+ReWriteRule ^Watchlist$ watchlist.php [NC,L]
 
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]

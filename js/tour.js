@@ -1,3 +1,18 @@
+var places_data;
+
+function dataLoader() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      places_data = JSON.parse(req.responseText);
+    }
+  };
+
+  req.open("GET", "./assets/model/loadPlacesImage.php", true);
+  req.send();
+}
+
 function tourPlanSlideMover(slideNumber, direction) {
   var slider = document.getElementById("slide" + slideNumber + "Container");
   var sliderImageNumber = document.getElementById(
