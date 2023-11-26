@@ -8,10 +8,10 @@
 
     $admin = $_SESSION["lt_admin"];
 
-    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employee_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
                                      FROM `employee` 
                                      INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id` 
-                                     INNER JOIN `employee_type` ON `employee_type`.`id`=`employee`.`employee_type_id` 
+                                     INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` 
                                      WHERE `employee`.`id`='".$admin["employee_id"]."'");
     
     $employee_data = $employee_rs->fetch_assoc();
@@ -33,16 +33,16 @@
     if(isset($_COOKIE["lt_theme"])){
       if($_COOKIE["lt_theme"] === 'light'){
         ?>
-         <link rel="stylesheet" href="./css/home.css">
+         <link rel="stylesheet" href="./css/orders_page.css">
         <?php
       }else{
         ?>
-        <link rel="stylesheet" href="./css/homeDark.css">
+        <link rel="stylesheet" href="./css/orderDark.css">
         <?php
       }
     }else{
         ?>
-         <link rel="stylesheet" href="./css/home.css">
+         <link rel="stylesheet" href="./css/orders_page.css">
         <?php
     }
 

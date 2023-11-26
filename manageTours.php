@@ -1,3 +1,23 @@
+
+<?php
+
+    require "./assets/model/sqlConnection.php";
+    require "./assets/model/timeZoneConverter.php";
+
+    session_start();
+
+    $admin = $_SESSION["lt_admin"];
+
+    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+                                     FROM `employee` 
+                                     INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id` 
+                                     INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` 
+                                     WHERE `employee`.`id`='".$admin["employee_id"]."'");
+    
+    $employee_data = $employee_rs->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,13 +48,6 @@
 
                     <!-- Page Content / body content eka methanin liyanna -->
                     <div>
-
-                        <?php
-
-                        require "./assets/model/sqlConnection.php";
-                        require "./assets/model/timeZoneConverter.php";
-
-                        ?>
 
                         <div class="col-12">
                             <div class="row m-0 p-0">
