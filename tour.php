@@ -45,8 +45,53 @@ $location = "primary";
     <div class="container-fluid pt-3">
         <div class="px-4 rounded py-2 mt-1 main-content">
 
+            <div class="custom-tour tour_popular-tours px-2 py-2" id="custom_tour">
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
+                    <hr class="w-100">
+                </div>
+                <div class="grid-template">
+                    <div class="form-area">
+                        <div class="p-2">
+                            <div class="d-flex flex-column">
+                                <label for="tourist content-heading quicksand-Medium">Tourist</label>
+                                <input type="text" name="" id="tourist" class="text-dark w-100 p-2 rounded border-0" placeholder="Your name">
+                            </div>
+                            <div class="d-flex flex-column mt-2">
+                                <label for="tourLevel content-heading quicksand-Medium">Tour Level</label>
+                                <select id="tourLevel" class="text-dark w-100 p-2 rounded border-0">
+                                    <option value="0">Select</option>
+                                </select>
+                            </div>
+                            <div class="mt-2">
+                                <span class="">Tour Places</span>
+                                <div class="d-flex gap-2">
+                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
+                                        <option value="0">Select</option>
+                                    </select>
+                                    <button class="border-0 px-4 rounded">
+                                        <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
+                                    </button>
+                                </div>
+                                <div class="d-flex gap-2 mt-1">
+                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
+                                        <option value="0">Select</option>
+                                    </select>
+                                    <button class="border-0 px-4 rounded">
+                                        <iconify-icon icon="ep:remove-filled" class="text-danger"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> <!-- Column 01 -->
+                        <div class="p-2"></div> <!-- Column 02 -->
+                        <div class="p-2"></div> <!-- Column 03 -->
+                    </div> <!-- Form Area -->
+                    <div class=""></div> <!-- Request Message Area -->
+                </div>
+            </div>
+
             <div class="w-100 d-flex justify-content-end">
-                <button class="btn btn-primary">Customize Your Tour</button>
+                <a class="btn btn-primary" href="#custom_tour">Customize Your Tour</a>
             </div>
 
             <!-- Popular Tour Contene -->
@@ -278,7 +323,10 @@ $location = "primary";
             </div>
             <!-- Tour Plans Content -->
 
+
+
         </div>
+
         <?php include "./components/footer.php"; ?>
     </div>
 

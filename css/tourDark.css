@@ -261,3 +261,13 @@
 .theme-text {
   color: white;
 }
+
+.custom-tour .grid-template .form-area {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.custom-tour .grid-template .form-area > div {
+  width: 100%;
+}
