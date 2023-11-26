@@ -23,6 +23,8 @@
     $location = "primary";
 
     include "./components/newHeader.php"; 
+
+    require "./assets/model/sqlConnection.php";
     
     ?>
 
@@ -75,7 +77,13 @@
                                 <div class="col-12 wt-blog-cont4" style="border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <?php
-                                        for ($watchlist_iteration = 0; $watchlist_iteration < 3; $watchlist_iteration++) {
+
+                                         $watchlist_rs = Database::search("SELECT * FROM `watchlist`");
+                                         $watchlist_num = $watchlist_rs->num_rows;
+
+
+
+                                        for ($watchlist_iteration = 0; $watchlist_iteration < $watchlist_num; $watchlist_iteration++) {
                                         ?>
                                             <div class="col-12">
                                                 <div class="col-12 py-3 wt-blog-area-field" style="border-radius: 6px; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
