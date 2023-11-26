@@ -16,7 +16,6 @@ session_start(); ?>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    
     <link rel="stylesheet" href="./css/MyTours.css">
 </head>
 
@@ -90,68 +89,32 @@ ORDER BY `start_date` ASC";
                                         <iconify-icon icon="mingcute:right-line" class="text-white c-pointer"
                                             onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
                                     </div>
+                                    <?php $imagePlace_rs1 = Database::search("SELECT * FROM `order` INNER JOIN `tour_has_place` ON `tour_has_place`.`tour_id`=`order`.`tour_id` 
+                                    WHERE `order`.`tour_id` = '" . $main_data["tour_id"] . "' LIMIT 5 ");
+                                    $place_num = $imagePlace_rs1->num_rows; ?>
 
-                                    <?php
-                                    if ($main_data["tour_name"] == "Custom Tour") {
-                                        $imagePlace_rs1 = Database::search("SELECT * FROM `custom_tour` INNER JOIN `custom_tour_has_place` ON `custom_tour_has_place`.`custom_tour_id`=`custom_tour`.`id` 
-                                         WHERE `custom_tour`.`id` = '" . $main_data["Orderid"] . "' LIMIT 5  ");
-                                        $place_num = $imagePlace_rs1->num_rows; ?>
+                                    <div class="slides" style="width: <?php echo $place_num ?>00%;"
+                                        id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
+                                        data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
+                                        ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
 
-                                        <div class="slides" style="width: <?php echo $place_num ?>00%;"
-                                            id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
-                                            data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
-                                            ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
-
-                                            <?php
-                                            for ($x1 = 0; $x1 < $place_num; $x1++) {
-                                                $place_data = $imagePlace_rs1->fetch_assoc();
-
-                                                $image_path = "SELECT * FROM `place_image` INNER JOIN `custom_tour_has_place` ON `custom_tour_has_place`.`place_id`=`place_image`.`place_id` 
-                                                WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
-                                                $imagePath_rs1 = Database::search($image_path);
-                                                $path_data = $imagePath_rs1->fetch_assoc();
-                                                ?>
-
-                                                <div class="slide" id="sliderSlide1"
-                                                    style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
-                                                </div>
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
                                         <?php
+                                        for ($x1 = 0; $x1 < $place_num; $x1++) {
+                                            $place_data = $imagePlace_rs1->fetch_assoc();
 
-                                    } else {
-
-                                        $imagePlace_rs1 = Database::search("SELECT * FROM `order` INNER JOIN `tour_has_place` ON `tour_has_place`.`tour_id`=`order`.`tour_id` 
-                                    WHERE `order`.`id` = '" . $main_data["Orderid"] . "' LIMIT 5 ");
-                                        $place_num = $imagePlace_rs1->num_rows; ?>
-
-                                        <div class="slides" style="width: <?php echo $place_num ?>00%;"
-                                            id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
-                                            data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
-                                            ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
-
-                                            <?php
-                                            for ($x1 = 0; $x1 < $place_num; $x1++) {
-                                                $place_data = $imagePlace_rs1->fetch_assoc();
-
-                                                $image_path = "SELECT * FROM `place_image` INNER JOIN `tour_has_place` ON `tour_has_place`.`place_id`=`place_image`.`place_id` 
-                                            WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
-                                                $imagePath_rs1 = Database::search($image_path);
-                                                $path_data = $imagePath_rs1->fetch_assoc();
-                                                ?>
-
-                                                <div class="slide" id="sliderSlide1"
-                                                    style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
-                                                </div>
-                                                <?php
-                                            }
+                                            $image_path = "SELECT * FROM `place_image` INNER JOIN `tour_has_place` ON `tour_has_place`.`place_id`=`place_image`.`place_id` 
+                                    WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
+                                            $imagePath_rs1 = Database::search($image_path);
+                                            $path_data = $imagePath_rs1->fetch_assoc();
                                             ?>
-                                        </div>
-                                        <?php
-                                    } ?>
 
+                                            <div class="slide" id="sliderSlide1"
+                                                style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
 
                                     <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1"
                                         style="text-shadow: 0px 0px 5px black;">
@@ -292,7 +255,7 @@ ORDER BY `start_date` ASC";
                                                     if ($main_data["tour_name"] != "Custom Tour") {
                                                         ?>
                                                         <button class="btn btn-secondary MytoursButton"
-                                                            onclick="feedbackModal();"><i
+                                                            onclick="feedbackModal( '<?php echo $main_data['Orderid']; ?>');"><i
                                                                 class="bi bi-chat-left-quote text-white"></i>
                                                             &nbsp;Feedback</button>
                                                         <?php
@@ -382,14 +345,14 @@ ORDER BY `start_date` ASC";
                         <tbody>
                             <?php
 
-//                                                     $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
+                            //                         $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
 // INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 // INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
 // INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
 // WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
                         
 
-//                                                     $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
+                            //                         $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
 // INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
 // INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
 // WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
@@ -503,7 +466,6 @@ ORDER BY `start_date` ASC";
         <script src="./js/MyTours.js"></script>
         <script src="./js/newHeader.js"></script>
         <script src="./js/bootstrap.bundle.js"></script>
-        <script src="./js/bootstrap.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <?php
     } else {
