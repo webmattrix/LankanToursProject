@@ -11,11 +11,20 @@
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/scrolbar.css" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="bg-watchlist">
 
-    <?php include "./components/newHeader.php"; ?>
+    
+
+    <?php
+    
+    $location = "primary";
+
+    include "./components/newHeader.php"; 
+    
+    ?>
 
     <div class="container-fluid">
         <div class="row">

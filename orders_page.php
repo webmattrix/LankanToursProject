@@ -1,3 +1,24 @@
+
+<?php
+
+    require "./assets/model/getOrdersList.php";
+    require "./assets/model/timeZoneConverter.php";
+
+    session_start();
+
+    $admin = $_SESSION["lt_admin"];
+
+    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employee_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+                                     FROM `employee` 
+                                     INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id` 
+                                     INNER JOIN `employee_type` ON `employee_type`.`id`=`employee`.`employee_type_id` 
+                                     WHERE `employee`.`id`='".$admin["employee_id"]."'");
+    
+    $employee_data = $employee_rs->fetch_assoc();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +27,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel | Orders</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
+
+    <?php
+    
+    if(isset($_COOKIE["lt_theme"])){
+      if($_COOKIE["lt_theme"] === 'light'){
+        ?>
+         <link rel="stylesheet" href="./css/home.css">
+        <?php
+      }else{
+        ?>
+        <link rel="stylesheet" href="./css/homeDark.css">
+        <?php
+      }
+    }else{
+        ?>
+         <link rel="stylesheet" href="./css/home.css">
+        <?php
+    }
+
+    ?>
+
     <link rel="stylesheet" href="../css/adminTemplate.css">
     <link rel="stylesheet" href="../css/orders_page.css" />
     <!-- <link rel="stylesheet" href="./css/orderDark.css" /> -->
@@ -15,15 +57,6 @@
 
     <div class="container-fluid">
         <div class="row">
-
-            <?php
-
-            require "./assets/model/getOrdersList.php";
-            require "./assets/model/timeZoneConverter.php";
-
-            session_start();
-
-            ?>
 
             <div class="d-flex p-0">
                 <?php
