@@ -6,7 +6,6 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
     header("Location: ../Admin");
 } else {
 
-    // require "assets/model/sqlConnection.php";
     require "assets/model/getOrdersList.php";
     require "assets/model/timeZoneConverter.php";
 
