@@ -70,7 +70,7 @@ $location = "primary";
                                     $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
                                     $ct_place_num = $ct_place_rs->num_rows;
                                     ?>
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
+                                    <select id="addTourPlace" class="text-dark w-100 p-2 rounded border-0">
                                         <option value="0" class="text-dark">Select</option>
                                         <?php
                                         for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
@@ -81,30 +81,30 @@ $location = "primary";
                                         }
                                         ?>
                                     </select>
-                                    <button class="border-0 px-4 rounded">
+                                    <button class="border-0 px-4 rounded" onclick="addTourPlace();" id="addTourPlaceBtn">
                                         <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
                                     </button>
                                 </div>
 
                                 <div class="tour-plan-slider position-relative my-2" data-status="0" id="ct_places">
                                     <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(72,'left');"></iconify-icon>
-                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(72,'right');"></iconify-icon>
+                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(99,'left');"></iconify-icon>
+                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(99,'right');"></iconify-icon>
                                     </div>
-                                    <div class="slides" style="width: 100%;" id="slide72Container" data-marginLeft="0" data-maxWidth="100" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,72)">
-                                        <div class="slide fs-4 segoeui-bold d-flex justify-content-center" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg'); text-shadow: 0px 0px 4px rgba(0,0,0,0.5);">Ambuluwawa</div>
+                                    <div class="slides" style="width: 100%;" id="slide99Container" data-marginLeft="0" data-maxWidth="100" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,99)">
+                                        <div class="slide fs-4 segoeui-bold d-flex justify-content-center" id="ctSlide0" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg'); text-shadow: 0px 0px 4px rgba(0,0,0,0.5);">Sri Lanka</div>
                                     </div>
                                     <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
-                                        <span class="text-white" id="slide72ImageNumber" data-imageNumber="1">1</span>
-                                        <span class="text-white"> / 3</span>
+                                        <span class="text-white" id="slide99ImageNumber" data-imageNumber="1">1</span>
+                                        <span class="text-white" id="ct_sliderCount" data-ctSliderCount="1"> / 1</span>
                                     </div>
                                 </div>
 
                                 <div class="d-flex gap-2 mt-1">
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
-                                        <option value="0">Select</option>
+                                    <select id="removeTourPlace" class="text-dark w-100 p-2 rounded border-0">
+                                        <option value="0" class="text-dark">Select</option>
                                     </select>
-                                    <button class="border-0 px-4 rounded">
+                                    <button class="border-0 px-4 rounded" onclick="removeTourPlace();" id="removeTourPlaceBtn">
                                         <iconify-icon icon="ep:remove-filled" class="text-danger"></iconify-icon>
                                     </button>
                                 </div>

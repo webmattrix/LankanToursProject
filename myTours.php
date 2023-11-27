@@ -449,7 +449,6 @@ WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` <
     </div>
     <!-- Modal03 -->
 
-
     <script src="./js/MyTours.js"></script>
     <script src="./js/newHeader.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
