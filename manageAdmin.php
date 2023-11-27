@@ -1,4 +1,13 @@
-<?php require "./assets/model/sqlConnection.php"; ?>
+<?php require "./assets/model/sqlConnection.php";
+session_start();
+$admin = $_SESSION["lt_admin"];
+
+$employee_rs = Database::search("SELECT *,employee.name AS emp_name, employe_type.name AS emp_type, employee.id AS emp_id
+FROM employee
+INNER JOIN admin ON employee.id=admin.employee_id
+INNER JOIN employe_type ON employe_type.id=employee.employe_type_id WHERE employee.id='" . $admin["employee_id"] . "'");
+$employee_data = $employee_rs->fetch_assoc();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +15,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/AdminPage.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/AdminPage.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
@@ -19,12 +28,12 @@
 
             <div class="d-flex p-0">
                 <?php
-                include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
+                include "./components/adminSidebar.php"; 
                 ?>
 
                 <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto;">
                     <?php
-                    include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
+                    include "./components/adminHeader.php"; 
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
@@ -67,7 +76,7 @@
                                     <div class="col-lg-4 col-12">
                                         <div class="AddAdminCard"
                                             style=" background-color: rgb(200, 200, 200);font-size: 14px;">
-                                            <img src="./assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg"
+                                            <img src="../assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg"
                                                 class="card-img-top mb-2   "
                                                 style="border-radius: 50%; height: 150px; width: 150px; margin: auto;">
 
@@ -151,18 +160,20 @@
                                                         <?php
                                                         $query = "SELECT * FROM `employee` INNER JOIN `admin` ON employee.id = admin.employee_id  ";
 
-                                                        $pageno;
+                                                        
+                                                        
 
                                                         if (isset($_GET["page_no"])) {
                                                             $page_no = $_GET["page_no"];
                                                         } else {
                                                             $page_no = 1;
+                                                            // header("Location :/1");
                                                         }
 
                                                         $admin_rs = Database::search($query);
                                                         $n = $admin_rs->num_rows;
                                                       
-                                                        $result_per_page = 2;
+                                                        $result_per_page = 5;
                                                         $number_of_pages = ceil($n / $result_per_page);
                                                         $offset = ($page_no - 1) * $result_per_page;
                                                         $admin_rs = Database::search($query . " LIMIT " . $result_per_page . " OFFSET " . $offset . "");
@@ -372,12 +383,12 @@
         </div>
     </div>
 
-    <script src="./js/adminTemplate.js"></script>
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="../js/adminTemplate.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="./js/manageAdmin.js"></script>
+    <script src="../js/manageAdmin.js"></script>
 
 
 </body>

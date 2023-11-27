@@ -23,9 +23,9 @@ function adminLogin() {
         var req = new XMLHttpRequest();
         req.onreadystatechange = function () {
           if (req.readyState == 4) {
-            window.location.href = "/TourpageFinal/LankanToursProject/manageAdmin.php";
+            window.location.href = "./Admin/Home";
           }
-        };http://localhost/TourpageFinal/LankanToursProject/Orders
+        };
 
         req.open(
           "GET",

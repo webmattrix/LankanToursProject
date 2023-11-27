@@ -17,7 +17,23 @@ session_start(); ?>
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
 
-    <link rel="stylesheet" href="./css/MyTours.css">
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+            ?>
+            <link rel="stylesheet" href="./css/MyTours.css">
+            <?php
+        } else {
+            ?>
+            <link rel="stylesheet" href="./css/MyToursDark.css">
+            <?php
+        }
+    } else {
+        ?>
+        <link rel="stylesheet" href="./css/MyTours.css">
+        <?php
+    }
+    ?>
 </head>
 
 <body class="c-default MyToursBackground">
@@ -194,10 +210,16 @@ ORDER BY `start_date` ASC";
                                 <div class="col-lg-11 offset-lg-1 col-12" style=" font-family:Quicksand-Medium">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
+                                            <?php
+                                            $req_date = timeConverter::convert($main_data["date_time"]);
+                                            // $req_date_obj = strtotime($req_date);
+                                            echo (date("Y-m-d", $req_date));
+                                            ?>
                                             <h6> Request Date :
                                                 <?php
-                                                $convertTime = strtotime(timeConverter::convert($main_data["date_time"]));
-                                                echo (date("d-M-Y", $convertTime));
+                                                // $convertTime = timeConverter::convert($main_data["date_time"]);
+                                                // echo (date("Y-M-d", strtotime($convertTime)));
+                                                echo ($main_data["date_time"]);
                                                 ?>
                                             </h6>
                                             <h6>Request Status : <span class="text-warning">
@@ -321,7 +343,8 @@ ORDER BY `start_date` ASC";
                                                             } else {
                                                                 ?>
                                                                 <em class=" text-white">
-                                                                    &nbsp;0<?php echo ($message_num); ?>
+                                                                    &nbsp;0
+                                                                    <?php echo ($message_num); ?>
                                                                 </em>
                                                                 <?php
                                                             }
@@ -336,7 +359,8 @@ ORDER BY `start_date` ASC";
                                                             } else {
                                                                 ?>
                                                                 <em class=" text-white">
-                                                                    &nbsp;0<?php echo ($message_num); ?>
+                                                                    &nbsp;0
+                                                                    <?php echo ($message_num); ?>
                                                                 </em>
                                                                 <?php
 
@@ -382,14 +406,14 @@ ORDER BY `start_date` ASC";
                         <tbody>
                             <?php
 
-//                                                     $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
+                            //                                                     $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
 // INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 // INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
 // INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
 // WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
                         
 
-//                                                     $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
+                            //                                                     $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
 // INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
 // INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
 // WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
@@ -507,7 +531,8 @@ ORDER BY `start_date` ASC";
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <?php
     } else {
-        echo ("Please Login First !!");
+       header("Location: ./Login");
+       
     } ?>
 </body>
 

@@ -65,7 +65,7 @@ function feedbackModal(id) {
     }
   };
   request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, true);
-  // request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, truee);
+  // request.open("GET", "../assets/model/myToursFeedbackOpen.php?id=" + id, true);
   request.send();
 }
 

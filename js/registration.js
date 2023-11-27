@@ -1,8 +1,5 @@
 function register(){
-
-    window.location ="./login.php" ;
-    // window.location ="../login.php" ;
-   
+    window.location ="./Login" ;
 }
 var T_modal;
 function Register() {
@@ -44,7 +41,6 @@ function Register() {
         }
     };
     request.open("POST","./assets/model/T_registrationProcess.php", true);
-    // request.open("POST","../assets/model/T_registrationProcess.php", true);
     request.send(form);
 
 }
@@ -58,13 +54,13 @@ function modalRegister() {
         var t = r.responseText;
         if (t == "success") {
           T_modal.hide();
-          window.location ="./login.php" ;
+          window.location ="./Login" ;
          
-        } else alert(t);
+        } else alert("Error !!");
       }
     };
     r.open(
       "GET", "./assets/model/T_modalRegistration.php?code=" + code.value + "&email=" + email.value,true);
-    // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
+  
     r.send();
   }

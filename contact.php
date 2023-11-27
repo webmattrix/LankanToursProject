@@ -1,4 +1,6 @@
-<?php $location ="primary";?>
+<?php $location = "primary";
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +17,24 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/Contact.css">
+   
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+           <link rel="stylesheet" href="./css/Contact.css">
+        <?php
+        } else {
+        ?>
+           <link rel="stylesheet" href="./css/ContactDark.css">
+        <?php
+        }
+    } else {
+        ?>
+         <link rel="stylesheet" href="./css/Contact.css">
+    <?php
+    }
+    ?>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default ContactBackground" style="overflow-x: hidden;">
