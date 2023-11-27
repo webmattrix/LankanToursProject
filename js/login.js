@@ -1,5 +1,5 @@
 function login() {
-  window.location = "./registration.php";
+  window.location = "./Registration";
   // window.location = "../registration.php";
 }
 
@@ -21,8 +21,8 @@ function Login() {
         var req2 = new XMLHttpRequest();
         req2.onreadystatechange = function () {
           if (req2.readyState == 4) {
-            window.location = "./home.php";
-            // window.location = "../home.php";
+            window.location = "./Home";
+           
           }
         };
         req2.open(
@@ -31,7 +31,7 @@ function Login() {
             Intl.DateTimeFormat().resolvedOptions().timeZone,
           true
         );
-        // req.open("GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
+        
         req2.send();
       } else {
         document.getElementById("L_AlertMSG").innerHTML = text;
@@ -41,7 +41,6 @@ function Login() {
     }
   };
   req.open("POST", "./assets/model/T_loginProcess.php", true);
-  // req.open("POST", "../assets/model/T_loginProcess.php", true);
   req.send(form);
 }
 
@@ -61,7 +60,7 @@ function L_ForgotPassword() {
         T_bm = new bootstrap.Modal(modal);
         T_bm.show();
       } else {
-        alert(text);
+        alert("Error !!");
       }
     }
   };
@@ -70,7 +69,7 @@ function L_ForgotPassword() {
     "./assets/model/T_fogotPasswordProcess.php?Email=" + Email.value,
     true
   );
-  // req.open("GET", "../assets/model/T_fogotPasswordProcess.php?E=" + Email.value, true);
+ 
   req.send();
 }
 
@@ -122,10 +121,10 @@ function T_resetPW() {
       if (t == "success") {
         T_bm.hide();
         alert("Success");
-      } else alert(t);
+      } else alert("ERROR !!");
     }
   };
   r.open("POST", "./assets/model/T_loginResetPassword.php", true);
-  // r.open("POST", "../assets/model/T_loginResetPassword.php", true);
+  
   r.send(f);
 }

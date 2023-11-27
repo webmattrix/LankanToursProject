@@ -4,6 +4,7 @@ require "../model/sqlConnection.php";
 require "SMTP.php";
 require "PHPMailer.php";
 require "Exception.php";
+require "passwordGenerator.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -41,11 +42,12 @@ if($n > 0){
     $tzone = new DateTimeZone("Asia/Colombo");
     $d->setTimezone($tzone);
     $date = $d->format("Y-m-d H:i:s");
-    $password = uniqid();
+ 
+    $password = generatePassword(6);
 
     Database::iud("INSERT INTO `employee` 
-    (`name`,`email`,`reg_date`,`status`,`mobile`,`employe_type_id`,`password`) VALUES 
-    ('".$Name."','".$Email."','".$date."','0','".$Mobile."','2','".$password."')");
+    (`name`,`email`,`reg_date`,`status`,`mobile`,`employe_type_id`,`password`,`nic`) VALUES 
+    ('".$Name."','".$Email."','".$date."','0','".$Mobile."','2','".$password."','".$NIC."')");
 
     $emp_rs=Database::search("SELECT * FROM  `employee`WHERE `name`='".$Name."'");
     $emp_data = $emp_rs->fetch_assoc();

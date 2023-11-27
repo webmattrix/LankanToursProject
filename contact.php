@@ -1,9 +1,13 @@
+<?php $location = "primary";
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <title>Contact </title>
 
     <!-- CSS -->
@@ -13,7 +17,24 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/Contact.css">
+   
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+           <link rel="stylesheet" href="./css/Contact.css">
+        <?php
+        } else {
+        ?>
+           <link rel="stylesheet" href="./css/ContactDark.css">
+        <?php
+        }
+    } else {
+        ?>
+         <link rel="stylesheet" href="./css/Contact.css">
+    <?php
+    }
+    ?>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default ContactBackground" style="overflow-x: hidden;">
@@ -74,7 +95,9 @@
     </div>
     <?php
     include "./components/footer.php";
+    
     ?>
+     <script src="./js/newHeader.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
 </body>
 </html>

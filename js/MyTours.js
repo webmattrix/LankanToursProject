@@ -51,6 +51,7 @@ function touchEndDetector(evt, slideNumber) {
 
 var F_modal;
 function feedbackModal(id) {
+  alert(id);
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
@@ -64,7 +65,7 @@ function feedbackModal(id) {
     }
   };
   request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, true);
-  // request.open("GET", "./assets/model/myToursFeedbackOpen.php?id=" + id, truee);
+  // request.open("GET", "../assets/model/myToursFeedbackOpen.php?id=" + id, true);
   request.send();
 }
 
