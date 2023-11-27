@@ -26,8 +26,7 @@ function adminReister() {
       }
     }
   };
-  request.open("POST", "./assets/model/manageAdminProcess.php", true);
-  // request.open("POST","../assets/model/manageAdminProcess.php", true);
+  request.open("POST", "../assets/model/manageAdminProcess.php", true);
   request.send(form);
 }
 
@@ -45,9 +44,7 @@ function modalView(email) {
       modal1.show();
     }
   };
-  request.open("GET", "./assets/model/adminModalDetails.php?email=" + email, true);
-  // request.open("GET", "../assets/model/adminModalDetails.php?email=" + email.value, true);
-  
+  request.open("GET", "../assets/model/adminModalDetails.php?email=" + email, true);
   request.send();
 }
 
@@ -58,13 +55,10 @@ function updateAdmin(id) {
  var email = document.getElementById("A_email");
  var mobile = document.getElementById("A_mobile");
  var address = document.getElementById("A_address");
-//  var NIC = document.getElementById("A_NIC");
-//  alert(NIC.value);
 
  var form = new FormData();
   form.append("name", name.value);
   form.append("email", email.value);
-  // form.append("NIC", NIC.value);
   form.append("mobile", mobile.value);
   form.append("address", address.value);
   form.append("id", id);
@@ -78,13 +72,11 @@ function updateAdmin(id) {
         alert("Details Updated");
         location.reload();
       } else {
-        alert(text);
-        // alert("something went to wrong !");
+        alert("ERROR !!");
       }
     }
   };
-  request.open("POST", "./assets/model/adminUpdateDetails.php", true);
-  // request.open("POST", "../assets/model/adminUpdateDetails.php", true);
+  request.open("POST", "../assets/model/adminUpdateDetails.php", true);
   request.send(form);
 
 }
@@ -104,8 +96,7 @@ function deleteAdmin(id) {
       }
     }
   };
-  request.open("GET", "./assets/model/adminDeactive.php?id=" + id, true);
-  // request.open("GET", "../assets/model/adminDeactive.php?id=" + id, true);
+  request.open("GET", "../assets/model/adminDeactive.php?id=" + id, true);
   request.send();
 }
 
@@ -119,8 +110,7 @@ function searchAdmin(){
       document.getElementById('viewArea1').innerHTML = text01;
     }
   };
-  request.open("GET", "./assets/model/adminSearch.php?text=" + searchText.value, true);
-  // request.open("POST", "../assets/model/adminSearch.php?text=" + searchText.value, true);
+  request.open("GET", "../assets/model/adminSearch.php?text=" + searchText.value, true);
   request.send();
 
 }
