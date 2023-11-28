@@ -2,8 +2,8 @@
   background-color: #dcdcdc;
 }
 
-* {
-}
+/* * {
+} */
 
 .main-content {
   background-color: #ffffff;
@@ -133,9 +133,9 @@
   background-color: white;
 }
 
-.tour-plan-grid > div:nth-child(5) {
-  /* grid-column: span 2/2; */
-}
+/* .tour-plan-grid > div:nth-child(5) {
+  grid-column: span 2/2;
+} */
 
 @media (max-width: 1400px) {
   .tour-plan-grid {

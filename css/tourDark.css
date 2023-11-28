@@ -135,9 +135,9 @@
   background-color: #3e3e3e;
 }
 
-.tour-plan-grid > div:nth-child(5) {
-  /* grid-column: span 2/2; */
-}
+/* .tour-plan-grid > div:nth-child(5) {
+  grid-column: span 2/2;
+} */
 
 @media (max-width: 1400px) {
   .tour-plan-grid {
