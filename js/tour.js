@@ -156,3 +156,28 @@ function removeTourPlace() {
 function viewItinerary(id) {
   window.location = "Itinerary/" + id;
 }
+
+function addToWatchlist(id) {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      if (req.responseText == 1) {
+        alert("You have to login first");
+        window.location = "Login";
+      } else if (req.responseText == 2) {
+        alert("Invalid Access! Try again later");
+      } else if (req.responseText == 3) {
+        alert("This tour is already added to the watchlist");
+      } else if (req.responseText == 4) {
+        window.location.reload();
+      } else {
+        alert(req.responseText);
+        alert("Something went wrong please try again later");
+      }
+    }
+  };
+
+  req.open("GET", "./assets/model/addToWatchlist.php?id=" + id, true);
+  req.send();
+}
