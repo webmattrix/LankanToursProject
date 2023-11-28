@@ -6,16 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watchlist</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
-    <!-- <link rel="stylesheet" href="./css/watchlist.css" /> -->
-    <link rel="stylesheet" href="./css/watchlistDark.css" />
+    <link rel="stylesheet" href="./css/watchlist.css" />
+    <!-- <link rel="stylesheet" href="./css/watchlistDark.css" /> -->
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/scrolbar.css" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="bg-watchlist">
 
-    <?php include "./components/newHeader.php"; ?>
+
+
+    <?php
+
+    $location = "primary";
+
+    include "./components/newHeader.php";
+
+    require "./assets/model/sqlConnection.php";
+
+    ?>
 
     <div class="container-fluid">
         <div class="row">
@@ -28,7 +39,7 @@
                                 <div class="col-12 search_bar1" style="background-color: #fff; border-radius: 50px; border: 1px solid #2452F2;">
                                     <div class="row">
                                         <div class="col-8 col-lg-7">
-                                            <input type="text" id="search_field" class="search_field1" placeholder="search here..." />
+                                            <input type="text" id="search_field" class="search_field1" placeholder="search here..." onkeyup="filterSection();"/>
                                         </div>
                                         <div class="col-4 col-lg-5">
                                             <div class="row">
@@ -66,6 +77,30 @@
                                 <div class="col-12 wt-blog-cont4" style="border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <?php
+<<<<<<< HEAD
+
+                                        $watchlist_rs = Database::search("SELECT *, `tour`.`name` AS `t_name`, `tour`.`id` AS `t_id` FROM `watchlist` INNER JOIN `tour` ON `watchlist`.`tour_id`=`tour`.`id`");
+                                        $watchlist_num = $watchlist_rs->num_rows;
+
+
+
+                                        for ($watchlist_iteration = 0; $watchlist_iteration < $watchlist_num; $watchlist_iteration++) {
+
+                                            $watchlist_data = $watchlist_rs->fetch_assoc();
+
+                                        ?>
+
+                                            <script>
+
+                                                (function() {
+                                                   
+                                                    var first_slide = document.getElementById("slide1_"+<?php echo ($watchlist_iteration);?>);
+                                                    first_slide.classList.add("active");
+                                                }());
+
+                                            </script>
+
+=======
                                         for ($watchlist_iteration = 0; $watchlist_iteration < 3; $watchlist_iteration++) {
 
                                         ?>
@@ -74,6 +109,7 @@
                                                     document.getElementById("slider1_" + <?php echo ($watchlist_iteration); ?>);
                                                 }());
                                             </script>
+>>>>>>> main
                                             <?php
 
                                             ?>
@@ -84,25 +120,64 @@
                                                             <div class="row justify-content-center">
                                                                 <div class="col-11">
                                                                     <div class="slider-container">
-                                                                        <span class="arrows left" onclick="sliderMover('left',<?php echo ($watchlist_iteration); ?>);">&lt;</span>
-                                                                        <span class="arrows right" onclick="sliderMover('right',<?php echo ($watchlist_iteration); ?>);">&gt;</span>
+                                                                        <span class="arrows left" onclick="sliderMover('left',<?php echo ($watchlist_iteration); ?>);"><iconify-icon icon="mynaui:arrow-left-square" style="color: white;"></iconify-icon></span>
+                                                                        <span class="arrows right" onclick="sliderMover('right',<?php echo ($watchlist_iteration); ?>);"><iconify-icon icon="mynaui:arrow-right-square" style="color: white;"></iconify-icon></span>
 
-                                                                        <div class="slides" data-currentMargin="12.5" id="slider<?php echo ($watchlist_iteration); ?>" data-imageNumber="1">
-                                                                            <div class="slide active" id="slide1_<?php echo ($watchlist_iteration); ?>">
-                                                                                <img src="./assets/img/itinerary_IMG/seegiriya.png" />
-                                                                            </div>
-                                                                            <div class="slide" id="slide2_<?php echo ($watchlist_iteration); ?>">
-                                                                                <img src="./assets/img/itinerary_IMG/temple of tooth.jpg" />
-                                                                            </div>
-                                                                            <div class="slide" id="slide3_<?php echo ($watchlist_iteration); ?>">
-                                                                                <img src="./assets/img/itinerary_IMG/colombo.png" />
-                                                                            </div>
-                                                                            <div class="slide" id="slide4_<?php echo ($watchlist_iteration); ?>">
-                                                                                <img src="./assets/img/itinerary_IMG/matara.jpg" />
-                                                                            </div>
-                                                                            <div class="slide" id="slide5_<?php echo ($watchlist_iteration); ?>">
-                                                                                <img src="./assets/img/itinerary_IMG/mountlavinia.jpg" />
-                                                                            </div>
+
+                                                                        <?php
+
+                                                                        $place_img_rs = Database::search("SELECT * FROM `tour_has_place` INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` WHERE `tour_has_place`.`tour_id`='" . $watchlist_data["t_id"] . "' LIMIT 5");
+                                                                        $place_img_num = $place_img_rs->num_rows;
+
+                                                                        ?>
+
+
+                                                                        <div class="slides" style="width: 375%;" data-currentMargin="12.5" id="slider<?php echo ($watchlist_iteration); ?>" data-imageNumber="1">
+
+                                                                            <?php
+
+                                                                            for ($pn = 0; $pn < $place_img_num; $pn++) {
+
+                                                                                $place_img_data = $place_img_rs->fetch_assoc();
+
+                                                                                $img_path_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_img_data["place_id"] . "' LIMIT 1");
+
+                                                                                $img_path_num = $img_path_rs->num_rows;
+                                                                            ?>
+
+
+
+                                                                                <div class="slide active" id="slide<?php echo (($pn+1)."_".$watchlist_iteration); ?>">
+
+                                                                                    <?php
+
+                                                                                    if ($img_path_num == 0) {
+                                                                                    ?>
+
+                                                                                        <img src="./assets/img/itinerary_IMG/seegiriya.png" />
+
+                                                                                    <?php
+
+                                                                                    } else {
+
+                                                                                        $img_path_data = $img_path_rs->fetch_assoc();
+
+                                                                                    ?>
+
+                                                                                        <img src="./assets/img/places/<?php echo $img_path_data["path"]; ?>" />
+
+                                                                                    <?php
+                                                                                    }
+
+                                                                                    ?>
+
+                                                                                </div>
+
+                                                                            <?php
+                                                                            }
+
+                                                                            ?>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -114,8 +189,8 @@
                                                                     <div class="row ms-lg-3 mt-2">
                                                                         <div class="col-12 col-lg-7 m-2 m-lg-0 p-lg-0">
                                                                             <div class="row">
-                                                                                <span class="wt-slide-cont-textC pb-2" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700;">11 Day Tour Plan</span>
-                                                                                <p class="wt-slide-cont-textC2" style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400;">Lorem ipsum dolor sit amet consectetur. Praesent placerat ullamcorper enim tincidunt tempus nulla consequat dolor in. Tortor eu vestibulum tortor facilisi commodo. Magna euismod leo ullamcorper id aliquam.</p>
+                                                                                <span class="wt-slide-cont-textC pb-2" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.61vh); font-weight: 700;"><?php echo $watchlist_data["t_name"]; ?></span>
+                                                                                <p class="wt-slide-cont-textC2" style="font-family: 'Quicksand'; font-size: calc(0.51rem + 0.51vh); font-weight: 400;"><?php echo $watchlist_data["description"]; ?></p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-12">
