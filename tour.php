@@ -12,7 +12,7 @@ $location = "primary";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Plans</title>
+    <title>Lankan Travel | Tours</title>
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
@@ -247,7 +247,7 @@ $location = "primary";
                                 <div class="tour-bottom-section">
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span data-bs-toggle="modal" data-bs-target="#tourRequestModel">
                                                 <iconify-icon icon="mdi:airplane"></iconify-icon>
                                             </span>
                                         </span>
@@ -261,7 +261,7 @@ $location = "primary";
                                     </div>
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span onclick="addToWatchlist('<?php echo ($all_tour_data['id']); ?>');">
                                                 <iconify-icon icon="solar:heart-bold"></iconify-icon>
                                             </span>
                                         </span>
@@ -390,6 +390,78 @@ $location = "primary";
 
 
         </div>
+
+
+
+
+        <!-- Tour Request Modal -->
+        <div class="modal fade" id="tourRequestModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="fs-5 fw-bold" style="font-family: 'Quicksand'; color: #333;" id="exampleModalLabel">Make it Yours</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5">
+                                            <div class="row pt-1">
+                                                <span class="fw-bold ps-3" style="font-family: 'Quicksand'; font-size: calc(0.6rem + 0.6vh);">Tour Plan</span>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control" placeholder="Day 11 Tour Plan" readonly style="font-family: 'Quicksand'; cursor: default; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <input type="text" class="form-control" placeholder="Members" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <select class="form-select" aria-label="Tour Level" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                        <option value="1">Tour Level</option>
+                                                        <option value="2">Small</option>
+                                                        <option value="3">Medium</option>
+                                                        <option value="4">Comfortable</option>
+                                                        <option value="5">Luxury</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <select class="form-select" aria-label="How do we contact you?" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                        <option value="1">How do we contact you?</option>
+                                                        <option value="2">option1</option>
+                                                        <option value="3">option2</option>
+                                                        <option value="4">option3</option>
+                                                        <option value="5">option4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-7">
+                                            <div class="row">
+                                                <div class="col-12 mt-4">
+                                                    <textarea class="form-control" placeholder="Your Message.." id="#" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-4">
+                                                <div class="row justify-content-center justify-content-lg-end">
+                                                    <div class="col-9 col-lg-5 col-sm-4">
+                                                        <button type="button" class="btn text-white col-12 p-2 justify-content-center" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="request" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tour Request Modal -->
+
+
+
 
     </div>
     <?php include "./components/footer.php"; ?>
