@@ -152,3 +152,7 @@ function removeTourPlace() {
     alert("Please wait a moment and try again!");
   }
 }
+
+function viewItinerary(id) {
+  window.location = "Itinerary/" + id;
+}

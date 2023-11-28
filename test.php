@@ -44,3 +44,9 @@ if(isset($_SESSION["lt_admin"])){
     
 </body>
 </html>
+
+<script>
+    (function(){
+        // script code...
+    }());
+</script>

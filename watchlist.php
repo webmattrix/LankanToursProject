@@ -67,7 +67,16 @@
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <?php
                                         for ($watchlist_iteration = 0; $watchlist_iteration < 3; $watchlist_iteration++) {
+
                                         ?>
+                                            <script>
+                                                (function() {
+                                                    document.getElementById("slider1_" + <?php echo ($watchlist_iteration); ?>);
+                                                }());
+                                            </script>
+                                            <?php
+
+                                            ?>
                                             <div class="col-12">
                                                 <div class="col-12 py-3 wt-blog-area-field" style="border-radius: 6px; box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.50);">
                                                     <div class="row">

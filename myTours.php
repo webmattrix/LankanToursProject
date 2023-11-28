@@ -531,8 +531,7 @@ ORDER BY `start_date` ASC";
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <?php
     } else {
-       header("Location: ./Login");
-       
+       header("Location: ./Login");       
     } ?>
 </body>
 

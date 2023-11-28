@@ -23,7 +23,7 @@
 .tour_popular-tours .tour_popular-tours-items .item {
   padding: 10px;
   padding-bottom: 0;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid #d1d1d1;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -264,7 +264,6 @@
 .custom-tour .grid-template .form-area .count-switch button {
   border: none;
   outline: none;
-  color: #333333;
 }
 
 .custom-tour .grid-template .form-area .count-switch input {
@@ -286,6 +285,7 @@
 .custom-tour .grid-template .form-area .tour-plan-slider .slides .slide {
   height: 100%;
   width: 100%;
+  color: white;
 }
 
 .custom-tour .grid-template .form-area .tour-plan-slider .slides {
@@ -313,7 +313,8 @@
   z-index: -0;
 }
 
-.tour_popular-tours .tour_popular-tours-items .item .tour-desc {
+.tour_popular-tours .tour_popular-tours-items .item .tour-desc,
+.tour_popular-tours-items .item .popular-desc {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -334,5 +335,6 @@
 }
 .custom-tour .grid-template .form-area > div > div button {
   background-color: white;
-  box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid #d1d1d1;
+  color: #333333;
 }

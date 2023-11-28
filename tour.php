@@ -116,10 +116,10 @@ $location = "primary";
                                 <!-- Image Slider Container -->
 
                                 <div class="quicksand-Medium mt-2">
-                                    <div class="content-heading">
+                                    <div class="content-heading popular-desc">
                                         <span><?php echo ($tour_detail_data["description"]); ?></span>
                                     </div>
-                                    <a class="d-flex align-items-center gap-2">
+                                    <a class="d-flex align-items-center gap-2" href="Itinerary/<?php echo ($tour_detail_data["id"]); ?>">
                                         <iconify-icon icon="mdi:airplane"></iconify-icon>
                                         <span class="content-heading">Travel to read more...</span>
                                     </a>
@@ -254,7 +254,7 @@ $location = "primary";
                                     </div>
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span onclick="viewItinerary('<?php echo ($all_tour_data['id']); ?>')">
                                                 <iconify-icon icon="basil:location-solid"></iconify-icon>
                                             </span>
                                         </span>
@@ -290,11 +290,11 @@ $location = "primary";
                         <div class="p-2"> <!-- Column 01 -->
                             <div class="d-flex flex-column">
                                 <label for="tourist content-heading quicksand-Medium">Tourist</label>
-                                <input type="text" name="" id="tourist" class="text-dark w-100 p-2 rounded" placeholder="Your name">
+                                <input type="text" name="" id="tourist" class="w-100 p-2 rounded" placeholder="Your name">
                             </div>
                             <div class="d-flex flex-column mt-2">
                                 <label for="tourLevel content-heading quicksand-Medium">Tour Level</label>
-                                <select id="tourLevel" class="text-dark w-100 p-2 rounded">
+                                <select id="tourLevel" class="w-100 p-2 rounded">
                                     <option value="0">Select</option>
                                 </select>
                             </div>
@@ -305,18 +305,18 @@ $location = "primary";
                                     $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
                                     $ct_place_num = $ct_place_rs->num_rows;
                                     ?>
-                                    <select id="addTourPlace" class="text-dark w-100 p-2 rounded">
-                                        <option value="0" class="text-dark">Select</option>
+                                    <select id="addTourPlace" class="w-100 p-2 rounded">
+                                        <option value="0" class="">Select</option>
                                         <?php
                                         for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
                                             $ct_place_data = $ct_place_rs->fetch_assoc();
                                         ?>
-                                            <option value="<?php echo ($ct_place_data["id"]); ?>" class="text-dark"><?php echo ($ct_place_data["name"]); ?></option>
+                                            <option value="<?php echo ($ct_place_data["id"]); ?>" class=""><?php echo ($ct_place_data["name"]); ?></option>
                                         <?php
                                         }
                                         ?>
                                     </select>
-                                    <button class="border-0 px-4 rounded" onclick="addTourPlace();" id="addTourPlaceBtn">
+                                    <button class="px-4 rounded" onclick="addTourPlace();" id="addTourPlaceBtn">
                                         <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
                                     </button>
                                 </div>
@@ -336,10 +336,10 @@ $location = "primary";
                                 </div>
 
                                 <div class="d-flex gap-2 mt-1">
-                                    <select id="removeTourPlace" class="text-dark w-100 p-2 rounded">
-                                        <option value="0" class="text-dark">Select</option>
+                                    <select id="removeTourPlace" class="w-100 p-2 rounded">
+                                        <option value="0" class="">Select</option>
                                     </select>
-                                    <button class="border-0 px-4 rounded" onclick="removeTourPlace();" id="removeTourPlaceBtn">
+                                    <button class="px-4 rounded" onclick="removeTourPlace();" id="removeTourPlaceBtn">
                                         <iconify-icon icon="ep:remove-filled" class="text-danger"></iconify-icon>
                                     </button>
                                 </div>
@@ -349,13 +349,13 @@ $location = "primary";
                             <div class="">
                                 <div class="">
                                     <label for="">Contact Method</label>
-                                    <select id="" class="text-dark w-100 p-2 rounded">
+                                    <select id="" class="w-100 p-2 rounded">
                                         <option value="0">Select</option>
                                     </select>
                                 </div>
                                 <div class="mt-2">
                                     <label for="">Events</label>
-                                    <select id="" class="text-dark w-100 p-2 rounded" disabled>
+                                    <select id="" class="w-100 p-2 rounded" disabled>
                                         <option value="0">Select</option>
                                     </select>
                                 </div>
@@ -363,7 +363,7 @@ $location = "primary";
                                     <label for="">Member Count</label>
                                     <div class="count-switch rounded overflow-hidden">
                                         <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2 text-dark text-center" />
+                                        <input type="text" class="p-2 text-center" />
                                         <button class="rounded-end fs-4 p-2 fw-bold">+</button>
                                     </div>
                                 </div>
@@ -372,13 +372,13 @@ $location = "primary";
                         <div class="p-2"> <!-- Column 03 -->
                             <div class="">
                                 <label for="">Contact Method</label>
-                                <select id="" class="text-dark w-100 p-2 rounded">
+                                <select id="" class="w-100 p-2 rounded">
                                     <option value="0">Select</option>
                                 </select>
                             </div>
                             <div class="d-flex flex-column mt-2">
                                 <label for="tourist content-heading quicksand-Medium">Message</label>
-                                <textarea cols="30" rows="10" placeholder="Your Request Message" class="text-dark w-100 p-2 rounded"></textarea>
+                                <textarea cols="30" rows="10" placeholder="Your Request Message" class="w-100 p-2 rounded"></textarea>
                             </div>
                         </div> <!-- Column 03 -->
                     </div> <!-- Form Area -->
@@ -391,8 +391,8 @@ $location = "primary";
 
         </div>
 
-        <?php include "./components/footer.php"; ?>
     </div>
+    <?php include "./components/footer.php"; ?>
 
     <script src="./js/newHeader.js"></script>
     <script src="./js/tour.js"></script>
