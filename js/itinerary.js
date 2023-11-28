@@ -1,6 +1,6 @@
 var homeSlider;
 function homeOnloadFunction() {
-  alert("OK");
+  // alert("OK");
   homeSlider = setInterval(homeSlider, 1000 * 5);
 }
 

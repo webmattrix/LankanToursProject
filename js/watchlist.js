@@ -72,4 +72,20 @@ function sliderMover(direction, sliderNumber) {
   }
 }
 
+function filterSection(){
+
+  var s_field = document.getElementById("search_field").value;
+
+    var req3 = new XMLHttpRequest();
+    req3.onreadystatechange = function () {
+        if (req3.readyState == 4) {
+            var resData3 = req3.responseText;
+            alert(resData3);
+        }
+    };
+
+    req3.open("GET", "./assets/model/watchlistFilterProcess.php?sf="+ s_field, true);
+    req3.send();
+}
+
 // Slider js
