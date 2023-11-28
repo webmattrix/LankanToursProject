@@ -109,6 +109,8 @@ class Test
 }
 ?>
 
+
+
 <a href="?user=guide"><button>Guide</button></a>
 <a href="?user=admin"><button>Admin</button></a>
 <a href="?user=tourist"><button>Tourist</button></a>

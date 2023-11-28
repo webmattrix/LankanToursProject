@@ -9,8 +9,8 @@ function searchGuide(){
         document.getElementById("ViewArea").innerHTML = text2;
       }
     };
-    request.open("GET", "./assets/model/guideSearch.php?text=" + searchText.value, true);
-    // request.open("GET", "../assets/model/adminSearch.php?text=" + searchText.value, true);
+    request.open("GET", "../assets/model/guideSearch.php?text=" + searchText.value, true);
+    
     request.send();
   
   }

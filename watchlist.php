@@ -77,6 +77,7 @@
                                 <div class="col-12 wt-blog-cont4" style="border-radius: 5px; height: 72.1vh; overflow-y: auto; overflow-x: hidden;">
                                     <div class="row p-lg-4" style="row-gap: 0.3in;">
                                         <?php
+<<<<<<< HEAD
 
                                         $watchlist_rs = Database::search("SELECT *, `tour`.`name` AS `t_name`, `tour`.`id` AS `t_id` FROM `watchlist` INNER JOIN `tour` ON `watchlist`.`tour_id`=`tour`.`id`");
                                         $watchlist_num = $watchlist_rs->num_rows;
@@ -99,6 +100,16 @@
 
                                             </script>
 
+=======
+                                        for ($watchlist_iteration = 0; $watchlist_iteration < 3; $watchlist_iteration++) {
+
+                                        ?>
+                                            <script>
+                                                (function() {
+                                                    document.getElementById("slider1_" + <?php echo ($watchlist_iteration); ?>);
+                                                }());
+                                            </script>
+>>>>>>> main
                                             <?php
 
                                             ?>
