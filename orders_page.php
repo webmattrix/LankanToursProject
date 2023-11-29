@@ -1,20 +1,19 @@
-
 <?php
 
-    require "./assets/model/getOrdersList.php";
-    require "./assets/model/timeZoneConverter.php";
+require "./assets/model/getOrdersList.php";
+require "./assets/model/timeZoneConverter.php";
 
-    session_start();
+session_start();
 
-    $admin = $_SESSION["lt_admin"];
+$admin = $_SESSION["lt_admin"];
 
-    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+$employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
                                      FROM `employee` 
                                      INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id` 
                                      INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` 
-                                     WHERE `employee`.`id`='".$admin["employee_id"]."'");
-    
-    $employee_data = $employee_rs->fetch_assoc();
+                                     WHERE `employee`.`id`='" . $admin["employee_id"] . "'");
+
+$employee_data = $employee_rs->fetch_assoc();
 
 
 ?>
@@ -29,21 +28,21 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
 
     <?php
-    
-    if(isset($_COOKIE["lt_theme"])){
-      if($_COOKIE["lt_theme"] === 'light'){
-        ?>
-         <link rel="stylesheet" href="./css/orders_page.css">
+
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+            <link rel="stylesheet" href="./css/orders_page.css">
         <?php
-      }else{
+        } else {
         ?>
-        <link rel="stylesheet" href="./css/orderDark.css">
+            <link rel="stylesheet" href="./css/orderDark.css">
         <?php
-      }
-    }else{
+        }
+    } else {
         ?>
-         <link rel="stylesheet" href="./css/orders_page.css">
-        <?php
+        <link rel="stylesheet" href="./css/orders_page.css">
+    <?php
     }
 
     ?>
