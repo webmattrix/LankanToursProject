@@ -380,6 +380,12 @@ $location = "primary";
                                 <label for="tourist content-heading quicksand-Medium">Message</label>
                                 <textarea cols="30" rows="10" placeholder="Your Request Message" class="w-100 p-2 rounded"></textarea>
                             </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <button class="btn text-white p-2 px-4 d-flex align-items-center gap-2 justify-content-center" style="background-color: #1546F4;" onclick="placeCustomTourOrder();">
+                                    <span>Send Request</span>
+                                    <iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon>
+                                </button>
+                            </div>
                         </div> <!-- Column 03 -->
                     </div> <!-- Form Area -->
                     <div class=""></div> <!-- Request Message Area -->

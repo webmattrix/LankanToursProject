@@ -181,3 +181,16 @@ function addToWatchlist(id) {
   req.open("GET", "./assets/model/addToWatchlist.php?id=" + id, true);
   req.send();
 }
+
+function placeCustomTourOrder() {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      alert(req.responseText);
+    }
+  };
+
+  req.open("POST", "../assets/model/placeCustomOrder.php", true);
+  req.send();
+}
