@@ -2,6 +2,7 @@
 
 require "./assets/model/sqlConnection.php";
 require "./assets/model/timeZoneConverter.php";
+require "./assets/model/getTourViews.php";
 
 session_start();
 
@@ -14,6 +15,8 @@ $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `emp
                                      WHERE `employee`.`id`='" . $admin["employee_id"] . "'");
 
 $employee_data = $employee_rs->fetch_assoc();
+
+$x = TourViews::getViews('project');
 
 ?>
 
@@ -83,7 +86,7 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-2 mt-3 pt-2">
-                                                                                    <button class="addTourBtn1 col-12 d-grid">Add</button>
+                                                                                    <button class="addTourBtn1 col-12 d-grid" on>Add</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -100,7 +103,7 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                                                                         <div class="col-5">
                                                                                             <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">City</span>
-                                                                                            <select class="selectorModalMTP_ord" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
+                                                                                            <select class="selectorModalMTP_ord" id="selectCity" onchange="loadPlaces();" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
                                                                                                 <option selected>Select</option>
 
                                                                                                 <?php
@@ -129,7 +132,7 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                             ?>
 
                                                                                             <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">Visit Place</span>
-                                                                                            <select class="selectorModalMTP_ord" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
+                                                                                            <select class="selectorModalMTP_ord" id="selectPlace" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
                                                                                                 <option selected>Select</option>
 
                                                                                                 <?php
@@ -678,7 +681,7 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                     <tr>
                                                                                         <div class="row">
                                                                                             <th class="col-3 py-2 text-center fw-normal mt-tab-textC"><?php echo $tour_plan_data["name"]; ?></th>
-                                                                                            <td class="col-2 py-2 text-center mt-tab-textC">1260</td>
+                                                                                            <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $x;?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $purchased_count; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $duration; ?></td>
                                                                                             <td class="col-1 py-2 text-center">
