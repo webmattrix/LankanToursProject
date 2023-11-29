@@ -39,13 +39,25 @@
         <div class="header-menu p-0 m-0 d-none d-lg-block">
             <ul class="d-flex list-unstyled gap-3 gap-xl-5 mb-0 quicksand-SemiBold" style="align-items: center;">
                 <li>
-                    <a href="Home" class="text-decoration-none c-pointer">
+                    <a href="<?php
+                                if ($location == 'primary') {
+                                    echo ('Home');
+                                } else {
+                                    echo ('../Home');
+                                }
+                                ?>" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Home</span>
                         <iconify-icon icon="solar:home-linear" class="d-block fs-4 d-lg-none text-white" title="Home"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="Tours" class="text-decoration-none c-pointer">
+                    <a href="<?php
+                                if ($location == 'primary') {
+                                    echo ('Tours');
+                                } else {
+                                    echo ('../Tours');
+                                }
+                                ?>" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Tours</span>
                         <iconify-icon icon="carbon:plane" class="d-block fs-4 d-lg-none text-white" title="Tours"></iconify-icon>
                     </a>
@@ -57,13 +69,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Gallery" class="text-decoration-none c-pointer">
+                    <a href="<?php
+                                if ($location == 'primary') {
+                                    echo ('Gallery');
+                                } else {
+                                    echo ('../Gallery');
+                                }
+                                ?>" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Gallery</span>
                         <iconify-icon icon="solar:gallery-outline" class="d-block fs-4 d-lg-none text-white" title="Gallery"></iconify-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="Contact" class="text-decoration-none c-pointer">
+                    <a href="<?php
+                                if ($location == 'primary') {
+                                    echo ('Contact');
+                                } else {
+                                    echo ('../Contact');
+                                }
+                                ?>" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Contact</span>
                         <iconify-icon icon="ri:customer-service-2-line" class="d-block fs-4 d-lg-none text-white" title="Contact"></iconify-icon>
                     </a>
@@ -72,7 +96,13 @@
                 if (!isset($_SESSION["lt_tourist"])) {
                 ?>
                     <li>
-                        <a href="Login" class="text-decoration-none c-pointer">
+                        <a href="<?php
+                                    if ($location == 'primary') {
+                                        echo ('Login');
+                                    } else {
+                                        echo ('../Login');
+                                    }
+                                    ?>" class="text-decoration-none c-pointer">
                             <span class="d-lg-block d-none">Join</span>
                             <iconify-icon icon="solar:login-outline" class="d-block fs-4 d-lg-none" title="Log In"></iconify-icon>
                         </a>
