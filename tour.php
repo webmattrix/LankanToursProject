@@ -296,17 +296,27 @@ $location = "primary";
                                 <label for="tourLevel content-heading quicksand-Medium">Tour Level</label>
                                 <select id="tourLevel" class="w-100 p-2 rounded">
                                     <option value="0">Select</option>
+                                    <option value="1">Star 1</option>
+                                    <option value="2">Star 2</option>
+                                    <option value="3">Star 3</option>
+                                    <option value="4">Star 4</option>
+                                    <option value="5">Star 5</option>
                                 </select>
                             </div>
                             <div class="mt-2">
                                 <span class="">Tour Places</span>
                                 <div class="d-flex gap-2">
+
+                                    <select id="" class="w-100 p-2 rounded">
+                                        <option value="0">City Name</option>
+                                    </select>
+
                                     <?php
                                     $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
                                     $ct_place_num = $ct_place_rs->num_rows;
                                     ?>
                                     <select id="addTourPlace" class="w-100 p-2 rounded">
-                                        <option value="0" class="">Select</option>
+                                        <option value="0" class="">Place Name</option>
                                         <?php
                                         for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
                                             $ct_place_data = $ct_place_rs->fetch_assoc();
@@ -349,46 +359,57 @@ $location = "primary";
                             <div class="">
                                 <div class="">
                                     <label for="">Contact Method</label>
-                                    <select id="" class="w-100 p-2 rounded">
+                                    <?php
+                                    $contact_method_rs = Database::search("SELECT * FROM `contact_method`");
+                                    $contact_method_num = $contact_method_rs->num_rows;
+                                    ?>
+                                    <select id="contact_method" class="w-100 p-2 rounded">
                                         <option value="0">Select</option>
+                                        <?php
+                                        for ($contact_method_iteration = 0; $contact_method_iteration < $contact_method_num; $contact_method_iteration++) {
+                                            $contact_method_data = $contact_method_rs->fetch_assoc();
+                                        ?>
+                                            <option value="<?php echo ($contact_method_data["id"]); ?>"><?php echo ($contact_method_data["name"]); ?></option>
+                                        <?php
+                                        }
+                                        ?>
                                     </select>
                                 </div>
-                                <div class="mt-2">
+                                <!-- <div class="mt-2">
                                     <label for="">Events</label>
                                     <select id="" class="w-100 p-2 rounded" disabled>
                                         <option value="0">Select</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="mt-1">
-                                    <label for="">Member Count</label>
+                                    <label for="">Number of members</label>
                                     <div class="count-switch rounded overflow-hidden">
                                         <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2 text-center" />
+                                        <input type="text" class="p-2 text-center" id="memberCount"/>
                                         <button class="rounded-end fs-4 p-2 fw-bold">+</button>
                                     </div>
                                 </div>
                             </div>
                         </div> <!-- Column 02 -->
                         <div class="p-2"> <!-- Column 03 -->
-                            <div class="">
+                            <!-- <div class="">
                                 <label for="">Contact Method</label>
                                 <select id="" class="w-100 p-2 rounded">
                                     <option value="0">Select</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="d-flex flex-column mt-2">
                                 <label for="tourist content-heading quicksand-Medium">Message</label>
-                                <textarea cols="30" rows="10" placeholder="Your Request Message" class="w-100 p-2 rounded"></textarea>
-                            </div>
-                            <div class="d-flex justify-content-end mt-2">
-                                <button class="btn text-white p-2 px-4 d-flex align-items-center gap-2 justify-content-center" style="background-color: #1546F4;" onclick="placeCustomTourOrder();">
-                                    <span>Send Request</span>
-                                    <iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon>
-                                </button>
+                                <textarea cols="30" rows="10" placeholder="Your Request Message" class="w-100 p-2 rounded" id="message"></textarea>
                             </div>
                         </div> <!-- Column 03 -->
                     </div> <!-- Form Area -->
-                    <div class=""></div> <!-- Request Message Area -->
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn text-white p-2 px-4 d-flex align-items-center gap-2 justify-content-center" style="background-color: #1546F4;" onclick="placeCustomTourOrder();">
+                            <span>Send Request</span>
+                            <iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- Custom Tour -->

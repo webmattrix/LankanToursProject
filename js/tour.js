@@ -183,6 +183,17 @@ function addToWatchlist(id) {
 }
 
 function placeCustomTourOrder() {
+  var formData = new FormData();
+  formData.append("tourist_name", document.getElementById("tourist").value);
+  formData.append("tourLevel", document.getElementById("tourLevel").value);
+  formData.append("places_list", JSON.stringify(custom_tour_places));
+  formData.append(
+    "contact_method",
+    document.getElementById("contact_method").value
+  );
+  formData.append("memberCount", document.getElementById("memberCount").value);
+  formData.append("message", document.getElementById("message").value);
+
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {
@@ -191,6 +202,6 @@ function placeCustomTourOrder() {
     }
   };
 
-  req.open("POST", "../assets/model/placeCustomOrder.php", true);
-  req.send();
+  req.open("POST", "./assets/model/placeCustomOrder.php", true);
+  req.send(formData);
 }

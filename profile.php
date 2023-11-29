@@ -2,6 +2,8 @@
 
 session_start();
 
+$location = 'primary';
+
 if (!isset($_SESSION["lt_tourist"])) {
     header("Location: Login");
 } else {
@@ -33,7 +35,23 @@ if (!isset($_SESSION["lt_tourist"])) {
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/profile.css">
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+            <link rel="stylesheet" href="./css/profile.css">
+        <?php
+        } else {
+        ?>
+            <link rel="stylesheet" href="./css/profileDark.css">
+        <?php
+        }
+    } else {
+        ?>
+        <link rel="stylesheet" href="./css/profile.css">
+    <?php
+    }
+    ?>
 </head>
 
 <body class="c-default" id="body">
@@ -279,7 +297,7 @@ if (!isset($_SESSION["lt_tourist"])) {
 
         </div>
 
-        
+
     </div>
     <?php include "./components/footer.php"; ?>
 </body>
