@@ -1,20 +1,19 @@
-
 <?php
 
-    require "./assets/model/sqlConnection.php";
-    require "./assets/model/timeZoneConverter.php";
+require "./assets/model/sqlConnection.php";
+require "./assets/model/timeZoneConverter.php";
 
-    session_start();
+session_start();
 
-    $admin = $_SESSION["lt_admin"];
+$admin = $_SESSION["lt_admin"];
 
-    $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+$employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
                                      FROM `employee` 
                                      INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id` 
                                      INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` 
-                                     WHERE `employee`.`id`='".$admin["employee_id"]."'");
-    
-    $employee_data = $employee_rs->fetch_assoc();
+                                     WHERE `employee`.`id`='" . $admin["employee_id"] . "'");
+
+$employee_data = $employee_rs->fetch_assoc();
 
 ?>
 
@@ -57,7 +56,7 @@
 
                                         <!-- View Action Modal -->
 
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="tbUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                                 <div class="modal-content mt-modal-bgC">
                                                     <div class="modal-header">
@@ -75,11 +74,11 @@
                                                                                     <div class="row justify-content-center gap-3">
                                                                                         <div class="col-5">
                                                                                             <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">Name Of Tour</span>
-                                                                                            <input type="text" class="input-MTP">
+                                                                                            <input type="text" class="input-MTP" id="nm_tour1">
                                                                                         </div>
                                                                                         <div class="col-5">
                                                                                             <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">Duration</span>
-                                                                                            <input type="text" class="input-MTP">
+                                                                                            <input type="text" class="input-MTP" id="dur_tour1">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -92,30 +91,62 @@
                                                                             <div class="row">
                                                                                 <div class="col-9">
                                                                                     <div class="row justify-content-center gap-3">
+
+                                                                                        <?php
+
+                                                                                        $tourCity_rs = Database::search("SELECT * FROM `city`");
+                                                                                        $tourCity_num = $tourCity_rs->num_rows;
+                                                                                        ?>
+
                                                                                         <div class="col-5">
-                                                                                            <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">Day</span>
+                                                                                            <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">City</span>
                                                                                             <select class="selectorModalMTP_ord" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
                                                                                                 <option selected>Select</option>
-                                                                                                <option value="1">1</option>
-                                                                                                <option value="2">2</option>
-                                                                                                <option value="3">3</option>
-                                                                                                <option value="3">4</option>
-                                                                                                <option value="3">5</option>
-                                                                                                <option value="3">6</option>
-                                                                                                <option value="3">7</option>
+
+                                                                                                <?php
+                                                                                                for ($ct = 0; $ct < $tourCity_num; $ct++) {
+                                                                                                    $tourCity_data = $tourCity_rs->fetch_assoc();
+                                                                                                ?>
+
+                                                                                                    <option value="<?php echo $tourCity_data["id"]; ?>"><?php echo $tourCity_data["name"]; ?></option>
+
+                                                                                                <?php
+
+                                                                                                }
+
+                                                                                                ?>
+
                                                                                             </select>
                                                                                         </div>
+
                                                                                         <div class="col-5">
+
+                                                                                            <?php
+
+                                                                                            $tourPlace_rs = Database::search("SELECT * FROM `place`");
+                                                                                            $tourPlace_num = $tourPlace_rs->num_rows;
+
+                                                                                            ?>
+
                                                                                             <span class="mt-modal-cont-textC" style="font-family: 'Inter'; font-size: calc(0.58rem + 0.57vh); font-weight: 400;">Visit Place</span>
                                                                                             <select class="selectorModalMTP_ord" style="cursor: pointer; overflow-y: scroll;" aria-label="Default select example">
                                                                                                 <option selected>Select</option>
-                                                                                                <option value="1">Colombo</option>
-                                                                                                <option value="2">Kandy</option>
-                                                                                                <option value="3">Galle</option>
-                                                                                                <option value="3">Mount Lavinia</option>
-                                                                                                <option value="3">Nuwara Eliya</option>
-                                                                                                <option value="3">Anuradhapura</option>
-                                                                                                <option value="3">Jaffna</option>
+
+                                                                                                <?php
+
+                                                                                                for ($pl = 0; $pl < $tourPlace_num; $pl++) {
+                                                                                                    $tourPlace_data = $tourPlace_rs->fetch_assoc();
+
+                                                                                                ?>
+
+                                                                                                    <option value="<?php echo $tourPlace_data["id"];?>"><?php echo $tourPlace_data["name"];?></option>
+
+                                                                                                <?php
+
+                                                                                                }
+
+                                                                                                ?>
+
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -132,8 +163,8 @@
                                                                                         <thead>
                                                                                             <tr>
                                                                                                 <div class="row">
-                                                                                                    <th class="col-3 py-3 text-center mt-modal-tab-textC"><span style="font-size: calc(0.58rem + 0.57vh); font-family: 'Inter'; border-radius: 8px;">Place</span></th>
-                                                                                                    <th class="col-3 py-3 text-center mt-modal-tab-textC"><span style="font-size: calc(0.58rem + 0.57vh); font-family: 'Inter'; border-radius: 8px;">Day</span></th>
+                                                                                                    <th class="col-2 py-3 text-center mt-modal-tab-textC"><span style="font-size: calc(0.58rem + 0.57vh); font-family: 'Inter'; border-radius: 8px;">City</span></th>
+                                                                                                    <th class="col-4 py-3 text-center mt-modal-tab-textC"><span style="font-size: calc(0.58rem + 0.57vh); font-family: 'Inter'; border-radius: 8px;">Place</span></th>
                                                                                                     <th class="col-1 py-3 text-center mt-modal-tab-textC"><span style="font-size: calc(0.58rem + 0.57vh); font-family: 'Inter'; border-radius: 8px;">Action</span></th>
                                                                                                 </div>
                                                                                             </tr>
@@ -142,7 +173,7 @@
                                                                                             <tr>
                                                                                                 <div class="row">
                                                                                                     <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Kandy</th>
-                                                                                                    <td class="col-3 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">2 Day</td>
+                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">dalada maligawa</td>
                                                                                                     <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
                                                                                                         <button class="addTourBtnDel1 px-4 py-1">Delete</button>
                                                                                                     </td>
@@ -151,7 +182,7 @@
                                                                                             <tr>
                                                                                                 <div class="row">
                                                                                                     <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Galle</th>
-                                                                                                    <td class="col-3 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">1 Day</td>
+                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">galle fort</td>
                                                                                                     <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
                                                                                                         <button class="addTourBtnDel1 px-4 py-1">Delete</button>
                                                                                                     </td>
@@ -160,7 +191,7 @@
                                                                                             <tr>
                                                                                                 <div class="row">
                                                                                                     <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Colombo</th>
-                                                                                                    <td class="col-3 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">1 Day</td>
+                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">gangarama temple</td>
                                                                                                     <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
                                                                                                         <button class="addTourBtnDel1 px-4 py-1">Delete</button>
                                                                                                     </td>
@@ -508,7 +539,7 @@
                                                                                         </div>
                                                                                         <div class="col-6">
                                                                                             <div class="row">
-                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;"><?php echo $mpt_plan_data2["tour_name"];?></span>
+                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;"><?php echo $mpt_plan_data2["tour_name"]; ?></span>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-6">
@@ -651,7 +682,7 @@
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $purchased_count; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $duration; ?></td>
                                                                                             <td class="col-1 py-2 text-center">
-                                                                                                <iconify-icon icon="bi:eye-fill" onclick="tourUpdate(<?php echo $tour_plan_data['id'];?>);" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                                <iconify-icon icon="bi:eye-fill" onclick="tourUpdate(<?php echo $tour_plan_data['id']; ?>);" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
                                                                                             </td>
                                                                                         </div>
                                                                                     </tr>
