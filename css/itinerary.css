@@ -145,3 +145,11 @@ background-color: #EBEBEB;
   border: 6px solid #E7E7E7;
   color: #FFFFFF;
 }
+
+.afterProcess1{
+  display: none;
+}
+
+.reqProcess1{
+  display: block;
+}
