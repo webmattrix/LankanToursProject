@@ -610,7 +610,7 @@
                                                                                 <tr>
                                                                                     <div class="row">
                                                                                         <th class="col-3 py-3 text-center mt-tab-textC">Tour Name</th>
-                                                                                        <th class="col-2 py-3 text-center mt-tab-textC">Clicks</th>
+                                                                                        <th class="col-2 py-3 text-center mt-tab-textC">Views</th>
                                                                                         <th class="col-2 py-3 text-center mt-tab-textC">Purchased Count</th>
                                                                                         <th class="col-2 py-3 text-center mt-tab-textC">Duration of tour</th>
                                                                                         <th class="col-1 py-3 text-center mt-tab-textC">Action</th>

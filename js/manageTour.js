@@ -1,5 +1,5 @@
 
-function tourUpdate(tid){
+function tourUpdate(t_id){
 
   var req = new XMLHttpRequest();
   req.onreadystatechange == function(){
@@ -10,6 +10,6 @@ function tourUpdate(tid){
      }
   };
 
-  req
-
+  req.open("GET","tourUpdateProcess.php?tid="+t_id,true);
+  req.send();
 }

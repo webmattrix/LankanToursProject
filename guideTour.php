@@ -1,3 +1,21 @@
+<?php
+
+require "./assets/model/sqlConnection.php";
+
+session_start();
+
+$guide = $_SESSION["lt_guide"];
+
+$employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
+                                     FROM `employee` 
+                                     INNER JOIN `guide` ON `employee`.`id`=`guide`.`employee_id` 
+                                     INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id` 
+                                     WHERE `employee`.`id`='" . $guide["employee_id"] . "'");
+
+$employee_data = $employee_rs->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +23,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guide Panel | Tours Page</title>
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/adminTemplate.css">
-    <link rel="stylesheet" href="./css/guideP_TourPage.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/adminTemplate.css">
+    <link rel="stylesheet" href="../css/guideP_TourPage.css" />
     <!-- <link rel="stylesheet" href="./css/guideTourDark.css"/> -->
 </head>
 
@@ -18,6 +36,9 @@
 
             <div class="d-flex p-0">
                 <?php
+
+
+
                 include "./components/guideSidebar.php";
                 ?>
 
@@ -366,9 +387,9 @@
         </div>
     </div>
 
-    <script src="./js/adminTemplate.js"></script>
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="../js/adminTemplate.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
