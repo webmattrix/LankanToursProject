@@ -198,7 +198,11 @@ function placeCustomTourOrder() {
 
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
-      alert(req.responseText);
+      if (req.responseText == "1") {
+        alert("You have to login first");
+      } else {
+        alert(req.responseText);
+      }
     }
   };
 
