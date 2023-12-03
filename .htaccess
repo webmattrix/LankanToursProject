@@ -1,4 +1,9 @@
+Options +FollowSymLinks -MultiViews
 ReWriteEngine On
+<<<<<<< HEAD
+RewriteBase /
+=======
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
 Options -Indexes
 
 <Files .htaccess>
@@ -20,9 +25,14 @@ ReWriteRule ^Orders/(\d+)$ myTours.php?page_no=$1 [NC,L]
 ReWriteRule ^Contact$ ContactPage.php [NC,L]
 ReWriteRule ^Gallery$ touristGallery.php [NC,L]
 ReWriteRule ^Profile$ profile.php [NC,L]
+<<<<<<< HEAD
+ReWriteRule ^Test$ test.php [NC,L]
+RewriteRule ^Test/([0-9]+)$ test.php?id=$1 [QSA,L]
+=======
 ReWriteRule ^Sample$ sample.php [NC,L]
 ReWriteRule ^Sample/(\d+)$ sample.php?page_no=$1 [NC,L]
 ReWriteRule ^Watchlist$ watchlist.php [NC,L]
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
 
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]

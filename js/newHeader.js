@@ -53,6 +53,8 @@ function mobileMenuToggle() {
     menu.style.marginLeft = 0 + "%";
   }
 }
+<<<<<<< HEAD
+=======
 
 function changeTheme(theme) {
   console.log(theme);
@@ -76,3 +78,4 @@ function changeTheme(theme) {
   req.open("GET", requestPath, true);
   req.send();
 }
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b

@@ -21,6 +21,9 @@
         </div>
 
         <div class="site-name d-flex align-items-center">
+<<<<<<< HEAD
+            <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
+=======
             <?php
 
             if ($location == "primary") {
@@ -34,6 +37,7 @@
             }
 
             ?>
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
             <span class="segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px; color: #333333;">Lankan Travel</span>
         </div>
         <div class="header-menu p-0 m-0 d-none d-lg-block">
