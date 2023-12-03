@@ -1,6 +1,4 @@
-Options +FollowSymLinks -MultiViews
 ReWriteEngine On
-RewriteBase /
 Options -Indexes
 
 <Files .htaccess>

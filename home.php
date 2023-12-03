@@ -1,12 +1,9 @@
 <?php
 session_start();
 require "assets/model/sqlConnection.php";
-<<<<<<< HEAD
-=======
 
 $location = "primary";
 
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +16,7 @@ $location = "primary";
   <meta name="title" content="Lankan Travel" />
   <meta name="description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
 
-<<<<<<< HEAD
-Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
-=======
 Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -31,11 +24,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   <meta property="og:title" content="Lankan Travel" />
   <meta property="og:description" content="Discover Sri Lanka's Splendor: Unveil a Tapestry of Beauty & Rich Heritage
 
-<<<<<<< HEAD
-Experience the allure of Sri Lanka's wonders – from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
-=======
 Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient temples, lush greenery to vibrant culture. Let us be your gateway to a land teeming with adventure, breathtaking landscapes, and warm hospitality. Plan your unforgettable journey today!" />
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -260,11 +249,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                 <?php
                 } else {
                 ?>
-<<<<<<< HEAD
-                  <div class="place" style="background-image: url('./assets/img/places/Kandy/Dalada Maligawa (1).jpg');">
-=======
                   <div class="place" style="background-image: url('./assets/img/places/Place.jpg');">
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
                     <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
                     <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
                   </div>

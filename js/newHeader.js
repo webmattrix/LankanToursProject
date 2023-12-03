@@ -20,7 +20,7 @@ document
 
 document
   .getElementById("headerMorePanel2")
-  .addEventListener("mouseout", () => {});
+  .addEventListener("mouseout", () => { });
 
 document.getElementById("headerMoreIcon").addEventListener("click", () => {
   document.getElementById("headerMorePanel2").classList.toggle("d-none");
@@ -53,8 +53,6 @@ function mobileMenuToggle() {
     menu.style.marginLeft = 0 + "%";
   }
 }
-<<<<<<< HEAD
-=======
 
 function changeTheme(theme) {
   console.log(theme);
@@ -64,7 +62,7 @@ function changeTheme(theme) {
   } else if (theme == "dark") {
     var requestPath = "./assets/model/changeToLight.php";
   } else {
-    var requestPath = "./assets/model/changeToLight.php";
+    var requestPath = "./assets/model/changeToDark.php";
   }
 
   var req = new XMLHttpRequest();
@@ -78,4 +76,3 @@ function changeTheme(theme) {
   req.open("GET", requestPath, true);
   req.send();
 }
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
