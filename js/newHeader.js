@@ -53,3 +53,29 @@ function mobileMenuToggle() {
     menu.style.marginLeft = 0 + "%";
   }
 }
+<<<<<<< HEAD
+=======
+
+function changeTheme(theme) {
+  console.log(theme);
+
+  if (theme == "light") {
+    var requestPath = "./assets/model/changeToDark.php";
+  } else if (theme == "dark") {
+    var requestPath = "./assets/model/changeToLight.php";
+  } else {
+    var requestPath = "./assets/model/changeToLight.php";
+  }
+
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      window.location.reload();
+    }
+  };
+
+  req.open("GET", requestPath, true);
+  req.send();
+}
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b

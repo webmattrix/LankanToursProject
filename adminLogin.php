@@ -3,104 +3,130 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="icon" href="" />
+    <link rel="stylesheet" href="./css/adminTemplate.css">
     <link rel="stylesheet" href="./css/AdminLogin.css">
-
+    <link rel="stylesheet" href="./css/font.css">
 </head>
 
-<body class="AdminLoginBackground">
-
-    <div class="container-fluid  d-flex justify-content-center  align-items-center ">
-        <div class="col-md-6 col-12  p-lg-5 p-2 mt-4 mb-1  " style="text-align: center;">
-            <div class="row align-content-center ">
-                <div class="col-12 mt-5 mt-lg-0">
-                    <h1 class="text-white" style="font-family: SegoeUI;">Admin Login</h1>
+<body>
+    <div class="container-fluid admin_login-background">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 justify-content-center align-items-center text-center">
+                <div class="admin_login-title">
+                    <span class="text-white fs-5 segoeui-bold">Admin Login</span><br>
+                    <span class="text-danger" id="message"></span>
                 </div>
-                <div class="col-12 mt-2 mt-lg-0">
-                    <img src="./assets/img/AdminLoginPage_IMG/Rectangle 431.png" style="width:100px; height:100px;">
+                <div class="admin_login-user-image">
                 </div>
-                <div class="col-12 g-5 ">
-                    <div class="row">
-                        <div class="col-12 mb-2 mb-4 ">
-                            <div class=" AdminInputFeild  rounded-2 ">
-                                <div class="row">
-                                    <div class="col-lg-10 col-12">
-                                        <input type="Text" class=" text-white border border-0   bg-transparent p-3 " placeholder="User Name" style="width: 100%;font-family: QuickSand;">
-                                    </div>
-                                    <div class="col-2 d-none d-lg-block">
-                                        <span class=" input-group-text bg-transparent border border-0  text-start p-3 ">&nbsp;<i class="bi bi-envelope-fill text-white "></i></span>
+                <?php
+
+                $email = "";
+                $password = "";
+
+                if (isset($_COOKIE["lt_admin_email"])) {
+                    $email = $_COOKIE["lt_admin_email"];
+                }
+                if (isset($_COOKIE["lt_admin_password"])) {
+                    $password = $_COOKIE["lt_admin_password"];
+                }
+                ?>
+                <div class="offset-1 col-10 admin_login-input position-relative">
+                    <input type="email" id="admin_email" class="form-control border-0 pe-5 quicksand-Medium" placeholder="Email" value="<?php echo $email ?>">
+                    <iconify-icon icon="material-symbols:mail" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
+                </div>
+                <div class="offset-1 col-10 admin_login-input position-relative">
+                    <input type="password" id="admin_password" class="form-control border-0 mt-3 pe-5 quicksand-Medium" placeholder="Password" value="<?php echo $password ?>">
+                    <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
+                </div>
+                <div class="offset-1 col-10 text-start mt-2">
+                    <input type="checkbox" id="admin_remember" class="form-check-input" style="border-radius: 100%;">
+                    <span class="text-white fs-6 quicksand-Medium">Keep Me Logged In</span>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button onclick="adminLogin();" class="btn admin_login-btn quicksand-Medium d-flex justify-content-center gap-2 align-items-center text-white">
+                        <span>Login</span>
+                        <iconify-icon icon="ph:arrow-circle-right-fill" class="pt-1" style="color: #fff;"></iconify-icon>
+                    </button>
+                </div>
+                <div class="offset-1 col-10">
+                    <hr class="admin_login-hr-break">
+                </div>
+                <div>
+                    <span class="text-danger quicksand-Medium" style="cursor:pointer" onclick="adminForgotPassword();">Forgot Password?</span>
+                </div>
+
+                <!-- modal -->
+                <div class="modal" tabindex="-1" id="fogotPasswordModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row g-3">
+                                    <div class="col-12 text-start">
+                                        <label class="form-label">New Password</label>
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control" id="new_password">
+                                            <button class="btn btn-secondary" type="button" id="new_password_btn" onclick="showpassword1();"><iconify-icon icon="mdi:eye"></iconify-icon></button>
+                                        </div>
 
                                     </div>
+
+                                    <div class="col-12 text-start">
+                                        <label class="form-label">Re-type Password</label>
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control" id="re_new_password">
+                                            <button class="btn btn-secondary" type="button" id="re_new_password_btn" onclick="showpassword2();"><iconify-icon icon="mdi:eye"></iconify-icon></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 text-start">
+                                        <label class="form-label">Verification Code</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="vc">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 mb-4 ">
-                            <div class=" AdminInputFeild  rounded-2 ">
-                                <div class="row">
-                                    <div class="col-lg-10 col-12">
-                                        <input type="password" class=" text-white border border-0   bg-transparent p-3 " placeholder="Password" style="width: 100%;font-family: QuickSand;">
-                                    </div>
-                                    <div class="col-2 d-none d-lg-block">
-                                        <span class=" input-group-text bg-transparent border border-0  text-start p-3 ">&nbsp;<i class="bi bi-lock-fill text-white "></i></i></span>
-
-                                    </div>
-                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="resetpassword();">Reset Password</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                             </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="row">
-                                <div class=" col-12  text-start mb-2">
-                                    <div class=" form-check">
-                                        <input class="form-check-input inputFeild" type="checkbox">
-                                        <label class="form-check-label text-white " style="font-family: QuickSand;">Keep Me Logged In</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12 offset-lg-3 mt-3 mb-3 mb-lg-0">
-                            <button class="form-control AdminLoginButtonClr text-white border border-0 p-3" style="font-family: QuickSand;">Login &nbsp;&nbsp; <i class="bi bi-arrow-right-circle-fill text-white"></i></button>
-                        </div>
-                        <div class=" col-12  mt-3 mb-3 mb-lg-0">
-                            <hr class=" text-white">
-                        </div>
-                        <div class=" col-12   mb-3 mb-lg-0">
-                            <h6 class="" style="color: lightgreen;font-family: QuickSand;">Login success</h6>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- model -->
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">OTP Verification</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-12 p-3">
-                        <input type="password" class=" t form-control" placeholder="Otp Here">
+                <!-- modal -->
+
+                <!-- modal 02-->
+                <div class="modal" tabindex="-1" id="verifyModel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modelBackGround " style="background-color: #0F6884;">
+                                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">OTP Verification</h1>
+                                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="px-2 pb-3 pt-5 d-flex flex-column gap-2">
+                                    <input type="text" class="form-control" placeholder="OTP Code" id="adminVerificationCode">
+                                    <span class="text-black-50 ps-2 content-heading">Check your email to get the OTP code</span>
+                                    <button class="btn px-4 text-white col-6 offset-3" style="background-color: #0F6884;" onclick="adminVerify();">Verify</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Verify</button>
-                </div>
+                 <!-- modal 02-->
+
             </div>
         </div>
     </div>
-        <!-- model -->
 
-    <script src="./js/bootstrap.bundle.js"></script>
-
+    <script src="./js/bootstrap.js"></script>
+    <script src="js/adminLogin.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
 </html>

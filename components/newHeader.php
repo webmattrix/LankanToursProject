@@ -21,7 +21,23 @@
         </div>
 
         <div class="site-name d-flex align-items-center">
+<<<<<<< HEAD
             <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
+=======
+            <?php
+
+            if ($location == "primary") {
+            ?>
+                <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
+            <?php
+            } else {
+            ?>
+                <img src="../assets/img/favicon.png" style="height: 3rem; width: auto;" />
+            <?php
+            }
+
+            ?>
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
             <span class="segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px; color: #333333;">Lankan Travel</span>
         </div>
         <div class="header-menu p-0 m-0 d-none d-lg-block">
@@ -33,7 +49,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Tour" class="text-decoration-none c-pointer">
+                    <a href="Tours" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Tours</span>
                         <iconify-icon icon="carbon:plane" class="d-block fs-4 d-lg-none text-white" title="Tours"></iconify-icon>
                     </a>

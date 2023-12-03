@@ -16,7 +16,7 @@
             <footer class="footer p-2">
                 <div class="col-12 pb-2" style="border-bottom: 1px solid #2e2e2e;">
                     <div class="text-uppercase segoeui-bold text-white fs-4">Lankan Tours</div>
-                    <div class="quicksand-Medium text-white-50 ps-3">Company Slogan</div>
+                    <div class="quicksand-Medium text-white-50 ps-3">Journey Beyond with LankanTravel: Sri Lanka's Treasures Await</div>
                 </div>
                 <div class="mt-4 px-3 col-12" style="border-bottom: 1px solid #2e2e2e;">
                     <div class="row gap-4 gap-lg-0">
@@ -45,13 +45,13 @@
                             <span class="fs-5 text-white">Request & Complain</span>
                             <div class="d-flex flex-column pt-2 gap-2 req_complain_box">
                                 <div class="d-flex p-1 overflow-hidden gap-2" style="border-radius: 100vh; background-color: rgba(38, 82, 242, 0.2); border: 1px solid rgb(38, 82, 242);">
-                                    <input type="text" placeholder="your email" class="py-1 bg-transparent w-100 ps-2 border-0 text-white quicksand-Regular" style="outline: none;" id="requestEmail"/>
+                                    <input type="text" placeholder="your email" class="py-1 bg-transparent w-100 ps-2 border-0 text-white quicksand-Regular" style="outline: none;" id="requestEmail" />
                                     <button class="border-0 px-3 d-flex justify-content-center align-items-center" style="border-radius: 100vh; background-color: rgb(38, 82, 242);" onclick="sendRequestMessage();">
                                         <iconify-icon icon="ic:round-send" class="text-white"></iconify-icon>
                                     </button>
                                 </div>
                                 <div class="">
-                                    <textarea name="" id="home_msg_box" cols="30" rows="10" class="text-white quicksand-Regular p-1" style="border: 1px solid rgb(38, 82, 242); background-color: rgba(38, 82, 242, 0.2); border-radius: 10px; outline: none;">Message</textarea>
+                                    <textarea placeholder="Message" name="" id="home_msg_box" cols="30" rows="10" class="text-white quicksand-Regular p-1" style="border: 1px solid rgb(38, 82, 242); background-color: rgba(38, 82, 242, 0.2); border-radius: 10px; outline: none;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <span class="text-white-50">&copy; Copyright All Reserved LANKAN TOURS | 2023</span>
+                    <span class="text-white-50">&copy; 2023 LANKAN TOURS. All Rights Reserved.</span>
                 </div>
             </footer>
 

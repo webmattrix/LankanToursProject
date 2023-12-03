@@ -12,7 +12,11 @@
     <div class="position-fixed top-0 start-0 d-lg-none col-12 col-md-10" style="min-height: 100vh; z-index: 999; margin-left: -100%;" id="mobileMenuContainer">
         <div class="bg-white border-end border-1 border-secondary" style="width: 80%; min-height: 100vh; max-height: 100vh; overflow-y: auto; overflow-x: hidden;">
 
+<<<<<<< HEAD
             <div class="px-3 py-3 d-flex justify-content-between align-items-center">
+=======
+            <div class="px-3 py-3 pt-2 d-flex justify-content-between align-items-center">
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
                 <div class="d-flex gap-1 align-items-center w-100 justify-content-center">
                     <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
                     <span class="segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px; color: #333333;">Lankan Travel</span>
