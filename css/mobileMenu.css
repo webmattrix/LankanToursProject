@@ -4,11 +4,19 @@
   border-radius: 15px 15px 0 0;
 }
 
+<<<<<<< HEAD
+.item {
+  position: relative;
+}
+
+.item .bottomBorder {
+=======
 .mobileMenuListItems .item {
   position: relative;
 }
 
 .mobileMenuListItems .item .bottomBorder {
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
   width: 75%;
   height: 4px;
   position: absolute;
@@ -16,7 +24,11 @@
   border-radius: 100vh;
 }
 
+<<<<<<< HEAD
+.item:hover {
+=======
 .mobileMenuListItems .item:hover {
+>>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
   margin-left: 20px;
   transition-duration: 0.5s;
 }

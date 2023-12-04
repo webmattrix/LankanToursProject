@@ -18,7 +18,6 @@ function adminLogin() {
         var modal = document.getElementById("verifyModel");
         vModal = new bootstrap.Modal(modal);
         vModal.show();
-        
       } else if (t == "success02") {
         var req = new XMLHttpRequest();
         req.onreadystatechange = function () {
@@ -56,7 +55,7 @@ function adminVerify() {
         var reqest = new XMLHttpRequest();
         reqest.onreadystatechange = function () {
           if (reqest.readyState == 4) {
-            window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
+            window.location.href = "./Admin/Home";
             // window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
           }
         };
@@ -73,7 +72,10 @@ function adminVerify() {
   };
   r.open(
     "GET",
-    "./assets/model/adminModalLogin.php?code=" + code.value + "&email=" +  email.value,
+    "./assets/model/adminModalLogin.php?code=" +
+      code.value +
+      "&email=" +
+      email.value,
     true
   );
   // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
