@@ -1,7 +1,7 @@
 <?php
 require "./assets/model/visitor.php";
-
 session_start();
+
 if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
     header("Location: ../Admin");
 } else {

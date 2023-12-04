@@ -1,11 +1,7 @@
 <?php
 
-require "timeZoneConverter.php";
+$today = new DateTime();
+$today->setTimezone(new DateTimeZone("Asia/Colombo"));
+$today = $today->format("Y-m-d H:i:s");
 
-session_start();
-
-$date = "2023-02-02 04:04:04";
-
-$responseTime = timeConverter::convert($date);
-echo(date("Y-m-d", strtotime($responseTime)));
-  
+echo ($today);

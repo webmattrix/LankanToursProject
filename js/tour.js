@@ -200,6 +200,8 @@ function placeCustomTourOrder() {
     if (req.readyState == 4) {
       if (req.responseText == "1") {
         alert("You have to login first");
+      } else if (req.responseText == "2") {
+        window.location = "Orders";
       } else {
         alert(req.responseText);
       }

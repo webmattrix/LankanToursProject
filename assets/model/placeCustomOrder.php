@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if (isset($_SESSION["lt_tourist"])) {
 
     if (!isset($_POST["tourist_name"]) && empty($_POST["tourist_name"])) {
@@ -25,21 +27,26 @@ if (isset($_SESSION["lt_tourist"])) {
         $memberCount = $_POST["memberCount"];
         $message = $_POST["message"];
 
-        $date_time = new DateTime();;
+        $date_time = new DateTime();
         $date_time->setTimezone(new DateTimeZone("Asia/Colombo"));
-        $date_time->format("Y-m-d H:i:s");
+        $date_time = $date_time->format("Y-m-d H:i:s");
 
-        $query = "INSERT INTO `custom_tour`
-        (`user_id`,`order_status_id`,`star`,`members`,`date_time`,`request_message`,`contact_method_id`) 
-        VALUES ('" . $_SESSION["lt_tourist"]["id"] . "','2','" . $tourLevel . "','" . $memberCount . "','" . $date_time . "','" . $message . "','" . $contact_method . "');";
+        $query = "INSERT INTO `custom_tour` (`user_id`,`order_status_id`,`star`,`members`,`date_time`,`request_message`,`contact_method_id`) VALUES ('" . $_SESSION["lt_tourist"]["id"] . "','2','" . $tourLevel . "','" . $memberCount . "','" . $date_time . "','" . $message . "','" . $contact_method . "');";
 
-        echo ($query);
+        Database::iud($query);
+
+        $insert_id = Database::$connection->insert_id;
+
+        for ($place_iteration = 0; $place_iteration < sizeof($places_list); $place_iteration++) {
+            $query = "INSERT INTO `custom_tour_has_place` (`custom_tour_id`,`place_id`) VALUES ('" . $insert_id . "','" . $places_list[$place_iteration] . "')";
+            Database::iud($query);
+        }
+
+        echo ("2");
     }
 } else {
     echo ("1");
 }
 
-
-
-
 // 1=>Login Failed
+// 2=>Succesfuly Completed

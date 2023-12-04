@@ -307,6 +307,10 @@ $location = "primary";
                                 <span class="">Tour Places</span>
                                 <div class="d-flex gap-2">
 
+                                    <?php
+                                    $city_rs = Database::search("SELECT * FROM `city` WHERE ");
+                                    ?>
+
                                     <select id="" class="w-100 p-2 rounded">
                                         <option value="0">City Name</option>
                                     </select>
@@ -385,7 +389,7 @@ $location = "primary";
                                     <label for="">Number of members</label>
                                     <div class="count-switch rounded overflow-hidden">
                                         <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2 text-center" id="memberCount"/>
+                                        <input type="text" class="p-2 text-center" id="memberCount" value="1"/>
                                         <button class="rounded-end fs-4 p-2 fw-bold">+</button>
                                     </div>
                                 </div>
