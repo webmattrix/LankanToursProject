@@ -6,9 +6,6 @@ Order allow,deny
 Deny from all
 </Files>
 
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^%{REQUEST_URI}.php [NC,L]
-
 ReWriteRule ^Home$ home.php [NC,L]
 ReWriteRule ^Itinerary$ itinerary.php [NC,L]
 ReWriteRule ^Itinerary/(\d+)$ itinerary.php?tour_id=$1 [NC,L]
@@ -39,3 +36,6 @@ ReWriteRule ^Guide$ guideLogin.php [NC,L]
 ReWriteRule ^Guide/Tours$ guideTour.php [NC,L]
 ReWriteRule ^Guide/Home$ guidePanel.php [NC,L]
 ReWriteRule ^Guide/Profile$ guideProfile.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
