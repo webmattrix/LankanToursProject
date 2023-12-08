@@ -8,87 +8,71 @@ class getOrders
     public static function getOrderList($order_query, $custom_order_query)
     {
 
-        $order_rs = Database::search($order_query);
-        $ct_order_rs = Database::search($custom_order_query);
+        $response_array = [];
 
-        $order_num = $order_rs->num_rows;
-        $ct_order_num = $ct_order_rs->num_rows;
+        $order_table = Database::search($order_query);
+        $custom_order_table = Database::search($custom_order_query);
 
-        $order_iteration = 0;
-        $ct_order_iteration = 0;
+        $order_table_rows = $order_table->num_rows;
+        $custom_order_table_rows = $custom_order_table->num_rows;
 
-        $loop = true;
+        $total_row_count = $order_table_rows + $custom_order_table_rows;
 
-        $order_previouse = null;
-        $ct_order_previouse = null;
+        $order_save_data = null;
+        $custom_order_save_data = null;
 
-        $order_data = null;
-        $ct_order_data = null;
+        $order_table_iteration = 0;
+        $custom_order_table_iteration = 0;
 
-        $order_start = null;
-        $ct_order_start = null;
+        for ($table_iteration = 0; $table_iteration < $total_row_count; $table_iteration++) {
 
-        $responseArray = [];
-
-        $round_one = true;
-
-        while ($loop) {
-
-
-            // if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
-            //     $loop = false;
-            //     break;
-            // }
-
-            if ($order_previouse == null) {
-                if ($order_iteration < $order_num) {
-                    $order_data = $order_rs->fetch_assoc();
-                    $order_start = strtotime($order_data["start_date"]);
-                    $order_iteration = $order_iteration + 1;
+            if ($order_save_data == null) {
+                $order_table_data = $order_table->fetch_assoc();
+                if ($order_table_iteration < $order_table_rows) {
+                    // echo ("Read existing tour \n");
+                    $order_start_date = $order_table_data["start_date"];
                 } else {
-                    $order_start = "9999-99-99";
+                    $order_start_date = '9999-99-99';
                 }
+                $order_table_iteration++;
             } else {
+                $order_table_data = $order_save_data;
             }
 
-            if ($ct_order_previouse == null) {
-                if ($ct_order_iteration < $ct_order_num) {
-                    $ct_order_data = $ct_order_rs->fetch_assoc();
-                    $ct_order_start = strtotime($ct_order_data["start_date"]);
-                    $ct_order_iteration = $ct_order_iteration + 1;
+
+            if ($custom_order_save_data == null) {
+                $custom_order_table_data = $custom_order_table->fetch_assoc();
+                if ($custom_order_table_iteration < $custom_order_table_rows) {
+                    $custom_order_start_date = $custom_order_table_data["start_date"];
+                    // echo ("Read custom tour \n");
                 } else {
-                    $ct_order_start = "9999-99-99";
+                    $custom_order_start_date = '9999-99-99';
                 }
+                $custom_order_table_iteration++;
             } else {
+                $custom_order_table_data = $custom_order_save_data;
             }
 
-            if ($order_start > $ct_order_start) {
-                $order_previouse = $order_data;
-                $ct_order_previouse = null;
-                $main_data = $ct_order_data;
+            // echo ($order_start_date . " < " . $custom_order_start_date . "<br><br>");
+
+            if ($order_start_date < $custom_order_start_date) {
+                $main_data = $order_table_data;
+                $tour_name = $main_data["tour_name"];
+                $custom_order_save_data = $custom_order_table_data;
+                $order_save_data = null;
+                // echo ("Tour \n");
+            } else {
+                $main_data = $custom_order_table_data;
                 $tour_name = "Custom Tour";
                 $main_data["tour_name"] = $tour_name;
-            } else {
-                $ct_order_previouse = $ct_order_data;
-                $order_previouse = null;
-                $main_data = $order_data;
-                $tour_name = $main_data["tour_name"];
-                $main_data["tour_name"] = $tour_name;
+                $order_save_data = $order_table_data;
+                $custom_order_save_data = null;
+                // echo ("Custom \n");
             }
 
-
-            if ($order_iteration == $order_num && $ct_order_iteration == $ct_order_num) {
-                if ($round_one == false) {
-                    $loop = false;
-                }
-            } else {
-                if ($round_one == true) {
-                    $round_one = false;
-                }
-            }
-
-            array_push($responseArray, $main_data);
+            array_push($response_array, $main_data);
         }
-        return ($responseArray);
+
+        return $response_array;
     }
 }
