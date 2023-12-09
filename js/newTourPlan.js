@@ -129,7 +129,7 @@ function createNewPlace() {
             }
         }
 
-        r.open("POST", "/LankanToursProject/assets/model/addNewPlace.php", true);
+        r.open("POST", "../assets/model/addNewPlace.php", true);
         r.send(form);
     }
 }
