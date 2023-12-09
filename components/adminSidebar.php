@@ -83,9 +83,31 @@
                     <div class="c-pointer" onclick="openNewTour();">Add New Tour Plan</div>
                 </div>
 
+                <?php
+
+                $order_table = Database::search("SELECT * FROM `order`
+                INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id`
+                WHERE `order_status`.`name` = 'Unassigned'
+                ORDER BY `order`.`id` ASC");
+                $order_table_rows = $order_table->num_rows;
+
+                $custom_order_table = Database::search("SELECT * FROM `custom_tour`
+                INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id`
+                WHERE `order_status`.`name`='Unassigned'
+                ORDER BY `custom_tour`.`id` ASC");
+                $custom_order_table_rows = $custom_order_table->num_rows;
+
+                $total_orders = $order_table_rows + $custom_order_table_rows;
+
+                ?>
+
                 <!--  -->
                 <!-- <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="viewSubMenu('order');"> -->
-                <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="openManageOrders();">
+                <div class="listItem <?php
+                                        if ($total_orders > 0) {
+                                            echo ("bg-warning bg-opacity-25");
+                                        }
+                                        ?>" data-value="ordersSubContent" statusNumber="0" id="order" onclick="openManageOrders();">
                     <span>Orders</span>
                     <iconify-icon icon="mingcute:right-fill" id="orderIcon"></iconify-icon>
                 </div>

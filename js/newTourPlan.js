@@ -85,7 +85,7 @@ function addNewTourPlan() {
             }
         }
 
-        r.open("POST", "http://localhost/LankanToursProject/LankanToursProject/assets/model/addNewTour.php", true);
+        r.open("POST", "../assets/model/addNewTour.php", true);
         r.send(form);
     }
 }
@@ -129,7 +129,7 @@ function createNewPlace() {
             }
         }
 
-        r.open("POST", "/LankanToursProject/assets/model/addNewPlace.php", true);
+        r.open("POST", "../assets/model/addNewPlace.php", true);
         r.send(form);
     }
 }
