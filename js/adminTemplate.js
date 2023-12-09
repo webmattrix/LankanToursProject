@@ -167,7 +167,7 @@ function openManageTour() {
   window.location = "Tours";
 }
 function openNewTour() {
-  window.location = "NewTours";
+  window.location = "New-Tours";
 }
 
 function openManageOrders() {

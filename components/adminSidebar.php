@@ -154,12 +154,12 @@
             <hr style="margin-top: 100px;">
 
             <div class="d-flex flex-column gap-5 fs-3 icon-list">
-                <iconify-icon icon="ic:round-dashboard" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Dashboard"></iconify-icon>
-                <iconify-icon icon="ic:baseline-admin-panel-settings" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Admin"></iconify-icon>
-                <iconify-icon icon="dashicons:admin-users" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Guide"></iconify-icon>
-                <iconify-icon icon="fa-solid:hiking" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Tourist"></iconify-icon>
+                <iconify-icon icon="ic:round-dashboard" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Dashboard" onclick="openAdminDashboard();"></iconify-icon>
+                <iconify-icon icon="ic:baseline-admin-panel-settings" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Admin" onclick="openManageAdmin();"></iconify-icon>
+                <iconify-icon icon="dashicons:admin-users" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Guide" onclick="openManageGuide();"></iconify-icon>
+                <iconify-icon icon="fa-solid:hiking" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Tourist" onclick="openManageTourist();"></iconify-icon>
                 <iconify-icon icon="material-symbols:travel" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Tour Plans"></iconify-icon>
-                <iconify-icon icon="mingcute:mail-send-fill" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Orders"></iconify-icon>
+                <iconify-icon icon="mingcute:mail-send-fill" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Orders" onclick="openManageOrders();"></iconify-icon>
                 <iconify-icon icon="dashicons:text-page" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Pages"></iconify-icon>
                 <iconify-icon icon="icon-park-solid:setting-two" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Setting" class="opacity-50"></iconify-icon>
             </div>
