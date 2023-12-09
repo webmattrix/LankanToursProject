@@ -12,7 +12,7 @@ if (isset($_SESSION["lt_admin"])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>New Tour Plan</title>
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/adminTemplate.css">
         <link rel="stylesheet" href="../css/newTourPlan.css">
@@ -54,16 +54,18 @@ if (isset($_SESSION["lt_admin"])) {
                                             <div class="col-12 col-lg-6">
                                                 <select name="" id="place" class="form-select input_field mt-1">
                                                     <?php
-                                                    $resultset = Database::search("SELECT * FROM `place`");
-                                                    $places = $resultset->fetch_all(MYSQLI_ASSOC);
+                                                    $place_table = Database::search("SELECT *,`place`.`id` AS `place_id`,`place`.`name` AS `place_name`,`city`.`name` AS `city_name` FROM `city`
+                                                    INNER JOIN `place` ON `place`.`city_id`=`city`.`id`
+                                                    INNER JOIN `city_status` ON `city_status`.`id`=`city`.`city_status_id`
+                                                    WHERE `city_status`.`status`='Visiting' ORDER BY `city`.`name` ASC");
 
-                                                    foreach ($places as $place) {
-                                                        $r = Database::search("SELECT * FROM `city` WHERE `id`='" . $place['city_id'] . "'");
-                                                        $city = $r->fetch_assoc();
+                                                    $place_table_rows = $place_table->num_rows;
+                                                    for ($place_table_iteration = 0; $place_table_iteration < $place_table_rows; $place_table_iteration++) {
+                                                        $place_table_data = $place_table->fetch_assoc();
                                                     ?>
-                                                        <option value="<?php echo $place['id'] ?>">
+                                                        <option value="<?php echo $place['place_id'] ?>">
                                                             <?php
-                                                            echo $place['name'] . " - " . $city['name'];
+                                                            echo $place_table_data['city_name'] . " - " . $place_table_data['place_name'];
                                                             ?>
                                                         </option>
                                                     <?php
