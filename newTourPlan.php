@@ -63,7 +63,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                     for ($place_table_iteration = 0; $place_table_iteration < $place_table_rows; $place_table_iteration++) {
                                                         $place_table_data = $place_table->fetch_assoc();
                                                     ?>
-                                                        <option value="<?php echo $place['place_id'] ?>">
+                                                        <option value="<?php echo $place_table_data['place_id'] ?>">
                                                             <?php
                                                             echo $place_table_data['city_name'] . " - " . $place_table_data['place_name'];
                                                             ?>
