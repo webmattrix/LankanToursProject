@@ -197,8 +197,11 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
                                     <div class="admin_body-grid">
                                         <div class="position-relative"> <!-- Income Chart (According to the months) -->
-                                            <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
-                                                Year : 2023 -</span>
+                                            <div class="">
+                                                <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
+                                                    Year : 2023 -</span>
+                                                <button class=""></button>
+                                            </div>
                                             <div class="w-100 h-100">
                                                 <canvas id="canvas" class="rounded p-2"></canvas>
                                             </div>

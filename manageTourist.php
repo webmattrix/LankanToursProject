@@ -12,7 +12,7 @@ if (isset($_SESSION["lt_admin"])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin | Manage Tourist</title>
+        <title>Lankan Travel | Manage Tourist</title>
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/adminTemplate.css">
         <link rel="stylesheet" href="../css/manageTourist.css">
@@ -87,7 +87,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                 </div>
                                                 <div class="col-3 offset-4">
                                                     <div class="row">
-                                                        <input type="text" id="search_tourist" onchange="search();" class="form-control" placeholder="type name or ID">
+                                                        <input type="text" id="search_tourist" onkeyup="search();" onkeydown="search();" onkeypress="search();" class="form-control" placeholder="type name or ID">
                                                     </div>
                                                 </div>
                                             </div>

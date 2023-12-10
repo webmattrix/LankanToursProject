@@ -192,3 +192,9 @@ function openTouristLogin() {
 function openTouristRegistration() {
   window.location = "../Registration";
 }
+
+
+function guideRegistrationModelToggle() {
+  var guideRegistrationModel = document.getElementById("guideRegistrationModel");
+  guideRegistrationModel.classList.toggle("d-none");
+}
