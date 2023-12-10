@@ -197,10 +197,12 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
                                     <div class="admin_body-grid">
                                         <div class="position-relative"> <!-- Income Chart (According to the months) -->
-                                            <div class="">
+                                            <div class="d-flex justify-content-between px-2">
                                                 <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
                                                     Year : 2023 -</span>
-                                                <button class=""></button>
+                                                <a class="px-3 d-flex justify-content-center align-items-center border-0 rounded" style="outline: none; background-color: #0090AF;" href="./Transaction">
+                                                    <iconify-icon icon="solar:chart-linear" class="text-white"></iconify-icon>
+                                                </a>
                                             </div>
                                             <div class="w-100 h-100">
                                                 <canvas id="canvas" class="rounded p-2"></canvas>
@@ -355,15 +357,14 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
             </div>
         </div>
 
-        <script src="./js/adminTemplate.js"></script>
-        <script src="./js/bootstrap.js"></script>
+        <script src="../js/adminTemplate.js"></script>
+        <script src="../js/bootstrap.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart JS Link -->
         <script src="../js/adminPanel.js"></script>
         <script src="../js/visiterChart.js"></script>
-
     </body>
 
     </html>

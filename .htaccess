@@ -31,6 +31,7 @@ ReWriteRule ^Admin/Manage/(\d+)$ manageAdmin.php?page_no=$1 [NC,L]
 ReWriteRule ^Admin/Guide$ manageGuide.php [NC,L]
 ReWriteRule ^Admin/Guide/(\d+)$ manageGuide.php?page_no=$1 [NC,L]
 ReWriteRule ^Admin/Tourist$ manageTourist.php [NC,L]
+ReWriteRule ^Admin/Transaction$ transaction.php [NC,L]
 
 ReWriteRule ^Guide$ guideLogin.php [NC,L]
 ReWriteRule ^Guide/Tours$ guideTour.php [NC,L]
