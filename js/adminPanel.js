@@ -1,4 +1,5 @@
 window.onload = function () {
+  setAllTransactionPanel(0);
   setTimeZone();
 
   var req = new XMLHttpRequest();
@@ -115,7 +116,7 @@ function setTimeZone() {
   req.open(
     "GET",
     "../assets/model/setTimeZoneSession.php?timeZone=" +
-      Intl.DateTimeFormat().resolvedOptions().timeZone,
+    Intl.DateTimeFormat().resolvedOptions().timeZone,
     true
   );
   req.send();

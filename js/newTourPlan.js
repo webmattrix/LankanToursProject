@@ -63,31 +63,29 @@ function addNewTourPlan() {
     var duration = document.getElementById("duration").value;
     var description = document.getElementById("description").value;
 
-    if (image.files.length == 0) {
+    var form = new FormData();
+    form.append("name", name);
+    form.append("duration", duration);
+    form.append("description", description);
+    form.append("places", valuesArray);
 
-        alert("You have not selected any image.");
 
-    } else {
-        var form = new FormData();
-        form.append("name", name);
-        form.append("duration", duration);
-        form.append("description", description);
-        form.append("places", valuesArray);
+    var r = new XMLHttpRequest();
 
-        var r = new XMLHttpRequest();
-
-        r.onreadystatechange = function () {
-            if (r.readyState == 4) {
-                var t = r.responseText;
-                if (t == "success") {
-                    alert("New Tour Added Successfuly");
-                }
+    r.onreadystatechange = function () {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            if (t == "success") {
+                alert("New Tour Added Successfuly");
+                window.location.reload();
+            } else {
+                alert(t);
             }
         }
-
-        r.open("POST", "../assets/model/addNewTour.php", true);
-        r.send(form);
     }
+
+    r.open("POST", "../assets/model/addNewTour.php", true);
+    r.send(form);
 }
 
 var bm;

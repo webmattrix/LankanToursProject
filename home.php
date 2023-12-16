@@ -242,15 +242,19 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
-                  <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
-                    <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                  <div class="position-relative">
+                    <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
+                      <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                    </div>
                     <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
                   </div>
                 <?php
                 } else {
                 ?>
-                  <div class="place" style="background-image: url('./assets/img/places/Place.jpg');">
-                    <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                  <div class="position-relative">
+                    <div class="place" style="background-image: url('./assets/img/places/Place.jpg');">
+                      <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
+                    </div>
                     <div class="home_place-name"><?php echo ($places_data["name"]); ?></div>
                   </div>
                 <?php
