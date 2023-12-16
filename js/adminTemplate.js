@@ -198,3 +198,7 @@ function guideRegistrationModelToggle() {
   var guideRegistrationModel = document.getElementById("guideRegistrationModel");
   guideRegistrationModel.classList.toggle("d-none");
 }
+
+function toggleTransactionModel() {
+  document.getElementById("transactionHistoryModel").classList.toggle("d-none");
+}

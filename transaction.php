@@ -29,19 +29,25 @@ if (isset($_SESSION["lt_admin"])) {
 
                 <div class="d-flex p-0">
                     <?php
-                    include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
+                    // include "./components/adminSidebar.php"; // change if you using other component like "guideSidebar.php"
                     ?>
 
                     <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto; min-height: 100vh;">
                         <?php
-                        include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
+                        // include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
                         ?>
 
                         <!-- Page Content / body content eka methanin liyanna -->
                         <div class="col-12 px-3 pt-2 pb-3">
                             <div class="row">
-                            </div>
 
+                                <button onclick="changeValues();">Change the Values</button>
+
+                                <div>
+                                    <canvas id="myChart"></canvas>
+                                </div>
+
+                            </div>
                         </div>
                         <!-- Page Content / body content eka methanin liyanna -->
 
@@ -52,6 +58,8 @@ if (isset($_SESSION["lt_admin"])) {
             </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../js/transaction.js"></script>
     </body>
 
     </html>
