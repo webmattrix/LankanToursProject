@@ -19,8 +19,8 @@ if (empty($name)) {
 } else {
 
 
-    Database::iud("INSERT INTO `tour`(`name`,`duration`,`view`,`description`) 
-            VALUES('" . $name . "','" . $duration . "','1','" . $description . "')");
+    Database::iud("INSERT INTO `tour`(`name`,`date_count`,`views`,`description`) 
+            VALUES('" . $name . "','" . $duration . "','0','" . $description . "')");
 
     $lastId = Database::$connection->insert_id;
 

@@ -20,7 +20,7 @@ document
 
 document
   .getElementById("headerMorePanel2")
-  .addEventListener("mouseout", () => {});
+  .addEventListener("mouseout", () => { });
 
 document.getElementById("headerMoreIcon").addEventListener("click", () => {
   document.getElementById("headerMorePanel2").classList.toggle("d-none");
@@ -62,7 +62,7 @@ function changeTheme(theme) {
   } else if (theme == "dark") {
     var requestPath = "./assets/model/changeToLight.php";
   } else {
-    var requestPath = "./assets/model/changeToLight.php";
+    var requestPath = "./assets/model/changeToDark.php";
   }
 
   var req = new XMLHttpRequest();

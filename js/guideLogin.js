@@ -94,7 +94,7 @@ function guideForgotPassword() {
 
   r.open(
     "GET",
-    "../assets/model/guideForgotPasswordProcess.php?e=" + email.value,
+    "./assets/model/guideForgotPasswordProcess.php?e=" + email.value,
     true
   );
   r.send();

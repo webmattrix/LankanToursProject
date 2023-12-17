@@ -29,6 +29,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
         <link rel="stylesheet" href="../css/adminTemplate.css">
         <link rel="stylesheet" href="../css/font.css">
         <link rel="stylesheet" href="../css/adminProfile.css">
+        <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     </head>
 
     <body style="background-color: #EAEAEA;">

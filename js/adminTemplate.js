@@ -167,7 +167,7 @@ function openManageTour() {
   window.location = "Tours";
 }
 function openNewTour() {
-  window.location = "NewTours";
+  window.location = "New-Tours";
 }
 
 function openManageOrders() {
@@ -191,4 +191,14 @@ function openTouristLogin() {
 }
 function openTouristRegistration() {
   window.location = "../Registration";
+}
+
+
+function guideRegistrationModelToggle() {
+  var guideRegistrationModel = document.getElementById("guideRegistrationModel");
+  guideRegistrationModel.classList.toggle("d-none");
+}
+
+function toggleTransactionModel() {
+  document.getElementById("transactionHistoryModel").classList.toggle("d-none");
 }

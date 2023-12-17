@@ -1,7 +1,7 @@
 <?php
 require "./assets/model/visitor.php";
-
 session_start();
+
 if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
     header("Location: ../Admin");
 } else {
@@ -32,12 +32,106 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
         <link rel="stylesheet" href="../css/font.css">
         <link rel="stylesheet" href="../css/scrolbar.css">
         <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+        <style>
+            .transactionModel {
+                width: 50%;
+            }
+
+            .spinner {
+                width: 56px;
+                height: 56px;
+                display: grid;
+                border: 4.5px solid #0000;
+                border-radius: 50%;
+                border-right-color: #fff;
+                animation: spinner-a4dj62 1.2s infinite linear;
+            }
+
+            .spinner::before,
+            .spinner::after {
+                content: "";
+                grid-area: 1/1;
+                margin: 2.2px;
+                border: inherit;
+                border-radius: 50%;
+                animation: spinner-a4dj62 2.4s infinite;
+            }
+
+            .spinner::after {
+                margin: 8.9px;
+                animation-duration: 3.5999999999999996s;
+            }
+
+            @keyframes spinner-a4dj62 {
+                100% {
+                    transform: rotate(1turn);
+                }
+            }
+        </style>
     </head>
 
     <body style="background-color: #EAEAEA;">
 
+        <div class="position-fixed top-0 start-0 vh-100 vw-100 d-flex flex-column gap-2 justify-content-center align-items-center" style="z-index: 3; background-color: #2b2b2b;" id="preLoader">
+            <div class="spinner"></div>
+            <div class="text-white quicksand-SemiBold">Page is Loading...</div>
+        </div>
+
         <div class="container-fluid">
             <div class="row">
+
+                <div class="position-fixed start-0 top-0 vw-100 vh-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 2;" id="transactionHistoryModel">
+                    <div class="bg-white rounded p-1 transactionModel">
+                        <div class="d-flex justify-content-center position-relative">
+                            <div class="position-absolute end-0 me-2 mt-1 c-pointer fs-5" onclick="toggleTransactionModel();">
+                                <iconify-icon icon="ic:round-close"></iconify-icon>
+                            </div>
+
+                            <?php
+
+                            $order_table = Database::search("SELECT * FROM `order` ORDER BY `date_time` ASC LIMIT 1");
+                            $order_table_data = $order_table->fetch_assoc();
+
+                            $custom_order_table = Database::search("SELECT * FROM `custom_tour` ORDER BY `date_time` ASC LIMIT 1");
+                            $custom_order_table_data = $custom_order_table->fetch_assoc();
+
+                            $order_year = date("Y", strtotime($order_table_data["date_time"]));
+                            $custom_order_year = date("Y", strtotime($custom_order_table_data["date_time"]));
+
+                            $first_year;
+
+                            if ($order_year < $custom_order_year) {
+                                $first_year = $order_year;
+                            } else {
+                                $first_year = $custom_order_year;
+                            }
+
+                            $this_year = new DateTime();
+                            $this_year = $this_year->setTimezone(new DateTimeZone("Asia/Colombo"));
+                            $this_year = $this_year->format("Y");
+
+                            $year_count = intval($this_year) - intval($first_year);
+
+                            ?>
+
+                            <select class="text-dark px-2 py-1 border-1 border-secondary rounded mb-2" style="min-width: 200px; max-width: fit-content;" onchange="setTransactionYear();" id="transactionYearSelector">
+                                <option value="0">Year</option>
+                                <?php
+                                for ($x = 0; $x <= $year_count; $x++) {
+                                ?>
+                                    <option value="<?php echo ($first_year); ?>"><?php echo ($first_year); ?></option>
+                                <?php
+
+                                    $first_year += 1;
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div>
+                            <canvas id="allTransaction"></canvas>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="d-flex p-0">
                     <?php
@@ -197,8 +291,13 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
                                     <div class="admin_body-grid">
                                         <div class="position-relative"> <!-- Income Chart (According to the months) -->
-                                            <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
-                                                Year : 2023 -</span>
+                                            <div class="d-flex justify-content-between px-2">
+                                                <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
+                                                    Year : 2023 -</span>
+                                                <button class="px-3 d-flex justify-content-center align-items-center border-0 rounded" style="outline: none; background-color: #0090AF;" onclick="toggleTransactionModel();">
+                                                    <iconify-icon icon="solar:chart-linear" class="text-white"></iconify-icon>
+                                                </button>
+                                            </div>
                                             <div class="w-100 h-100">
                                                 <canvas id="canvas" class="rounded p-2"></canvas>
                                             </div>
@@ -349,22 +448,23 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
                 </div>
 
+
+
             </div>
         </div>
 
-        <script src="./js/adminTemplate.js"></script>
-        <script src="./js/bootstrap.js"></script>
+        <script src="../js/adminTemplate.js"></script>
+        <script src="../js/bootstrap.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart JS Link -->
+        <script src="../js/transaction.js"></script>
         <script src="../js/adminPanel.js"></script>
         <script src="../js/visiterChart.js"></script>
-
     </body>
 
     </html>
-
 
 <?php
 

@@ -405,7 +405,7 @@ img {
 
 .home_places-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 20px;
 }
 
@@ -470,23 +470,23 @@ img {
 
 @media (max-width: 1600px) {
   .home_places-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
-  .home_places-grid .place {
+  /* .home_places-grid .place {
     grid-column: span 2;
   }
   .home_places-grid .place:nth-child(7) {
     grid-column: 2 / span 2;
-  }
+  } */
 }
 
 @media (max-width: 1200px) {
   .home_places-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  .home_places-grid .place:nth-child(7) {
+  /* .home_places-grid .place:nth-child(7) {
     grid-column: span 2;
-  }
+  } */
 }
 
 @media (max-width: 992px) {

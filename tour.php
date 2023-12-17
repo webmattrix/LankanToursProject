@@ -12,7 +12,7 @@ $location = "primary";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Plans</title>
+    <title>Lankan Travel | Tours</title>
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
@@ -35,6 +35,7 @@ $location = "primary";
     ?>
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="c-default" id="body" onload="dataLoader();">
@@ -44,103 +45,6 @@ $location = "primary";
 
     <div class="container-fluid pt-3">
         <div class="px-4 rounded py-2 mt-1 main-content">
-
-            <div class="custom-tour tour_popular-tours px-2 py-2" id="custom_tour">
-                <div class="d-flex gap-2 align-items-center">
-                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
-                    <hr class="w-100">
-                </div>
-                <div class="grid-template">
-                    <div class="form-area">
-                        <div class="p-2"> <!-- Column 01 -->
-                            <div class="d-flex flex-column">
-                                <label for="tourist content-heading quicksand-Medium">Tourist</label>
-                                <input type="text" name="" id="tourist" class="text-dark w-100 p-2 rounded border-0" placeholder="Your name">
-                            </div>
-                            <div class="d-flex flex-column mt-2">
-                                <label for="tourLevel content-heading quicksand-Medium">Tour Level</label>
-                                <select id="tourLevel" class="text-dark w-100 p-2 rounded border-0">
-                                    <option value="0">Select</option>
-                                </select>
-                            </div>
-                            <div class="mt-2">
-                                <span class="">Tour Places</span>
-                                <div class="d-flex gap-2">
-                                    <?php
-                                    $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
-                                    $ct_place_num = $ct_place_rs->num_rows;
-                                    ?>
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
-                                        <option value="0" class="text-dark">Select</option>
-                                        <?php
-                                        for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
-                                            $ct_place_data = $ct_place_rs->fetch_assoc();
-                                        ?>
-                                            <option value="<?php echo ($ct_place_data["id"]); ?>" class="text-dark"><?php echo ($ct_place_data["name"]); ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                    <button class="border-0 px-4 rounded">
-                                        <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
-                                    </button>
-                                </div>
-
-                                <div class="tour-plan-slider position-relative my-2" data-status="0" id="ct_places">
-                                    <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(72,'left');"></iconify-icon>
-                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(72,'right');"></iconify-icon>
-                                    </div>
-                                    <div class="slides" style="width: 100%;" id="slide72Container" data-marginLeft="0" data-maxWidth="100" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,72)">
-                                        <div class="slide fs-4 segoeui-bold d-flex justify-content-center" id="sliderSlide1" style="background-image: url('./assets/img/tour_plan_images/img (1).jpg'); text-shadow: 0px 0px 4px rgba(0,0,0,0.5);">Ambuluwawa</div>
-                                    </div>
-                                    <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
-                                        <span class="text-white" id="slide72ImageNumber" data-imageNumber="1">1</span>
-                                        <span class="text-white"> / 3</span>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex gap-2 mt-1">
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
-                                        <option value="0">Select</option>
-                                    </select>
-                                    <button class="border-0 px-4 rounded">
-                                        <iconify-icon icon="ep:remove-filled" class="text-danger"></iconify-icon>
-                                    </button>
-                                </div>
-                            </div>
-                        </div> <!-- Column 01 -->
-                        <div class="p-2"> <!-- Column 02 -->
-                            <div class="mt-2">
-                                <div class="">
-                                    <label for="">Contact Method</label>
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0">
-                                        <option value="0">Select</option>
-                                    </select>
-                                </div>
-                                <div class=" mt-1">
-                                    <label for="">Events</label>
-                                    <select id="" class="text-dark w-100 p-2 rounded border-0" disabled>
-                                        <option value="0">Select</option>
-                                    </select>
-                                </div>
-                                <div class="mt-1">
-                                    <label for="">Member Count</label>
-                                    <div class="count-switch">
-                                        <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2" />
-                                        <button class="rounded-end fs-4 p-2 fw-bold">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- Column 02 -->
-                        <div class="p-2"> <!-- Column 03 -->
-
-                        </div> <!-- Column 03 -->
-                    </div> <!-- Form Area -->
-                    <div class=""></div> <!-- Request Message Area -->
-                </div>
-            </div>
 
             <div class="w-100 d-flex justify-content-end">
                 <a class="btn btn-primary" href="#custom_tour">Customize Your Tour</a>
@@ -213,10 +117,10 @@ $location = "primary";
                                 <!-- Image Slider Container -->
 
                                 <div class="quicksand-Medium mt-2">
-                                    <div class="content-heading">
+                                    <div class="content-heading popular-desc">
                                         <span><?php echo ($tour_detail_data["description"]); ?></span>
                                     </div>
-                                    <a class="d-flex align-items-center gap-2">
+                                    <a class="d-flex align-items-center gap-2" href="Itinerary/<?php echo ($tour_detail_data["id"]); ?>">
                                         <iconify-icon icon="mdi:airplane"></iconify-icon>
                                         <span class="content-heading">Travel to read more...</span>
                                     </a>
@@ -344,21 +248,21 @@ $location = "primary";
                                 <div class="tour-bottom-section">
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span data-bs-toggle="modal" data-bs-target="#tourRequestModel">
                                                 <iconify-icon icon="mdi:airplane"></iconify-icon>
                                             </span>
                                         </span>
                                     </div>
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span onclick="viewItinerary('<?php echo ($all_tour_data['id']); ?>')">
                                                 <iconify-icon icon="basil:location-solid"></iconify-icon>
                                             </span>
                                         </span>
                                     </div>
                                     <div class="">
                                         <span>
-                                            <span>
+                                            <span onclick="addToWatchlist('<?php echo ($all_tour_data['id']); ?>');">
                                                 <iconify-icon icon="solar:heart-bold"></iconify-icon>
                                             </span>
                                         </span>
@@ -376,11 +280,223 @@ $location = "primary";
             <!-- Tour Plans Content -->
 
 
+            <!-- Custom Tour -->
+            <div class="custom-tour tour_popular-tours px-2 py-2 mt-3" id="custom_tour">
+                <div class="d-flex gap-2 align-items-center">
+                    <div class="main-heading" style="min-width: fit-content;">Custom Tours</div>
+                    <hr class="w-100">
+                </div>
+                <div class="grid-template">
+                    <div class="form-area">
+                        <div class="p-2"> <!-- Column 01 -->
+                            <div class="d-flex flex-column">
+                                <label for="tourist content-heading quicksand-Medium">Tourist</label>
+                                <input type="text" name="" id="tourist" class="w-100 p-2 rounded" placeholder="Your name">
+                            </div>
+                            <div class="d-flex flex-column mt-2">
+                                <label for="tourLevel content-heading quicksand-Medium">Tour Level</label>
+                                <select id="tourLevel" class="w-100 p-2 rounded">
+                                    <option value="0">Select</option>
+                                    <option value="1">Star 1</option>
+                                    <option value="2">Star 2</option>
+                                    <option value="3">Star 3</option>
+                                    <option value="4">Star 4</option>
+                                    <option value="5">Star 5</option>
+                                </select>
+                            </div>
+                            <div class="mt-2">
+                                <span class="">Tour Places</span>
+                                <div class="d-flex gap-2">
+
+                                    <?php
+                                    $city_rs = Database::search("SELECT * FROM `city` WHERE ");
+                                    ?>
+
+                                    <select id="" class="w-100 p-2 rounded">
+                                        <option value="0">City Name</option>
+                                    </select>
+
+                                    <?php
+                                    $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
+                                    $ct_place_num = $ct_place_rs->num_rows;
+                                    ?>
+                                    <select id="addTourPlace" class="w-100 p-2 rounded">
+                                        <option value="0" class="">Place Name</option>
+                                        <?php
+                                        for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
+                                            $ct_place_data = $ct_place_rs->fetch_assoc();
+                                        ?>
+                                            <option value="<?php echo ($ct_place_data["id"]); ?>" class=""><?php echo ($ct_place_data["name"]); ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <button class="px-4 rounded" onclick="addTourPlace();" id="addTourPlaceBtn">
+                                        <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <div class="tour-plan-slider position-relative my-2" data-status="0" id="ct_places">
+                                    <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
+                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(99,'left');"></iconify-icon>
+                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(99,'right');"></iconify-icon>
+                                    </div>
+                                    <div class="slides" style="width: 100%;" id="slide99Container" data-marginLeft="0" data-maxWidth="100" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,99)">
+                                        <div class="slide fs-4 segoeui-bold d-flex justify-content-center" id="ctSlide0" style="background-image: url('./assets/img/places/custom_tour.jpg'); text-shadow: 0px 0px 4px rgba(0,0,0,0.5);">Sri Lanka</div>
+                                    </div>
+                                    <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
+                                        <span class="text-white" id="slide99ImageNumber" data-imageNumber="1">1</span>
+                                        <span class="text-white" id="ct_sliderCount" data-ctSliderCount="1"> / 1</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-2 mt-1">
+                                    <select id="removeTourPlace" class="w-100 p-2 rounded">
+                                        <option value="0" class="">Select</option>
+                                    </select>
+                                    <button class="px-4 rounded" onclick="removeTourPlace();" id="removeTourPlaceBtn">
+                                        <iconify-icon icon="ep:remove-filled" class="text-danger"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> <!-- Column 01 -->
+                        <div class="p-2"> <!-- Column 02 -->
+                            <div class="">
+                                <div class="">
+                                    <label for="">Contact Method</label>
+                                    <?php
+                                    $contact_method_rs = Database::search("SELECT * FROM `contact_method`");
+                                    $contact_method_num = $contact_method_rs->num_rows;
+                                    ?>
+                                    <select id="contact_method" class="w-100 p-2 rounded">
+                                        <option value="0">Select</option>
+                                        <?php
+                                        for ($contact_method_iteration = 0; $contact_method_iteration < $contact_method_num; $contact_method_iteration++) {
+                                            $contact_method_data = $contact_method_rs->fetch_assoc();
+                                        ?>
+                                            <option value="<?php echo ($contact_method_data["id"]); ?>"><?php echo ($contact_method_data["name"]); ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <!-- <div class="mt-2">
+                                    <label for="">Events</label>
+                                    <select id="" class="w-100 p-2 rounded" disabled>
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div> -->
+                                <div class="mt-1">
+                                    <label for="">Number of members</label>
+                                    <div class="count-switch rounded overflow-hidden">
+                                        <button class="rounded-start fs-4 p-2 fw-bold">-</button>
+                                        <input type="text" class="p-2 text-center" id="memberCount" value="1"/>
+                                        <button class="rounded-end fs-4 p-2 fw-bold">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- Column 02 -->
+                        <div class="p-2"> <!-- Column 03 -->
+                            <!-- <div class="">
+                                <label for="">Contact Method</label>
+                                <select id="" class="w-100 p-2 rounded">
+                                    <option value="0">Select</option>
+                                </select>
+                            </div> -->
+                            <div class="d-flex flex-column mt-2">
+                                <label for="tourist content-heading quicksand-Medium">Message</label>
+                                <textarea cols="30" rows="10" placeholder="Your Request Message" class="w-100 p-2 rounded" id="message"></textarea>
+                            </div>
+                        </div> <!-- Column 03 -->
+                    </div> <!-- Form Area -->
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn text-white p-2 px-4 d-flex align-items-center gap-2 justify-content-center" style="background-color: #1546F4;" onclick="placeCustomTourOrder();">
+                            <span>Send Request</span>
+                            <iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Custom Tour -->
+
+
 
         </div>
 
-        <?php include "./components/footer.php"; ?>
+
+
+
+        <!-- Tour Request Modal -->
+        <div class="modal fade" id="tourRequestModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="fs-5 fw-bold" style="font-family: 'Quicksand'; color: #333;" id="exampleModalLabel">Make it Yours</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5">
+                                            <div class="row pt-1">
+                                                <span class="fw-bold ps-3" style="font-family: 'Quicksand'; font-size: calc(0.6rem + 0.6vh);">Tour Plan</span>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control" placeholder="Day 11 Tour Plan" readonly style="font-family: 'Quicksand'; cursor: default; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <input type="text" class="form-control" placeholder="Members" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <select class="form-select" aria-label="Tour Level" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                        <option value="1">Tour Level</option>
+                                                        <option value="2">Small</option>
+                                                        <option value="3">Medium</option>
+                                                        <option value="4">Comfortable</option>
+                                                        <option value="5">Luxury</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 mt-4 pt-2">
+                                                    <select class="form-select" aria-label="How do we contact you?" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                        <option value="1">How do we contact you?</option>
+                                                        <option value="2">option1</option>
+                                                        <option value="3">option2</option>
+                                                        <option value="4">option3</option>
+                                                        <option value="5">option4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-7">
+                                            <div class="row">
+                                                <div class="col-12 mt-4">
+                                                    <textarea class="form-control" placeholder="Your Message.." id="#" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-4">
+                                                <div class="row justify-content-center justify-content-lg-end">
+                                                    <div class="col-9 col-lg-5 col-sm-4">
+                                                        <button type="button" class="btn text-white col-12 p-2 justify-content-center" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="request" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tour Request Modal -->
+
+
+
+
     </div>
+    <?php include "./components/footer.php"; ?>
 
     <script src="./js/newHeader.js"></script>
     <script src="./js/tour.js"></script>

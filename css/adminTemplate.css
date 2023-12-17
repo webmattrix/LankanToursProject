@@ -110,9 +110,14 @@
 .site_logo {
   width: 150px;
   height: 150px;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-image: url("../assets/img/favicon.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   clip-path: circle();
 }
+
 .site_name {
   font-family: "lemon";
   font-size: 26px;
@@ -137,7 +142,8 @@
   align-items: center;
   font-family: "Quicksand-Semibold";
 }
-.sideMenuList .listItem:hover > * {
+
+.sideMenuList .listItem:hover>* {
   color: #467ade;
 }
 
@@ -147,7 +153,7 @@
   transition-duration: 0.3s;
 }
 
-.sideMenuList .SubContent > div:hover {
+.sideMenuList .SubContent>div:hover {
   color: #467ade;
 }
 
@@ -178,6 +184,7 @@
 }
 
 @media (max-width: 1200px) {
+
   .fetch,
   .side_menu {
     width: 100px;
@@ -209,12 +216,12 @@
   padding: 5px;
 }
 
-.mobileMenuIconList > div:hover {
+.mobileMenuIconList>div:hover {
   cursor: pointer;
 }
 
-.mobileMenuIconList > div:hover div,
-.mobileMenuIconList > div:hover iconify-icon {
+.mobileMenuIconList>div:hover div,
+.mobileMenuIconList>div:hover iconify-icon {
   color: #467ade;
 }
 
@@ -241,6 +248,7 @@
 .profile-menu-icon:hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
+
 /* .profile-menu-icon > * {
   color: #333333;
 } */
@@ -257,12 +265,40 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.guide-profile-model > img {
+.guide-profile-model>img {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
-.guide-profile-model > div:hover {
+.guide-profile-model>div:hover {
   background-color: rgba(128, 128, 128, 0.25);
+}
+
+.guideRegistrationModel {
+  width: 30%;
+}
+
+@media(max-width:1400px) {
+  .guideRegistrationModel {
+    width: 45%;
+  }
+}
+
+@media(max-width:1200px) {
+  .guideRegistrationModel {
+    width: 60%;
+  }
+}
+
+@media(max-width:992px) {
+  .guideRegistrationModel {
+    width: 70%;
+  }
+}
+
+@media(max-width:768px) {
+  .guideRegistrationModel {
+    width: 85%;
+  }
 }

@@ -26,7 +26,7 @@ body {
   margin: 0;
 }
 
-.text-overlay p {
+.text-overlay p { 
   font-size: 14px;
   margin: 0;
 }
@@ -57,8 +57,8 @@ body {
 
 .card1 img {
   border-radius: 10px;
-  max-width: 250px;
-  height: 180px; /* Adjust the height to your preferred value */
+  width: 250px;
+  height: 200px;
   display: block;
 }
 
@@ -68,10 +68,10 @@ body {
   border-radius: 0 10px 10px 0;
   color: #fff;
   padding-bottom: 40px;
+  width: 60px;
   font-size: 20px;
   transition: opacity 0.1s ease-in-out;
   opacity: 0;
-  max-width: 20%;
   display: flex;
   align-items: end;
   justify-content: center;
@@ -205,10 +205,21 @@ img {
   margin: 0;
 }
 
+@media (max-width: 1400px)  {
+  .card1 img {
+    width: 220px;
+    height: 150px;
+  }
+}
+
 @media (max-width: 1140px) {
   .card1-content {
     font-size: 16px;
     padding-bottom: 15px;
+  }
+  .card1 img {
+    width: 200px;
+    height: 150px;
   }
   .card-overlay span {
     font-size: 18px;
@@ -220,8 +231,8 @@ img {
     flex: 0 0 calc(30% - 20px);
   }
   .card1 img {
-    width: 200px;
-    max-height: 100px;
+    width: 150px;
+    height: 100px;
   }
   .image-text {
     font-size: 16px;
@@ -230,6 +241,9 @@ img {
 }
 
 @media (max-width: 950px) {
+  .card {
+    flex: 0 0 calc(30% - 20px);
+  }
   .card1-content {
     display: none;
   }

@@ -24,7 +24,7 @@ function viewDetails(id) {
         }
     }
 
-    xhr.open('GET', '/LankanToursProject/assets/model/viewTouristDetails.php?id=' + id, true);
+    xhr.open('GET', '../assets/model/viewTouristDetails.php?id=' + id, true);
     xhr.send();
 }
 
@@ -43,7 +43,7 @@ function search(){
         }
     }
 
-    xhr.open('GET', '/LankanToursProject/assets/model/searchTourist.php?search=' + search, true);
+    xhr.open('GET', '../assets/model/searchTourist.php?search=' + search, true);
     xhr.send();
 }
 
@@ -62,6 +62,6 @@ function filter(){
         }
     }
 
-    xhr.open('GET', '/LankanToursProject/assets/model/filterTourist.php?value=' + value, true);
+    xhr.open('GET', '../assets/model/filterTourist.php?value=' + value, true);
     xhr.send();
 }
