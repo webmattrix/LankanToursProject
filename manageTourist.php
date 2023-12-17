@@ -88,7 +88,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                 </div>
                                                 <div class="col-3 offset-4">
                                                     <div class="row">
-                                                        <input type="text" id="search_tourist" onkeyup="search();" onkeydown="search();" onkeypress="search();" class="form-control" placeholder="type name or ID">
+                                                        <input type="text" id="search_tourist" onkeyup="search();" onkeypress="search();" class="form-control" placeholder="type name or ID">
                                                     </div>
                                                 </div>
                                             </div>
