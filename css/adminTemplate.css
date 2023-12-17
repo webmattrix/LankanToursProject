@@ -110,7 +110,11 @@
 .site_logo {
   width: 150px;
   height: 150px;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-image: url("../assets/img/favicon.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   clip-path: circle();
 }
 

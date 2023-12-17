@@ -35,6 +35,7 @@ $location = "primary";
     ?>
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body class="c-default" id="body" onload="dataLoader();">
