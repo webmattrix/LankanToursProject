@@ -36,10 +36,46 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
             .transactionModel {
                 width: 50%;
             }
+
+            .spinner {
+                width: 56px;
+                height: 56px;
+                display: grid;
+                border: 4.5px solid #0000;
+                border-radius: 50%;
+                border-right-color: #fff;
+                animation: spinner-a4dj62 1.2s infinite linear;
+            }
+
+            .spinner::before,
+            .spinner::after {
+                content: "";
+                grid-area: 1/1;
+                margin: 2.2px;
+                border: inherit;
+                border-radius: 50%;
+                animation: spinner-a4dj62 2.4s infinite;
+            }
+
+            .spinner::after {
+                margin: 8.9px;
+                animation-duration: 3.5999999999999996s;
+            }
+
+            @keyframes spinner-a4dj62 {
+                100% {
+                    transform: rotate(1turn);
+                }
+            }
         </style>
     </head>
 
     <body style="background-color: #EAEAEA;">
+
+        <div class="position-fixed top-0 start-0 vh-100 vw-100 d-flex flex-column gap-2 justify-content-center align-items-center" style="z-index: 3; background-color: #2b2b2b;" id="preLoader">
+            <div class="spinner"></div>
+            <div class="text-white quicksand-SemiBold">Page is Loading...</div>
+        </div>
 
         <div class="container-fluid">
             <div class="row">

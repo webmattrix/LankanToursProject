@@ -234,7 +234,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
               <?php
 
-              $places_rs = Database::search("SELECT * FROM `place` ORDER BY `place`.`rating` DESC LIMIT 8");
+              $places_rs = Database::search("SELECT * FROM `place` ORDER BY `place`.`rating` DESC LIMIT 12");
 
               for ($x = 0; $x < $places_rs->num_rows; $x++) {
                 $places_data = $places_rs->fetch_assoc();
@@ -268,10 +268,6 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
             </div>
           </div>
           <!-- Beautiful places -->
-
-          <div class="home_load-more-btn" id="home_tour_plans">
-            <span class="px-3 py-2">Load more...</span>
-          </div>
 
           <hr>
 

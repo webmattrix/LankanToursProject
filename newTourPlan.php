@@ -16,6 +16,7 @@ if (isset($_SESSION["lt_admin"])) {
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/adminTemplate.css">
         <link rel="stylesheet" href="../css/newTourPlan.css">
+        <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     </head>
 
     <body class="body_container">

@@ -2,6 +2,8 @@ window.onload = function () {
   setAllTransactionPanel(0);
   setTimeZone();
 
+  document.getElementById("preLoader").classList.add("d-none");
+
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {
