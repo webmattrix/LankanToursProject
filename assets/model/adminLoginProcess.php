@@ -25,7 +25,7 @@ if (empty($email)) {
 } else {
     $resulset = Database::search("SELECT *,`employee`.`id` AS `employee_id` FROM 
     `employee` INNER JOIN `employe_type` ON employee.employe_type_id=employe_type.id 
-    WHERE `employee`.`email`='" . $email . "' AND `employee`.`password`='" . $password . "' AND `employe_type`.`name`='admin'");
+    WHERE `employee`.`email`='" . $email . "' AND `employee`.`password`='" . $password . "' AND (`employe_type`.`name`='admin' OR `employe_type`.`name`='super admin' OR `employe_type`.`name`='Owner')");
     $n = $resulset->num_rows;
 
     if ($n == 1) {
