@@ -100,7 +100,7 @@ if (!isset($_SESSION["lt_guide"]) || $_SESSION["lt_guide"] == null) {
                                                     </div>
                                                     <div class="d-flex mt-2">
                                                         <span>Mobile</span>
-                                                        <span>: &nbsp; <?php echo ($employee_data["email"]); ?></span>
+                                                        <span>: &nbsp; <?php echo ($employee_data["mobile"]); ?></span>
                                                     </div>
 
                                                     <hr class="w-75">
