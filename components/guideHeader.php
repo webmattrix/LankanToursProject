@@ -4,6 +4,8 @@
 if (isset($_SESSION["lt_guide"])) {
     $guide = $_SESSION["lt_guide"];
 
+    echo ($_SESSION["lt_guide"]["employee_id"]);
+
     // require "assets/model/sqlConnection.php";
     $employee_rs = Database::search("SELECT *,`employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`
     FROM `employee`

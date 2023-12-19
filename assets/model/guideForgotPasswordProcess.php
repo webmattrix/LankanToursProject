@@ -27,17 +27,17 @@ if (isset($_GET["e"])) {
 
         $mail = new PHPMailer;
         $mail->IsSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.titan.email';
         $mail->SMTPAuth = true;
-        $mail->Username = 'madsachintha1234@gmail.com';
-        $mail->Password = 'tbbojqkskrdmvaee';
+        $mail->Username = 'contact@lankantravel.com';
+        $mail->Password = 'Ltp2023@#';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-        $mail->setFrom('lankanTours@gmail.com', 'Lankan Tours');
-        $mail->addReplyTo('lankanTours@gmail.com', 'Lankan Tours');
-        $mail->addAddress('madsachintha1234@gmail.com');
+        $mail->setFrom('contact@lankantravel.com', 'Lankan Travel');
+        $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
+        $mail->addAddress($email);
         $mail->isHTML(true);
-        $mail->Subject = 'Lankan Tours Reset Code';
+        $mail->Subject = 'Lankan Travel Forgot Password';
         $bodyContent = '<!DOCTYPE html>
         <html lang="en">
         <head>

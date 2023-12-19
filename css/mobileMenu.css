@@ -4,19 +4,11 @@
   border-radius: 15px 15px 0 0;
 }
 
-<<<<<<< HEAD
-.item {
-  position: relative;
-}
-
-.item .bottomBorder {
-=======
 .mobileMenuListItems .item {
   position: relative;
 }
 
 .mobileMenuListItems .item .bottomBorder {
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
   width: 75%;
   height: 4px;
   position: absolute;
@@ -24,95 +16,91 @@
   border-radius: 100vh;
 }
 
-<<<<<<< HEAD
-.item:hover {
-=======
 .mobileMenuListItems .item:hover {
->>>>>>> d1170cce44b1450a01381adfd333613266ceab9b
   margin-left: 20px;
   transition-duration: 0.5s;
 }
 
-.item-1 .iconContainer {
+.mobileMenuListItems .item-1 .iconContainer {
   background-color: #f62626;
 }
 
-.item-1 .bottomBorder {
+.mobileMenuListItems .item-1 .bottomBorder {
   background-color: #f62626;
 }
 
-.item-1 span {
+.mobileMenuListItems .item-1 span {
   color: #f62626;
 }
 
-.item-2 .iconContainer {
+.mobileMenuListItems .item-2 .iconContainer {
   background-color: #2686f6;
 }
 
-.item-2 .bottomBorder {
+.mobileMenuListItems .item-2 .bottomBorder {
   background-color: #2686f6;
 }
 
-.item-2 span {
+.mobileMenuListItems .item-2 span {
   color: #2686f6;
 }
 
-.item-3 .iconContainer {
+.mobileMenuListItems .item-3 .iconContainer {
   background-color: #5026f6;
 }
 
-.item-3 .bottomBorder {
+.mobileMenuListItems .item-3 .bottomBorder {
   background-color: #5026f6;
 }
 
-.item-3 span {
+.mobileMenuListItems .item-3 span {
   color: #5026f6;
 }
 
-.item-4 .iconContainer {
+.mobileMenuListItems .item-4 .iconContainer {
   background-color: #a726f6;
 }
 
-.item-4 .bottomBorder {
+.mobileMenuListItems .item-4 .bottomBorder {
   background-color: #a726f6;
 }
 
-.item-4 span {
+.mobileMenuListItems .item-4 span {
   color: #a726f6;
 }
 
-.item-5 .iconContainer {
+.mobileMenuListItems .item-5 .iconContainer {
   background-color: #09ae37;
 }
 
-.item-5 .bottomBorder {
+.mobileMenuListItems .item-5 .bottomBorder {
   background-color: #09ae37;
 }
 
-.item-5 span {
+.mobileMenuListItems .item-5 span {
   color: #09ae37;
 }
 
-.item-6 .iconContainer {
+.mobileMenuListItems .item-6 .iconContainer {
   background-color: #FF00D6;
 }
 
-.item-6 .bottomBorder {
+.mobileMenuListItems .item-6 .bottomBorder {
   background-color: #FF00D6;
 }
 
-.item-6 span {
+.mobileMenuListItems .item-6 span {
   color: #FF00D6;
 }
 
-.item-7 .iconContainer {
+.mobileMenuListItems .item-7 .iconContainer {
   background-color: #EE950F;
 }
 
-.item-7 .bottomBorder {
+.mobileMenuListItems .item-7 .bottomBorder {
   background-color: #EE950F;
 }
 
-.item-7 span {
+.mobileMenuListItems .item-7 span {
   color: #EE950F;
 }

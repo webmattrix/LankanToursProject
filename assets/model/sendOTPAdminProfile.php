@@ -38,7 +38,7 @@ if (empty($name) && empty($mobile) && empty($address) && empty($password) && (em
     $mail->Port = 465;
     $mail->setFrom('contact@lankantravel.com', 'OTP Verification');
     $mail->addReplyTo('contact@lankantravel.com', 'OTP Verification');
-    $mail->addAddress('vihangaheshan37@gmail.com');
+    $mail->addAddress($_SESSION["lt_admin"]["email"]);
     $mail->isHTML(true);
     $mail->Subject = 'Account Verification Code';
     $bodyContent = 'Your Verification Code: ' . $verification_code;

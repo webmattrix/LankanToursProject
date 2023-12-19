@@ -11,7 +11,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $rememberMe = $_POST["rememberme"];
 
-if (empty($email)) { 
+if (empty($email)) {
     echo "please enter your email address";
 } else if (strlen($email) > 100) {
     echo "Email address should contain less than 100 characters.";
@@ -42,17 +42,17 @@ if (empty($email)) {
 
             $mail = new PHPMailer;
             $mail->IsSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = 'smtp.titan.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'madsachintha1234@gmail.com';
-            $mail->Password = 'tbbojqkskrdmvaee';
+            $mail->Username = 'contact@lankantravel.com';
+            $mail->Password = 'Ltp2023@#';
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
-            $mail->setFrom('lankanTours@gmail.com', 'Lankan Tours');
-            $mail->addReplyTo('lankanTours@gmail.com', 'Lankan Tours');
-            $mail->addAddress('madsachintha1234@gmail.com');
+            $mail->setFrom('contact@lankantravel.com', 'Lankan Travel');
+            $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
+            $mail->addAddress($email);
             $mail->isHTML(true);
-            $mail->Subject = 'Lankan Tours Reset Code';
+            $mail->Subject = 'Lankan Travel Verification Code';
             $bodyContent = '<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -139,7 +139,7 @@ if (empty($email)) {
                 setcookie("lt_guide_email", "", -1);
                 setcookie("lt_guide_password", "", -1);
             }
-            
+
             echo "success";
         }
     } else {

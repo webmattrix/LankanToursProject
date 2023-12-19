@@ -3,15 +3,22 @@
 session_start();
 require "./sqlConnection.php";
 
+
 $date = new DateTime();
 $today = $date->setTimezone(new DateTimeZone($_SESSION["timeZone"]));
 $today = $today->format("Y-m-d");
+
+if (!isset($_GET["year"])) {
+    $year = date("Y", strtotime($today));
+} else {
+    $year = $_GET["year"];
+}
 
 $income = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 $saving_amount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 $outcome = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-$query = "SELECT * FROM `order` WHERE `end_date`<'" . $today . "'";
+$query = "SELECT * FROM `order` WHERE `end_date`<'" . $today . "' AND `date_time` LIKE'" . $year . "%'";
 $order_rs = Database::search($query);
 
 
@@ -28,7 +35,7 @@ for ($outcome_iteration = 0; $outcome_iteration < sizeof($outcome); $outcome_ite
     $outcome[$outcome_iteration] = $result;
 }
 
-$query = "SELECT * FROM `custom_tour` WHERE `end_date`<'" . $today . "'";
+$query = "SELECT * FROM `custom_tour` WHERE `end_date`<'" . $today . "' AND `date_time` LIKE'" . $year . "%'";
 $order_rs = Database::search($query);
 
 
