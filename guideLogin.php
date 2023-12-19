@@ -136,7 +136,7 @@
         </div>
     </div>
 
-    <script src="../js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
     <script src="./js/guideLogin.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>

@@ -42,7 +42,7 @@ if (empty($email)) {
 
             $mail = new PHPMailer;
             $mail->IsSMTP();
-            $mail->Host = 'smtp.titan.com';
+            $mail->Host = 'smtp.titan.email';
             $mail->SMTPAuth = true;
             $mail->Username = 'contact@lankantravel.com';
             $mail->Password = 'Ltp2023@#';
