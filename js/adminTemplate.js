@@ -202,3 +202,25 @@ function guideRegistrationModelToggle() {
 function toggleTransactionModel() {
   document.getElementById("transactionHistoryModel").classList.toggle("d-none");
 }
+
+function toggleMessageModel(messageData) {
+  if (messageData != false) {
+    document.getElementById("preLoader").classList.remove("d-none");
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4) {
+        document.getElementById("preLoader").classList.add("d-none");
+        alert(req.responseText);
+      }
+    };
+
+    req.open("GET", "../assets/model/getRequestMessages.php", true);
+    req.send();
+
+    document.getElementById("messageModel").classList.remove("d-none");
+  } else {
+    document.getElementById("messageModel").classList.add("d-none");
+  }
+}
