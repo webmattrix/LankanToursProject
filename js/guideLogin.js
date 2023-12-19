@@ -14,7 +14,7 @@ function guideSignIn() {
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "not verified") {
-        alert("Your first time Verification Code has sent to your email!");
+        alert("Your first time Verification Code has sent to your email!"); 
         var m = document.getElementById("verificationModal");
         bm = new bootstrap.Modal(m, {
           backdrop: "static",
@@ -60,14 +60,14 @@ function verifyGuide() {
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "success") {
-        window.location.href = "/Guide";
+        window.location.href += "/Guide";
       } else {
         alert(t);
       }
     }
   };
 
-  r.open("POST", "../assets/model/guideVerification.php", true);
+  r.open("POST", "./assets/model/guideVerification.php", true);
   r.send(form);
 }
 
@@ -119,14 +119,14 @@ function resetpassword() {
       var t = r.responseText;
       if (t == "success") {
         alert("password reset success");
-        window.location.href = "/Guide";
+        window.location.href += "/Guide";
       } else {
         alert(t);
       }
     }
   };
 
-  r.open("POST", "../assets/model/guideResetPassword.php", true);
+  r.open("POST", "./assets/model/guideResetPassword.php", true);
   r.send(form);
 }
 
