@@ -148,7 +148,7 @@ require "assets/model/sqlConnection.php";
                                     <div class="row">
                                         <div class="card-slider">
                                             <div class="btn-container mt-3">
-                                                <span>Things To Do In Matara</span>
+                                                <span id="things_text">Things To Do In Matara</span>
                                                 <div class="button-group">
                                                     <button class="btn btn-sm" id="prev-btn"><iconify-icon icon="grommet-icons:previous"></iconify-icon></iconify-icon></button>
                                                     <button class="btn btn-sm" id="next-btn"><iconify-icon icon="grommet-icons:next"></iconify-icon></button>
