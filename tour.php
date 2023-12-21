@@ -390,7 +390,7 @@ $location = "primary";
                                     <label for="">Number of members</label>
                                     <div class="count-switch rounded overflow-hidden">
                                         <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2 text-center" id="memberCount" value="1"/>
+                                        <input type="text" class="p-2 text-center" id="memberCount" value="1" />
                                         <button class="rounded-end fs-4 p-2 fw-bold">+</button>
                                     </div>
                                 </div>
@@ -501,6 +501,16 @@ $location = "primary";
     <script src="./js/newHeader.js"></script>
     <script src="./js/tour.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script>
+        var custom_tour_places = [];
+
+        function addTourPlace() {
+            var tourPlace = document.getElementById("addTourPlace").value;
+            if (!custom_tour_places.includes(tourPlace)) {
+                custom_tour_places.push(tourPlace);
+            }
+        }
+    </script>
 </body>
 
 </html>

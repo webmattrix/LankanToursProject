@@ -7,10 +7,8 @@ $location = 'primary';
 if (!isset($_SESSION["lt_tourist"])) {
     header("Location: Login");
 } else {
-
     require "./assets/model/sqlConnection.php";
     require "./assets/model/hideEmail.php";
-
     $tourist = $_SESSION["lt_tourist"];
 }
 
