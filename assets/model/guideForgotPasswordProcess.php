@@ -94,7 +94,7 @@ if (isset($_GET["e"])) {
         <body>
             <div class="email-container">
                 <div class="header">
-                    <h1>Lankan Tours</h1>
+                    <h1>Lankan Travel</h1>
                 </div>
                 <div class="content">
                     <h2>Verification Code</h2>
@@ -102,7 +102,7 @@ if (isset($_GET["e"])) {
                     <p>Use this verification code to reset your password!</p>
                 </div>
                 <div class="footer">
-                    &copy; 2023 Your LankanTours Name
+                    &copy; 2023 Your LankanTravel Name
                 </div>
             </div>
         </body>
