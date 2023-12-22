@@ -61,11 +61,11 @@ function changeTheme(theme) {
   if (theme_changer.classList.contains('light')) {
     theme_changer.classList.toggle('dark');
     theme_changer.classList.toggle('light');
-    alert("Dark");
+    // alert("Dark");
   } else {
     theme_changer.classList.toggle('light');
     theme_changer.classList.toggle('dark');
-    alert("Light");
+    // alert("Light");
   }
 
   // console.log(theme);
@@ -82,7 +82,7 @@ function changeTheme(theme) {
 
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
-      // window.location.reload();
+      window.location.reload();
     }
   };
 

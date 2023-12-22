@@ -365,8 +365,33 @@ img {
 }
 
 .activies-panel>div div:hover {
-  transform: scale(1.1);
-  transition-duration: 0.2s;
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -437,15 +462,15 @@ img {
 
 .home_places-grid .place {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition-duration: 0.3s;
+  transition-duration: 0.75s;
 }
 
 .home_places-grid .place::after {
@@ -498,23 +523,12 @@ img {
   .home_places-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  /* .home_places-grid .place {
-    grid-column: span 2;
-  }
-  .home_places-grid .place:nth-child(7) {
-    grid-column: 2 / span 2;
-  } */
 }
 
 @media (max-width: 1200px) {
   .home_places-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  /* .home_places-grid .place:nth-child(7) {
-    grid-column: span 2;
-  } */
 }
 
 @media (max-width: 992px) {

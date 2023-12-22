@@ -371,8 +371,6 @@ img {
 }
 
 .activies-panel>div div:hover {
-  /* transform: scale(1.1); */
-  /* transition-duration: 0.2s; */
   animation: shake 0.4s ease-in-out;
 }
 
