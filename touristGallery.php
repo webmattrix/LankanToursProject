@@ -4,15 +4,10 @@ session_start();
 
 $location = 'primary';
 
-if (!isset($_SESSION["lt_tourist"])) {
-    header("Location: Login");
-} else {
 
-    require "./assets/model/sqlConnection.php";
-    require "./assets/model/hideEmail.php";
+require "./assets/model/sqlConnection.php";
+require "./assets/model/hideEmail.php";
 
-    $tourist = $_SESSION["lt_tourist"];
-}
 
 ?>
 <!DOCTYPE html>
@@ -39,11 +34,8 @@ if (!isset($_SESSION["lt_tourist"])) {
                 <div class="body_container">
                     <?php
                     $sql = "SELECT *
-                    FROM `user` 
-                    INNER JOIN `order` ON `order`.`user_id`=`user`.`id` 
-                    INNER JOIN `gallery` ON `gallery`.`order_id`=`order`.`id`
-                    WHERE `user`.`id`='" . $tourist["id"] . "' 
-                    ORDER BY `gallery`.`date_time` DESC";
+                    FROM `gallery` ORDER BY `date_time` DESC";
+                    
                     $result = Database::search($sql);
 
                     if ($result->num_rows > 0) {

@@ -55,13 +55,38 @@ function showCity(id){
         document.getElementById('city_container').classList.remove('d-none');
         document.getElementById('city_container').classList.add('d-block');
         document.getElementById('text_img').innerText = responseObj.city;
+        document.getElementById('things_text').innerText = "Places to visit in " + responseObj.city;
         document.getElementById('city_img').src = "./assets/img/City/"+responseObj.img;
+
+        const placesContainer = document.getElementById('things');
+
+        placesContainer.innerHTML = '';
+
+        responseObj.places.forEach(place => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+        
+            const cardImg = document.createElement('img');
+            cardImg.src = "./assets/img/places/"+place.image_path;
+            cardImg.alt = place.place_name;
+        
+            const cardOverlay = document.createElement('div');
+            cardOverlay.classList.add('card-overlay');
+            const span = document.createElement('span');
+            span.textContent = place.place_name;
+        
+            cardOverlay.appendChild(span);
+            card.appendChild(cardImg);
+            card.appendChild(cardOverlay);
+        
+            placesContainer.appendChild(card);
+        });
       }
     };
   
     r.open(
       "GET",
-      "/LankanToursProject/assets/model/showCity.php?id=" +
+      "./assets/model/showCity.php?id=" +
         id,
       true
     );
