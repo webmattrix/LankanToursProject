@@ -158,6 +158,12 @@ function tableModalOpen(tab_tid, tab_name) {
     req.send();
 }
 
+function selectGuide(){
+
+   alert("ok");
+
+}
+
 function tableModalUpdate() {
 
     var toId = document.getElementById("tourIdNo").value;
@@ -167,6 +173,8 @@ function tableModalUpdate() {
     var tEnDate = document.getElementById("tour_endDate2").value;
     var tCost = document.getElementById("tourCost").value;
     var tSvAmount = document.getElementById("tourSaveAmount").value;
+    var msgForGuide = document.getElementById("forGuideMsg").value;
+    var guideId = document.getElementById("getGuideId").value;
 
     var form = new FormData();
 
@@ -175,8 +183,10 @@ function tableModalUpdate() {
     form.append("t_durat", tDurat);
     form.append("t_stDate", tStDate);
     form.append("t_enDate", tEnDate);
+    form.append("t_guideId", guideId);
     form.append("t_cost", tCost);
     form.append("t_svAmount", tSvAmount);
+    form.append("t_guideMsg", msgForGuide);
 
     var req = new XMLHttpRequest();
     req.onreadystatechange = function () {
