@@ -1,7 +1,7 @@
 <?php
 function generatePassword($length)
 {
-    $specialChars = '!@#$%^&*_';
+    $specialChars = '!@$%^&*_';
     $capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
     $numbers = '0123456789';

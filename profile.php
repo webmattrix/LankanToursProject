@@ -13,10 +13,9 @@ if (!isset($_SESSION["lt_tourist"])) {
 
     $tourist = $_SESSION["lt_tourist"];
 
-    $tourist_rs = Database::search("SELECT *,`country`.`name` AS `country_name`,`gender`.`name` AS `gender` 
+    $tourist_rs = Database::search("SELECT *,`country`.`name` AS `country_name`
     FROM `user` 
     INNER JOIN `country` ON `user`.`country_id`=`country`.`id` 
-    INNER JOIN `gender` ON `gender`.`id`=`user`.`gender_id`
     WHERE `user`.`id`='" . $tourist["id"] . "'");
     $tourist_data = $tourist_rs->fetch_assoc();
 }
