@@ -37,8 +37,6 @@ $employee_data = $employee_rs->fetch_assoc();
             <div class="d-flex p-0">
                 <?php
 
-
-
                 include "./components/guideSidebar.php";
                 ?>
 
