@@ -77,6 +77,7 @@ if (isset($_SESSION["lt_admin"])) {
                                 </div>
                             </div>
                             <div class="col-lg-5  col-md-5 col-sm-5">
+                                
                                 <div class=" GuidCard">
                                     <div class="col-12">
                                         <div class="row">
