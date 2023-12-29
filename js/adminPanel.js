@@ -1,6 +1,5 @@
 window.onload = function () {
   setAllTransactionPanel(0);
-  setTimeZone();
 
   document.getElementById("preLoader").classList.add("d-none");
 
@@ -106,20 +105,3 @@ window.onload = function () {
   req.open("GET", "../assets/model/adminPanelTransaction.php", true);
   req.send();
 };
-
-function setTimeZone() {
-  var req = new XMLHttpRequest();
-
-  req.onreadystatechange = function () {
-    if (req.readyState == 4) {
-    }
-  };
-
-  req.open(
-    "GET",
-    "../assets/model/setTimeZoneSession.php?timeZone=" +
-    Intl.DateTimeFormat().resolvedOptions().timeZone,
-    true
-  );
-  req.send();
-}

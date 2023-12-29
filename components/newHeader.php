@@ -20,7 +20,13 @@
             </div>
         </div>
 
-        <div class="site-name d-flex align-items-center">
+        <a class="site-name d-flex align-items-center text-decoration-none" href="<?php
+                                                                if ($location == "primary") {
+                                                                    echo ("./Home");
+                                                                } else {
+                                                                    echo ("../Home");
+                                                                }
+                                                                ?>">
             <?php
 
             if ($location == "primary") {
@@ -35,7 +41,7 @@
 
             ?>
             <span class="segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px; color: #333333;">Lankan Travel</span>
-        </div>
+        </a>
         <div class="header-menu p-0 m-0 d-none d-lg-block">
             <ul class="d-flex list-unstyled gap-3 gap-xl-5 mb-0 quicksand-SemiBold" style="align-items: center;">
                 <li>

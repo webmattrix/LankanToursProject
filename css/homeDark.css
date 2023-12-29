@@ -490,6 +490,10 @@ img {
   grid-gap: 20px;
 }
 
+.home_places-grid>div {
+  overflow: hidden;
+}
+
 .home_places-grid .place {
   width: 100%;
   height: 300px;
@@ -527,9 +531,9 @@ img {
   transition-duration: 0.3s;
 }
 
-.home_places-grid .place:hover {
-  transform: scale(1.03);
-  transition-duration: 0.3s;
+.home_places-grid>div:hover .place {
+  transform: scale(1.2);
+  transition-duration: 1.5s;
 }
 
 .home_places-grid .place:hover iconify-icon {

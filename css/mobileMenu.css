@@ -6,101 +6,32 @@
 
 .mobileMenuListItems .item {
   position: relative;
+  margin: 0 50px;
+  padding: 5px 0;
 }
 
 .mobileMenuListItems .item .bottomBorder {
-  width: 75%;
-  height: 4px;
+  width: 5px;
+  height: 100%;
   position: absolute;
-  bottom: 0;
-  border-radius: 100vh;
-}
-
-.mobileMenuListItems .item:hover {
-  margin-left: 20px;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  z-index: 0;
+  background-color: rgba(62, 62, 62, 0.25);
+  border: 2px solid #3E3E3E;
   transition-duration: 0.5s;
 }
 
-.mobileMenuListItems .item-1 .iconContainer {
-  background-color: #f62626;
+.mobileMenuListItems .item .iconContainer {
+  z-index: 1;
 }
 
-.mobileMenuListItems .item-1 .bottomBorder {
-  background-color: #f62626;
+.mobileMenuListItems .item span {
+  z-index: 1;
 }
 
-.mobileMenuListItems .item-1 span {
-  color: #f62626;
-}
-
-.mobileMenuListItems .item-2 .iconContainer {
-  background-color: #2686f6;
-}
-
-.mobileMenuListItems .item-2 .bottomBorder {
-  background-color: #2686f6;
-}
-
-.mobileMenuListItems .item-2 span {
-  color: #2686f6;
-}
-
-.mobileMenuListItems .item-3 .iconContainer {
-  background-color: #5026f6;
-}
-
-.mobileMenuListItems .item-3 .bottomBorder {
-  background-color: #5026f6;
-}
-
-.mobileMenuListItems .item-3 span {
-  color: #5026f6;
-}
-
-.mobileMenuListItems .item-4 .iconContainer {
-  background-color: #a726f6;
-}
-
-.mobileMenuListItems .item-4 .bottomBorder {
-  background-color: #a726f6;
-}
-
-.mobileMenuListItems .item-4 span {
-  color: #a726f6;
-}
-
-.mobileMenuListItems .item-5 .iconContainer {
-  background-color: #09ae37;
-}
-
-.mobileMenuListItems .item-5 .bottomBorder {
-  background-color: #09ae37;
-}
-
-.mobileMenuListItems .item-5 span {
-  color: #09ae37;
-}
-
-.mobileMenuListItems .item-6 .iconContainer {
-  background-color: #FF00D6;
-}
-
-.mobileMenuListItems .item-6 .bottomBorder {
-  background-color: #FF00D6;
-}
-
-.mobileMenuListItems .item-6 span {
-  color: #FF00D6;
-}
-
-.mobileMenuListItems .item-7 .iconContainer {
-  background-color: #EE950F;
-}
-
-.mobileMenuListItems .item-7 .bottomBorder {
-  background-color: #EE950F;
-}
-
-.mobileMenuListItems .item-7 span {
-  color: #EE950F;
+.mobileMenuListItems .item:hover .bottomBorder {
+  width: 100%;
+  transition-duration: 0.5s;
 }

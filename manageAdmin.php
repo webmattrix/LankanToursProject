@@ -7,7 +7,7 @@ FROM employee
 INNER JOIN admin ON employee.id=admin.employee_id
 INNER JOIN employe_type ON employe_type.id=employee.employe_type_id WHERE employee.id='" . $admin["employee_id"] . "'");
 $employee_data = $employee_rs->fetch_assoc();
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +28,12 @@ $employee_data = $employee_rs->fetch_assoc();
 
             <div class="d-flex p-0">
                 <?php
-                include "./components/adminSidebar.php"; 
+                include "./components/adminSidebar.php";
                 ?>
 
                 <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto;">
                     <?php
-                    include "./components/adminHeader.php"; 
+                    include "./components/adminHeader.php";
                     ?>
 
                     <!-- Page Content / body content eka methanin liyanna -->
@@ -74,51 +74,42 @@ $employee_data = $employee_rs->fetch_assoc();
                                 <div class="row p-3">
 
                                     <div class="col-lg-4 col-12">
-                                        <div class="AddAdminCard"
-                                            style=" background-color: rgb(200, 200, 200);font-size: 14px;">
-                                            <img src="../assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg"
-                                                class="card-img-top mb-2   "
-                                                style="border-radius: 50%; height: 150px; width: 150px; margin: auto;">
+                                        <div class="AddAdminCard" style=" background-color: rgb(200, 200, 200);font-size: 14px;">
+                                            <img src="../assets/img/AdminPage_IMG/bohemian-man-with-his-arms-crossed.jpg" class="card-img-top mb-2   " style="border-radius: 50%; height: 150px; width: 150px; margin: auto;">
 
                                             <div class="col-12 mb-2 mt-2" style="font-family: QuickSand;">
                                                 <div class="row">
                                                     <!-- <span class="text-start" style="font-family: QuickSand;">Full name</span> -->
-                                                    <input type="text" class=" form-control " id="A_Name"
-                                                        placeholder="Full name..">
+                                                    <input type="text" class=" form-control " id="A_Name" placeholder="Full name..">
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
                                                     <!-- <span class="text-start" >Email</span> -->
-                                                    <input type="text" class=" form-control " id="A_Email"
-                                                        placeholder="Email..">
+                                                    <input type="text" class=" form-control " id="A_Email" placeholder="Email..">
                                                 </div>
                                             </div>
 
                                             <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
                                                     <!-- <span class="text-start" >NIC</span> -->
-                                                    <input type="text" class=" form-control " id="A_NIC"
-                                                        placeholder="NIC..">
+                                                    <input type="text" class=" form-control " id="A_NIC" placeholder="NIC..">
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-2" style="font-family: QuickSand;">
                                                 <div class="row">
                                                     <!-- <span class="text-start" >Mobile</span> -->
-                                                    <input type="text" class=" form-control " id="A_Mobile"
-                                                        placeholder="Mobile..">
+                                                    <input type="text" class=" form-control " id="A_Mobile" placeholder="Mobile..">
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-4" style="font-family: QuickSand;">
                                                 <div class="row">
                                                     <!-- <span class="text-start" >Address</span> -->
-                                                    <input type="text" class=" form-control " id="A_Address"
-                                                        placeholder="Address..">
+                                                    <input type="text" class=" form-control " id="A_Address" placeholder="Address..">
                                                 </div>
                                             </div>
                                             <div class="col-12 ">
-                                                <button class="form-control fw-bold AdminButton text-white"
-                                                    style="font-family: Inter;" onclick="adminReister();">Register
+                                                <button class="form-control fw-bold AdminButton text-white" style="font-family: Inter;" onclick="adminReister();">Register
                                                     Admin</button>
                                             </div>
                                         </div>
@@ -128,16 +119,13 @@ $employee_data = $employee_rs->fetch_assoc();
                                     </div>
 
                                     <div class="col-lg-8 col-12   ">
-                                        <div class="col-12  mt-2 mb-2"
-                                            style="border-radius: 5px; background-color: rgb(200, 200, 200);">
+                                        <div class="col-12  mt-2 mb-2" style="border-radius: 5px; background-color: rgb(200, 200, 200);">
                                             <div class="row">
                                                 <div class="col-10 offset-1 mt-3 mb-3">
-                                                    <input type="text" class="form-control" placeholder="Enter name.."
-                                                        id="searchIpnut" onkeyup="searchAdmin();">
+                                                    <input type="text" class="form-control" placeholder="Enter name.." id="searchIpnut" onkeyup="searchAdmin();">
                                                 </div>
                                                 <div class="col-1 mt-3 mb-3  d-none d-lg-block">
-                                                    <iconify-icon icon="fluent:person-search-32-filled"
-                                                        class="fs-3"></iconify-icon>
+                                                    <iconify-icon icon="fluent:person-search-32-filled" class="fs-3"></iconify-icon>
                                                 </div>
 
                                             </div>
@@ -145,8 +133,7 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                         <div id="viewArea1">
                                             <div class="col-12 table-responsive  ">
-                                                <table class="table  align-middle table-hover table-striped "
-                                                    style="background-color: rgb(200, 200, 200); border-radius: 10px; font-family: QuickSand;font-size: 14px;">
+                                                <table class="table  align-middle table-hover table-striped " style="background-color: rgb(200, 200, 200); border-radius: 10px; font-family: QuickSand;font-size: 14px;">
                                                     <thead class="thead ">
                                                         <tr class="">
                                                             <th scope="col">#</th>
@@ -158,10 +145,10 @@ $employee_data = $employee_rs->fetch_assoc();
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $query = "SELECT * FROM `employee` INNER JOIN `admin` ON employee.id = admin.employee_id  ";
+                                                        $query = "SELECT * FROM `employee` INNER JOIN `admin` ON `employee`.`id` = `admin`.`employee_id`";
 
-                                                        
-                                                        
+
+
 
                                                         if (isset($_GET["page_no"])) {
                                                             $page_no = $_GET["page_no"];
@@ -172,7 +159,7 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                                         $admin_rs = Database::search($query);
                                                         $n = $admin_rs->num_rows;
-                                                      
+
                                                         $result_per_page = 5;
                                                         $number_of_pages = ceil($n / $result_per_page);
                                                         $offset = ($page_no - 1) * $result_per_page;
@@ -181,7 +168,7 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                                         for ($x = 0; $x < $admin_num; $x++) {
                                                             $admin_data = $admin_rs->fetch_assoc();
-                                                            ?>
+                                                        ?>
                                                             <tr>
 
                                                                 <td>
@@ -197,8 +184,7 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                     <?php echo $admin_data["mobile"] ?>
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" class="btn"
-                                                                        onclick="modalView('<?php echo $admin_data['email']; ?>');">
+                                                                    <button type="button" class="btn" onclick="modalView('<?php echo $admin_data['email']; ?>');">
                                                                         <i class="bi bi-eye-fill fs-4"></i>
                                                                     </button>
 
@@ -211,158 +197,158 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                             </div>
                                             <!-- Pagination -->
-<div style="display: flex; justify-content: center;">
-    <div class="p_nation">
+                                            <div style="display: flex; justify-content: center;">
+                                                <div class="p_nation">
 
-        <?php
+                                                    <?php
 
-        $middle_page;
-        $middle_left;
-        $middle_right;
+                                                    $middle_page;
+                                                    $middle_left;
+                                                    $middle_right;
 
-        if ($page_no <= 1) {
-            $middle_page = ceil($number_of_pages / 2);
-        } else if ($page_no >= $number_of_pages) {
-            $middle_page = ceil($number_of_pages / 2);
-        } else {
-            $middle_page = $page_no;
-        }
+                                                    if ($page_no <= 1) {
+                                                        $middle_page = ceil($number_of_pages / 2);
+                                                    } else if ($page_no >= $number_of_pages) {
+                                                        $middle_page = ceil($number_of_pages / 2);
+                                                    } else {
+                                                        $middle_page = $page_no;
+                                                    }
 
-        $middle_left = $middle_page - 1;
-        $middle_right = $middle_page + 1;
+                                                    $middle_left = $middle_page - 1;
+                                                    $middle_right = $middle_page + 1;
 
 
-        ?>
+                                                    ?>
 
-        <!--  -->
-        <a class="text-decoration-none p_nation_prev" href="?page_no=<?php
-                                                                        if ($page_no > 1) {
-                                                                            echo ($page_no - 1);
-                                                                        } else {
-                                                                            echo ("1");
-                                                                        }
-                                                                        ?>" <?php
+                                                    <!--  -->
+                                                    <a class="text-decoration-none p_nation_prev" href="?page_no=<?php
+                                                                                                                    if ($page_no > 1) {
+                                                                                                                        echo ($page_no - 1);
+                                                                                                                    } else {
+                                                                                                                        echo ("1");
+                                                                                                                    }
+                                                                                                                    ?>" <?php
                                                                             if ($page_no == 1) {
                                                                             ?> style="opacity: 0.5;" <?php
                                                                                                     }
                                                                                                         ?>>
-            <span class="d-none d-lg-block">Prev</span>
-            <i class="icon-arrow_circle_left_black_24dp d-block d-lg-none"></i>
-        </a>
+                                                        <span class="d-none d-lg-block">Prev</span>
+                                                        <i class="icon-arrow_circle_left_black_24dp d-block d-lg-none"></i>
+                                                    </a>
 
 
-        <!-- First Page of the Pagination -->
-        <a href="?page_no=1" <?php
-                                if ($page_no == "1") {
-                                ?> style="background-color: #0c0091; color: white;" <?php
+                                                    <!-- First Page of the Pagination -->
+                                                    <a href="?page_no=1" <?php
+                                                                            if ($page_no == "1") {
+                                                                            ?> style="background-color: #0c0091; color: white;" <?php
                                                                                 }
                                                                                     ?>>1</a>
-        <!-- First Page of the Pagination -->
+                                                    <!-- First Page of the Pagination -->
 
 
-        <!-- Inter ... of the Pagination -->
-        <?php
-        if (($middle_left != 2) && ($middle_left > 1)) {
-        ?>
-            <a href="">...</a>
-        <?php
-        }
-        ?>
-        <!-- Inter ... of the Pagination -->
+                                                    <!-- Inter ... of the Pagination -->
+                                                    <?php
+                                                    if (($middle_left != 2) && ($middle_left > 1)) {
+                                                    ?>
+                                                        <a href="">...</a>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Inter ... of the Pagination -->
 
 
-        <!-- Middle Left Button of the Pagination -->
-        <?php
-        if ($middle_left > 1) {
-        ?>
-            <a href="?page_no=<?php echo ($middle_left); ?>" <?php
-                                                                if ($page_no == $middle_left) {
-                                                                ?> style="background-color: #0c0091; color: white;" <?php
+                                                    <!-- Middle Left Button of the Pagination -->
+                                                    <?php
+                                                    if ($middle_left > 1) {
+                                                    ?>
+                                                        <a href="?page_no=<?php echo ($middle_left); ?>" <?php
+                                                                                                            if ($page_no == $middle_left) {
+                                                                                                            ?> style="background-color: #0c0091; color: white;" <?php
                                                                                                                 }
                                                                                                                     ?>><?php echo ($middle_left); ?></a>
-        <?php
-        }
-        ?>
-        <!-- Middle Left Button of the Pagination -->
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Middle Left Button of the Pagination -->
 
-        <!-- Middle Button of the Pagination -->
-        <?php
-        if ($number_of_pages > 2) {
-        ?>
-            <a href="?page_no=<?php echo ($middle_page); ?>" <?php
-                                                                if ($page_no == $middle_page) {
-                                                                ?> style="background-color: #0c0091; color: white;" <?php
+                                                    <!-- Middle Button of the Pagination -->
+                                                    <?php
+                                                    if ($number_of_pages > 2) {
+                                                    ?>
+                                                        <a href="?page_no=<?php echo ($middle_page); ?>" <?php
+                                                                                                            if ($page_no == $middle_page) {
+                                                                                                            ?> style="background-color: #0c0091; color: white;" <?php
                                                                                                                 }
                                                                                                                     ?>><?php echo ($middle_page); ?></a>
-        <?php
-        }
-        ?>
-        <!-- Middle Button of the Pagination -->
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Middle Button of the Pagination -->
 
 
-        <!-- Middle Right Button of the Pagination -->
-        <?php
-        if ($middle_right < $number_of_pages) {
-        ?>
-            <a href="?page_no=<?php echo ($middle_right); ?>" <?php
-                                                                if ($page_no == $middle_right) {
-                                                                ?> style="background-color: #0c0091; color: white;" <?php
+                                                    <!-- Middle Right Button of the Pagination -->
+                                                    <?php
+                                                    if ($middle_right < $number_of_pages) {
+                                                    ?>
+                                                        <a href="?page_no=<?php echo ($middle_right); ?>" <?php
+                                                                                                            if ($page_no == $middle_right) {
+                                                                                                            ?> style="background-color: #0c0091; color: white;" <?php
                                                                                                                 }
                                                                                                                     ?>><?php echo ($middle_right); ?></a>
-        <?php
-        }
-        ?>
-        <!-- Middle Right Button of the Pagination -->
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Middle Right Button of the Pagination -->
 
 
-        <!-- Inter ... of the pagination -->
-        <?php
-        if ($middle_right != ($number_of_pages - 1) && ($middle_right < ($number_of_pages - 1))) {
-        ?>
-            <a href="">...</a>
-        <?php
-        }
-        ?>
-        <!-- Inter ... of the pagination -->
+                                                    <!-- Inter ... of the pagination -->
+                                                    <?php
+                                                    if ($middle_right != ($number_of_pages - 1) && ($middle_right < ($number_of_pages - 1))) {
+                                                    ?>
+                                                        <a href="">...</a>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Inter ... of the pagination -->
 
 
-        <!-- Last page of the pagination -->
-        <?php
-        if ($number_of_pages > 1) {
-        ?>
-            <a href="?page_no=<?php echo ($number_of_pages); ?>" <?php
-                                                                    if ($page_no == $number_of_pages) {
-                                                                    ?> style="background-color: #0c0091; color: white;" <?php
+                                                    <!-- Last page of the pagination -->
+                                                    <?php
+                                                    if ($number_of_pages > 1) {
+                                                    ?>
+                                                        <a href="?page_no=<?php echo ($number_of_pages); ?>" <?php
+                                                                                                                if ($page_no == $number_of_pages) {
+                                                                                                                ?> style="background-color: #0c0091; color: white;" <?php
                                                                                                                     }
                                                                                                                         ?>><?php echo ($number_of_pages); ?></a>
-        <?php
-        }
-        ?>
-        <!-- Last page of the pagination -->
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <!-- Last page of the pagination -->
 
 
-        <!-- Next Button of the pagination -->
-        <a class="text-decoration-none p_nation_next" href="?page_no=<?php
-                                                                        if ($page_no < $number_of_pages) {
-                                                                            echo ($page_no + 1);
-                                                                        } else if ($number_of_pages == 0) {
-                                                                            echo ("1");
-                                                                        } else {
-                                                                            echo ($number_of_pages);
-                                                                        }
-                                                                        ?>" <?php
+                                                    <!-- Next Button of the pagination -->
+                                                    <a class="text-decoration-none p_nation_next" href="?page_no=<?php
+                                                                                                                    if ($page_no < $number_of_pages) {
+                                                                                                                        echo ($page_no + 1);
+                                                                                                                    } else if ($number_of_pages == 0) {
+                                                                                                                        echo ("1");
+                                                                                                                    } else {
+                                                                                                                        echo ($number_of_pages);
+                                                                                                                    }
+                                                                                                                    ?>" <?php
                                                                             if (($page_no == $number_of_pages) || ($number_of_pages == 0)) {
                                                                             ?> style="opacity: 0.5;" <?php
                                                                                                     }
                                                                                                         ?>>
-            <span class="d-none d-lg-block">Next</span>
-            <i class="icon-arrow_circle_right_black_24dp1 d-block d-lg-none"></i>
-        </a>
-        <!-- Next Button of the pagination -->
+                                                        <span class="d-none d-lg-block">Next</span>
+                                                        <i class="icon-arrow_circle_right_black_24dp1 d-block d-lg-none"></i>
+                                                    </a>
+                                                    <!-- Next Button of the pagination -->
 
-    </div>
-</div>
-<!-- Pagination -->
+                                                </div>
+                                            </div>
+                                            <!-- Pagination -->
                                         </div>
                                     </div>
 

@@ -271,7 +271,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                             <div class="socialMediaBody">
                                                                 <div class="d-flex flex-column">
                                                                     <span>Patform</span>
-                                                                    <input type="text" value="Instagram" disabled class="bg-transparent">
+                                                                    <input type="text" value="Linked In" disabled class="bg-transparent">
                                                                 </div>
                                                                 <div class="d-flex flex-column mt-4">
                                                                     <span>URL</span>
@@ -297,7 +297,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                             <div class="socialMediaBody">
                                                                 <div class="d-flex flex-column">
                                                                     <span>Patform</span>
-                                                                    <input type="text" value="Linked In" disabled class="bg-transparent">
+                                                                    <input type="text" value="Instergram" disabled class="bg-transparent">
                                                                 </div>
                                                                 <div class="d-flex flex-column mt-4">
                                                                     <span>URL</span>
