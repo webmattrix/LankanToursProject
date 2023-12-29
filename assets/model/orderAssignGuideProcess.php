@@ -20,7 +20,7 @@ $asg_check_data = $asg_check_rs->fetch_assoc();
 
 if($asg_check_data["tour_id"] == $tour_id){
     
-    $assign_to_rs = Database::iud("UPDATE `order` SET ``");
+    $asg_tour_rs = Database::iud("UPDATE `order` SET `guide_id`='".$tour_guide."',`cost`='".$tour_cost."',`start_date`='".$tour_sDate."',`end_date`='".$tour_enDate."',`guide_message`='".$forMSg_guide."' WHERE ``");
 
 }else{
     echo("Error");
