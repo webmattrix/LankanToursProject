@@ -158,12 +158,6 @@ function tableModalOpen(tab_tid, tab_name) {
     req.send();
 }
 
-function selectGuide(){
-
-   alert("ok");
-
-}
-
 function tableModalUpdate() {
 
     var toId = document.getElementById("tourIdNo").value;
