@@ -134,8 +134,8 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                     ?>
 
                                                                                     <span class="ord-modal-textC1" style="font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); font-weight: 600;">Select Guide</span>
-                                                                                    <select class="ord_selector_modal" style="cursor: pointer;" aria-label="Default select example">
-                                                                                        <option selected>Select</option>
+                                                                                    <select class="ord_selector_modal" id="getGuideId" style="cursor: pointer;" aria-label="Default select example">
+                                                                                        <option selected id="guide_name2">Select</option>
 
                                                                                         <?php
 
@@ -178,7 +178,7 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                 <div class="col-5">
 
                                                                                     <span class="ord-modal-textC1" style="font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); font-weight: 600;">Message for Guide</span>
-                                                                                    <textarea class="col-12 p-3" style="height: 20vh; border: 1px solid #C4C4C4; font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); border-radius: 4px;">Lorem ipsum dolor sit amet consectetur. Enim phasellus nibh neque amet tortor non dui non velit. Sed arcu vitae sit elementum aliquet massa dignissim amet lectus.</textarea>
+                                                                                    <textarea class="col-12 p-3" id="forGuideMsg" style="height: 20vh; border: 1px solid #C4C4C4; font-family: 'Segoe'; font-size: calc(0.58rem + 0.58vh); border-radius: 4px;">Hello guide..</textarea>
                                                                                 </div>
                                                                                 <div class="col-6">
                                                                                     <div class="col-12 mt-3">
