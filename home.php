@@ -272,7 +272,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
           <!-- <hr> -->
 
           <!-- Top Tour Plans -->
-          <div class="col-12">
+          <div class="col-12" id="home_tour_plans">
             <div class="row">
 
               <div class="segoeui-bold home_subtitle pb-2 main-content">Feel the SRI LANKA with our top tour plan</div>
