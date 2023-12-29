@@ -172,13 +172,13 @@ if (isset($_SESSION["lt_admin"])) {
 
                                                 <?php if ($guideTable_data["status"] == 0) {
                                                     ?>
-                                                    <td><button class=" btn btn-danger"> Unavailable</button>
+                                                    <td><button class=" btn btn-danger">Unverified</button>
 
                                                         <?php
                                                 } else {
                                                     ?>
 
-                                                    <td><button class="btn btn-primary">Available</button>
+                                                    <td><button class="btn btn-primary">Verified</button>
 
                                                         <?php
                                                 }
