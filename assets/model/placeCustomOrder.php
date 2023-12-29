@@ -4,23 +4,20 @@ session_start();
 
 if (isset($_SESSION["lt_tourist"])) {
 
-    if (!isset($_POST["tourist_name"]) && empty($_POST["tourist_name"])) {
-        echo ("Please enter your name");
-    } else if (!isset($_POST["tourLevel"]) && empty($_POST["tourLevel"])) {
+    if (!isset($_POST["tourLevel"]) || empty($_POST["tourLevel"])) {
         echo ("Select a tour level");
-    } else if (!isset($_POST["places_list"]) && empty($_POST["places_list"])) {
+    } else if (!isset($_POST["places_list"]) || empty($_POST["places_list"]) || sizeof(json_decode($_POST["places_list"])) == 0) {
         echo ("Select places you want to visit");
-    } else if (!isset($_POST["contact_method"]) && empty($_POST["contact_method"])) {
+    } else if (!isset($_POST["contact_method"]) || empty($_POST["contact_method"])) {
         echo ("Please select a contact method");
-    } else if (!isset($_POST["memberCount"]) && empty($_POST["memberCount"])) {
+    } else if (!isset($_POST["memberCount"]) || empty($_POST["memberCount"]) || $_POST["memberCount"] == 0) {
         echo ("Please enter member count");
-    } else if (!isset($_POST["message"]) && empty($_POST["message"])) {
+    } else if (!isset($_POST["message"]) || empty($_POST["message"])) {
         echo ("Please enter your request message");
     } else {
 
         require "sqlConnection.php";
 
-        $tourist_name = $_POST["tourist_name"];
         $tourLevel = $_POST["tourLevel"];
         $places_list = json_decode($_POST["places_list"]);
         $contact_method = $_POST["contact_method"];

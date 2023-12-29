@@ -154,8 +154,9 @@ $x = TourViews::getViews('project');
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                                 <div class="col-2 mt-3 pt-2">
-                                                                                    <button class="addTourBtn1 col-12 d-grid">Add</button>
+                                                                                    <button class="addTourBtn1 col-12 d-grid" onclick="addToModalTab();">Add</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -172,8 +173,8 @@ $x = TourViews::getViews('project');
                                                                                                 </div>
                                                                                             </tr>
                                                                                         </thead>
-                                                                                        <tbody>
-                                                                                            <tr>
+                                                                                        <tbody id="tableC&P">
+                                                                                            <!-- <tr>
                                                                                                 <div class="row">
                                                                                                     <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Kandy</th>
                                                                                                     <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">dalada maligawa</td>
@@ -199,7 +200,7 @@ $x = TourViews::getViews('project');
                                                                                                         <button class="addTourBtnDel1 px-4 py-1">Delete</button>
                                                                                                     </td>
                                                                                                 </div>
-                                                                                            </tr>
+                                                                                            </tr> -->
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
@@ -225,7 +226,7 @@ $x = TourViews::getViews('project');
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-4 d-flex align-items-center offset-lg-1">
-                                                                                            <button class="col-11 py-2 px-3 hoverUPBtn2">Update Tour</button>
+                                                                                            <button class="col-11 py-2 px-3 hoverUPBtn2" onclick="updateTour();">Update Tour</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -809,7 +810,8 @@ $x = TourViews::getViews('project');
     </div>
 
     <script src="../js/adminTemplate.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <!-- <script src="../js/bootstrap.js"></script> -->
     <script src="../js/manageTour.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>

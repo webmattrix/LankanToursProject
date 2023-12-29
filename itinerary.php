@@ -162,67 +162,103 @@ $tid = $_GET["tour_id"];
                         </div>
                     </div>
 
+                    <?php
 
-                    <div class="col-12">
-                        <div class="row">
+                    $tour_h_city_rs = Database::search("SELECT DISTINCT(`city`.`name`), `city`.`name` AS `city_name`, `city_image`.`path` AS `c_image` FROM `tour_has_place` 
+                                                          INNER JOIN `place` ON `tour_has_place`.`place_id`=`place`.`id`
+                                                          INNER JOIN `city` ON `place`.`city_id`=`city`.`id`
+                                                          INNER JOIN `city_image` ON `city_image`.`city_id`=`city`.`id` 
+                                                          WHERE `tour_has_place`.`tour_id`='" . $tid . "'");
+                    $tour_h_city_num = $tour_h_city_rs->num_rows;
 
-                            <div class="itinerary-image-slider p-0">
-                                <div class="itinerary-slides">
-                                    <div class="itinerary-slide active" id="itinerary-slide1">
-                                        <img src="../assets/img/itinerary_IMG/colombo.png" alt="Home Slider Image" />
-                                        <div class="itinerary-slide-content">
-                                            <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 01</h1>
-                                            <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+                    if ($tour_h_city_num == 0) {
 
-                                            <button type="button" onclick="tourRequest(<?php echo $tid; ?>);" class="btn my-2 py-2" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                        echo ("No tour places..");
+                    } else {
+
+                    ?>
+
+                        <div class="col-12">
+                            <div class="row">
+
+                                <div class="itinerary-image-slider p-0">
+                                    <div class="itinerary-slides">
+
+                                        <?php
+
+                                        for ($ic = 0; $ic < $tour_h_city_num; $ic++) {
+
+                                            $tour_h_city_data = $tour_h_city_rs->fetch_assoc();
+                                            echo($tour_h_city_data["city_name"]);
+
+                                        ?>
+
+                                            <div class="itinerary-slide active" id="itinerary-slide1">
+                                                <img src="../assets/img/places/<?php echo $tour_h_city_data["city_name"];?>/<?php echo $tour_h_city_data["c_image"];?>" alt="Home Slider Image" />
+                                                <div class="itinerary-slide-content">
+                                                    <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;"><?php echo $tour_h_city_data["city_name"];?></h1>
+                                                    <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+
+                                                    <button type="button" onclick="tourRequest(<?php echo $tid; ?>);" class="btn my-2 py-2" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                                </div>
+                                            </div>
+
+                                        <?php
+                                        }
+
+                                        ?>
+
+                                        <!-- <div class="itinerary-slide" id="itinerary-slide2">
+                                            <img src="../assets/img/itinerary_IMG/temple of tooth.jpg" alt="Home Slider Image" />
+                                            <div class="itinerary-slide-content">
+                                                <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 02</h1>
+                                                <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+
+                                                <button class="col-12 btn my-2 py-2" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+
+                                            </div>
+                                        </div>
+                                        <div class="itinerary-slide" id="itinerary-slide3">
+                                            <img src="../assets/img/itinerary_IMG/seegiriya.png" alt="Home Slider Image" />
+                                            <div class="itinerary-slide-content">
+                                                <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 03</h1>
+                                                <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+
+                                                <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+
+                                            </div>
+                                        </div>
+                                        <div class="itinerary-slide" id="itinerary-slide4">
+                                            <img src="../assets/img/itinerary_IMG/mountlavinia.jpg" alt="Home Slider Image" />
+                                            <div class="itinerary-slide-content">
+                                                <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 04</h1>
+                                                <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+
+                                                <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="itinerary-slide" id="itinerary-slide2">
-                                        <img src="../assets/img/itinerary_IMG/temple of tooth.jpg" alt="Home Slider Image" />
-                                        <div class="itinerary-slide-content">
-                                            <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 02</h1>
-                                            <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
+                                        <div class="itinerary-slide" id="itinerary-slide5">
+                                            <img src="../assets/img/itinerary_IMG/matara.jpg" alt="Home Slider Image" />
+                                            <div class="itinerary-slide-content">
+                                                <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 05</h1>
+                                                <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
 
-                                            <button class="col-12 btn my-2 py-2" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                                <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
 
-                                        </div>
-                                    </div>
-                                    <div class="itinerary-slide" id="itinerary-slide3">
-                                        <img src="../assets/img/itinerary_IMG/seegiriya.png" alt="Home Slider Image" />
-                                        <div class="itinerary-slide-content">
-                                            <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 03</h1>
-                                            <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
-
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
-
-                                        </div>
-                                    </div>
-                                    <div class="itinerary-slide" id="itinerary-slide4">
-                                        <img src="../assets/img/itinerary_IMG/mountlavinia.jpg" alt="Home Slider Image" />
-                                        <div class="itinerary-slide-content">
-                                            <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 04</h1>
-                                            <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
-
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="itinerary-slide" id="itinerary-slide5">
-                                        <img src="../assets/img/itinerary_IMG/matara.jpg" alt="Home Slider Image" />
-                                        <div class="itinerary-slide-content">
-                                            <h1 style="font-family: 'Segoe'; font-weight: 900; padding-bottom: 3%;">Day 05</h1>
-                                            <span class="fs-4 text-white" style="font-family: 'Segoe'; font-weight: 400;">Tour Place</span>
-
-                                            <button type="button" class="btn my-2 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Tour" style="background-color: #1546F4; color: #FFFFFF; display: flex; align-items: center;">Start Your Tour&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"><iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
-
-                                        </div>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+                    <?php
+
+                    }
+
+                    ?>
 
                     <div class="col-12">
                         <div class="row">
@@ -435,20 +471,20 @@ $tid = $_GET["tour_id"];
                                                             $tst_feedback_data = $tst_feedback_rs->fetch_assoc();
 
                                                         ?>
-                                                        
-                                                        <div class="col-12 mb-3 blog-cont-feedB" style="border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
-                                                            <div class="row">
-                                                                <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none feedB-date1" style="font-family: 'Segoe'; font-weight: 400;"><?php echo $tst_feedback_data["date_ob"];?></span>
-                                                                <span class="ps-4 py-2 d-lg-none d-sm-none d-grid feedB-date1" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);"><?php echo $tst_feedback_data["date_ob"];?></span>
-                                                                <hr class="col-9 col-lg-11 col-sm-11 ms-4" style="border-width: 2px; border-color: #D7D7D7;">
-                                                            </div>
-                                                            <div class="col-12 col-lg-8 col-sm-8 ps-3">
+
+                                                            <div class="col-12 mb-3 blog-cont-feedB" style="border-radius: 5px; box-shadow: 0 4px 8px -6px #222;">
                                                                 <div class="row">
-                                                                    <p class="feedB-cont-desc" style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';"><?php echo $tst_feedback_data["feedback"];?>
-                                                                    </p>
+                                                                    <span class="fs-5 ps-4 py-2 d-lg-grid d-sm-grid d-none feedB-date1" style="font-family: 'Segoe'; font-weight: 400;"><?php echo $tst_feedback_data["date_ob"]; ?></span>
+                                                                    <span class="ps-4 py-2 d-lg-none d-sm-none d-grid feedB-date1" style="font-family: 'Segoe'; font-weight: 400; font-size: calc(0.66rem + 0.73vh);"><?php echo $tst_feedback_data["date_ob"]; ?></span>
+                                                                    <hr class="col-9 col-lg-11 col-sm-11 ms-4" style="border-width: 2px; border-color: #D7D7D7;">
+                                                                </div>
+                                                                <div class="col-12 col-lg-8 col-sm-8 ps-3">
+                                                                    <div class="row">
+                                                                        <p class="feedB-cont-desc" style="font-size: calc(0.6rem + 0.63vh); font-weight: 400; font-family: 'Segoe';"><?php echo $tst_feedback_data["feedback"]; ?>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
                                                         <?php
 

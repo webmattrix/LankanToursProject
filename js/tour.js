@@ -184,7 +184,6 @@ function addToWatchlist(id) {
 
 function placeCustomTourOrder() {
   var formData = new FormData();
-  formData.append("tourist_name", document.getElementById("tourist").value);
   formData.append("tourLevel", document.getElementById("tourLevel").value);
   formData.append("places_list", JSON.stringify(custom_tour_places));
   formData.append(
@@ -201,6 +200,14 @@ function placeCustomTourOrder() {
       if (req.responseText == "1") {
         alert("You have to login first");
       } else if (req.responseText == "2") {
+
+        document.getElementById("tourLevel").value = 0;
+        document.getElementById("contact_method").value = 0;
+        document.getElementById("memberCount").value = "0";
+        document.getElementById("message").value = "";
+        document.getElementById("addTourPlace").value = 0;
+        document.getElementById("customTourCity").value = 0;
+
         window.location = "Orders";
       } else {
         alert(req.responseText);
@@ -210,4 +217,19 @@ function placeCustomTourOrder() {
 
   req.open("POST", "./assets/model/placeCustomOrder.php", true);
   req.send(formData);
+}
+
+
+function loadCustomTourPlaces() {
+  var city_id = document.getElementById("customTourCity").value;
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      document.getElementById("addTourPlace").innerHTML = req.responseText;
+    }
+  };
+
+  req.open("GET", "./assets/model/customTourPlaces.php?city_id=" + city_id, true);
+  req.send();
 }

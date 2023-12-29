@@ -6,6 +6,8 @@ session_start();
 
 $guide = $_SESSION["lt_guide"];
 
+echo(json_encode($guide));
+
 $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `employe_type`.`name` AS `emp_type`,`employee`.`id` AS `emp_id` 
                                      FROM `employee` 
                                      INNER JOIN `guide` ON `employee`.`id`=`guide`.`employee_id` 
@@ -36,8 +38,6 @@ $employee_data = $employee_rs->fetch_assoc();
 
             <div class="d-flex p-0">
                 <?php
-
-
 
                 include "./components/guideSidebar.php";
                 ?>

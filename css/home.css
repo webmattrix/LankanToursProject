@@ -371,9 +371,11 @@ img {
 }
 
 .activies-panel>div div:hover {
-  /* transform: scale(1.1); */
-  /* transition-duration: 0.2s; */
   animation: shake 0.4s ease-in-out;
+}
+
+.activies-panel>div div:hover>* {
+  animation: negativeShake 0.4s ease-in-out;
 }
 
 @keyframes shake {
@@ -395,6 +397,32 @@ img {
 
   80% {
     transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes negativeShake {
+  0% {
+    transform: rotate(0);
+  }
+
+  20% {
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  80% {
+    transform: rotate(-10deg);
   }
 
   100% {
@@ -478,7 +506,7 @@ img {
 
 .home_places-grid .place {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -760,3 +788,7 @@ img {
     width: 230px;
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
+
+

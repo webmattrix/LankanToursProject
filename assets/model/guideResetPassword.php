@@ -19,6 +19,8 @@ WHERE `employee`.`email`='" . $email . "' AND `employe_type`.`name`='guide' AND 
     if ($n == 1) {
         Database::iud("UPDATE `employee` SET `password`='" . $np . "' WHERE `email`='" . $email . "'");
         echo "success";
+    }else{
+        echo "not success";
     }
 } else {
     echo "passwords not matching";

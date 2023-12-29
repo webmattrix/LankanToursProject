@@ -14,6 +14,23 @@ $responseObj = new stdClass();
 $responseObj->city = $city["name"];
 $responseObj->img = $city["path"];
 
+$placesRs = Database::search("SELECT `place`.`name` AS `place_name`, MIN(`place_image`.`path`) AS `image_path` 
+                              FROM `place` 
+                              INNER JOIN `place_image` ON `place`.`id` = `place_image`.`place_id`
+                              WHERE `place`.`city_id` = '".$id."' 
+                              GROUP BY `place`.`id`");
+
+$places = array();
+while ($row = $placesRs->fetch_assoc()) {
+    $placeDetails = new stdClass();
+    $placeDetails->place_name = $row['place_name'];
+    $placeDetails->image_path = $row['image_path'];
+    
+    $places[] = $placeDetails;
+}
+
+$responseObj->places = $places;
 
 echo (json_encode($responseObj));
+
 ?>

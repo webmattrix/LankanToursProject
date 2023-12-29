@@ -12,8 +12,23 @@ require "assets/model/sqlConnection.php";
     <title>Home | Places</title>
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="css/placesDark.css">
-    <!-- <link rel="stylesheet" href="css/places.css"> -->
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+            ?>
+            <link rel="stylesheet" href="css/places.css">
+            <?php
+        } else {
+            ?>
+            <link rel="stylesheet" href="css/placesDark.css">
+            <?php
+        }
+    } else {
+        ?>
+        <link rel="stylesheet" href="css/places.css">
+        <?php
+    }
+    ?>
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/scrolbar.css" />
@@ -133,7 +148,7 @@ require "assets/model/sqlConnection.php";
                                     <div class="row">
                                         <div class="card-slider">
                                             <div class="btn-container mt-3">
-                                                <span>Things To Do In Matara</span>
+                                                <span id="things_text">Things To Do In Matara</span>
                                                 <div class="button-group">
                                                     <button class="btn btn-sm" id="prev-btn"><iconify-icon icon="grommet-icons:previous"></iconify-icon></iconify-icon></button>
                                                     <button class="btn btn-sm" id="next-btn"><iconify-icon icon="grommet-icons:next"></iconify-icon></button>

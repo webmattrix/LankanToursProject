@@ -42,17 +42,17 @@ if (empty($email)) {
 
             $mail = new PHPMailer;
             $mail->IsSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = 'smtp.titan.email';
             $mail->SMTPAuth = true;
-            $mail->Username = 'madsachintha1234@gmail.com';
-            $mail->Password = 'tbbojqkskrdmvaee';
+            $mail->Username = 'contact@lankantravel.com';
+            $mail->Password = 'Ltp2023@#';
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
-            $mail->setFrom('lankanTours@gmail.com', 'Lankan Tours');
-            $mail->addReplyTo('lankanTours@gmail.com', 'Lankan Tours');
-            $mail->addAddress('madsachintha1234@gmail.com');
+            $mail->setFrom('contact@lankantravel.com', 'Lankan Travel');
+            $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
+            $mail->addAddress($email);
             $mail->isHTML(true);
-            $mail->Subject = 'Lankan Tours Reset Code';
+            $mail->Subject = 'Lankan Travel Verification Code';
             $bodyContent = '<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -109,15 +109,15 @@ if (empty($email)) {
             <body>
                 <div class="email-container">
                     <div class="header">
-                        <h1>Lankan Tours</h1>
+                        <h1>Lankan Travel</h1>
                     </div>
                     <div class="content">
                         <h2>OTP Code</h2>
                         <h1>' . $uniqueID . '</h1>
-                        <p>Use this verification code to reset your password!</p>
+                        <p>Use this verification code to verify your account</p>
                     </div>
                     <div class="footer">
-                        &copy; 2023 Your LankanTours Name
+                        &copy; 2023 Your LankanTravel Name
                     </div>
                 </div>
             </body>
