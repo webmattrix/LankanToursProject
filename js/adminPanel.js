@@ -1,6 +1,5 @@
 window.onload = function () {
   setAllTransactionPanel(0);
-  setTimeZone();
 
   document.getElementById("preLoader").classList.add("d-none");
 

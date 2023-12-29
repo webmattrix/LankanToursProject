@@ -225,7 +225,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
       <!-- Most beautiful places & top tour plans -->
       <div class="col-12 p-4">
-        <div class="row mx-2 places-container rounded-3 p-2" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
+        <div class="row mx-2 places-container rounded-3 p-2 pb-4" style="box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);">
 
           <!-- Beautiful places -->
           <div class="col-12">
@@ -242,7 +242,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
-                  <div class="position-relative">
+                  <div class="position-relative" onclick="viewPlace('<?php echo ($places_data['city_id']); ?>');">
                     <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
                       <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
                     </div>
@@ -275,7 +275,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
           <div class="col-12" id="home_tour_plans">
             <div class="row">
 
-              <div class="segoeui-bold home_subtitle pb-2 main-content">Feel the SRI LANKA with our top tour plan</div>
+              <div class="segoeui-bold home_subtitle pb-2 main-content mt-2">Feel the SRI LANKA with our top tour plan</div>
 
               <div class="home_tour-plan">
                 <?php
