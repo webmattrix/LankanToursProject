@@ -1,5 +1,8 @@
-<?php $location = "primary";
-session_start(); ?>
+<?php
+ $location = "primary";
+session_start();
+if (isset($_SESSION["lt_tourist"])) {
+    $data = $_SESSION["lt_tourist"]; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,8 +44,7 @@ session_start(); ?>
     include "./components/newHeader.php";
 
 
-    if (isset($_SESSION["lt_tourist"])) {
-        $data = $_SESSION["lt_tourist"];
+    
         ?>
         <div class="container-fluid">
             <div class="col-12 mt-4">
@@ -210,11 +212,7 @@ ORDER BY `start_date` ASC";
                                 <div class="col-lg-11 offset-lg-1 col-12" style=" font-family:Quicksand-Medium">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                            <?php
-                                            $req_date = timeConverter::convert($main_data["date_time"]);
-                                            // $req_date_obj = strtotime($req_date);
-                                            echo (date("Y-m-d", $req_date));
-                                            ?>
+                                           
                                             <h6> Request Date :
                                                 <?php
                                                 // $convertTime = timeConverter::convert($main_data["date_time"]);
@@ -314,7 +312,7 @@ ORDER BY `start_date` ASC";
                                                     if ($main_data["tour_name"] != "Custom Tour") {
                                                         ?>
                                                         <button class="btn btn-secondary MytoursButton"
-                                                            onclick="feedbackModal();"><i
+                                                            onclick="feedbackModal('<?php echo $main_data['Orderid']; ?>');"><i
                                                                 class="bi bi-chat-left-quote text-white"></i>
                                                             &nbsp;Feedback</button>
                                                         <?php
@@ -343,8 +341,7 @@ ORDER BY `start_date` ASC";
                                                             } else {
                                                                 ?>
                                                                 <em class=" text-white">
-                                                                    &nbsp;0
-                                                                    <?php echo ($message_num); ?>
+                                                                    &nbsp;0<?php echo ($message_num); ?>
                                                                 </em>
                                                                 <?php
                                                             }
@@ -359,8 +356,7 @@ ORDER BY `start_date` ASC";
                                                             } else {
                                                                 ?>
                                                                 <em class=" text-white">
-                                                                    &nbsp;0
-                                                                    <?php echo ($message_num); ?>
+                                                                    &nbsp;0<?php echo ($message_num); ?>
                                                                 </em>
                                                                 <?php
 
@@ -406,17 +402,17 @@ ORDER BY `start_date` ASC";
                         <tbody>
                             <?php
 
-                            //                                                     $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
-// INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
-// INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
-// WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
+                                                                                $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
+INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
+INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
+INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
+WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
                         
 
-                            //                                                     $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
-// INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-// INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-// WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
+                                                                                $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
+INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
+INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
                         
                             $ongoingTourList02 = getOrders::getOrderList($order_query02, $ct_order_query02);
 
@@ -529,10 +525,11 @@ ORDER BY `start_date` ASC";
         <script src="./js/bootstrap.bundle.js"></script>
         <script src="./js/bootstrap.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-        <?php
-    } else {
-       header("Location: ./Login");       
-    } ?>
+        
 </body>
 
 </html>
+<?php
+    } else {
+       header("Location: ./Login");       
+    } ?>

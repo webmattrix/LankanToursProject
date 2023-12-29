@@ -1,12 +1,12 @@
 <?php require "./assets/model/sqlConnection.php"; 
 session_start();
 $admin = $_SESSION["lt_admin"];
-$employee_rs = Database::search("SELECT *,employee.name AS emp_name, employe_type.name AS emp_type, employee.id AS emp_id
-FROM employee
-INNER JOIN admin ON employee.id=admin.employee_id
-INNER JOIN employe_type ON employe_type.id=employee.employe_type_id WHERE employee.id='" . $admin["employee_id"] . "'");
-$employee_data = $employee_rs->fetch_assoc();
-?>
+
+
+if (isset($_SESSION["lt_admin"])) {
+    $data = $_SESSION["lt_admin"]; 
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,13 +172,13 @@ $employee_data = $employee_rs->fetch_assoc();
 
                                                 <?php if ($guideTable_data["status"] == 0) {
                                                     ?>
-                                                    <td><button class="btn btn-primary ">Available</button>
+                                                    <td><button class=" btn btn-danger"> Unavailable</button>
 
                                                         <?php
                                                 } else {
                                                     ?>
 
-                                                    <td><button class="btn btn-danger">Unavailable</button>
+                                                    <td><button class="btn btn-primary">Available</button>
 
                                                         <?php
                                                 }
@@ -403,3 +403,7 @@ $employee_data = $employee_rs->fetch_assoc();
 </body>
 
 </html>
+<?php
+    } else {
+       header("Location: ./Admin");       
+    } ?>

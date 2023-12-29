@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/TouristLoginPage.css">
+    <link rel="stylesheet" href="./css/font.css">
 
 </head>
 
 <body class="LoginBackground ">
-    <div class="col-1 Logincard2 d-block" style=" position: absolute;z-index:-5; ">
+    <div class="col-1 Logincard2 d-block " style=" position: absolute;z-index:-5; ">
     </div>
-    <h6 class="p-3  d-inline-block text-white" style="font-family: QuickSand;" onclick="login();"><i class="bi bi-arrow-right-circle-fill"></i>&nbsp; Registration</h6>
+    <h6 class="p-3  d-inline-block text-white c-pointer" style="font-family: QuickSand;" onclick="login();"><i class="bi bi-arrow-right-circle-fill"></i>&nbsp; Registration</h6>
 
     <div class=" LoginBox p-3 p-md-5">
 
