@@ -79,9 +79,9 @@ function tourReqProcessing(tourId) {
         bm.show();
 
       } else {
-        
+
         alert(respData4);
-      
+
       }
 
     }
@@ -124,3 +124,8 @@ function tourRequest(tourId) {
   req4.send();
 }
 
+
+
+function viewMyTours() {
+  window.location = "../Orders";
+}

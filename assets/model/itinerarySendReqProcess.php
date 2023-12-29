@@ -31,14 +31,12 @@ if (empty($members)) {
     echo ("Type your idea or anythings for prepare your order.!");
 } else {
 
-    if(true){
-      $requestOrder = Database::iud("INSERT INTO `order`(`user_id`,`tour_id`,`order_status_id`,`date_time`,`members`,`star`,`request_message`,`contact_method_id`) 
-                                     VALUES('".$user_id."','".$tid."','2','".$formatDate."','".$members."','".$st_Level."','".$msg_Ov."','".$cont_Method."')");
-    echo("Success");
+    if (true) {
+        $requestOrder = Database::iud("INSERT INTO `order`(`user_id`,`tour_id`,`order_status_id`,`date_time`,`members`,`star`,`request_message`,`contact_method_id`) 
+                                     VALUES('" . $user_id . "','" . $tid . "','2','" . $formatDate . "','" . $members . "','" . $st_Level . "','" . $msg_Ov . "','" . $cont_Method . "')");
+        echo ("Success");
+    } else {
 
-    }else{
-
-      echo("Something went wrong..!");
-
+        echo ("Something went wrong..!");
     }
 }
