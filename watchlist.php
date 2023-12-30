@@ -16,12 +16,27 @@ if (isset($_SESSION["lt_tourist"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Watchlist</title>
         <link rel="stylesheet" href="./css/bootstrap.css" />
-        <link rel="stylesheet" href="./css/watchlist.css" />
-        <!-- <link rel="stylesheet" href="./css/watchlistDark.css" /> -->
         <link rel="stylesheet" href="./css/newHeader.css" />
         <link rel="stylesheet" href="./css/footer.css" />
         <link rel="stylesheet" href="./css/scrolbar.css" />
         <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+        <?php
+        if (isset($_COOKIE["lt_theme"])) {
+            if ($_COOKIE["lt_theme"] === 'light') {
+        ?>
+                <link rel="stylesheet" href="./css/watchlist.css" />
+            <?php
+            } else {
+            ?>
+                <link rel="stylesheet" href="./css/watchlistDark.css" />
+            <?php
+            }
+        } else {
+            ?>
+            <link rel="stylesheet" href="./css/watchlist.css" />
+        <?php
+        }
+        ?>
     </head>
 
     <body class="bg-watchlist">
@@ -313,8 +328,7 @@ if (isset($_SESSION["lt_tourist"])) {
 <?php
 
 } else {
-
-    header('./Login');
+    header("Location: Login");
 }
 
 ?>
