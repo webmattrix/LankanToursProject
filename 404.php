@@ -51,7 +51,9 @@ if (isset($_SESSION["lt_tourist"])) {
                     <p class=" text-center "> OOPS!, the page you are looking for does not exist or you don’t have access to the page.</p>
                 </div>
                 <div class="box1">
+                    <a href="./Home">
                     <button class="btn btn-danger">Travel to Home Page &nbsp; <i class="bi bi-arrow-bar-right"></i></button>
+                    </a>
                 </div>
             </div>
         </div>

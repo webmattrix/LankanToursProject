@@ -51,7 +51,8 @@ if (isset($_SESSION["lt_tourist"])) {
                     <p class=" text-center "> Stay Connected !!</p>
                 </div>
                 <div class="box1">
-                    <button class="btn btn-danger">Travel to Home Page &nbsp; <i class="bi bi-arrow-bar-right"></i></button>
+                    <a href="./Home">
+                    <button class="btn btn-danger">Travel to Home Page &nbsp; <i class="bi bi-arrow-bar-right"></i></button></a>
                 </div>
             </div>
         </div>

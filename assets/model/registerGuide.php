@@ -18,15 +18,6 @@ $address = $_POST["address"];
 $city = $_POST["city"];
 $date = $_POST["R_date"];
 
-// echo($name);
-// echo($dob);
-// echo($email);
-// echo($password);
-// echo($NIC);
-// echo($mobile);
-// echo($address);
-// echo($city);
-// echo($date);
 
 
 if (empty($name)) {
@@ -148,6 +139,7 @@ if (empty($name)) {
                     <h2>Password</h2>
                     <h3>' . $password . '</h3>
                     <p>Use this email & Password for your Logins!</p>
+                    
                     
                 </div>
                 <div class="footer">

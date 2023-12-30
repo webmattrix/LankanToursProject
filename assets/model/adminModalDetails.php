@@ -75,11 +75,11 @@ $admin_data = $rs->fetch_assoc();
                         <div class="col-lg-8">
                             <?php if ($admin_data["status"] == 0) {
                             ?>
-                                <input type="text" class=" form-control text-primary  " readonly value="Active">
+                                <input type="text" class=" form-control  text-danger  " readonly value="Unverified">
                             <?php
                             } else {
                             ?>
-                                <input type="text" class=" form-control text-danger disabled " readonly value="Unavailable">
+                                <input type="text" class=" form-control text-primary  disabled " readonly value="verified">
                             <?php
                             }
                             ?>

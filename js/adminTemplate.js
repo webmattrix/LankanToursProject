@@ -238,16 +238,6 @@ function GuideRegister() {
  var city = document.getElementById("G_City");
  var R_date = document.getElementById("G_rDate");
 
-//  alert(name.value);
-//  alert(dob.value);
-//  alert(mobile.value);
-//  alert(NIC.value);
-//  alert(email.value);
-//  alert(password.value);
-//  alert(address.value);
-//  alert(R_date.value);
-//  alert(city.value);
-
  
 var form = new FormData;
 

@@ -54,11 +54,27 @@ if (isset($_SESSION["lt_admin"])) {
                                                 $guide01_rs = Database::search("SELECT COUNT(`guide_id`)AS`tour_count`,`guide_id` FROM `order` GROUP BY `guide_id` ORDER BY `tour_count` DESC LIMIT 1 ");
                                                 $guide_data01 = $guide01_rs->fetch_assoc();
                                                 $guide02_rs = Database::search("SELECT * FROM `employee` INNER JOIN `guide` ON employee.id = guide.employee_id WHERE `guide`.`id`='" . $guide_data01["guide_id"] . "'");
+                                                $n = $guide02_rs->num_rows;
                                                 $guide_data02 = $guide02_rs->fetch_assoc();
-
-
-                                                ?>
-                                                <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Most
+                                                if($n==0){
+                                                    ?>
+                                                    <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Most
+                                                    Famouse Tour Guide</h5>
+                                                <h6 class="text-lg-end mt-3" style="font-family:QuickSand;">
+                                                Not enough information
+                                                </h6>
+                                                <h6 class="text-lg-end" style="font-family:QuickSand;"><i
+                                                        class="bi bi-star-fill  text-warning"></i>&nbsp;&nbsp;
+                                                        0/5
+                                                </h6>
+                                                <h6 class="text-lg-end" style="font-family:QuickSand;"><i
+                                                        class="bi bi-telephone-inbound-fill"></i>&nbsp;&nbsp;
+                                                        Not mentioned
+                                                </h6>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                    <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">Most
                                                     Famouse Tour Guide</h5>
                                                 <h6 class="text-lg-end mt-3" style="font-family:QuickSand;">
                                                     <?php echo $guide_data02["name"] ?>
@@ -71,6 +87,13 @@ if (isset($_SESSION["lt_admin"])) {
                                                         class="bi bi-telephone-inbound-fill"></i>&nbsp;&nbsp;
                                                     <?php echo $guide_data02["mobile"] ?>
                                                 </h6>
+                                                    
+                                                    <?php
+                                                }
+
+
+                                                ?>
+                                                
                                             </div>
                                         </div>
                                     </div>
