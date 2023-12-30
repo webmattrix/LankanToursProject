@@ -295,9 +295,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                         <?php
                         if (isset($_SESSION["lt_tourist"])) {
                         ?>
-                          <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="()=>{
-                            alert('Hello');
-                          };"></iconify-icon>
+                          <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="addToWatchList('<?php echo ($tour_data['id']); ?>');"></iconify-icon>
                         <?php
                         } else {
                         ?>
