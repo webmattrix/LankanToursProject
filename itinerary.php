@@ -1,6 +1,7 @@
 <?php
 
 $tid = $_GET["tour_id"];
+session_start();
 
 ?>
 
@@ -10,16 +11,32 @@ $tid = $_GET["tour_id"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Itinerary Page</title>
+    <title>Tour Itinerary</title>
 
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../css/itinerary.css" />
-    <!-- <link rel="stylesheet" href="../css/itineraryDark.css" /> -->
     <link rel="stylesheet" href="../css/scrolbar.css" />
     <link rel="stylesheet" href="../css/newHeader.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/font.css" />
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <?php
+    if (isset($_COOKIE["lt_theme"])) {
+        if ($_COOKIE["lt_theme"] === 'light') {
+    ?>
+            <link rel="stylesheet" href="../css/itinerary.css" />
+        <?php
+        } else {
+        ?>
+            <link rel="stylesheet" href="../css/itineraryDark.css" />
+        <?php
+        }
+    } else {
+        ?>
+        <link rel="stylesheet" href="../css/itinerary.css" />
+    <?php
+    }
+    ?>
 
 </head>
 
@@ -253,7 +270,7 @@ $tid = $_GET["tour_id"];
                                                                     INNER JOIN `tour_has_place` ON `tour_has_place`.`tour_id`=`tour`.`id`
                                                                     INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id`
                                                                     INNER JOIN `city` ON `city`.`id`=`place`.`city_id`
-                                                                    WHERE `tour`.`id`='8' AND `city`.`id`='" . $city_table_data["id"] . "'");
+                                                                    WHERE `tour`.`id`='" . $tid . "' AND `city`.`id`='" . $city_table_data["id"] . "'");
 
                                         $place_table_rows = $place_table->num_rows;
 
@@ -280,7 +297,7 @@ $tid = $_GET["tour_id"];
                                                                         ?>
                                                                             <span class="fs-6">
                                                                                 <i class="bi bi-geo-alt-fill icon-style2 me-2"></i>
-                                                                                <span class="fs-6 places-marked" style="font-weight: 600; font-family: 'Segoe';"><?php echo ($place_table_data["place"]); ?></span>
+                                                                                <span class="fs-6 places-marked" style="font-family: 'Segoe';"><?php echo ($place_table_data["place"]); ?></span>
                                                                             </span>
                                                                         <?php
                                                                         }
@@ -298,9 +315,9 @@ $tid = $_GET["tour_id"];
                                                                             $city_image_table = Database::search("SELECT * FROM `city_image` WHERE `city_id`='" . $city_table_data["id"] . "' LIMIT 1");
                                                                             $city_image_table_data = $city_image_table->fetch_assoc();
                                                                             ?>
-                                                                            <a href="#" class="text-decoration-none text-white">
+                                                                            <!-- <a href="#" class="text-decoration-none text-white">
                                                                                 <i class="bi bi-arrow-right-circle fs-4 fw-bold text-white px-2"></i>
-                                                                            </a>
+                                                                            </a> -->
                                                                             <img src="../assets/img/City/<?php echo ($city_image_table_data["path"]); ?>" class="itinerary_image" alt="" style="width: 100%;">
                                                                         </div>
                                                                         <div class="row">
@@ -330,7 +347,7 @@ $tid = $_GET["tour_id"];
                                         </div>
                                     </div>
 
-                                    <div class="col-12 mb-4">
+                                    <!-- <div class="col-12 mb-4">
                                         <div class="row justify-content-center">
                                             <div class="col-11 mb-4 pb-3 pt-1 bg-blog-cont1" style="border-radius: 6px; box-shadow: 0 3px 10px -6px #222;">
                                                 <div class="row">
@@ -365,7 +382,7 @@ $tid = $_GET["tour_id"];
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
@@ -383,8 +400,8 @@ $tid = $_GET["tour_id"];
     <script src="../js/itinerary.js"></script>
     <!-- <script src="js/home.js"></script> -->
     <script src="../js/bootstrap.bundle.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="js/newHeader.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/newHeader.js"></script>
 
 </body>
 

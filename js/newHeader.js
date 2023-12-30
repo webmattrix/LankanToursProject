@@ -30,16 +30,28 @@ document.getElementById("accountIcon").addEventListener("click", () => {
   document.getElementById("headerMorePanel1").classList.toggle("d-none");
 });
 
-function goProfile() {
-  window.location = "Profile";
+function goProfile(location) {
+  if (location == 'primary') {
+    window.location = "Profile";
+  } else {
+    window.location = "../Profile";
+  }
 }
 
-function goWatchlist() {
-  window.location = "Watchlist";
+function goWatchlist(location) {
+  if (location == 'primary') {
+    window.location = "Watchlist";
+  } else {
+    window.location = "../Watchlist";
+  }
 }
 
-function goMyTours() {
-  window.location = "Orders";
+function goMyTours(location) {
+  if (location == 'primary') {
+    window.location = "Orders";
+  } else {
+    window.location = "../Orders";
+  }
 }
 
 function mobileMenuToggle() {
@@ -54,7 +66,7 @@ function mobileMenuToggle() {
   }
 }
 
-function changeTheme(theme) {
+function changeTheme(theme, location) {
 
   var theme_changer = document.getElementById("theme_changer");
 
@@ -71,11 +83,23 @@ function changeTheme(theme) {
   // console.log(theme);
 
   if (theme == "light") {
-    var requestPath = "./assets/model/changeToDark.php";
+    if (location == 'primary') {
+      var requestPath = "./assets/model/changeToDark.php";
+    } else {
+      var requestPath = "../assets/model/changeToDark.php";
+    }
   } else if (theme == "dark") {
-    var requestPath = "./assets/model/changeToLight.php";
+    if (location == 'primary') {
+      var requestPath = "./assets/model/changeToLight.php";
+    } else {
+      var requestPath = "../assets/model/changeToLight.php";
+    }
   } else {
-    var requestPath = "./assets/model/changeToDark.php";
+    if (location == 'primary') {
+      var requestPath = "./assets/model/changeToDark.php";
+    } else {
+      var requestPath = "../assets/model/changeToDark.php";
+    }
   }
 
   var req = new XMLHttpRequest();
