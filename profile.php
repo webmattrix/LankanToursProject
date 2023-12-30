@@ -13,10 +13,9 @@ if (!isset($_SESSION["lt_tourist"])) {
 
     $tourist = $_SESSION["lt_tourist"];
 
-    $tourist_rs = Database::search("SELECT *,`country`.`name` AS `country_name`,`gender`.`name` AS `gender` 
+    $tourist_rs = Database::search("SELECT *,`country`.`name` AS `country_name`
     FROM `user` 
     INNER JOIN `country` ON `user`.`country_id`=`country`.`id` 
-    INNER JOIN `gender` ON `gender`.`id`=`user`.`gender_id`
     WHERE `user`.`id`='" . $tourist["id"] . "'");
     $tourist_data = $tourist_rs->fetch_assoc();
 }
@@ -144,9 +143,13 @@ if (!isset($_SESSION["lt_tourist"])) {
                             </div>
                             <div class="d-flex flex-column mt-3">
                                 <label for="">Gender</label>
+                                <?php
+                                $gender_table = Database::search("SELECT *,`gender`.`name` AS `gender` FROM `user` INNER JOIN `gender` ON `gender`.`id`=`user`.`gender_id` WHERE `user`.`id`='" . $tourist["id"] . "'");
+                                $gender_table_rows = $gender_table->num_rows;
+                                ?>
                                 <input type="text" disabled value="<?php
-                                                                    if (!empty($tourist_data["gender"])) {
-                                                                        echo ($tourist_data["gender"]);
+                                                                    if ($gender_table_rows > 0) {
+                                                                        echo (($gender_table->fetch_assoc())["gender"]);
                                                                     }
                                                                     ?>" class="bg-transparent border-0 border-bottom text-center mt-1" />
                             </div>

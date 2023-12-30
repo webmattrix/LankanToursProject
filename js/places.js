@@ -86,7 +86,7 @@ function showCity(id){
   
     r.open(
       "GET",
-      "./assets/model/showCity.php?id=" +
+      "../assets/model/showCity.php?id=" +
         id,
       true
     );

@@ -1,17 +1,15 @@
 <?php
 function generatePassword($length)
 {
-    $specialChars = '!@#$%^&*_';
     $capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
     $numbers = '0123456789';
 
-    $allChars = $specialChars . $capitalLetters . $lowercaseLetters . $numbers;
+    $allChars = $capitalLetters . $lowercaseLetters . $numbers;
 
     $password = '';
 
     // Ensure at least one character from each category
-    $password .= $specialChars[rand(0, strlen($specialChars) - 1)];
     $password .= $capitalLetters[rand(0, strlen($capitalLetters) - 1)];
     $password .= $lowercaseLetters[rand(0, strlen($lowercaseLetters) - 1)];
     $password .= $numbers[rand(0, strlen($numbers) - 1)];

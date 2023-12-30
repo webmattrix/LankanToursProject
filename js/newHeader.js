@@ -55,7 +55,20 @@ function mobileMenuToggle() {
 }
 
 function changeTheme(theme) {
-  console.log(theme);
+
+  var theme_changer = document.getElementById("theme_changer");
+
+  if (theme_changer.classList.contains('light')) {
+    theme_changer.classList.toggle('dark');
+    theme_changer.classList.toggle('light');
+    // alert("Dark");
+  } else {
+    theme_changer.classList.toggle('light');
+    theme_changer.classList.toggle('dark');
+    // alert("Light");
+  }
+
+  // console.log(theme);
 
   if (theme == "light") {
     var requestPath = "./assets/model/changeToDark.php";

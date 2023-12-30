@@ -104,3 +104,8 @@ function loginChekerModelToggle() {
 function goToLogin() {
   window.location = "Login";
 }
+
+
+function viewPlace(city_id) {
+  window.location = "Tour-Place/" + city_id;
+}

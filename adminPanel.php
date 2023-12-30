@@ -37,6 +37,10 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                 width: 50%;
             }
 
+            .model-responsive {
+                width: 50%;
+            }
+
             .spinner {
                 width: 56px;
                 height: 56px;
@@ -72,9 +76,40 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
 
     <body style="background-color: #EAEAEA;">
 
-        <div class="position-fixed top-0 start-0 vh-100 vw-100 d-flex flex-column gap-2 justify-content-center align-items-center" style="z-index: 3; background-color: #2b2b2b;" id="preLoader">
+        <div class="position-fixed top-0 start-0 vh-100 vw-100 d-flex flex-column gap-2 justify-content-center align-items-center" style="z-index: 99; background-color: #2b2b2b;" id="preLoader">
             <div class="spinner"></div>
             <div class="text-white quicksand-SemiBold">Page is Loading...</div>
+        </div>
+
+        <div class="position-fixed start-0 top-0 vh-100 vw-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style="z-index: 4;" id="messageModel">
+            <div class="bg-white px-2 py-1 rounded model-responsive">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="quicksand-SemiBold">Message</span>
+                    <iconify-icon icon="ic:round-close" class="c-pointer" onclick="toggleMessageModel(false);"></iconify-icon>
+                </div>
+                <div class="mt-3">
+                    <div class="d-flex gap-2">
+                        <span>Name:</span>
+                        <span>Vihanga Heshan</span>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <span>Date:</span>
+                        <span>17 Aug, 2023</span>
+                    </div>
+                    <div class="d-flex gap-2 flex-column">
+                        <span>Message:</span>
+                        <textarea style="max-height: 250px; overflow-y: auto;" class="p-1 rounded" name="" id="" cols="30" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laboriosam optio facilis beatae quo vel. Veritatis, et a, velit ipsa sint eligendi sunt suscipit quo ipsum consequatur, eveniet quos? Reiciendis ipsum porro corporis dolor commodi delectus libero eveniet quisquam accusantium itaque sunt tenetur totam, incidunt cupiditate. Incidunt reprehenderit nemo nostrum?</textarea>
+                    </div>
+                    <div class="d-flex gap-2 mt-1">
+                        <select class="border-1 border-secondary rounded">
+                            <option value="0">Select</option>
+                            <option value="1">Responded</option>
+                            <option value="2">Not Responded</option>
+                        </select>
+                        <button class="btn btn-secondary bg-opacity-75">Update</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container-fluid">
@@ -343,7 +378,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                                 <span class="text-black-50 admin_panel-msg-text">
                                                                     <?php echo ($message_data["message"]); ?>
                                                                 </span>
-                                                                <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                                <a class="text-decoration-none" style="font-size: 14px;" onclick="toggleMessageModel('<?php echo ($message_data['id']); ?>');" href="#">View more...</a>
                                                             </div>
                                                         </div>
                                                     <?php
@@ -364,7 +399,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                                 <span class="text-black-50 admin_panel-msg-text">
                                                                     <?php echo ($message_data["message"]); ?>
                                                                 </span>
-                                                                <a class="text-decoration-none" style="font-size: 14px;" href="#">View more...</a>
+                                                                <a class="text-decoration-none" style="font-size: 14px;" onclick="toggleMessageModel('<?php echo ($message_data['id']); ?>');" href="#">View more...</a>
                                                             </div>
                                                         </div>
                                                     <?php
