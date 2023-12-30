@@ -67,7 +67,7 @@ if($n > 0){
     $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
     $mail->addAddress($Email);
     $mail->isHTML(true);
-    $mail->Subject = 'Lankan Travel Reset Code';
+    $mail->Subject = 'Lankan Travel login';
     $bodyContent = '<!DOCTYPE html>
     <html lang="en">
     <head>

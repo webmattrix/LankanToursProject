@@ -1,3 +1,7 @@
+<?php 
+require "./assets/model/passwordGenerator.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +32,8 @@
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="viewSubMenu('dashboard');"> -->
-                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard" onclick="openAdminDashboard();">
+                <div class="listItem" data-value="dashboardSubContent" statusNumber="0" id="dashboard"
+                    onclick="openAdminDashboard();">
                     <span>Dashboard</span>
                     <iconify-icon icon="mingcute:right-fill" id="dashboardIcon"></iconify-icon>
                 </div>
@@ -40,7 +45,8 @@
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
-                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="openManageAdmin();">
+                <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin"
+                    onclick="openManageAdmin();">
                     <span>Admin</span>
                     <iconify-icon icon="mingcute:right-fill" id="adminIcon"></iconify-icon>
                 </div>
@@ -52,7 +58,8 @@
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');"> -->
-                <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide" onclick="viewSubMenu('guide');">
+                <div class="listItem" data-value="guideSubContent" statusNumber="0" id="guide"
+                    onclick="viewSubMenu('guide');">
                     <span>Guide</span>
                     <iconify-icon icon="mingcute:right-fill" id="guideIcon"></iconify-icon>
                 </div>
@@ -63,7 +70,8 @@
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist" onclick="viewSubMenu('tourist');"> -->
-                <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist" onclick="openManageTourist();">
+                <div class="listItem" data-value="touristSubContent" statusNumber="0" id="tourist"
+                    onclick="openManageTourist();">
                     <span>Tourist</span>
                     <iconify-icon icon="mingcute:right-fill" id="touristIcon"></iconify-icon>
                 </div>
@@ -74,7 +82,8 @@
                 </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="tourPlanSubContent" statusNumber="0" id="tourPlan" onclick="viewSubMenu('tourPlan');">
+                <div class="listItem" data-value="tourPlanSubContent" statusNumber="0" id="tourPlan"
+                    onclick="viewSubMenu('tourPlan');">
                     <span>Tour Plan</span>
                     <iconify-icon icon="mingcute:right-fill" id="tourPlanIcon"></iconify-icon>
                 </div>
@@ -104,10 +113,11 @@
                 <!--  -->
                 <!-- <div class="listItem" data-value="ordersSubContent" statusNumber="0" id="order" onclick="viewSubMenu('order');"> -->
                 <div class="listItem <?php
-                                        if ($total_orders > 0) {
-                                            echo ("bg-warning bg-opacity-25");
-                                        }
-                                        ?>" data-value="ordersSubContent" statusNumber="0" id="order" onclick="openManageOrders();">
+                if ($total_orders > 0) {
+                    echo ("bg-warning bg-opacity-25");
+                }
+                ?>" data-value="ordersSubContent" statusNumber="0" id="order"
+                    onclick="openManageOrders();">
                     <span>Orders</span>
                     <iconify-icon icon="mingcute:right-fill" id="orderIcon"></iconify-icon>
                 </div>
@@ -118,7 +128,8 @@
                 </div> -->
 
                 <!--  -->
-                <div class="listItem" data-value="pagesdSubContent" statusNumber="0" id="pages" onclick="viewSubMenu('pages');">
+                <div class="listItem" data-value="pagesdSubContent" statusNumber="0" id="pages"
+                    onclick="viewSubMenu('pages');">
                     <span>Pages</span>
                     <iconify-icon icon="mingcute:right-fill" id="pagesIcon"></iconify-icon>
                 </div>
@@ -133,7 +144,8 @@
 
                 <!--  -->
                 <!-- <div class="listItem" data-value="settingSubContent" statusNumber="0" id="setting" onclick="viewSubMenu('setting');"> -->
-                <div class="listItem opacity-50" style="cursor: default;" data-value="settingSubContent" statusNumber="0" id="setting">
+                <div class="listItem opacity-50" style="cursor: default;" data-value="settingSubContent"
+                    statusNumber="0" id="setting">
                     <span>Setting</span>
                     <iconify-icon icon="mingcute:right-fill" id="settingIcon"></iconify-icon>
                 </div>
@@ -154,79 +166,129 @@
             <hr style="margin-top: 100px;">
 
             <div class="d-flex flex-column gap-5 fs-3 icon-list">
-                <iconify-icon icon="ic:round-dashboard" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Dashboard" onclick="openAdminDashboard();"></iconify-icon>
-                <iconify-icon icon="ic:baseline-admin-panel-settings" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Admin" onclick="openManageAdmin();"></iconify-icon>
-                <iconify-icon icon="dashicons:admin-users" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Guide" onclick="openManageGuide();"></iconify-icon>
-                <iconify-icon icon="fa-solid:hiking" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Tourist" onclick="openManageTourist();"></iconify-icon>
-                <iconify-icon icon="material-symbols:travel" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Tour Plans" onclick="openManageTour();"></iconify-icon>
-                <iconify-icon icon="mingcute:mail-send-fill" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Orders" onclick="openManageOrders();"></iconify-icon>
-                <iconify-icon icon="dashicons:text-page" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Pages"></iconify-icon>
-                <iconify-icon icon="icon-park-solid:setting-two" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Setting" class="opacity-50"></iconify-icon>
+                <iconify-icon icon="ic:round-dashboard" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Dashboard"
+                    onclick="openAdminDashboard();"></iconify-icon>
+                <iconify-icon icon="ic:baseline-admin-panel-settings" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Admin"
+                    onclick="openManageAdmin();"></iconify-icon>
+                <iconify-icon icon="dashicons:admin-users" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Guide"
+                    onclick="openManageGuide();"></iconify-icon>
+                <iconify-icon icon="fa-solid:hiking" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Tourist"
+                    onclick="openManageTourist();"></iconify-icon>
+                <iconify-icon icon="material-symbols:travel" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Tour Plans"
+                    onclick="openManageTour();"></iconify-icon>
+                <iconify-icon icon="mingcute:mail-send-fill" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Orders"
+                    onclick="openManageOrders();"></iconify-icon>
+                <iconify-icon icon="dashicons:text-page" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Pages"></iconify-icon>
+                <iconify-icon icon="icon-park-solid:setting-two" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Setting" class="opacity-50"></iconify-icon>
             </div>
         </div>
 
     </div>
 
 
-    <div class="position-fixed top-0 start-0 vh-100 vw-100 bg-black bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 1;" id="guideRegistrationModel">
+    <div class="position-fixed top-0 start-0 vh-100 vw-100 bg-black bg-opacity-50 d-flex justify-content-center align-items-center d-none"
+        style="z-index: 1;" id="guideRegistrationModel">
         <div class="guideRegistrationModel position-relative">
-            <dotlottie-player src="../assets/animations/Registration_Animation.json" background="transparent" speed="1" style="width: 100%; height: 100%; z-index: -1;" direction="1" mode="normal" loop autoplay class="position-absolute bg-white rounded"></dotlottie-player>
-            <div class="text-center px-4 py-2 quicksand-SemiBold fs-5 d-flex align-items-center justify-content-center position-relative">
+            <dotlottie-player src="../assets/animations/Registration_Animation.json" background="transparent" speed="1"
+                style="width: 100%; height: 100%; z-index: -1;" direction="1" mode="normal" loop autoplay
+                class="position-absolute bg-white rounded"></dotlottie-player>
+            <div
+                class="text-center px-4 py-2 quicksand-SemiBold fs-5 d-flex align-items-center justify-content-center position-relative">
                 <span>Guide Registration</span>
-                <iconify-icon icon="ic:round-close" class="position-absolute end-0 me-2 c-pointer" onclick="guideRegistrationModelToggle();"></iconify-icon>
+                <iconify-icon icon="ic:round-close" class="position-absolute end-0 me-2 c-pointer"
+                    onclick="guideRegistrationModelToggle();"></iconify-icon>
             </div>
             <hr class="m-0">
+            <?php 
+            $d = new DateTime();
+            $tzone = new DateTimeZone("Asia/Colombo");
+            $d->setTimezone($tzone);
+            $date = $d->format("Y-m-d ");
+
+            $password = generatePassword(6);
+            ?>
             <div class="py-2 d-flex flex-column gap-3">
                 <div class="d-flex flex-column px-2">
                     <label for="" class="quicksand-SemiBold">Name</label>
-                    <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                    <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                        id="G_Name">
                 </div>
                 <div class="d-flex px-2 gap-2">
                     <div class="w-50">
                         <label for="" class="quicksand-SemiBold">Date of Birth</label>
-                        <input type="date" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                        <input type="date" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                            id="G_Dob">
                     </div>
                     <div class="w-50">
                         <label for="" class="quicksand-SemiBold">Registration Date</label>
-                        <input type="date" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary" value="<?php echo($date)?> " id="G_rDate">
                     </div>
                 </div>
                 <div class="d-flex px-2 gap-2">
                     <div class="w-50">
                         <label for="" class="quicksand-SemiBold">Mobile</label>
-                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                            id="G_Mobile">
                     </div>
                     <div class="w-50">
                         <label for="" class="quicksand-SemiBold">NIC</label>
-                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                            id="G_Nic">
                     </div>
                 </div>
                 <hr class="m-0">
                 <div class="d-flex flex-column px-2">
                     <label for="" class="quicksand-SemiBold">Email</label>
-                    <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                    <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                        id="G_Email">
                 </div>
                 <div class="d-flex flex-column px-2">
                     <label for="" class="quicksand-SemiBold">Password</label>
-                    <input type="password" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                    <?php  $password = generatePassword(6);?>
+                    <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary" id="G_Password" value="<?php echo($password)?>">
                 </div>
                 <hr class="m-0">
                 <div class="d-flex px-2 gap-2">
                     <div class="w-25">
                         <label for="" class="quicksand-SemiBold">City</label>
                         <!-- <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75"> -->
-                        <select class="px-2 py-1 form-control bg-white bg-opacity-75 text-dark border border-primary">
+                        <select class="px-2 py-1 form-control bg-white bg-opacity-75 text-dark border border-primary"
+                            id="G_City">
                             <option value="0">Select</option>
+
+                            <?php
+                            $rs = Database::search("SELECT * FROM `city`");
+                            $n = $rs->num_rows;
+                            ?>
+                            <?php
+                            for ($x = 0; $x < $n; $x++) {
+                                $d = $rs->fetch_assoc();
+                                ?>
+                                <option value="<?php echo $d["id"]; ?>">
+                                    <?php echo $d["name"]; ?>
+                                </option>
+                                <?php
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="w-75">
                         <label for="" class="quicksand-SemiBold">Address</label>
-                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary">
+                        <input type="text" class="px-2 py-1 form-control bg-white bg-opacity-75 border border-primary"
+                            id="G_Address">
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary px-5">Register</button>
+                    <button class="btn btn-primary px-5" onclick="GuideRegister();">Register</button>
                 </div>
 
             </div>

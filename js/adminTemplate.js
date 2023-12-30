@@ -224,3 +224,54 @@ function toggleMessageModel(messageData) {
     document.getElementById("messageModel").classList.add("d-none");
   }
 }
+
+
+function GuideRegister() {
+
+ var name = document.getElementById("G_Name");
+ var dob = document.getElementById("G_Dob");
+ var mobile = document.getElementById("G_Mobile");
+ var NIC = document.getElementById("G_Nic");
+ var email = document.getElementById("G_Email");
+ var password = document.getElementById("G_Password");
+ var address = document.getElementById("G_Address");
+ var city = document.getElementById("G_City");
+ var R_date = document.getElementById("G_rDate");
+
+//  alert(name.value);
+//  alert(dob.value);
+//  alert(mobile.value);
+//  alert(NIC.value);
+//  alert(email.value);
+//  alert(password.value);
+//  alert(address.value);
+//  alert(R_date.value);
+//  alert(city.value);
+
+ 
+var form = new FormData;
+
+form.append("name", name.value);
+form.append("dob", dob.value);
+form.append("mobile", mobile.value);
+form.append("password", password.value);
+form.append("NIC", NIC.value);
+form.append("email", email.value);
+form.append("address", address.value);
+form.append("city", city.value);
+form.append("R_date", R_date.value);
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+        var text = request.responseText;
+        if (text == "success") {
+           alert("success");
+        } else {
+            alert(text);
+        }
+    }
+};
+request.open("POST", "../assets/model/registerGuide.php", true);
+request.send(form);
+}

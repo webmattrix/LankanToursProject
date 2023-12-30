@@ -347,7 +347,9 @@ if (isset($_SESSION["lt_admin"])) {
                             </div>
                         </div>
 
-                        <div class="col-12 mt-4">
+
+
+                        <!-- <div class="col-12 mt-4">
                             <h2 class="text-center" style="font-family: Inter;">Add New Guide</h2>
                         </div>
                         <div class="col-12 mb-4 mt-4">
@@ -388,7 +390,11 @@ if (isset($_SESSION["lt_admin"])) {
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
+
+
+                        
+
                     </div>
                     <!-- Page Content / body content eka methanin liyanna -->
 
