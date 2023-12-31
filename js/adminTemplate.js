@@ -257,6 +257,7 @@ request.onreadystatechange = function () {
         var text = request.responseText;
         if (text == "success") {
            alert("success");
+           location.reload();
         } else {
             alert(text);
         }

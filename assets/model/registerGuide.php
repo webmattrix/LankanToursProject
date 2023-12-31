@@ -54,7 +54,7 @@ if (empty($name)) {
 
         Database::iud("INSERT INTO `employee` 
         (`name`,`email`,`reg_date`,`status`,`mobile`,`employe_type_id`,`password`,`nic`,`dob`) VALUES 
-        ('".$name."','".$email."','".$date."','0','".$mobile."','3','".$password."','".$NIC."','".$dob."')");
+        ('".$name."','".$email."','".$date."','0','".$mobile."',(SELECT `employe_type`.`id` FORM `employe_type` WHERE `employe_type`.`name`='Guide'),'".$password."','".$NIC."','".$dob."')");
     
         $emp_rs=Database::search("SELECT * FROM  `employee`WHERE `name`='".$name."'");
         $emp_data = $emp_rs->fetch_assoc();
