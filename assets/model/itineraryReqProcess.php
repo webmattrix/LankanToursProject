@@ -3,25 +3,24 @@
 
 session_start();
 
-if(!isset($_SESSION["lt_tourist"])){
-  
-echo("1");
+if (!isset($_SESSION["lt_tourist"])) {
 
-}else{
+    echo ("1");
+    
+} else {
 
-require "./sqlConnection.php";
+    require "./sqlConnection.php";
 
-$tour_id = $_GET["tid"];
+    $tour_id = $_GET["tid"];
 
-$tableView_rs = Database::search("SELECT * FROM `tour` WHERE `id`='".$tour_id."'");
-$tableView_Data = $tableView_rs->fetch_assoc();
+    $tableView_rs = Database::search("SELECT * FROM `tour` WHERE `id`='" . $tour_id . "'");
+    $tableView_Data = $tableView_rs->fetch_assoc();
 
-$tour_name = $tableView_Data["name"];
+    $tour_name = $tableView_Data["name"];
 
-$responseObj = new stdClass();
+    $responseObj = new stdClass();
 
-$responseObj->t_name = $tour_name;
+    $responseObj->t_name = $tour_name;
 
-echo(json_encode($responseObj));
-
+    echo (json_encode($responseObj));
 }

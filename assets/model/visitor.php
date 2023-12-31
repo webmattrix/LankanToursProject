@@ -24,12 +24,20 @@ class Visiter
 
     public static function setVisiter($location)
     {
-        
+
         $data = file_get_contents(Visiter::getFile($location));
         $setObj = json_decode($data);
         $setObj->visiter_count = $setObj->visiter_count + 1;
         file_put_contents(Visiter::getFile($location), json_encode($setObj));
+    }
 
+    public static function removeVisiter($location)
+    {
+
+        $data = file_get_contents(Visiter::getFile($location));
+        $setObj = json_decode($data);
+        $setObj->visiter_count = $setObj->visiter_count - 1;
+        file_put_contents(Visiter::getFile($location), json_encode($setObj));
     }
 
     public static function getVisiter($location)

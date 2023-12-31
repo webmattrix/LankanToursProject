@@ -22,22 +22,22 @@ if (isset($_COOKIE["lt_theme"])) {
         <iconify-icon icon="tabler:moon-filled" class="fs-4" style="color: #7B7B7B;"></iconify-icon>
     </div> -->
 
-    <div class="toggle-theme-container <?php echo ($color_theme); ?>" style="cursor: pointer;" onclick="changeTheme('<?php echo ($theme); ?>');" id="theme_changer">
+    <div class="toggle-theme-container <?php echo ($color_theme); ?>" style="cursor: pointer;" onclick="changeTheme('<?php echo ($theme); ?>','<?php echo ($location); ?>');" id="theme_changer">
         <div class="switch"></div>
         <span class="toggle-light">Light</span>
         <span class="toggle-dark">Dark</span>
     </div>
 
 </div>
-<div class="mt-3 d-flex align-items-center gap-2 header-more-panel" onclick="goProfile();">
+<div class="mt-3 d-flex align-items-center gap-2 header-more-panel" onclick="goProfile('<?php echo ($location); ?>');">
     <iconify-icon icon="iconamoon:profile-circle-fill"></iconify-icon>
     <span class="x">Profile</span>
 </div>
-<div class="mt-1 d-flex align-items-center gap-2 header-more-panel" onclick="goWatchlist();">
+<div class="mt-1 d-flex align-items-center gap-2 header-more-panel" onclick="goWatchlist('<?php echo ($location); ?>');">
     <iconify-icon icon="mdi:heart"></iconify-icon>
     <span class="x">Watchlist</span>
 </div>
-<div class="mt-1 d-flex align-items-center gap-2 header-more-panel" onclick="goMyTours();">
+<div class="mt-1 d-flex align-items-center gap-2 header-more-panel" onclick="goMyTours('<?php echo ($location); ?>');">
     <iconify-icon icon="mdi:flight"></iconify-icon>
     <span class="x">My Tours</span>
 </div>

@@ -203,24 +203,50 @@ function toggleTransactionModel() {
   document.getElementById("transactionHistoryModel").classList.toggle("d-none");
 }
 
-function toggleMessageModel(messageData) {
-  if (messageData != false) {
-    document.getElementById("preLoader").classList.remove("d-none");
+function toggleMessageModel(id) {
+  if (id != false) {
 
     var req = new XMLHttpRequest();
 
     req.onreadystatechange = function () {
       if (req.readyState == 4) {
         document.getElementById("preLoader").classList.add("d-none");
-        alert(req.responseText);
+        document.getElementById("com_and_req_message").innerHTML = req.responseText;
+        document.getElementById("messageModel").classList.remove("d-none");
       }
     };
 
-    req.open("GET", "../assets/model/getRequestMessages.php", true);
+    req.open("GET", "../assets/model/getRequestMessages.php?id=" + id, true);
     req.send();
 
-    document.getElementById("messageModel").classList.remove("d-none");
   } else {
     document.getElementById("messageModel").classList.add("d-none");
   }
+}
+
+function updateRequestMessage(id) {
+  var messageStatus = document.getElementById("req_and_com_status").value;
+
+  if (messageStatus != 0) {
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4) {
+        if (req.responseText == 1) {
+          alert("Something went Wrong!!");
+        } else if (req.responseText == 2) {
+          alert("Only developer can change this");
+        } else {
+          alert("Message was updated");
+          window.location.reload();
+        }
+      }
+    };
+
+    req.open("GET", "../assets/model/updateRequestMessage.php?status=" + messageStatus + "&id=" + id, true);
+    req.send();
+  } else {
+    alert("Select a valid option");
+  }
+
 }
