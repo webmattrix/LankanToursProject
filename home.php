@@ -1,8 +1,29 @@
 <?php
 session_start();
 require "assets/model/sqlConnection.php";
+require "assets/model/visitor.php";
 
 $location = "primary";
+
+if (isset($_COOKIE["visiter_status"])) {
+  if ($_COOKIE["visiter_status"] == "Non-registered") {
+    // Tourist status is non-registered
+    if (isset($_SESSION["lt_tourist"])) {
+      // Tourist is logged in
+      setcookie("visiter_status", "Registered", time() + (60 * 60 * 24 * 365));
+      Visiter::removeVisiter('project');
+    } else {
+      // Tourist is not logged in
+      setcookie("visiter_status", "Non-registered", time() + (60 * 60 * 24 * 365));
+    }
+  } else {
+    setcookie("visiter_status", "Registered", time() + (60 * 60 * 24 * 365));
+  }
+} else {
+  // Tourist is new
+  Visiter::setVisiter('project');
+  setcookie("visiter_status", "Non-registered", time() + (60 * 60 * 24 * 365));
+}
 
 ?>
 
@@ -45,7 +66,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   <?php
   }
   ?>
-  <link rel="stylesheet" href="./css/header.css">
+  <!-- <link rel="stylesheet" href="./css/header.css"> -->
   <link rel="stylesheet" href="./css/scrolbar.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/font.css">

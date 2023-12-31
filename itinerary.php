@@ -2,6 +2,12 @@
 
 $tid = $_GET["tour_id"];
 session_start();
+require "./assets/model/sqlConnection.php";
+
+$tour_views_table = Database::search("SELECT * FROM `tour` WHERE `tour`.`id`='" . $tid . "'");
+$tour_views_table_data = $tour_views_table->fetch_assoc();
+$tour_view_count = $tour_views_table_data["views"];
+// Database::iud("UPDATE `tour` SET `views`='" . ($tour_view_count + 1) . "' WHERE `tour`.`id`='" . $tid . "'");
 
 ?>
 
@@ -42,16 +48,16 @@ session_start();
 
 <body onload="homeOnloadFunction();">
 
+    <?php
+
+    $location = "secondary";
+
+    include "./components/newHeader.php";
+    ?>
+
     <div class="container-fluid">
         <div class="row">
 
-            <?php
-
-            $location = "secondary";
-
-            include "./components/newHeader.php";
-            require "./assets/model/sqlConnection.php";
-            ?>
 
             <div class="col-12">
                 <div class="row">
@@ -182,7 +188,7 @@ session_start();
 
                     <?php
 
-                    $tour_table = Database::search("SELECT *,`city`.`name` AS `city`,`place`.`name` AS `place`,`place`.`id` AS `place_id` FROM `tour` 
+                    $tour_table = Database::search("SELECT *,`city`.`name` AS `city`,`place`.`name` AS `place`,`place`.`id` AS `place_id`,`tour`.`name` AS `tour` FROM `tour` 
                                                 INNER JOIN `tour_has_place` ON `tour_has_place`.`tour_id`=`tour`.`id` 
                                                 INNER JOIN `place` ON `tour_has_place`.`place_id`=`place`.`id`
                                                 INNER JOIN `city` ON `city`.`id`=`place`.`city_id`
@@ -199,6 +205,7 @@ session_start();
                             <div class="row">
 
                                 <div class="itinerary-image-slider p-0">
+                                    <div class="position-absolute segoeui-bold sub-heading text-white text-center w-100 fs-3 fst-italic" style="z-index: 2;">- <?php echo ($tour_views_table_data["name"]); ?> -</div>
                                     <div class="itinerary-slides">
 
                                         <?php

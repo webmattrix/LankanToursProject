@@ -233,7 +233,6 @@
         </div>
     </div>
 
-
     <script src="../js/adminTemplate.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
