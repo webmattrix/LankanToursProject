@@ -47,7 +47,7 @@ if($n > 0){
 
     Database::iud("INSERT INTO `employee` 
     (`name`,`email`,`reg_date`,`status`,`mobile`,`employe_type_id`,`password`,`nic`) VALUES 
-    ('".$Name."','".$Email."','".$date."','0','".$Mobile."','2','".$password."','".$NIC."')");
+    ('".$Name."','".$Email."','".$date."','0','".$Mobile."',(SELECT `employe_type`.`id` FORM `employe_type` WHERE `employe_type`.`name`='Admin'),'".$password."','".$NIC."')");
 
     $emp_rs=Database::search("SELECT * FROM  `employee`WHERE `name`='".$Name."'");
     $emp_data = $emp_rs->fetch_assoc();
@@ -67,7 +67,7 @@ if($n > 0){
     $mail->addReplyTo('contact@lankantravel.com', 'Lankan Travel');
     $mail->addAddress($Email);
     $mail->isHTML(true);
-    $mail->Subject = 'Lankan Travel Reset Code';
+    $mail->Subject = 'Lankan Travel login';
     $bodyContent = '<!DOCTYPE html>
     <html lang="en">
     <head>

@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/TouristRegistrationPage.css">
+    <link rel="stylesheet" href="./css/font.css">
 
 </head>
 
 <body class="registerBackground">
     <div class="col-1 Registercard2  d-block" style=" position: absolute; z-index:-5;">
     </div>
-    <h6 class="p-3 text-white  d-inline-block" style="font-family: QuickSand;" onclick="register()"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
+    <h6 class="p-3 text-white  d-inline-block c-pointer" style="font-family: QuickSand;" onclick="register()"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Back to Login</h6>
 
     <div class=" RegisterBox p-3 p-md-5 mb-2">
         <div class="  p-lg-4 p-md-5 p-3 Registercard ">

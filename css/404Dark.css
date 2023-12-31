@@ -1,0 +1,12 @@
+
+.box1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bgclr{
+    background-color: rgb(35, 35, 35);
+}
+.txtclr{
+    color: white;
+}

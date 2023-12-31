@@ -51,7 +51,7 @@ function touchEndDetector(evt, slideNumber) {
 
 var F_modal;
 function feedbackModal(id) {
-  alert(id);
+  
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
