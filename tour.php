@@ -211,102 +211,116 @@ $location = "primary";
             <!-- Custom Tour -->
 
 
+            <?php
 
-            <!-- Popular Tour Contene -->
-            <div class="px-2 py-2 col-12 mt-3 tour_popular-tours">
-                <div class="d-flex gap-2 align-items-center">
-                    <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
-                    <hr class="w-100">
-                </div>
-                <div class="d-flex p-2 overflow-auto">
-                    <?php
+            $order_table = Database::search("SELECT * FROM `order`");
+            $order_table_rows = $order_table->num_rows;
 
-                    // this will give us only most purchase count tours and limit for 5 rows
-                    // column (`purchase_count`,`tour_id`)
-                    $tour_rs = Database::search("SELECT COUNT(`order`.`tour_id`) AS `purchase_count`,`order`.`tour_id` 
+            if ($order_table_rows > 0) {
+
+            ?>
+
+                <!-- Popular Tour Contene -->
+                <div class="px-2 py-2 col-12 mt-3 tour_popular-tours">
+                    <div class="d-flex gap-2 align-items-center">
+                        <div class="main-heading" style="min-width: fit-content;">Popular Tours</div>
+                        <hr class="w-100">
+                    </div>
+                    <div class="d-flex p-2 overflow-auto">
+                        <?php
+
+                        // this will give us only most purchase count tours and limit for 5 rows
+                        // column (`purchase_count`,`tour_id`)
+                        $tour_rs = Database::search("SELECT COUNT(`order`.`tour_id`) AS `purchase_count`,`order`.`tour_id` 
                     FROM `order` 
                     GROUP BY `order`.`tour_id`
                     ORDER BY `purchase_count` DESC
                     LIMIT 5");
 
-                    for ($x = 0; $x < $tour_rs->num_rows; $x++) {
-                        $tour_data = $tour_rs->fetch_assoc();
+                        for ($x = 0; $x < $tour_rs->num_rows; $x++) {
+                            $tour_data = $tour_rs->fetch_assoc();
 
-                        $tour_detail_rs = Database::search("SELECT * FROM `tour` WHERE `tour`.`id`='" . $tour_data["tour_id"] . "'");
-                        $tour_detail_data = $tour_detail_rs->fetch_assoc();
+                            $tour_detail_rs = Database::search("SELECT * FROM `tour` WHERE `tour`.`id`='" . $tour_data["tour_id"] . "'");
+                            $tour_detail_data = $tour_detail_rs->fetch_assoc();
 
-                        $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` 
+                            $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` 
                         INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` 
                         WHERE `tour_has_place`.`tour_id`='" . $tour_data["tour_id"] . "' LIMIT 5");
 
-                        $tour_place_count = $tour_place_rs->num_rows;
+                            $tour_place_count = $tour_place_rs->num_rows;
 
-                    ?>
-                        <div class="tour_popular-tours-items">
-                            <div class="item white-item">
+                        ?>
+                            <div class="tour_popular-tours-items">
+                                <div class="item white-item">
 
-                                <!-- Image Slider Container -->
-                                <div class="slider overflow-hidden position-relative">
-                                    <!-- Arrow Buttons -->
-                                    <iconify-icon icon="mingcute:left-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');" class="position-absolute top-50 fs-5 text-white start-0 c-pointer rounded-start" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
-                                    <iconify-icon icon="mingcute:right-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');" class="position-absolute top-50 fs-5 text-white end-0 c-pointer rounded-end" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
-                                    <!-- Arrow Buttons -->
-                                    <div class="slides d-flex overflow-hidden" style="width: <?php echo ($tour_place_count); ?>00%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_place_count); ?>00">
-                                        <?php
-                                        for ($tour_places_iteration = 0; $tour_places_iteration < $tour_place_count; $tour_places_iteration++) {
-                                            $tour_place_data = $tour_place_rs->fetch_assoc();
-                                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_place_data["place_id"] . "' LIMIT 1");
-                                            $place_image_data = $place_image_rs->fetch_assoc();
-                                        ?>
-                                            <div class="image" style="width: 100%; background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');">
+                                    <!-- Image Slider Container -->
+                                    <div class="slider overflow-hidden position-relative">
+                                        <!-- Arrow Buttons -->
+                                        <iconify-icon icon="mingcute:left-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');" class="position-absolute top-50 fs-5 text-white start-0 c-pointer rounded-start" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
+                                        <iconify-icon icon="mingcute:right-line" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');" class="position-absolute top-50 fs-5 text-white end-0 c-pointer rounded-end" style="z-index: 1; transform: translateY(-50%);"></iconify-icon>
+                                        <!-- Arrow Buttons -->
+                                        <div class="slides d-flex overflow-hidden" style="width: <?php echo ($tour_place_count); ?>00%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_place_count); ?>00">
+                                            <?php
+                                            for ($tour_places_iteration = 0; $tour_places_iteration < $tour_place_count; $tour_places_iteration++) {
+                                                $tour_place_data = $tour_place_rs->fetch_assoc();
+                                                $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_place_data["place_id"] . "' LIMIT 1");
+                                                $place_image_data = $place_image_rs->fetch_assoc();
+                                            ?>
+                                                <div class="image" style="width: 100%; background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');">
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                        </div>
+                                        <!-- Image Number -->
+                                        <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black; z-index: 2;">
+                                            <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
+                                            <span class="text-white"> / <?php echo ($tour_place_count); ?></span>
+                                        </div>
+                                        <!-- Image Number -->
+
+                                        <!-- Number of Days in a tour -->
+                                        <div class="bg-primary text-uppercase rounded mt-2 position-absolute top-0 start-50 px-4 py-1 text-white quicksand-SemiBold fst-italic text-center" style="width: 80%; transform: translateX(-50%); z-index: 2; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5); background-image: radial-gradient(#2662BD,#0048B5);">- <?php echo ($tour_detail_data["date_count"]); ?> Days -</div>
+                                        <!-- Number of Days in a tour -->
+
+                                    </div>
+                                    <!-- Image Slider Container -->
+
+                                    <div class="quicksand-Medium mt-2">
+                                        <div class="content-heading popular-desc">
+                                            <span><?php echo ($tour_detail_data["description"]); ?></span>
+                                        </div>
+                                        <a class="d-flex align-items-center gap-2" href="Itinerary/<?php echo ($tour_detail_data["id"]); ?>">
+                                            <iconify-icon icon="mdi:airplane"></iconify-icon>
+                                            <span class="content-heading">Travel to read more...</span>
+                                        </a>
+                                        <div class="d-flex flex-column text-black-50 mt-2">
+                                            <div class="" title="View Count">
+                                                <iconify-icon icon="gridicons:visible"></iconify-icon>
+                                                <span class="content-heading"><?php echo ($tour_detail_data["views"]); ?></span>
                                             </div>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <!-- Image Number -->
-                                    <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black; z-index: 2;">
-                                        <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
-                                        <span class="text-white"> / <?php echo ($tour_place_count); ?></span>
-                                    </div>
-                                    <!-- Image Number -->
 
-                                    <!-- Number of Days in a tour -->
-                                    <div class="bg-primary text-uppercase rounded mt-2 position-absolute top-0 start-50 px-4 py-1 text-white quicksand-SemiBold fst-italic text-center" style="width: 80%; transform: translateX(-50%); z-index: 2; box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.5); background-image: radial-gradient(#2662BD,#0048B5);">- <?php echo ($tour_detail_data["date_count"]); ?> Days -</div>
-                                    <!-- Number of Days in a tour -->
-
-                                </div>
-                                <!-- Image Slider Container -->
-
-                                <div class="quicksand-Medium mt-2">
-                                    <div class="content-heading popular-desc">
-                                        <span><?php echo ($tour_detail_data["description"]); ?></span>
-                                    </div>
-                                    <a class="d-flex align-items-center gap-2" href="Itinerary/<?php echo ($tour_detail_data["id"]); ?>">
-                                        <iconify-icon icon="mdi:airplane"></iconify-icon>
-                                        <span class="content-heading">Travel to read more...</span>
-                                    </a>
-                                    <div class="d-flex flex-column text-black-50 mt-2">
-                                        <div class="" title="View Count">
-                                            <iconify-icon icon="gridicons:visible"></iconify-icon>
-                                            <span class="content-heading"><?php echo ($tour_detail_data["views"]); ?></span>
-                                        </div>
-
-                                        <div class="" title="Purchase Count">
-                                            <iconify-icon icon="wi:time-9"></iconify-icon>
-                                            <span class="content-heading"><?php echo ($tour_data["purchase_count"]); ?></span>
+                                            <div class="" title="Purchase Count">
+                                                <iconify-icon icon="wi:time-9"></iconify-icon>
+                                                <span class="content-heading"><?php echo ($tour_data["purchase_count"]); ?></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
-            </div>
-            <!-- Popular Tour Contene -->
+                <!-- Popular Tour Contene -->
+
+            <?php
+
+            }
+
+            ?>
 
             <!-- Tour Plans Content -->
             <div class="px-2 pt-1 pb-3 col-12 mt-3 tour_popular-tours">

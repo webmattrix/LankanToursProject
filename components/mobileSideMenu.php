@@ -4,11 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/mobileMenu.css" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <?php
+    if ($location == 'primary') {
+    ?>
+        <link rel="stylesheet" href="./css/mobileMenu.css" />
+        <link rel="stylesheet" href="./css/bootstrap.css" />
+    <?php
+    } else {
+    ?>
+        <link rel="stylesheet" href="../css/mobileMenu.css" />
+        <link rel="stylesheet" href="../css/bootstrap.css" />
+    <?php
+    }
+    ?>
     <style>
         .mobileMenuListItems a {
             text-decoration: none;
+            color: #333333;
         }
     </style>
 </head>
@@ -19,7 +31,17 @@
 
             <div class="px-3 py-3 pt-2 d-flex justify-content-between align-items-center">
                 <div class="d-flex gap-1 align-items-center w-100 justify-content-center">
-                    <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
+                    <?php
+                    if ($location == 'primary') {
+                    ?>
+                        <img src="./assets/img/favicon.png" style="height: 3rem; width: auto;" />
+                    <?php
+                    } else {
+                    ?>
+                        <img src="../assets/img/favicon.png" style="height: 3rem; width: auto;" />
+                    <?php
+                    }
+                    ?>
                     <span class="segoeui-bold fs-3 c-pointer" style="letter-spacing: 1px; color: #333333;">Lankan Travel</span>
                 </div>
                 <iconify-icon icon="mingcute:menu-fill" class="fs-3 py-1 scale-1_1 mobileMenuIcon" style="cursor: pointer; color: #333;" onclick="mobileMenuToggle();"></iconify-icon>
@@ -58,19 +80,13 @@
                     <span class="bottomBorder"></span>
                     <span class="quicksand-SemiBold">History</span>
                 </a>
-                <a href="<?php
-                            if ($location == 'primary') {
-                                echo ('Gallery');
-                            } else {
-                                echo ('../Gallery');
-                            }
-                            ?>" class="item item-4 d-flex align-items-center gap-3 w-75 px-3 c-pointer">
+                <!-- <a href="#" class="item item-4 d-flex align-items-center gap-3 w-75 px-3 c-pointer">
                     <div class="iconContainer d-flex justify-content-center align-items-center">
                         <iconify-icon icon="solar:gallery-bold"></iconify-icon>
                     </div>
                     <span class="bottomBorder"></span>
                     <span class="quicksand-SemiBold">Gallery</span>
-                </a>
+                </a> -->
                 <a href="<?php
                             if ($location == 'primary') {
                                 echo ('Contact');

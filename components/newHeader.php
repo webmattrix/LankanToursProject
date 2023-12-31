@@ -74,18 +74,12 @@
                         <iconify-icon icon="ic:round-history" class="d-block fs-4 d-lg-none text-white" title="History"></iconify-icon>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php
-                                if ($location == 'primary') {
-                                    echo ('Gallery');
-                                } else {
-                                    echo ('../Gallery');
-                                }
-                                ?>" class="text-decoration-none c-pointer">
+                <!-- <li>
+                    <a href="#" class="text-decoration-none c-pointer">
                         <span class="d-lg-block d-none">Gallery</span>
                         <iconify-icon icon="solar:gallery-outline" class="d-block fs-4 d-lg-none text-white" title="Gallery"></iconify-icon>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?php
                                 if ($location == 'primary') {

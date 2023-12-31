@@ -109,3 +109,29 @@ function goToLogin() {
 function viewPlace(city_id) {
   window.location = "Tour-Place/" + city_id;
 }
+
+function addToWatchList(id) {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      if (req.responseText == 1) {
+        alert("You have to login first");
+        window.location = "Login";
+      } else if (req.responseText == 2) {
+        alert("Something went wrong!! Please try again later.");
+      } else if (req.responseText == 3) {
+        alert("Tour is already addet to the watchlist");
+      } else if (req.responseText == 4) {
+        alert("Tour is added to the watchlist");
+        window.location.reload();
+      } else {
+        alert("Something went Wrong!!");
+        window.location.reload();
+      }
+    }
+  };
+
+  req.open("GET", "./assets/model/addToWatchlist.php?id=" + id, true);
+  req.send();
+}

@@ -1,4 +1,3 @@
-
 var bm;
 
 function assignOpenModel(t_id) {
