@@ -113,9 +113,7 @@ if (isset($_SESSION["lt_admin"])) {
 
                                                 $guide_rs = Database::search("SELECT * FROM `employee` INNER JOIN `guide` ON employee.id = guide.employee_id ORDER BY `rating` DESC LIMIT 1 ");
                                                 $guide_data = $guide_rs->fetch_assoc();
-                                                $guide_rs = Database::search("SELECT * FROM `employee` INNER JOIN `guide` ON employee.id = guide.employee_id ORDER BY `rating` DESC LIMIT 1 ");
-                                                $guide_data = $guide_rs->fetch_assoc();
-
+                                                
                                                 ?>
                                                 <h5 class="text-lg-end mt-3 mt-lg-0" style="font-family:QuickSand;">
                                                     Highest Rating Tour Guide</h5>
@@ -234,8 +232,6 @@ if (isset($_SESSION["lt_admin"])) {
 
         $middle_left = $middle_page - 1;
         $middle_right = $middle_page + 1;
-
-
         ?>
 
         <!--  -->
@@ -251,7 +247,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                                                                     }
                                                                                                         ?>>
             <span class="d-none d-lg-block">Prev</span>
-            <i class="icon-arrow_circle_left_black_24dp d-block d-lg-none"></i>
+            <i class="bi bi-arrow-left-circle-fill d-block d-lg-none"></i>
         </a>
 
 
@@ -360,7 +356,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                                                                     }
                                                                                                         ?>>
             <span class="d-none d-lg-block">Next</span>
-            <i class="icon-arrow_circle_right_black_24dp1 d-block d-lg-none"></i>
+            <i class="bi bi-arrow-right-circle-fill d-block d-lg-none"></i>
         </a>
         <!-- Next Button of the pagination -->
 
@@ -369,8 +365,6 @@ if (isset($_SESSION["lt_admin"])) {
 <!-- Pagination -->
                             </div>
                         </div>
-
-
 
                         <!-- <div class="col-12 mt-4">
                             <h2 class="text-center" style="font-family: Inter;">Add New Guide</h2>
@@ -398,9 +392,6 @@ if (isset($_SESSION["lt_admin"])) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    for ($x = 0; $x < 2; $x++) {
-                                        ?>
                                         <tr style="font-size: small;">
                                             <td>UserEmail@gmail.com</td>
                                             <td>07/08/2023</td>
@@ -408,16 +399,9 @@ if (isset($_SESSION["lt_admin"])) {
                                             <td><button class="btn btn-primary">view</button></i>
                                             </td>
                                         </tr>
-                                        <?php
-                                    }
-                                    ?>
                                 </tbody>
                             </table>
                         </div> -->
-
-
-                        
-
                     </div>
                     <!-- Page Content / body content eka methanin liyanna -->
 
