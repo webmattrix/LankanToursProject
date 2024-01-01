@@ -174,33 +174,7 @@ $x = TourViews::getViews('project');
                                                                                             </tr>
                                                                                         </thead>
                                                                                         <tbody id="tableC&P">
-                                                                                            <!-- <tr>
-                                                                                                <div class="row">
-                                                                                                    <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Kandy</th>
-                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">dalada maligawa</td>
-                                                                                                    <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
-                                                                                                        <button class="addTourBtnDel1 px-4 py-1">Delete</button>
-                                                                                                    </td>
-                                                                                                </div>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <div class="row">
-                                                                                                    <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Galle</th>
-                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">galle fort</td>
-                                                                                                    <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
-                                                                                                        <button class="addTourBtnDel1 px-4 py-1">Delete</button>
-                                                                                                    </td>
-                                                                                                </div>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <div class="row">
-                                                                                                    <th class="col-2 py-2 text-center fw-normal mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">Colombo</th>
-                                                                                                    <td class="col-4 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">gangarama temple</td>
-                                                                                                    <td class="col-1 py-2 text-center mt-modal-tab-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; border-radius: 8px;">
-                                                                                                        <button class="addTourBtnDel1 px-4 py-1">Delete</button>
-                                                                                                    </td>
-                                                                                                </div>
-                                                                                            </tr> -->
+                                                                                            <!-- innerHTML from JS -->
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
@@ -696,28 +670,7 @@ $x = TourViews::getViews('project');
                                                                                 }
 
                                                                                 ?>
-                                                                                <!-- <tr>
-                                                                                    <div class="row">
-                                                                                        <th class="col-2 py-2 text-center fw-normal mt-tab-textC">11 Day</th>
-                                                                                        <td class="col-2 py-2 text-center mt-tab-textC">1547</td>
-                                                                                        <td class="col-2 py-2 text-center mt-tab-textC">24</td>
-                                                                                        <td class="col-3 py-2 text-center mt-tab-textC">2023/06/12 - 2023/06/14</td>
-                                                                                        <td class="col-1 py-2 text-center">
-                                                                                            <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                        </td>
-                                                                                    </div>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <div class="row">
-                                                                                        <th class="col-2 py-2 text-center fw-normal mt-tab-textC">Luxury 5 Day</th>
-                                                                                        <td class="col-2 py-2 text-center mt-tab-textC">465</td>
-                                                                                        <td class="col-2 py-2 text-center mt-tab-textC">14</td>
-                                                                                        <td class="col-3 py-2 text-center mt-tab-textC">2023/06/12 - 2023/06/14</td>
-                                                                                        <td class="col-1 py-2 text-center">
-                                                                                            <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                        </td>
-                                                                                    </div>
-                                                                                </tr> -->
+                                                                                
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
