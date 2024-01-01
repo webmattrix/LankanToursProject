@@ -60,7 +60,22 @@ function verifyGuide() {
     if (r.readyState == 4) {
       var t = r.responseText;
       if (t == "success") {
-        window.location.href += "/Guide";
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function () {
+          if (req.readyState == 4) {
+            window.location.href += "/Guide";
+          }
+        };
+
+        req.open(
+          "GET",
+          "./assets/model/setTimeZoneSession.php?timeZone=" +
+            Intl.DateTimeFormat().resolvedOptions().timeZone,
+          true
+        );
+        req.send();
+
       } else {
         alert(t);
       }

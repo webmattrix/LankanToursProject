@@ -32,7 +32,7 @@ function adminLogin() {
             Intl.DateTimeFormat().resolvedOptions().timeZone,
           true
         );
-        // req.open( "GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
+       
         req.send();
       } else {
         document.getElementById("message").innerHTML = t;
@@ -56,7 +56,7 @@ function adminVerify() {
         reqest.onreadystatechange = function () {
           if (reqest.readyState == 4) {
             window.location.href = "./Admin/Home";
-            // window.location.href = "/lankanTours/LankanToursProject/Admin/Home";
+           
           }
         };
         reqest.open(
@@ -65,7 +65,6 @@ function adminVerify() {
             Intl.DateTimeFormat().resolvedOptions().timeZone,
           true
         );
-        // req.open("GET", "../assets/model/setTimeZoneSession.php?timeZone=" + Intl.DateTimeFormat().resolvedOptions().timeZone,true);
         reqest.send();
       } else alert(t);
     }
@@ -78,7 +77,6 @@ function adminVerify() {
       email.value,
     true
   );
-  // r.open("GET", "./assets/model/T_modalLogin.php?email=" +email.value ,"&code=" +code.value, true);
   r.send();
 }
 function adminForgotPassword() {
@@ -164,6 +162,5 @@ function resetpassword() {
     }
   };
   r.open("POST", "./assets/model/adminResetPassword.php", true);
-  // r.open("POST", "../assets/model/T_loginResetPassword.php", true);
   r.send(f);
 }
