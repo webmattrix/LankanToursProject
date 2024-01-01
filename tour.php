@@ -36,6 +36,9 @@ $location = "primary";
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+
+    <script src="./js/tour.js"></script>
 </head>
 
 <body class="c-default" id="body" onload="dataLoader();">
@@ -535,7 +538,6 @@ $location = "primary";
     <?php include "./components/footer.php"; ?>
 
     <script src="./js/newHeader.js"></script>
-    <script src="./js/tour.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

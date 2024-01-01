@@ -14,12 +14,11 @@ class timeConverter
         $explodeTime = explode(" ", $db_time);
 
         if (sizeof($explodeTime) == 2) {
-            $responseTime = $primary_time->format("Y-m-d H:i:s a");
+            $responseTime = $primary_time->format("Y-m-d H:i:s");
             return ($responseTime);
         } else {
             $responseTime = $primary_time->format("Y-m-d");
             return ($responseTime);
         }
-
     }
 }
