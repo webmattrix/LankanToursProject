@@ -29,30 +29,10 @@ $today = $today->format("Y-m-d");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel | Orders</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
-
-    <?php
-
-    if (isset($_COOKIE["lt_theme"])) {
-        if ($_COOKIE["lt_theme"] === 'light') {
-    ?>
-            <link rel="stylesheet" href="../css/orders_page.css">
-        <?php
-        } else {
-        ?>
-            <link rel="stylesheet" href="./css/orderDark.css">
-        <?php
-        }
-    } else {
-        ?>
-        <link rel="stylesheet" href="../css/orders_page.css">
-    <?php
-    }
-
-    ?>
-
     <link rel="stylesheet" href="../css/adminTemplate.css">
     <link rel="stylesheet" href="../css/orders_page.css" />
     <!-- <link rel="stylesheet" href="./css/orderDark.css" /> -->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -61,14 +41,72 @@ $today = $today->format("Y-m-d");
         <div class="row">
 
 
-            <div class="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style="z-index: 2;" id="tourOrderModel">
+            <div class="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 2;" id="tourOrderModel">
                 <div class="bg-white rounded shadow p-1 col-8 col-lg-6 col-xl-5" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="row px-2">
                         <div class="d-flex justify-content-between align-items-center mt-2">
                             <span>Tour Order</span>
-                            <iconify-icon icon="ic:round-close" class="c-pointer fs-5" onclick="tourOrderModel();"></iconify-icon>
+                            <iconify-icon icon="ic:round-close" class="c-pointer fs-5" onclick="tourOrderModel(false,false,'close');"></iconify-icon>
                         </div>
+                        <div class="col-12" id="tourOrderFillContainer">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 2;" id="tourOrderModel">
+                <div class="bg-white rounded shadow p-1 col-8 col-lg-6 col-xl-5" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
+                    <div class="row px-2">
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <span>Tour Order</span>
+                            <iconify-icon icon="ic:round-close" class="c-pointer fs-5" onclick="tourOrderModel(false,false,'close');"></iconify-icon>
+                        </div>
+                        <div class="col-12" id="tourOrderFillContainer">
+                            <hr>
+
+                            <div class="row px-3">
+                                <div class="col-12">
+                                    <div class="d-flex flex-column fs-5 quicksand-SemiBold">
+                                        <span class="">Tour Plan</span>
+                                        <span class="text-primary">$00</span>
+                                    </div>
+                                    <div class="d-flex flex-column mt-3" style="width: fit-content;">
+                                        <div class="d-flex gap-3 justify-content-between">
+                                            <span class="">Payment Status</span>
+                                            <span class="">Complete</span>
+                                        </div>
+                                        <div class="d-flex gap-3 justify-content-between">
+                                            <span class="">Start Date</span>
+                                            <span class="">2023-02-02</span>
+                                        </div>
+                                        <div class="d-flex gap-3 justify-content-between">
+                                            <span class="">End Date</span>
+                                            <span class="">2024-02-02</span>
+                                        </div>
+                                        <div class="d-flex gap-3 justify-content-between">
+                                            <span class="">Members</span>
+                                            <span class="">15</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 pe-0 pe-lg-3">
+                                            <div class="d-flex flex-column">
+                                                <label for="">Tour Guide</label>
+                                                <input type="text" name="" id="" disabled>
+                                            </div>
+                                            <div class="d-flex flex-column mt-2">
+                                                <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 ps-0 ps-lg-3">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,7 +142,13 @@ $today = $today->format("Y-m-d");
 
                                                 <div class="col-12 col-lg-4">
                                                     <div class="row">
-                                                        <img src="../assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%; height: 100%;" alt="">
+                                                        <div class="img-component-container col-12 col-sm-8 col-lg-6 col-xl-4">
+                                                            <div class="img-component" style="background-image: url('../assets/img/shashank-hudkar-KYBc1eq0dJo-unsplash.jpg');"></div>
+                                                            <img src="../assets/img/shashank-hudkar-KYBc1eq0dJo-unsplash.jpg" alt="" />
+                                                            <img src="../assets/img/shashank-hudkar-KYBc1eq0dJo-unsplash.jpg" alt="" />
+                                                            <img src="../assets/img/shashank-hudkar-KYBc1eq0dJo-unsplash.jpg" alt="" />
+                                                        </div>
+                                                        <!-- <img src="../assets/img/ordersPg_IMG/tour_plan_pack.png" style="width: 100%; height: 100%;" alt=""> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-8 py-2 px-3">
@@ -134,7 +178,7 @@ $today = $today->format("Y-m-d");
                                 <div class="col-12">
                                     <div class="row px-3">
 
-                                        <div class="col-12 bg-white rounded shadow p-3 mt-2">
+                                        <div class="col-12 bg-white rounded shadow p-3 mt-2 overflow-auto">
                                             <table class="table table-bordered">
                                                 <thead class="table_header">
                                                     <tr>
@@ -152,11 +196,13 @@ $today = $today->format("Y-m-d");
                                                     $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide` FROM `tour`
                                                                 INNER JOIN `order` ON `tour`.`id`=`order`.`tour_id`
                                                                 INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id`
-                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`";
+                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                                ORDER BY `start_date` ASC";
 
                                                     $ct_order_query = "SELECT *,`employee`.`name` AS `guide` FROM `custom_tour`
                                                                 INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
-                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`";
+                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                                ORDER BY `start_date` ASC";
 
                                                     $orderList = getOrders::getOrderList($order_query, $ct_order_query);
 
@@ -176,13 +222,13 @@ $today = $today->format("Y-m-d");
                                                             <td><?php echo ($order_data["members"]); ?></td>
                                                             <td><?php echo ($convert_start_date . " - " . $convert_end_date); ?></td>
                                                             <td class="<?php
-                                                                        if ($today > $start_date && $today < $end_date) {
+                                                                        if ($today >= $start_date && $today < $end_date) {
                                                                             echo ("text-success");
                                                                         } else if ($today < $start_date && $today < $end_date) {
                                                                             echo ("text-warning");
                                                                         }
                                                                         ?>"><?php
-                                                                            if ($today > $start_date && $today < $end_date) {
+                                                                            if ($today >= $start_date && $today < $end_date) {
                                                                                 echo ("Ongoing");
                                                                             } else if ($today < $start_date && $today < $end_date) {
                                                                                 echo ("Pending");
@@ -190,8 +236,10 @@ $today = $today->format("Y-m-d");
                                                                                 echo ("Complete");
                                                                             }
                                                                             ?></td>
-                                                            <td class="d-flex justify-content-center align-items-center fs-5 text-dark text-opacity-75">
-                                                                <iconify-icon icon="solar:eye-bold" class="c-pointer px-2"></iconify-icon>
+                                                            <td class="fs-5 text-dark text-opacity-75">
+                                                                <span class="d-flex justify-content-center align-items-center">
+                                                                    <iconify-icon icon="solar:eye-bold" class="c-pointer px-2"></iconify-icon>
+                                                                </span>
                                                             </td>
                                                         </tr>
                                                     <?php
@@ -263,15 +311,19 @@ $today = $today->format("Y-m-d");
                                                     <div class="px-2" style="max-height: 300px; height: 300px; overflow-y: auto;">
                                                         <?php
 
-                                                        $Assigned_order_query = "SELECT *,`tour`.`name` AS `tour_name` FROM `order`
+                                                        $Assigned_order_query = "SELECT *,`tour`.`name` AS `tour_name`,`order`.`id` AS `order_id`,`employee`.`name` AS `employee` FROM `order`
                                                                                 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id`
                                                                                 INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id`
-                                                                                WHERE `order_status`.`name`='Assigned' AND `order`.`start_date` > '" . $today . "'
+                                                                                INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id`
+                                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                                                WHERE `order_status`.`name`='Assigned' AND `order`.`start_date` >= '" . $today . "'
                                                                                 ORDER BY `order`.`date_time` ASC";
 
-                                                        $Assigned_ct_order_query = "SELECT * FROM `custom_tour`
+                                                        $Assigned_ct_order_query = "SELECT *,`custom_tour`.`id` AS `order_id`,`employee`.`name` AS `employee` FROM `custom_tour`
                                                                                 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id`
-                                                                                WHERE `order_status`.`name`='Assigned' AND `custom_tour`.`start_date` > '" . $today . "'
+                                                                                INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
+                                                                                INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                                                WHERE `order_status`.`name`='Assigned' AND `custom_tour`.`start_date` >= '" . $today . "'
                                                                                 ORDER BY `custom_tour`.`date_time` ASC";
 
                                                         $Assigned_orderList = getOrders::getOrderList($Assigned_order_query, $Assigned_ct_order_query);
@@ -279,19 +331,19 @@ $today = $today->format("Y-m-d");
                                                         for ($assign_iteration = 0; $assign_iteration < sizeof($Assigned_orderList); $assign_iteration++) {
                                                             $assigne_tour_data = $Assigned_orderList[$assign_iteration];
 
-                                                            $date_time = $assigne_tour_data["date_time"];
+                                                            $date_time = $assigne_tour_data["start_date"];
                                                             $convert_date_time = date("Y-m-d", strtotime(timeConverter::convert($date_time)));
 
                                                         ?>
-                                                            <div class="col-12 bg-secondary bg-opacity-10 rounded d-flex align-items-center gap-2 hover-shadow mb-3 py-2" style="height: fit-content;" onclick="tourOrderModel('<?php echo ($assigne_tour_data['order_id']); ?>','<?php echo ($assigne_tour_data['Custom Tour']); ?>');">
+                                                            <div class="col-12 bg-secondary bg-opacity-10 rounded d-flex align-items-center gap-2 hover-shadow mb-3 py-2" style="height: fit-content;" onclick="tourOrderModel('<?php echo ($assigne_tour_data['order_id']); ?>','<?php echo ($assigne_tour_data['tour_name']); ?>');">
                                                                 <img src="../assets/img/profile/empty_profile.jpg" alt="" style="width: 3rem; clip-path: circle(); max-height: 3rem;">
                                                                 <div class="w-100">
                                                                     <div class="border-bottom border-secondary d-flex justify-content-between">
                                                                         <span class="sub-heading"><?php echo ($assigne_tour_data["tour_name"]); ?></span>
-                                                                        <span class="content-heading text-black-50"><?php echo ($convert_date_time); ?></span>
+                                                                        <span class="content-heading text-black-50">Start: <?php echo ($convert_date_time); ?></span>
                                                                     </div>
                                                                     <div class="d-flex p-1 justify-content-between align-items-center">
-                                                                        <span class="content-heading" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2;"><?php echo ($unassigne_tour_data["request_message"]); ?></span>
+                                                                        <span class="" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2;">Guide : <?php echo ($assigne_tour_data["employee"]); ?></span>
                                                                         <iconify-icon icon="fluent-mdl2:completed-solid" style="width: 5%;" class="text-success fs-5"></iconify-icon>
                                                                     </div>
                                                                 </div>
