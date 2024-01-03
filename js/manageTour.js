@@ -5,15 +5,11 @@ function tourUpdate(t_id) {
   req1.onreadystatechange = function () {
     if (req1.readyState == 4) {
       var respData1 = req1.responseText;
-      var respObj1 = JSON.parse(respData1);
 
-      document.getElementById("nm_tour1").value = respObj1.t_name;
-      document.getElementById("dur_tour1").value = respObj1.d_gap;
-
-      var m = document.getElementById("tbUpdateModal");
+      var m = document.getElementById("tbUpdateModal").innerHTML = respData1;
       bm = new bootstrap.Modal(m);
       bm.show();
-
+      
     }
   };
 
