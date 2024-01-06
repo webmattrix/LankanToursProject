@@ -594,22 +594,22 @@ img {
 }
 
 @media (max-width: 820px) {
-  .home_places-grid .place {
-    height: 300px;
-  }
-}
-
-@media (max-width: 820px) {
   .home_places-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .home_places-grid .place {
-    height: 200px;
+    height: 250px;
   }
 
   .home_places-grid .place .home_place-name {
     font-size: 26px;
+  }
+}
+
+@media (max-width: 568px) {
+  .home_places-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -790,5 +790,3 @@ img {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
-
-

@@ -309,7 +309,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                         <div class="position-relative"> <!-- Income Chart (According to the months) -->
                                             <div class="d-flex justify-content-between px-2">
                                                 <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
-                                                    Year : 2023 -</span>
+                                                    Year : <?php echo ($year); ?> -</span>
                                                 <button class="px-3 d-flex justify-content-center align-items-center border-0 rounded" style="outline: none; background-color: #0090AF;" onclick="toggleTransactionModel();">
                                                     <iconify-icon icon="solar:chart-linear" class="text-white"></iconify-icon>
                                                 </button>

@@ -23,7 +23,7 @@ require "./assets/model/passwordGenerator.php";
 
             <div class="site_details px-4" style="margin-top: 30px;">
                 <div class="site_logo"></div>
-                <div class="site_name">Lankan Tours</div>
+                <div class="site_name">Lankan Travel</div>
             </div>
 
             <hr style="margin-top: 10px;">

@@ -205,21 +205,21 @@ function toggleTransactionModel() {
 
 function toggleMessageModel(messageData) {
   if (messageData != false) {
-    document.getElementById("preLoader").classList.remove("d-none");
+    // document.getElementById("preLoader").classList.remove("d-none");
 
     var req = new XMLHttpRequest();
 
     req.onreadystatechange = function () {
       if (req.readyState == 4) {
-        document.getElementById("preLoader").classList.add("d-none");
-        alert(req.responseText);
+        // document.getElementById("preLoader").classList.add("d-none");
+        document.getElementById("com_and_req_message").innerHTML = req.responseText;
+        document.getElementById("messageModel").classList.remove("d-none");
       }
     };
 
-    req.open("GET", "../assets/model/getRequestMessages.php", true);
+    req.open("GET", "../assets/model/getRequestMessages.php?id=" + messageData, true);
     req.send();
 
-    document.getElementById("messageModel").classList.remove("d-none");
   } else {
     document.getElementById("messageModel").classList.add("d-none");
   }
@@ -228,41 +228,68 @@ function toggleMessageModel(messageData) {
 
 function GuideRegister() {
 
- var name = document.getElementById("G_Name");
- var dob = document.getElementById("G_Dob");
- var mobile = document.getElementById("G_Mobile");
- var NIC = document.getElementById("G_Nic");
- var email = document.getElementById("G_Email");
- var password = document.getElementById("G_Password");
- var address = document.getElementById("G_Address");
- var city = document.getElementById("G_City");
- var R_date = document.getElementById("G_rDate");
+  var name = document.getElementById("G_Name");
+  var dob = document.getElementById("G_Dob");
+  var mobile = document.getElementById("G_Mobile");
+  var NIC = document.getElementById("G_Nic");
+  var email = document.getElementById("G_Email");
+  var password = document.getElementById("G_Password");
+  var address = document.getElementById("G_Address");
+  var city = document.getElementById("G_City");
+  var R_date = document.getElementById("G_rDate");
 
- 
-var form = new FormData;
 
-form.append("name", name.value);
-form.append("dob", dob.value);
-form.append("mobile", mobile.value);
-form.append("password", password.value);
-form.append("NIC", NIC.value);
-form.append("email", email.value);
-form.append("address", address.value);
-form.append("city", city.value);
-form.append("R_date", R_date.value);
+  var form = new FormData;
 
-var request = new XMLHttpRequest();
-request.onreadystatechange = function () {
+  form.append("name", name.value);
+  form.append("dob", dob.value);
+  form.append("mobile", mobile.value);
+  form.append("password", password.value);
+  form.append("NIC", NIC.value);
+  form.append("email", email.value);
+  form.append("address", address.value);
+  form.append("city", city.value);
+  form.append("R_date", R_date.value);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
     if (request.readyState == 4) {
-        var text = request.responseText;
-        if (text == "success") {
-           alert("success");
-           location.reload();
-        } else {
-            alert(text);
-        }
+      var text = request.responseText;
+      if (text == "success") {
+        alert("success");
+        location.reload();
+      } else {
+        alert(text);
+      }
     }
-};
-request.open("POST", "../assets/model/registerGuide.php", true);
-request.send(form);
+  };
+  request.open("POST", "../assets/model/registerGuide.php", true);
+  request.send(form);
+}
+
+function updateRequestMessage(id) {
+
+  var status = document.getElementById("req_and_com_status").value;
+
+  if (status != 0) {
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+      if (req.readyState == 4) {
+        if (req.responseText == 1) {
+          alert("Something went wrong!! Please try again later");
+        } else if (req.responseText == 2) {
+          alert("Only developer can reply this");
+        } else if (req.responseText == 3) {
+          alert("Complete");
+          window.location.reload();
+        }
+      }
+    };
+
+    req.open("GET", "../assets/model/updateRequestMessage.php?status=" + status + "&id=" + id, true);
+    req.send();
+  } else {
+    alert("Select a valid option");
+  }
 }
