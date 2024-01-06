@@ -17,6 +17,25 @@ function tourOrderModel(tourId, tourName, type) {
     }
 }
 
+function tourTableModel(tourId, tourName, type) {
+
+    if (type == 'close') {
+        document.getElementById("tourTableModel").classList.add("d-none");
+    } else {
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                document.getElementById("tourTableModel").classList.remove("d-none");
+                document.getElementById("tableModelFillContainer").innerHTML = req.responseText;
+            }
+        };
+
+        req.open("GET", "../assets/model/tourOrderTableModel.php?tourId=" + tourId + "&tourName=" + tourName, true);
+        req.send();
+    }
+}
+
 function updateTourRequest(table, id) {
     var start_date = document.getElementById("unAssignTourStartDate").value;
     var guide = document.getElementById("tourOrderGuide").value;
@@ -50,6 +69,33 @@ function updateTourRequest(table, id) {
     };
 
     req.open("POST", "../assets/model/updateTourRequest.php", true);
+    req.send(data);
+
+}
+
+function updateTourRequest(table, id) {
+    var savingAmount = document.getElementById("savingAmount").value;
+
+    var data = new FormData();
+
+    data.append("savingAmount", savingAmount);
+    data.append("table", table);
+    data.append("id", id);
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.responseText == '1') {
+                alert("Complete");
+                window.location.reload();
+            } else {
+                alert(req.responseText);
+            }
+        }
+    };
+
+    req.open("POST", "../assets/model/updateTourOrderPayment.php", true);
     req.send(data);
 
 }

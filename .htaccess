@@ -19,6 +19,7 @@ ReWriteRule ^Profile$ profile.php [NC,L]
 ReWriteRule ^Watchlist$ watchlist.php [NC,L]
 ReWriteRule ^Tour-Place$ places.php [NC,L]
 ReWriteRule ^Tour-Place/(\d+)$ places.php?city_id=$1 [NC,L]
+ReWriteRule ^Coming-Soon$ comingSoon.php [NC,L]
 
 ReWriteRule ^Admin$ AdminLogin.php [NC,L]
 ReWriteRule ^Admin/Home$ adminPanel.php [NC,L]

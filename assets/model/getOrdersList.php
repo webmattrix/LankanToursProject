@@ -8,7 +8,7 @@ class getOrders
     public static function getOrderList($order_query, $custom_order_query)
     {
 
-        $response_array = [];
+        $response_array = []; 
 
         $order_table = Database::search($order_query);
         $custom_order_table = Database::search($custom_order_query);

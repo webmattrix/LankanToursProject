@@ -48,8 +48,12 @@ $today = $today->format("Y-m-d");
             <label for="" class="form-label">Guide Name</label>
             <?php
             $guide_table = Database::search("SELECT *,`employee`.`id` AS `emp_id`,`employee`.`name` AS `emp_name` FROM `employee`
-                                                                    INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id`
-                                                                    WHERE `employe_type`.`name`='Guide' ORDER BY `employee`.`name` ASC");
+                                        INNER JOIN `employe_type` ON `employe_type`.`id`=`employee`.`employe_type_id`
+                                        WHERE `employe_type`.`name`='Guide' ORDER BY `employee`.`name` ASC");
+
+            if ($table == 'order') {
+                $query = "";
+            }
 
             ?>
             <select name="" id="tourOrderGuide" class="form-control">
