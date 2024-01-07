@@ -60,17 +60,9 @@ $x = TourViews::getViews('project');
                                         <!-- View Action Modal -->
 
                                         <div class="modal fade" id="tbUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                                                <div class="modal-content mt-modal-bgC">
-                                                    <div class="modal-header">
-                                                        <span class="mt-modal-titleC" style="font-family: 'Inter'; font-size: calc(0.67rem + 0.67vh); font-weight: 500;">Tour Plan Manage</span>
-                                                        <button type="button" class="closeBtn2" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <!-- innerHTML from tourUpdateProcess file -->
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                            <!-- innerHTML from tourUpdateProcess file -->
+
                                         </div>
 
                                         <!-- View Action Modal -->
@@ -375,7 +367,7 @@ $x = TourViews::getViews('project');
                                                                                     <tr>
                                                                                         <div class="row">
                                                                                             <th class="col-3 py-2 text-center fw-normal mt-tab-textC"><?php echo $tour_plan_data["name"]; ?></th>
-                                                                                            <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $x;?></td>
+                                                                                            <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $x; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $purchased_count; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $duration; ?></td>
                                                                                             <td class="col-1 py-2 text-center">
@@ -389,7 +381,7 @@ $x = TourViews::getViews('project');
                                                                                 }
 
                                                                                 ?>
-                                                                                
+
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
