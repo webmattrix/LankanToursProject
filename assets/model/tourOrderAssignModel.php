@@ -122,7 +122,7 @@ $today = $today->format("Y-m-d");
         </div>
         <div class="row px-2 mt-2">
             <label for="" class="form-label">Guide Message</label>
-            <textarea name="" id="guideMessage" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="" id="guideMessage" cols="30" rows="10" class="form-control"><?php echo ($tour_order_table_data["guide_message"]); ?></textarea>
         </div>
     </div>
     <div class="col-12 mt-4">
