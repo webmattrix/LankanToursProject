@@ -421,7 +421,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                 for ($ongoing_iteration = 0; $ongoing_iteration < sizeof($ongoingTourList); $ongoing_iteration++) {
                                                     $main_data = $ongoingTourList[$ongoing_iteration];
                                                 ?>
-                                                    <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2">
+                                                    <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2" onclick="viewOngoingTour();">
                                                         <?php
                                                         if ($main_data["profile_picture"] == null || empty($main_data["profile_picture"])) {
                                                         ?>

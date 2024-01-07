@@ -59,7 +59,7 @@ function updateTourRequest(table, id) {
 
     req.onreadystatechange = function () {
         if (req.readyState == 4) {
-            if (req.responseText == '1') {
+            if (req.responseText == 1) {
                 alert("Complete");
                 window.location.reload();
             } else {
@@ -73,7 +73,7 @@ function updateTourRequest(table, id) {
 
 }
 
-function updateTourRequest(table, id) {
+function updateTourPayment(table, id) {
     var savingAmount = document.getElementById("savingAmount").value;
 
     var data = new FormData();
