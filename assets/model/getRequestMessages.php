@@ -44,5 +44,5 @@ if ($user_table_rows == 1) {
         <option value="1">Responded</option>
         <option value="2">Not Responded</option>
     </select>
-    <button class="btn btn-secondary bg-opacity-75" onclick="updateRequestMessage('<?php echo($_GET['id']) ?>');">Update</button>
+    <button class="btn btn-secondary bg-opacity-75" onclick="updateRequestMessage('<?php echo ($_GET['id']) ?>');">Update</button>
 </div>

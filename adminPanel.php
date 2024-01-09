@@ -309,7 +309,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                         <div class="position-relative"> <!-- Income Chart (According to the months) -->
                                             <div class="d-flex justify-content-between px-2">
                                                 <span class="fst-italic quicksand-Medium" style="z-index: 1; font-size: 16px;">-
-                                                    Year : 2023 -</span>
+                                                    Year : <?php echo ($year); ?> -</span>
                                                 <button class="px-3 d-flex justify-content-center align-items-center border-0 rounded" style="outline: none; background-color: #0090AF;" onclick="toggleTransactionModel();">
                                                     <iconify-icon icon="solar:chart-linear" class="text-white"></iconify-icon>
                                                 </button>
@@ -421,7 +421,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                 for ($ongoing_iteration = 0; $ongoing_iteration < sizeof($ongoingTourList); $ongoing_iteration++) {
                                                     $main_data = $ongoingTourList[$ongoing_iteration];
                                                 ?>
-                                                    <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2">
+                                                    <div class="ongoing-tour-box px-3 rounded d-flex align-items-center gap-2" onclick="viewOngoingTour();">
                                                         <?php
                                                         if ($main_data["profile_picture"] == null || empty($main_data["profile_picture"])) {
                                                         ?>
