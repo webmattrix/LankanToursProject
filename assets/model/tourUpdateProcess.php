@@ -140,12 +140,13 @@ $wherePlace_num = $wherePlace_rs->num_rows;
                                                 for ($p = 0; $p < $wherePlace_num; $p++) {
 
                                                     $wherePlace_data = $wherePlace_rs->fetch_assoc();
+
                                                 ?>
 
-                                                    <tr>
+                                                    <tr id="deletePlRow_<?php echo $p; ?>">
                                                         <td class="col-2 py-2 text-center fw-normal mt-modal-tab-textC"><?php echo $wherePlace_data["city_name"]; ?></td>
                                                         <td class="col-4 py-2 text-center mt-modal-tab-textC"><?php echo $wherePlace_data["place_name"]; ?></td>
-                                                        <td><button class="text-center addTourBtnDel1 px-4 py-1" onclick="deleteNewAdded(<?php echo $wherePlace_data['city_id'];?>,<?php echo $wherePlace_data['place_id'];?>);">Delete</button></td>
+                                                        <td><button class="text-center addTourBtnDel1 px-4 py-1" onclick="deleteNewAdded('<?php echo ('deletePlRow' . '_' . $p); ?>' , '<?php echo $wherePlace_data['place_id']; ?>');">Delete</button></td>
                                                     </tr>
 
                                                 <?php
@@ -162,7 +163,7 @@ $wherePlace_num = $wherePlace_rs->num_rows;
                                 <div class="row justify-content-center">
                                     <div class="col-11">
                                         <span class="mt-modal-cont-textC" style="font-size: calc(0.56rem + 0.57vh); font-family: 'Inter';">Description</span>
-                                        <textarea class="col-12 px-2 py-1" style="height: 130px; overflow-y: scroll; border: none; font-size: calc(0.54rem + 0.55vh);"></textarea>
+                                        <textarea class="col-12 px-2 py-1" style="height: 130px; overflow-y: scroll; border: none; font-size: calc(0.6rem + 0.6vh);"><?php echo $tourUpdate_data["description"]; ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -170,15 +171,53 @@ $wherePlace_num = $wherePlace_rs->num_rows;
                                 <div class="row justify-content-center">
                                     <div class="col-11">
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div class="col-12" style="background-color: #FFFFFF;">
-                                                    <div class="row justify-content-center p-3">
-                                                        <img src="../assets/img/manageTours_IMG/img_search.svg" class="search1">
+
+
+                                            <?php
+
+                                            $placeImg1_rs = Database::search("SELECT * FROM `tour_has_place` 
+                                                                            INNER JOIN `place` ON `tour_has_place`.`place_id`=`place`.`id` 
+                                                                            INNER JOIN `place_image` ON `place_image`.`place_id`=`place`.`id` 
+                                                                            WHERE `tour_id`='" . $tour_id . "' ORDER BY RAND() LIMIT 1");
+
+                                            $placeImg1_num = $placeImg1_rs->num_rows;
+
+                                            if ($placeImg1_num == 0) {
+
+                                            ?>
+
+                                                <div class="col-6">
+                                                    <div class="col-12" style="background-color: #FFFFFF;">
+                                                        <div class="row justify-content-center p-3">
+                                                            <img src="../assets/img/manageTours_IMG/img_search.svg" class="search1">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+
+                                            <?php
+
+
+                                            } else {
+
+                                                $placeImg1_data = $placeImg1_rs->fetch_assoc();
+
+                                            ?>
+                                                <div class="col-6">
+                                                    <div class="col-12" style="background-color: #FFFFFF;">
+                                                        <div class="row p-3">
+                                                            <img src="../assets/img/places/<?php echo $placeImg1_data[ "path"];?>" style="width: 100%; height: 185px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            <?php
+
+                                            }
+
+                                            ?>
+
                                             <div class="col-4 d-flex align-items-center offset-lg-1">
-                                                <button class="col-11 py-2 px-3 hoverUPBtn2" onclick="updateTour();">Update Tour</button>
+                                                <button class="col-11 py-2 px-3 hoverUPBtn2" id="updateBtn" onclick="updateTour(<?php echo $tour_id; ?>);">Update Tour</button>
                                             </div>
                                         </div>
                                     </div>

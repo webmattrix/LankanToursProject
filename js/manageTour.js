@@ -39,6 +39,7 @@ function loadPlaces() {
 
 var newArray = [];
 var deleteArray = [];
+var tourId;
 
 function addToModalTab() {
 
@@ -48,7 +49,7 @@ function addToModalTab() {
   var opt_val_city = selectedCity.options[selectedCity.selectedIndex].value;
   var opt_val_place = selectedPlace.options[selectedPlace.selectedIndex].value;
 
-  newArray.push(opt_val_city, opt_val_place);
+  newArray.push(opt_val_place);
 
   var form2 = new FormData();
   form2.append("cityId", opt_val_city);
@@ -74,29 +75,37 @@ function addToModalTab() {
 
 }
 
-function updateTour() {
+function updateTour(tid) {
+
+  var form4 = new FormData();
+  form4.append("dlt", JSON.stringify(deleteArray));
+  form4.append("upd", JSON.stringify(newArray));
+  form4.append("t_id", tid);
 
   var req4 = new XMLHttpRequest();
   req4.onreadystatechange = function () {
     if (req4.readyState == 4) {
       var respData4 = req4.responseText;
 
-      alert(respData4);
+      if (respData4 = "Success") {
+        window.location.reload();
+      } else {
+        alert(respData4);
+      }
+
     }
   }
 
-  req4.open("GET","../assets/model/city&placesDeleteProcess.php?dlt="+JSON.stringify(deleteArray),true);
-  req4.send();
+  req4.open("POST", "../assets/model/city&placesDel&UpProcess.php", true);
+  req4.send(form4);
 
 }
 
-function deleteNewAdded(cid, plid) {
+function deleteNewAdded(row,plid) {
 
-  passObject = {
-    cityId : cid,
-    placeId : plid,
-  };
+  deleteArray.push(plid);
 
-  deleteArray.push(passObject);
+  var deleteRow = document.getElementById(row);
+  deleteRow.style.display = "none";
 
 }
