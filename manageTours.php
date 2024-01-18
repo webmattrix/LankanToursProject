@@ -16,8 +16,6 @@ $employee_rs = Database::search("SELECT *, `employee`.`name` AS `emp_name`, `emp
 
 $employee_data = $employee_rs->fetch_assoc();
 
-$x = TourViews::getViews('project');
-
 ?>
 
 <!DOCTYPE html>
@@ -60,17 +58,9 @@ $x = TourViews::getViews('project');
                                         <!-- View Action Modal -->
 
                                         <div class="modal fade" id="tbUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                                                <div class="modal-content mt-modal-bgC">
-                                                    <div class="modal-header">
-                                                        <span class="mt-modal-titleC" style="font-family: 'Inter'; font-size: calc(0.67rem + 0.67vh); font-weight: 500;">Tour Plan Manage</span>
-                                                        <button type="button" class="closeBtn2" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <!-- innerHTML from tourUpdateProcess file -->
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                            <!-- innerHTML from tourUpdateProcess file -->
+
                                         </div>
 
                                         <!-- View Action Modal -->
@@ -96,8 +86,22 @@ $x = TourViews::getViews('project');
 
                                                                 $mpt_plan_data = $mpt_plan_rs->fetch_assoc();
 
+                                                                $placeImage_rs = Database::search("SELECT * FROM `tour_has_place` 
+                                                                                                   INNER JOIN `place` ON `tour_has_place`.`place_id`=`place`.`id`
+                                                                                                   INNER JOIN `place_image` ON `place_image`.`place_id`=`place`.`id` 
+                                                                                                   WHERE `tour_id`='" . $mpt_plan_data["tour_id"] . "' ORDER BY RAND() LIMIT 1");
+                                                                $placeImage_num = $placeImage_rs->num_rows;
+
+                                                                if ($placeImage_num == 1) {
+
+                                                                    $placeImage_data = $placeImage_rs->fetch_assoc();
+                                                                }
+
+
                                                                 $start_plan_date = $mpt_plan_data["start_date"];
                                                                 $end_plan_date = $mpt_plan_data["end_date"];
+
+                                                                $viewCount = $mpt_plan_data["views"];
 
                                                                 $plan_duration = date_diff(new DateTime($start_plan_date), new DateTime($end_plan_date))->d;
 
@@ -117,7 +121,7 @@ $x = TourViews::getViews('project');
 
 
                                                                 <span class="mt-poptp-textC" style="font-family: 'Inter'; font-weight: 400; font-size: calc(0.62rem + 0.63vh);">Most Popular Tour Plan</span>
-                                                                <img src="../assets/img/manageTours_IMG/Badulla.png" class="topTour1" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                <img src="../assets/img/places/<?php echo $placeImage_data["path"]; ?>" class="topTour1" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                                                 <div class="collapse" id="collapseExample">
                                                                     <div class="card card-body mt-collapse-bg" style="box-shadow: 0 2px 6px 0 rgba(0, 0, 0,0.4); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
                                                                         <div class="col-12">
@@ -145,7 +149,7 @@ $x = TourViews::getViews('project');
                                                                                         </div>
                                                                                         <div class="col-6">
                                                                                             <div class="row">
-                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;">1320</span>
+                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;"><?php echo $viewCount; ?></span>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-6">
@@ -204,8 +208,21 @@ $x = TourViews::getViews('project');
 
                                                             $mpt_plan_data2 = $mpt_plan_rs2->fetch_assoc();
 
+                                                            $placeImage2_rs = Database::search("SELECT * FROM `tour_has_place` 
+                                                                                                   INNER JOIN `place` ON `tour_has_place`.`place_id`=`place`.`id`
+                                                                                                   INNER JOIN `place_image` ON `place_image`.`place_id`=`place`.`id` 
+                                                                                                   WHERE `tour_id`='" . $mpt_plan_data2["tour_id"] . "' ORDER BY RAND() LIMIT 1");
+                                                            $placeImage2_num = $placeImage2_rs->num_rows;
+
+                                                            if ($placeImage2_num == 1) {
+
+                                                                $placeImage2_data = $placeImage2_rs->fetch_assoc();
+                                                            }
+
                                                             $start_plan_date2 = $mpt_plan_data2["start_date"];
                                                             $end_plan_date2 = $mpt_plan_data2["end_date"];
+
+                                                            $viewCount1 = $mpt_plan_data2["views"];
 
                                                             $plan_duration2 = date_diff(new DateTime($start_plan_date2), new DateTime($end_plan_date2))->d;
 
@@ -224,7 +241,7 @@ $x = TourViews::getViews('project');
 
                                                             <div class="col-12">
                                                                 <span class="mt-poptp-textC" style="font-family: 'Inter'; font-weight: 400; font-size: calc(0.62rem + 0.63vh);">Least Popular Tour Plan</span>
-                                                                <img src="../assets/img/manageTours_IMG/Dambulla.png" class="leastTour1" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" alt="">
+                                                                <img src="../assets/img/places/<?php echo $placeImage2_data["path"]; ?>" class="leastTour1" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" alt="">
                                                                 <div class="collapse" id="collapseExample1">
                                                                     <div class="card card-body mt-collapse-bg" style="box-shadow: 0 2px 6px 0 rgba(0, 0, 0,0.4); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
                                                                         <div class="col-12">
@@ -252,7 +269,7 @@ $x = TourViews::getViews('project');
                                                                                         </div>
                                                                                         <div class="col-6">
                                                                                             <div class="row">
-                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;">425</span>
+                                                                                                <span class="text-center mt-collapse-cont-textC" style="font-size: calc(0.58rem + 0.58vh); font-family: 'Inter'; font-weight: 400;"><?php echo $viewCount1; ?></span>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-6">
@@ -323,7 +340,7 @@ $x = TourViews::getViews('project');
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 mt-lg-4 d-none d-lg-grid d-sm-none">
+                                                                <div class="col-12 mt-lg-4 d-none d-lg-grid d-md-grid d-xl-grid">
                                                                     <div class="row">
 
                                                                         <?php
@@ -353,10 +370,18 @@ $x = TourViews::getViews('project');
 
                                                                                     $tour_plan_data = $tour_plan_rs->fetch_assoc();
 
-                                                                                    $count_ord_rs = Database::search("SELECT *, COUNT(`saving_amount`) AS `buy_count`,`saving_amount` FROM `order` WHERE `tour_id`='" . $tour_plan_data["id"] . "'");
+                                                                                    $count_ord_rs = Database::search("SELECT *, COUNT(`saving_amount`) AS `buy_count`,`saving_amount` FROM `order` INNER JOIN `tour` ON `order`.`tour_id`=`tour`.`id` WHERE `tour_id`='" . $tour_plan_data["id"] . "'");
                                                                                     $count_ord_num = $count_ord_rs->num_rows;
 
                                                                                     $count_ord_data = $count_ord_rs->fetch_assoc();
+
+                                                                                    $views;
+
+                                                                                    if ($count_ord_data["views"] > 0) {
+                                                                                        $views = $count_ord_data["views"];
+                                                                                    } else if ($count_ord_data["views"] == 0) {
+                                                                                        $views  = 0;
+                                                                                    }
 
                                                                                     if ($count_ord_data["saving_amount"] > 0) {
 
@@ -375,7 +400,7 @@ $x = TourViews::getViews('project');
                                                                                     <tr>
                                                                                         <div class="row">
                                                                                             <th class="col-3 py-2 text-center fw-normal mt-tab-textC"><?php echo $tour_plan_data["name"]; ?></th>
-                                                                                            <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $x;?></td>
+                                                                                            <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $views; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $purchased_count; ?></td>
                                                                                             <td class="col-2 py-2 text-center mt-tab-textC"><?php echo $duration; ?></td>
                                                                                             <td class="col-1 py-2 text-center">
@@ -389,13 +414,21 @@ $x = TourViews::getViews('project');
                                                                                 }
 
                                                                                 ?>
-                                                                                
+
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 mt-4 d-grid d-lg-none d-sm-grid">
+                                                                <div class="col-12 mt-4 d-grid d-lg-none d-sm-grid d-md-none d-xl-none">
                                                                     <div class="row">
+
+                                                                        <?php
+
+                                                                        $tour_plan_rs2 = Database::search("SELECT * FROM `tour`");
+                                                                        $tour_plan_num2 = $tour_plan_rs2->num_rows;
+
+                                                                        ?>
+
                                                                         <table class="table-bordered" style="font-family: 'Segoe'; border: 1px solid #A29A9A;">
                                                                             <thead>
                                                                                 <tr>
@@ -407,33 +440,40 @@ $x = TourViews::getViews('project');
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr>
-                                                                                    <div class="row">
-                                                                                        <th class="col-2 py-2 text-center fw-normal mt-tab-textC">6 Day</th>
-                                                                                        <td class="col-3 py-2 text-center mt-tab-textC">2023/06/12 - 2023/06/14</td>
-                                                                                        <td class="col-1 py-2 text-center">
-                                                                                            <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                        </td>
-                                                                                    </div>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <div class="row">
-                                                                                        <th class="col-2 py-2 text-center fw-normal mt-tab-textC">11 Day</th>
-                                                                                        <td class="col-3 py-2 text-center mt-tab-textC">2023/06/12 - 2023/06/14</td>
-                                                                                        <td class="col-1 py-2 text-center">
-                                                                                            <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                        </td>
-                                                                                    </div>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <div class="row">
-                                                                                        <th class="col-2 py-2 text-center fw-normal mt-tab-textC">Luxury 5 Day</th>
-                                                                                        <td class="col-3 py-2 text-center mt-tab-textC">2023/06/12 - 2023/06/14</td>
-                                                                                        <td class="col-1 py-2 text-center">
-                                                                                            <iconify-icon icon="bi:eye-fill" data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
-                                                                                        </td>
-                                                                                    </div>
-                                                                                </tr>
+
+                                                                                <?php
+
+                                                                                for ($c = 0; $c < $tour_plan_num2; $c++) {
+
+                                                                                    $tour_plan_data2 = $tour_plan_rs2->fetch_assoc();
+
+                                                                                    $count_ord_rs2 = Database::search("SELECT *, COUNT(`saving_amount`) AS `buy_count`,`saving_amount` FROM `order` INNER JOIN `tour` ON `order`.`tour_id`=`tour`.`id` WHERE `tour_id`='" . $tour_plan_data2["id"] . "'");
+                                                                                    $count_ord_num2 = $count_ord_rs2->num_rows;
+
+                                                                                    $count_ord_data2 = $count_ord_rs2->fetch_assoc();
+
+                                                                                    $start_date2 = $count_ord_data2["start_date"];
+                                                                                    $end_date2 = $count_ord_data2["end_date"];
+
+                                                                                    $duration2 = date_diff(new DateTime($start_date2), new DateTime($end_date2))->d;
+
+                                                                                ?>
+
+                                                                                    <tr>
+                                                                                        <div class="row">
+                                                                                            <th class="col-2 py-2 text-center fw-normal mt-tab-textC"><?php echo $tour_plan_data2["name"];?></th>
+                                                                                            <td class="col-3 py-2 text-center mt-tab-textC"><?php echo $duration2;?></td>
+                                                                                            <td class="col-1 py-2 text-center">
+                                                                                                <iconify-icon icon="bi:eye-fill" onclick="tourUpdate(<?php echo $tour_plan_data['id']; ?>);" class="p-1 rounded-2" style="background: radial-gradient(50% 50% at 50% 50%, #AFAFAF 0%, #949494 100%); color: #fff; cursor: pointer;"></iconify-icon>
+                                                                                            </td>
+                                                                                        </div>
+                                                                                    </tr>
+
+                                                                                <?php
+
+                                                                                }
+
+                                                                                ?>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
