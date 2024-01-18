@@ -132,3 +132,49 @@ function dateDiff(date1, date2) {
         seconds
     };
 }
+
+
+
+
+function sliderMover(direction, sliderNumber) {
+    console.log(sliderNumber);
+    var slider = document.getElementById("slider" + sliderNumber);
+    slider.style.transitionDuration = 1 + "s";
+    var sliderMargin = parseFloat(slider.getAttribute("data-currentMargin"));
+    var slideCount = parseFloat(slider.getAttribute("data-slideCount"));
+
+    var slideNumber = parseInt(slider.getAttribute("data-imageNumber"));
+
+    if (direction == "left") {
+        if (slideNumber > 1) {
+            slider.style.marginLeft = sliderMargin + 75 + "%";
+            slider.setAttribute("data-currentMargin", sliderMargin + 75);
+            slider.setAttribute("data-imageNumber", slideNumber - 1);
+
+            document.getElementById("slide" + slideNumber + "_" + sliderNumber).classList.remove("active");
+            document
+                .getElementById("slide" + (slideNumber - 1) + "_" + sliderNumber)
+                .classList.add("active");
+        }
+    } else if (direction == "right") {
+        if (slideNumber < slideCount) {
+            slider.style.marginLeft = sliderMargin - 75 + "%";
+            slider.setAttribute("data-currentMargin", sliderMargin - 75);
+            slider.setAttribute("data-imageNumber", slideNumber + 1);
+
+            document.getElementById("slide" + slideNumber + "_" + sliderNumber).classList.remove("active");
+            document
+                .getElementById("slide" + (slideNumber + 1) + "_" + sliderNumber)
+                .classList.add("active");
+        }
+    }
+}
+
+
+function viewTourTableModelPlaces() {
+    document.getElementById("tourTablePlacesModel").classList.toggle('d-none');
+}
+
+function viewTourOrderModelPlaces() {
+    document.getElementById("tourOrderPlacesModel").classList.toggle('d-none');
+}

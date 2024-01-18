@@ -131,14 +131,13 @@ $wherePlace_num = $wherePlace_rs->num_rows;
                                     <?php
 
                                     for ($p = 0; $p < $wherePlace_num; $p++) {
-
                                         $wherePlace_data = $wherePlace_rs->fetch_assoc();
                                     ?>
 
                                         <tr>
                                             <td class="col-2 py-2 text-center fw-normal mt-modal-tab-textC"><?php echo $wherePlace_data["city_name"]; ?></td>
                                             <td class="col-4 py-2 text-center mt-modal-tab-textC"><?php echo $wherePlace_data["place_name"]; ?></td>
-                                            <td><button class="addTourBtnDel1 px-4 py-1">Delete</button></td>
+                                            <td><button class="addTourBtnDel1 px-4 py-1" id="id_name_<?php echo ($variable); ?>" onclick="functionName(<?php echo ('id_name' + '_' + $variable); ?>);">Delete</button></td>
                                         </tr>
 
                                     <?php
