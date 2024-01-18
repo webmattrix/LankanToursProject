@@ -232,13 +232,11 @@ $location = "primary";
                     <div class="d-flex p-2 overflow-auto">
                         <?php
 
-                        // this will give us only most purchase count tours and limit for 5 rows
-                        // column (`purchase_count`,`tour_id`)
                         $tour_rs = Database::search("SELECT COUNT(`order`.`tour_id`) AS `purchase_count`,`order`.`tour_id` 
-                    FROM `order` 
-                    GROUP BY `order`.`tour_id`
-                    ORDER BY `purchase_count` DESC
-                    LIMIT 5");
+                                            FROM `order` 
+                                            GROUP BY `order`.`tour_id`
+                                            ORDER BY `purchase_count` DESC
+                                            LIMIT 5");
 
                         for ($x = 0; $x < $tour_rs->num_rows; $x++) {
                             $tour_data = $tour_rs->fetch_assoc();

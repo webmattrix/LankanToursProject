@@ -40,7 +40,6 @@ $today = $today->format("Y-m-d");
     <div class="container-fluid">
         <div class="row">
 
-
             <div class="position-fixed top-0 start-0 vw-100 vh-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center d-none" style="z-index: 2;" id="tourOrderModel">
                 <div class="bg-white rounded shadow p-1 col-8 col-lg-6 col-xl-5" style="max-height: 70vh; overflow-y: auto; overflow-x: hidden;">
                     <div class="row px-2">
@@ -63,7 +62,7 @@ $today = $today->format("Y-m-d");
                             <iconify-icon icon="ic:round-close" class="c-pointer fs-5" onclick="tourTableModel(false,false,'close');"></iconify-icon>
                         </div>
                         <div class="col-12" id="tableModelFillContainer">
-                            
+
                         </div>
                     </div>
                 </div>
