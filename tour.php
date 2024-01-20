@@ -36,9 +36,6 @@ $location = "primary";
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
-
-
-    <script src="./js/tour.js"></script>
 </head>
 
 <body class="c-default" id="body" onload="dataLoader();">
@@ -183,9 +180,9 @@ $location = "primary";
                                 <div class="mt-1">
                                     <label for="">Number of members</label>
                                     <div class="count-switch rounded overflow-hidden">
-                                        <button class="rounded-start fs-4 p-2 fw-bold">-</button>
-                                        <input type="text" class="p-2 text-center" id="memberCount" value="0" />
-                                        <button class="rounded-end fs-4 p-2 fw-bold">+</button>
+                                        <button class="rounded-start fs-4 p-2 fw-bold" onclick="changeMemberCount('increase');">-</button>
+                                        <input type="text" class="p-2 text-center" id="memberCount" value="1" min="1" />
+                                        <button class="rounded-end fs-4 p-2 fw-bold" onclick="changeMemberCount('dicrease');">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -534,8 +531,9 @@ $location = "primary";
 
     </div>
     <?php include "./components/footer.php"; ?>
-
+    <script src="./js/tour.js"></script>
     <script src="./js/newHeader.js"></script>
+    <script src="./js/footer.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

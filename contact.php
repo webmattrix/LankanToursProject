@@ -104,6 +104,7 @@ if (isset($_SESSION["lt_tourist"])) {
         ?>
         <script src="./js/newHeader.js"></script>
         <script src="./js/bootstrap.bundle.js"></script>
+        <script src="./js/footer.js"></script>
     </body>
 
     </html>

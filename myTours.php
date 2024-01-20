@@ -1,50 +1,50 @@
 <?php
- $location = "primary";
+$location = "primary";
 session_start();
 if (isset($_SESSION["lt_tourist"])) {
     $data = $_SESSION["lt_tourist"]; ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orders</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Orders</title>
+        <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/scrolbar.css">
-    <link rel="stylesheet" href="./css/footer.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="./css/home.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/scrolbar.css">
+        <link rel="stylesheet" href="./css/footer.css">
 
-    <?php
-    if (isset($_COOKIE["lt_theme"])) {
-        if ($_COOKIE["lt_theme"] === 'light') {
-            ?>
-            <link rel="stylesheet" href="./css/MyTours.css">
+        <?php
+        if (isset($_COOKIE["lt_theme"])) {
+            if ($_COOKIE["lt_theme"] === 'light') {
+        ?>
+                <link rel="stylesheet" href="./css/MyTours.css">
             <?php
+            } else {
+            ?>
+                <link rel="stylesheet" href="./css/MyToursDark.css">
+            <?php
+            }
         } else {
             ?>
-            <link rel="stylesheet" href="./css/MyToursDark.css">
-            <?php
-        }
-    } else {
-        ?>
-        <link rel="stylesheet" href="./css/MyTours.css">
+            <link rel="stylesheet" href="./css/MyTours.css">
         <?php
-    }
-    ?>
-</head>
+        }
+        ?>
+    </head>
 
-<body class="c-default MyToursBackground">
-    <?php
-    include "./components/newHeader.php";
+    <body class="c-default MyToursBackground">
+        <?php
+        include "./components/newHeader.php";
 
 
-    
+
         ?>
         <div class="container-fluid">
             <div class="col-12 mt-4">
@@ -78,7 +78,7 @@ ORDER BY `start_date` ASC";
                 for ($ongoing_iteration = 0; $ongoing_iteration < sizeof($ongoingTourList); $ongoing_iteration++) {
                     $main_data = $ongoingTourList[$ongoing_iteration];
 
-                    ?>
+                ?>
                     <div class="col-12 myToursBg2 rounded-2 p-3 mb-3 border border-3">
                         <div class="row">
                             <div class="col-lg-4 col-12 ">
@@ -86,27 +86,22 @@ ORDER BY `start_date` ASC";
                                 <div class="tour-plan-slider position-relative">
                                     <?php
                                     if ($main_data["tour_name"] != "Custom Tour") {
-                                        ?>
+                                    ?>
                                         <div class="position-absolute top-20 w-100 px-2 fs-5 d-flex " style="z-index: 3;">
                                             <div class="row" style=" font-family:Quicksand-Medium">
-                                                <span class="text-white fs-6 mt-1">&nbsp;<iconify-icon icon="mdi:eye"
-                                                        class=" text-white c-pointer  "></iconify-icon> &nbsp;&nbsp;
+                                                <span class="text-white fs-6 mt-1">&nbsp;<iconify-icon icon="mdi:eye" class=" text-white c-pointer  "></iconify-icon> &nbsp;&nbsp;
                                                     <?php echo ($main_data["views"]); ?>
                                                 </span>
                                             </div>
                                         </div>
-                                        <?php
+                                    <?php
                                     } else {
-
                                     }
                                     ?>
 
-                                    <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container"
-                                        style="z-index: 3;">
-                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer"
-                                            onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'left');"></iconify-icon>
-                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer"
-                                            onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
+                                    <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
+                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'left');"></iconify-icon>
+                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
                                     </div>
 
                                     <?php
@@ -115,10 +110,7 @@ ORDER BY `start_date` ASC";
                                          WHERE `custom_tour`.`id` = '" . $main_data["Orderid"] . "' LIMIT 5  ");
                                         $place_num = $imagePlace_rs1->num_rows; ?>
 
-                                        <div class="slides" style="width: <?php echo $place_num ?>00%;"
-                                            id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
-                                            data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
-                                            ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
+                                        <div class="slides" style="width: <?php echo $place_num ?>00%;" id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
 
                                             <?php
                                             for ($x1 = 0; $x1 < $place_num; $x1++) {
@@ -128,16 +120,15 @@ ORDER BY `start_date` ASC";
                                                 WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
                                                 $imagePath_rs1 = Database::search($image_path);
                                                 $path_data = $imagePath_rs1->fetch_assoc();
-                                                ?>
+                                            ?>
 
-                                                <div class="slide" id="sliderSlide1"
-                                                    style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
+                                                <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
                                                 </div>
-                                                <?php
+                                            <?php
                                             }
                                             ?>
                                         </div>
-                                        <?php
+                                    <?php
 
                                     } else {
 
@@ -145,10 +136,7 @@ ORDER BY `start_date` ASC";
                                     WHERE `order`.`id` = '" . $main_data["Orderid"] . "' LIMIT 5 ");
                                         $place_num = $imagePlace_rs1->num_rows; ?>
 
-                                        <div class="slides" style="width: <?php echo $place_num ?>00%;"
-                                            id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0"
-                                            data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);"
-                                            ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
+                                        <div class="slides" style="width: <?php echo $place_num ?>00%;" id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
 
                                             <?php
                                             for ($x1 = 0; $x1 < $place_num; $x1++) {
@@ -158,23 +146,20 @@ ORDER BY `start_date` ASC";
                                             WHERE `place_image`.`place_id` = '" . $place_data["place_id"] . "' LIMIT 1";
                                                 $imagePath_rs1 = Database::search($image_path);
                                                 $path_data = $imagePath_rs1->fetch_assoc();
-                                                ?>
+                                            ?>
 
-                                                <div class="slide" id="sliderSlide1"
-                                                    style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
+                                                <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/places/<?php echo ($path_data["path"]); ?>');">
                                                 </div>
-                                                <?php
+                                            <?php
                                             }
                                             ?>
                                         </div>
-                                        <?php
+                                    <?php
                                     } ?>
 
 
-                                    <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1"
-                                        style="text-shadow: 0px 0px 5px black;">
-                                        <span class="text-white" id="slide<?php echo ($ongoing_iteration); ?>ImageNumber"
-                                            data-imageNumber="1">1</span>
+                                    <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
+                                        <span class="text-white" id="slide<?php echo ($ongoing_iteration); ?>ImageNumber" data-imageNumber="1">1</span>
                                         <span class="text-white"> /
                                             <?php echo $place_num ?>
                                         </span>
@@ -194,15 +179,15 @@ ORDER BY `start_date` ASC";
                                         <div class="col-lg-4 col-12 text-start text-lg-end">
                                             <?php
                                             if ($main_data["tour_name"] != "Custom Tour") {
-                                                ?>
+                                            ?>
                                                 <a href="" class="text-primary text-decoration-none" style=" font-family:Segoe UI">
                                                     View tour </a>
-                                                <?php
+                                            <?php
                                             } else {
-                                                ?>
+                                            ?>
                                                 <!-- <a href="" class="text-primary text-decoration-none disabled" style=" font-family:Segoe UI">
                                                 View tour </a> -->
-                                                <?php
+                                            <?php
                                             }
                                             ?>
                                         </div>
@@ -212,7 +197,7 @@ ORDER BY `start_date` ASC";
                                 <div class="col-lg-11 offset-lg-1 col-12" style=" font-family:Quicksand-Medium">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                           
+
                                             <h6> Request Date :
                                                 <?php
                                                 // $convertTime = timeConverter::convert($main_data["date_time"]);
@@ -239,7 +224,6 @@ ORDER BY `start_date` ASC";
                                                             // order unassign
                                                             echo ("Unassign");
                                                         }
-
                                                     } else {
                                                         if ($main_data["order_status_id"] == 1) {
                                                             // order assign
@@ -276,30 +260,24 @@ ORDER BY `start_date` ASC";
                                                     <div class=" col-md-4 offset-md-0 col-10 offset-1  mt-3">
                                                         <?php
                                                         if ($main_data["tour_name"] != "Custom Tour") {
-                                                            ?>
-                                                            <button class="btn btn-secondary MytoursButton" style="width: 100%;"
-                                                                onclick="feedbackModal( '<?php echo $main_data['Orderid']; ?>');"><i
-                                                                    class="bi bi-chat-left-quote text-white"></i>
+                                                        ?>
+                                                            <button class="btn btn-secondary MytoursButton" style="width: 100%;" onclick="feedbackModal( '<?php echo $main_data['Orderid']; ?>');"><i class="bi bi-chat-left-quote text-white"></i>
                                                                 &nbsp;Feedback</button>
-                                                            <?php
+                                                        <?php
                                                         } else {
-                                                            ?>
-                                                            <button class="btn btn-secondary MytoursButton" style="width: 100%;"><i
-                                                                    class="bi bi-chat-left-quote text-white"></i>
+                                                        ?>
+                                                            <button class="btn btn-secondary MytoursButton" style="width: 100%;"><i class="bi bi-chat-left-quote text-white"></i>
                                                                 &nbsp;Feedback</button>
-                                                            <?php
+                                                        <?php
 
                                                         } ?>
                                                     </div>
                                                     <div class=" col-md-4  offset-md-0  col-10 offset-1  mt-2">
-                                                        <button class="btn btn-danger MytoursButton" style="width: 100%;"><i
-                                                                class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
+                                                        <button class="btn btn-danger MytoursButton" style="width: 100%;"><i class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
 
                                                     </div>
                                                     <div class=" col-md-4   offset-md-0 col-10 offset-1  mt-2">
-                                                        <button class="btn btn-primary MytoursButton" style="width: 100%;"
-                                                            onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i
-                                                                class="bi bi-envelope text-white"></i>
+                                                        <button class="btn btn-primary MytoursButton" style="width: 100%;" onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-envelope text-white"></i>
                                                             Message</button>
 
                                                     </div>
@@ -310,55 +288,48 @@ ORDER BY `start_date` ASC";
                                                 <div class=" col-12 text-end mt-4 d-lg-block d-md-block d-none ">
                                                     <?php
                                                     if ($main_data["tour_name"] != "Custom Tour") {
-                                                        ?>
-                                                        <button class="btn btn-secondary MytoursButton"
-                                                            onclick="feedbackModal('<?php echo $main_data['Orderid']; ?>');"><i
-                                                                class="bi bi-chat-left-quote text-white"></i>
+                                                    ?>
+                                                        <button class="btn btn-secondary MytoursButton" onclick="feedbackModal('<?php echo $main_data['Orderid']; ?>');"><i class="bi bi-chat-left-quote text-white"></i>
                                                             &nbsp;Feedback</button>
-                                                        <?php
+                                                    <?php
                                                     } else {
-                                                        ?>
-                                                        <button class="btn btn-secondary MytoursButton"><i
-                                                                class="bi bi-chat-left-quote text-white"></i>
+                                                    ?>
+                                                        <button class="btn btn-secondary MytoursButton"><i class="bi bi-chat-left-quote text-white"></i>
                                                             &nbsp;Feedback</button>
-                                                        <?php
+                                                    <?php
 
                                                     } ?>
-                                                    <button class="btn btn-danger MytoursButton">&nbsp;<i
-                                                            class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
-                                                    <button class="btn btn-primary MytoursButton"
-                                                        onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i
-                                                            class="bi bi-envelope-fill text-white"></i>
+                                                    <button class="btn btn-danger MytoursButton">&nbsp;<i class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
+                                                    <button class="btn btn-primary MytoursButton" onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-envelope-fill text-white"></i>
                                                         <?php
                                                         if ($main_data["tour_name"] == "Custom Tour") {
                                                             $rs01 = Database::search("SELECT * FROM `custom_order_response` WHERE `custom_tour_id` = '" . $main_data["Orderid"] . "'");
                                                             $message_num = $rs01->num_rows;
                                                             if ($message_num == 0) {
-                                                                ?>
+                                                        ?>
                                                                 <em class=" text-white"></em>
-                                                                <?php
+                                                            <?php
 
                                                             } else {
-                                                                ?>
+                                                            ?>
                                                                 <em class=" text-white">
                                                                     &nbsp;0<?php echo ($message_num); ?>
                                                                 </em>
-                                                                <?php
+                                                            <?php
                                                             }
-
                                                         } else {
                                                             $rs01 = Database::search("SELECT * FROM `order_response` WHERE `order_id` = '" . $main_data["Orderid"] . "'");
                                                             $message_num = $rs01->num_rows;
                                                             if ($message_num == 0) {
-                                                                ?>
+                                                            ?>
                                                                 <em class=" text-white"></em>
-                                                                <?php
+                                                            <?php
                                                             } else {
-                                                                ?>
+                                                            ?>
                                                                 <em class=" text-white">
                                                                     &nbsp;0<?php echo ($message_num); ?>
                                                                 </em>
-                                                                <?php
+                                                        <?php
 
                                                             }
                                                         }
@@ -376,7 +347,7 @@ ORDER BY `start_date` ASC";
                             </div>
                         </div>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
             </div>
@@ -402,24 +373,24 @@ ORDER BY `start_date` ASC";
                         <tbody>
                             <?php
 
-                                                                                $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
+                            $order_query02 = "SELECT *,`tour`.`name` AS `tour_name`,`employee`.`name` AS `guide_name`,`order`.`id` AS `orderID`FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id` 
 WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`end_date` < '" . $today . "'    ORDER BY `start_date` ASC";
-                        
 
-                                                                                $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
+
+                            $ct_order_query02 = "SELECT *,`employee`.`name` AS `guide_name`,`custom_tour`.`id` AS `orderID`FROM `custom_tour`
 INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id`
 INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
 WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` < '" . $today . "' ORDER BY `start_date` ASC";
-                        
+
                             $ongoingTourList02 = getOrders::getOrderList($order_query02, $ct_order_query02);
 
 
                             for ($ongoing_iteration02 = 0; $ongoing_iteration02 < sizeof($ongoingTourList02); $ongoing_iteration02++) {
                                 $main_data02 = $ongoingTourList02[$ongoing_iteration02];
-                                ?>
+                            ?>
                                 <tr>
                                     <td>
                                         <?php echo ($ongoing_iteration02 + 1); ?>
@@ -439,14 +410,13 @@ WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` <
                                     </td>
 
                                     <td>Custom Plane</td>
-                                    <td> <button type="button" class="btn"
-                                            onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
+                                    <td> <button type="button" class="btn" onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
 
                                             <i class="bi bi-eye-fill"></i>
                                         </button>
                                     </td>
                                 </tr>
-                                <?php
+                            <?php
                             }
                             ?>
                         </tbody>
@@ -468,7 +438,7 @@ WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` <
                             <?php
                             for ($ongoing_iteration02 = 0; $ongoing_iteration02 < sizeof($ongoingTourList02); $ongoing_iteration02++) {
                                 $main_data02 = $ongoingTourList02[$ongoing_iteration02];
-                                ?>
+                            ?>
                                 <tr>
                                     <td>
                                         <?php echo ($ongoing_iteration02 + 1); ?>
@@ -476,14 +446,13 @@ WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` <
                                     <td>
                                         <?php echo ($main_data02["tour_name"]); ?>
                                     </td>
-                                    <td> <button type="button" class="btn"
-                                            onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
+                                    <td> <button type="button" class="btn" onclick="myTourmodal01('<?php echo $main_data02['tour_name']; ?>' , '<?php echo $main_data02['user_id']; ?>' , '<?php echo $main_data02['orderID']; ?>');">
 
                                             <i class="bi bi-eye-fill"></i>
                                         </button>
                                     </td>
                                 </tr>
-                                <?php
+                            <?php
                             }
                             ?>
 
@@ -525,11 +494,12 @@ WHERE `custom_tour`.`user_id` = '" . $user_id . "'AND `custom_tour`.`end_date` <
         <script src="./js/bootstrap.bundle.js"></script>
         <script src="./js/bootstrap.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-        
-</body>
+        <script src="./js/footer.js"></script>
 
-</html>
+    </body>
+
+    </html>
 <?php
-    } else {
-       header("Location: ./Login");       
-    } ?>
+} else {
+    header("Location: ./Login");
+} ?>
