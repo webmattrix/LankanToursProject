@@ -233,3 +233,15 @@ function loadCustomTourPlaces() {
   req.open("GET", "./assets/model/customTourPlaces.php?city_id=" + city_id, true);
   req.send();
 }
+
+
+function changeMemberCount(value) {
+  if (value == 'increase') {
+    memberValue = document.getElementById("memberCount");
+    memberValue.value = memberValue.value + 1;
+  } else if (value == 'dicrease') {
+    if (memberValue.value > 1) {
+      memberValue.value = memberValue.value - 1;
+    }
+  }
+}

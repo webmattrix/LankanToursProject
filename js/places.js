@@ -22,9 +22,8 @@ function homeSlider() {
 
 function tourPlanSlideMover(slideNumber, direction) {
     var slider = document.getElementById("slide" + slideNumber + "Container");
-    var sliderImageNumber = document.getElementById(
-        "slide" + slideNumber + "ImageNumber"
-    );
+    var sliderImageNumber = document.getElementById("imageCount" + slideNumber);
+    var imageNumber = parseInt(sliderImageNumber.getAttribute("data-image-view-number"));
 
     var currentMargin = slider.getAttribute("data-marginLeft");
 
@@ -33,13 +32,18 @@ function tourPlanSlideMover(slideNumber, direction) {
         if (currentMargin > -(slider.getAttribute("data-maxWidth") - 100)) {
             slider.style.marginLeft = parseInt(currentMargin) - 100 + "%";
             slider.setAttribute("data-marginLeft", parseInt(currentMargin) - 100);
+            sliderImageNumber.innerHTML = imageNumber + 1;
+            sliderImageNumber.setAttribute("data-image-view-number", imageNumber + 1);
         }
     } else if (direction == "left") {
         if (currentMargin < 0) {
             slider.style.marginLeft = parseInt(currentMargin) + 100 + "%";
             slider.setAttribute("data-marginLeft", parseInt(currentMargin) + 100);
+            sliderImageNumber.innerHTML = imageNumber - 1;
+            sliderImageNumber.setAttribute("data-image-view-number", imageNumber - 1);
         }
     }
+
 }
 
 var startX;
