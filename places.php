@@ -34,7 +34,7 @@ require "assets/model/sqlConnection.php";
     <link rel="stylesheet" href="./css/scrolbar.css" />
 </head>
 
-<body class="container-fluid" style="margin:0; padding:0;" onload="homeOnloadFunction();">
+<body class="container-fluid" style="margin:0; background-color: #DEDEDE; padding:0;" onload="homeOnloadFunction();">
     <div class="col-12 overflow-hidden">
         <div class="row">
             <?php
@@ -65,8 +65,110 @@ require "assets/model/sqlConnection.php";
                 </div>
             </div>
 
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 py-lg-4 py-3">
+                        <div class="row mx-lg-4 mx-2">
+                            <div class="col-12 py-lg-4 py-3" style="background-color: #FFF;">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-2 col-12 d-grid d-lg-grid d-md-grid d-sm-grid">
+                                        <span class="quicksand-SemiBold text-dark" style="font-size: calc(0.78rem + 0.78vh);">Tour Places</span>
+                                    </div>
+                                    <div class="col-lg-11 col-md-10 d-none d-md-grid d-sm-grid d-lg-grid">
+                                        <hr style="border: 1px solid rgba(0, 0, 0, 0.30);;">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row">
 
-            <div class="col-12 py-4">
+
+                                            <div class="col-12">
+                                                <div class="row my-1 row-cols-1 row-cols-md-2 g-4">
+
+                                                    <!-- single card -->
+
+                                                    <!-- use for loop |
+                                                                      V 
+                                                    -->
+
+                                                    <div class="col">
+                                                        <div class="card">
+                                                            <?php
+                                                            $place_num = 5;
+                                                            $ongoing_iteration = 1;
+                                                            ?>
+
+                                                            <div class="tour-plan-slider position-relative">
+                                                                <div class="wrapper2 position-absolute">
+                                                                    <span class="imgCounts">1&nbsp;/&nbsp;5</span>
+                                                                </div>
+                                                                <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
+                                                                    <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'left');"></iconify-icon>
+                                                                    <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
+                                                                </div>
+                                                                <div class="wrapper position-absolute">
+                                                                    <input type="checkbox" id="check1">
+                                                                    <label for="check1"></label>
+                                                                </div>
+                                                                <div class="wrapper3 position-absolute">
+                                                                    <div class="row">
+                                                                        <span class="placeProp text-center">Place_name</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="slides" style="width: <?php echo $place_num ?>00%;" id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
+
+                                                                    <?php
+                                                                    for ($x1 = 0; $x1 < $place_num; $x1++) {
+                                                                    ?>
+                                                                        <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/places/Colombo/Beira Lake (1).jpg');"></div>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- slide -->
+
+                                                            <div class="card-body">
+                                                                <div class="col-12 p-0 m-0">
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <div class="row">
+                                                                                <span class="text-start quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;">Place_name</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <div class="row">
+                                                                                <span class="text-end quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;">4.7/5</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr style="border: 1px solid rgba(0, 0, 0, 0.75);">
+                                                                </div>
+                                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur. Sed augue tincidunt in dis enim cras elit phasellus aenean. Quam aenean elementum natoque mauris duis integer nibh feugiat. Vel sed tincidunt convallis sed diam a gravida rhoncus tincidunt. Porta pretium sagittis eget pellentesque. Tincidunt sed amet ipsum consequat quam.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- use for loop ^
+                                                                      | 
+                                                    -->
+
+                                                    <!-- single card -->
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-12 py-4">
                 <div class="row px-4">
 
                     <div class="col-12 place-container">
@@ -76,7 +178,7 @@ require "assets/model/sqlConnection.php";
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
 
             <?php include "./components/footer.php"; ?>
