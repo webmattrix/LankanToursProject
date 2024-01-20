@@ -71,6 +71,12 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/font.css">
   <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/home.js"></script>
+  <script src="./js/footer.js"></script>
+  <script src="./js/newHeader.js"></script>
+  <script src="./js/script.js"></script>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" id="body" style="overflow-x: hidden;">
@@ -387,13 +393,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
     </div>
   </div>
-
-  <script src="./js/bootstrap.js"></script>
-  <script src="./js/home.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script src="./js/footer.js"></script>
-  <script src="./js/newHeader.js"></script>
-  <script src="./js/script.js"></script>
 </body>
 
 </html>

@@ -32,6 +32,10 @@ require "assets/model/sqlConnection.php";
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/scrolbar.css" />
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+    <script src="./js/places.js"></script>
+    <script src="./js/newHeader.js"></script>
 </head>
 
 <body class="container-fluid" style="margin:0; background-color: #DEDEDE; padding:0;" onload="homeOnloadFunction();">
@@ -82,80 +86,98 @@ require "assets/model/sqlConnection.php";
 
 
                                             <div class="col-12">
-                                                <div class="row my-1 row-cols-1 row-cols-md-2 g-4">
+                                                <div class="row my-1 g-4">
 
                                                     <!-- single card -->
 
-                                                    <!-- use for loop |
-                                                                      V 
-                                                    -->
+                                                    <!-- use for loop | -->
+                                                    <?php
 
-                                                    <div class="col">
-                                                        <div class="card">
-                                                            <?php
-                                                            $place_num = 5;
-                                                            $ongoing_iteration = 1;
-                                                            ?>
+                                                    $place_table = Database::search("SELECT * FROM `place` ORDER BY `rating` DESC");
+                                                    $place_table_rows = $place_table->num_rows;
 
-                                                            <div class="tour-plan-slider position-relative">
-                                                                <div class="wrapper2 position-absolute">
-                                                                    <span class="imgCounts">1&nbsp;/&nbsp;5</span>
-                                                                </div>
-                                                                <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                                                                    <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'left');"></iconify-icon>
-                                                                    <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($ongoing_iteration); ?>,'right');"></iconify-icon>
-                                                                </div>
-                                                                <div class="wrapper position-absolute">
-                                                                    <input type="checkbox" id="check1">
-                                                                    <label for="check1"></label>
-                                                                </div>
-                                                                <div class="wrapper3 position-absolute">
-                                                                    <div class="row">
-                                                                        <span class="placeProp text-center">Place_name</span>
+                                                    for ($place_iteration = 0; $place_iteration < $place_table_rows; $place_iteration++) {
+
+                                                        $place_table_data = $place_table->fetch_assoc();
+
+                                                        $place_image_table = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_table_data["id"] . "'");
+                                                        $place_image_table_rows = $place_image_table->num_rows;
+
+                                                        if ($place_image_table_rows == 0) {
+                                                            continue;
+                                                        }
+
+                                                    ?>
+                                                        <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
+                                                            <div class="card" style="height: 100%;">
+
+                                                                <div class="tour-plan-slider position-relative">
+                                                                    <div class="wrapper2 position-absolute">
+                                                                        <span class="imgCounts d-flex">
+                                                                            <span id="imageCount<?php echo ($place_iteration); ?>" data-image-view-number="1">1</span>
+                                                                            /
+                                                                            <span><?php echo ($place_image_table_rows); ?></span>
+                                                                        </span>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="slides" style="width: <?php echo $place_num ?>00%;" id="slide<?php echo ($ongoing_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo $place_num ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($ongoing_iteration); ?>)">
-
-                                                                    <?php
-                                                                    for ($x1 = 0; $x1 < $place_num; $x1++) {
-                                                                    ?>
-                                                                        <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/places/Colombo/Beira Lake (1).jpg');"></div>
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- slide -->
-
-                                                            <div class="card-body">
-                                                                <div class="col-12 p-0 m-0">
-                                                                    <div class="row">
-                                                                        <div class="col-6">
-                                                                            <div class="row">
-                                                                                <span class="text-start quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;">Place_name</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-6">
-                                                                            <div class="row">
-                                                                                <span class="text-end quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;">4.7/5</span>
-                                                                            </div>
+                                                                    <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
+                                                                        <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($place_iteration); ?>,'left');"></iconify-icon>
+                                                                        <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($place_iteration); ?>,'right');"></iconify-icon>
+                                                                    </div>
+                                                                    <!-- <div class="wrapper position-absolute">
+                                                                        <input type="checkbox" id="check1">
+                                                                        <label for="check1"></label>
+                                                                    </div> -->
+                                                                    <div class="wrapper3 position-absolute">
+                                                                        <div class="row">
+                                                                            <span class="placeProp text-center"><?php echo ($place_table_data["name"]) ?></span>
                                                                         </div>
                                                                     </div>
-                                                                    <hr style="border: 1px solid rgba(0, 0, 0, 0.75);">
+
+                                                                    <div class="slides" style="width: <?php echo $place_image_table_rows ?>00%;" id="slide<?php echo ($place_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo $place_image_table_rows ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($place_iteration); ?>)">
+
+                                                                        <?php
+                                                                        for ($x1 = 0; $x1 < $place_image_table_rows; $x1++) {
+                                                                            $place_image_table_data = $place_image_table->fetch_assoc();
+                                                                        ?>
+                                                                            <div class="slide" id="sliderSlide1" style="background-image: url('./assets/img/places/<?php echo ($place_image_table_data["path"]); ?>');"></div>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+
                                                                 </div>
-                                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur. Sed augue tincidunt in dis enim cras elit phasellus aenean. Quam aenean elementum natoque mauris duis integer nibh feugiat. Vel sed tincidunt convallis sed diam a gravida rhoncus tincidunt. Porta pretium sagittis eget pellentesque. Tincidunt sed amet ipsum consequat quam.</p>
+                                                                <!-- slide -->
+
+                                                                <div class="card-body">
+                                                                    <div class="col-12 p-0 m-0">
+                                                                        <div class="row">
+                                                                            <div class="col-6">
+                                                                                <div class="row">
+                                                                                    <span class="text-start quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;"><?php echo ($place_table_data["name"]); ?></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-6">
+                                                                                <div class="row">
+                                                                                    <span class="text-end quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;"><?php echo ($place_table_data["rating"]); ?>/5</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr style="border: 1px solid rgba(0, 0, 0, 0.75);">
+                                                                    </div>
+                                                                    <p class="card-text"><?php echo ($place_table_data["description"]); ?></p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    <?php
+                                                    }
+                                                    ?>
 
                                                     <!-- use for loop ^
                                                                       | 
                                                     -->
 
                                                     <!-- single card -->
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -185,7 +207,6 @@ require "assets/model/sqlConnection.php";
         </div>
     </div>
 
-    <script src="./js/places.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
