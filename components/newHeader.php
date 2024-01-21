@@ -21,12 +21,12 @@
         </div>
 
         <a class="site-name d-flex align-items-center text-decoration-none" href="<?php
-                                                                if ($location == "primary") {
-                                                                    echo ("./Home");
-                                                                } else {
-                                                                    echo ("../Home");
-                                                                }
-                                                                ?>">
+                                                                                    if ($location == "primary") {
+                                                                                        echo ("./Home");
+                                                                                    } else {
+                                                                                        echo ("../Home");
+                                                                                    }
+                                                                                    ?>">
             <?php
 
             if ($location == "primary") {
@@ -69,8 +69,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="text-decoration-none c-pointer">
-                        <span class="d-lg-block d-none">History</span>
+                    <a href="<?php
+                                if ($location == 'primary') {
+                                    echo ('Tour-Place');
+                                } else {
+                                    echo ('../Tour-Place');
+                                }
+                                ?>" class="text-decoration-none c-pointer">
+                        <span class="d-lg-block d-none">Places</span>
                         <iconify-icon icon="ic:round-history" class="d-block fs-4 d-lg-none text-white" title="History"></iconify-icon>
                     </a>
                 </li>

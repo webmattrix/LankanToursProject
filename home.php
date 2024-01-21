@@ -263,7 +263,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
-                  <div class="position-relative" onclick="viewPlace('<?php echo ($places_data['city_id']); ?>');">
+                  <div class="position-relative" onclick="viewPlace();">
                     <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
                       <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
                     </div>

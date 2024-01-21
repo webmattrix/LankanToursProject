@@ -113,3 +113,8 @@ function changeTheme(theme, location) {
   req.open("GET", requestPath, true);
   req.send();
 }
+
+
+function viewPlace() {
+  window.location = "Tour-Place";
+}
