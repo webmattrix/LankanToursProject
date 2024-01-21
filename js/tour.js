@@ -1,13 +1,11 @@
 var places_data;
 
 function dataLoader() {
-  alert("OK - 2");
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
       places_data = JSON.parse(req.responseText);
-      alert("OK - 3");
     }
   };
 
@@ -17,7 +15,6 @@ function dataLoader() {
 
 (function () {
   dataLoader();
-  alert("OK - 1");
 })();
 
 function tourPlanSlideMover(slideNumber, direction) {
@@ -244,11 +241,12 @@ function loadCustomTourPlaces() {
 
 function changeMemberCount(value) {
   if (value == 'increase') {
-    memberValue = document.getElementById("memberCount");
-    memberValue.value = memberValue.value + 1;
+    memberValue = parseInt(document.getElementById("memberCount").value);
+    document.getElementById("memberCount").value = memberValue + 1;
   } else if (value == 'dicrease') {
-    if (memberValue.value > 1) {
-      memberValue.value = memberValue.value - 1;
+    memberValue = parseInt(document.getElementById("memberCount").value);
+    if (memberValue > 1) {
+      document.getElementById("memberCount").value = memberValue - 1;
     }
   }
 }
