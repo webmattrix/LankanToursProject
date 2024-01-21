@@ -71,12 +71,6 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/font.css">
   <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
-
-  <script src="./js/bootstrap.js"></script>
-  <script src="./js/home.js"></script>
-  <script src="./js/footer.js"></script>
-  <script src="./js/newHeader.js"></script>
-  <script src="./js/script.js"></script>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" id="body" style="overflow-x: hidden;">
@@ -321,8 +315,17 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                       <div class="position-absolute w-100 d-flex justify-content-between px-2 pt-2" style="z-index: 2;">
                         <?php
                         if (isset($_SESSION["lt_tourist"])) {
+                          $watchlist_table = Database::search("SELECT * FROM `watchlist` WHERE `user_id`='" . $_SESSION["lt_tourist"]["id"] . "' AND `tour_id`='" . $tour_data["id"] . "'");
+                          if (($watchlist_table->num_rows) > 0) {
                         ?>
-                          <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="addToWatchList('<?php echo ($tour_data['id']); ?>');"></iconify-icon>
+                            <iconify-icon icon="ph:heart-fill" class="text-primary fs-4 c-pointer" onclick="addToWatchList('<?php echo ($tour_data['id']); ?>');"></iconify-icon>
+                          <?php
+                          } else {
+                          ?>
+                            <iconify-icon icon="ph:heart-fill" class="text-white fs-4 c-pointer" onclick="addToWatchList('<?php echo ($tour_data['id']); ?>');"></iconify-icon>
+                          <?php
+                          }
+                          ?>
                         <?php
                         } else {
                         ?>
@@ -382,17 +385,17 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
       </div>
       <!-- Most beautiful places & top tour plans -->
 
-
-
-
-
-
-
       <?php include "./components/footer.php"; ?>
 
 
     </div>
   </div>
+
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/home.js"></script>
+  <script src="./js/footer.js"></script>
+  <script src="./js/newHeader.js"></script>
+  <script src="./js/script.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

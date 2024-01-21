@@ -89,3 +89,24 @@ function sliderMover(direction, sliderNumber) {
 // }
 
 // Slider js
+
+
+
+function deleteWatchlistItem(tour_id) {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function () {
+    if (req.readyState == 4) {
+      if (req.responseText == '1') {
+        alert("Invalid Access. Try again later");
+      } else if (req.responseText == '2') {
+        alert("Something went wrong!!");
+      } else if (req.responseText == '3') {
+        window.location.reload();
+      }
+    }
+  };
+
+  req.open("GET", "./assets/model/removeWatchlistItem.php?tour_id=" + tour_id, true);
+  req.send();
+}

@@ -39,12 +39,12 @@ require "assets/model/sqlConnection.php";
 </head>
 
 <body class="container-fluid" style="margin:0; background-color: #DEDEDE; padding:0;" onload="homeOnloadFunction();">
+    <?php
+    $location = "primary";
+    include "./components/newHeader.php";
+    ?>
     <div class="col-12 overflow-hidden">
         <div class="row">
-            <?php
-            $location = "primary";
-            include "./components/newHeader.php";
-            ?>
 
             <div class="col-12">
                 <div class="home-image-slider p-0">

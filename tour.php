@@ -60,7 +60,7 @@ $location = "primary";
                 </div>
                 <div class="grid-template">
                     <div class="form-area">
-                        <div class="p-2"> <!-- Column 01 -->
+                        <div class="p-2" style="max-width: 100%;"> <!-- Column 01 -->
                             <?php
                             if (isset($_SESSION["lt_tourist"])) {
                                 $user = $_SESSION["lt_tourist"];
@@ -151,7 +151,7 @@ $location = "primary";
                                 </div>
                             </div>
                         </div> <!-- Column 01 -->
-                        <div class="p-2"> <!-- Column 02 -->
+                        <div class="p-2" style="max-width: 100%;"> <!-- Column 02 -->
                             <div class="">
                                 <div class="">
                                     <label for="">Contact Method</label>
@@ -187,7 +187,7 @@ $location = "primary";
                                 </div>
                             </div>
                         </div> <!-- Column 02 -->
-                        <div class="p-2"> <!-- Column 03 -->
+                        <div class="p-2" style="max-width: 100%;"> <!-- Column 03 -->
                             <!-- <div class="">
                                 <label for="">Contact Method</label>
                                 <select id="" class="w-100 p-2 rounded">

@@ -22,14 +22,17 @@
                     <div class="row gap-4 gap-lg-0">
 
                         <div class="quicksand-SemiBold col-12 d-flex flex-column col-lg-4 align-items-lg-start">
-                            <span class="fs-5 text-white">Useful Pages</span>
-                            <ul class="d-flex flex-column gap-1">
+                            <span class="fs-5 text-white">About Us</span>
+                            <span class="content-heading text-white">
+                                Lankan Travel is your trusted companion in unlocking the extraordinary beauty, rich culture, and warm hospitality of Sri Lanka, ensuring your journey is a seamless blend of exploration and unforgettable experiences.
+                            </span>
+                            <!-- <ul class="d-flex flex-column gap-1">
                                 <li class="text-white"><a href="#" class="text-decoration-none text-white">About</a></li>
                                 <li class="text-white"><a href="#" class="text-decoration-none text-white">Contact</a></li>
                                 <li class="text-white"><a href="#" class="text-decoration-none text-white">Services</a></li>
                                 <li class="text-white"><a href="#" class="text-decoration-none text-white">Message & Request</a></li>
                                 <li class="text-white"><a href="#" class="text-decoration-none text-white">Gallery</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                         <div class="quicksand-SemiBold col-12 d-flex flex-column align-items-center col-lg-4 align-items-lg-start">
                             <span class="fs-5 text-white">Follow US</span>
