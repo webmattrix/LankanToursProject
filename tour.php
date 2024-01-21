@@ -38,7 +38,7 @@ $location = "primary";
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
-<body class="c-default" id="body" onload="dataLoader();">
+<body class="c-default" id="body">
     <?php
     include "./components/newHeader.php";
     ?>
@@ -59,8 +59,15 @@ $location = "primary";
                     <hr class="w-100">
                 </div>
                 <div class="grid-template">
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-4"></div>
+                        </div>
+                    </div>
+
                     <div class="form-area">
-                        <div class="p-2" style="max-width: 100%;"> <!-- Column 01 -->
+                        <div class="p-2" style="max-width: 100%; width: 100%;"> <!-- Column 01 -->
                             <?php
                             if (isset($_SESSION["lt_tourist"])) {
                                 $user = $_SESSION["lt_tourist"];
@@ -88,40 +95,42 @@ $location = "primary";
                             </div>
                             <div class="mt-2">
                                 <span class="">Tour Places</span>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2 flex-column flex-sm-row">
+                                    <div class="d-flex gap-2">
 
-                                    <?php
-                                    $city_table = Database::search("SELECT *,`city`.`id` AS `city_id` FROM `city` INNER JOIN `city_status` ON `city_status`.`id`=`city`.`city_status_id` WHERE `city_status`.`status`='Visiting' ORDER BY `city`.`name` ASC");
-                                    $city_table_rows = $city_table->num_rows;
-                                    ?>
+                                        <?php
+                                        $city_table = Database::search("SELECT *,`city`.`id` AS `city_id` FROM `city` INNER JOIN `city_status` ON `city_status`.`id`=`city`.`city_status_id` WHERE `city_status`.`status`='Visiting' ORDER BY `city`.`name` ASC");
+                                        $city_table_rows = $city_table->num_rows;
+                                        ?>
 
-                                    <select id="customTourCity" class="w-100 p-2 rounded" onchange="loadCustomTourPlaces();">
-                                        <option value="0">City Name</option>
-                                        <?php
-                                        for ($city_iteration = 0; $city_iteration < $city_table_rows; $city_iteration++) {
-                                            $city_table_data = $city_table->fetch_assoc();
-                                        ?>
-                                            <option value="<?php echo ($city_table_data["city_id"]); ?>"><?php echo ($city_table_data["name"]); ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
+                                        <select id="customTourCity" class="w-100 p-2 rounded" onchange="loadCustomTourPlaces();">
+                                            <option value="0">City Name</option>
+                                            <?php
+                                            for ($city_iteration = 0; $city_iteration < $city_table_rows; $city_iteration++) {
+                                                $city_table_data = $city_table->fetch_assoc();
+                                            ?>
+                                                <option value="<?php echo ($city_table_data["city_id"]); ?>"><?php echo ($city_table_data["name"]); ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
 
-                                    <?php
-                                    $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
-                                    $ct_place_num = $ct_place_rs->num_rows;
-                                    ?>
-                                    <select id="addTourPlace" class="w-100 p-2 rounded">
-                                        <option value="0" class="">Place Name</option>
                                         <?php
-                                        for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
-                                            $ct_place_data = $ct_place_rs->fetch_assoc();
+                                        $ct_place_rs = Database::search("SELECT * FROM `place` ORDER BY `name` ASC");
+                                        $ct_place_num = $ct_place_rs->num_rows;
                                         ?>
-                                            <option value="<?php echo ($ct_place_data["id"]); ?>" class=""><?php echo ($ct_place_data["name"]); ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
+                                        <select id="addTourPlace" class="w-100 p-2 rounded">
+                                            <option value="0" class="">Place Name</option>
+                                            <?php
+                                            for ($ct_place_iteration = 0; $ct_place_iteration < $ct_place_num; $ct_place_iteration++) {
+                                                $ct_place_data = $ct_place_rs->fetch_assoc();
+                                            ?>
+                                                <option value="<?php echo ($ct_place_data["id"]); ?>" class=""><?php echo ($ct_place_data["name"]); ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                     <button class="px-4 rounded" onclick="addTourPlace();" id="addTourPlaceBtn">
                                         <iconify-icon icon="carbon:add-filled" class="text-success"></iconify-icon>
                                     </button>
@@ -151,7 +160,7 @@ $location = "primary";
                                 </div>
                             </div>
                         </div> <!-- Column 01 -->
-                        <div class="p-2" style="max-width: 100%;"> <!-- Column 02 -->
+                        <div class="p-2" style="max-width: 100%; width: 100%;"> <!-- Column 02 -->
                             <div class="">
                                 <div class="">
                                     <label for="">Contact Method</label>
@@ -187,7 +196,7 @@ $location = "primary";
                                 </div>
                             </div>
                         </div> <!-- Column 02 -->
-                        <div class="p-2" style="max-width: 100%;"> <!-- Column 03 -->
+                        <div class="p-2" style="max-width: 100%; width: 100%;"> <!-- Column 03 -->
                             <!-- <div class="">
                                 <label for="">Contact Method</label>
                                 <select id="" class="w-100 p-2 rounded">
