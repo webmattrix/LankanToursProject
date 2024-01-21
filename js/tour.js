@@ -1,17 +1,24 @@
 var places_data;
 
 function dataLoader() {
+  alert("OK - 2");
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function () {
     if (req.readyState == 4) {
       places_data = JSON.parse(req.responseText);
+      alert("OK - 3");
     }
   };
 
   req.open("GET", "./assets/model/loadPlacesImage.php", true);
   req.send();
 }
+
+(function () {
+  dataLoader();
+  alert("OK - 1");
+})();
 
 function tourPlanSlideMover(slideNumber, direction) {
   var slider = document.getElementById("slide" + slideNumber + "Container");
@@ -67,8 +74,8 @@ var custom_tour_places = [];
 function addTourPlace() {
   var tourPlace = document.getElementById("addTourPlace").value;
   if (!custom_tour_places.includes(tourPlace)) {
-    custom_tour_places.push(tourPlace);
     if (tourPlace != 0 && places_data != null) {
+      custom_tour_places.push(tourPlace);
       document.getElementById("addTourPlaceBtn").disabled = true;
 
       var slide = document.createElement("div");
