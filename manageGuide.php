@@ -419,5 +419,5 @@ if (isset($_SESSION["lt_admin"])) {
 </html>
 <?php
     } else {
-       header("Location: ./Admin");       
+       header("Location: ../404");       
     } ?>
