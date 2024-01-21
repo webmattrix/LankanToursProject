@@ -231,7 +231,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                                                                     }
                                                                                                         ?>>
                                                         <span class="d-none d-lg-block">Prev</span>
-                                                        <i class="icon-arrow_circle_left_black_24dp d-block d-lg-none"></i>
+                                                        <i class="bi bi-arrow-left-circle-fill d-block d-lg-none"></i>
                                                     </a>
 
 
@@ -340,7 +340,7 @@ if (isset($_SESSION["lt_admin"])) {
                                                                                                     }
                                                                                                         ?>>
                                                         <span class="d-none d-lg-block">Next</span>
-                                                        <i class="icon-arrow_circle_right_black_24dp1 d-block d-lg-none"></i>
+                                                        <i class="bi bi-arrow-right-circle-fill d-block d-lg-none"></i>
                                                     </a>
                                                     <!-- Next Button of the pagination -->
 
@@ -380,5 +380,5 @@ if (isset($_SESSION["lt_admin"])) {
 </html>
 <?php
     } else {
-       header("Location: ./Admin");       
+       header("Location: ../404");       
     } ?>

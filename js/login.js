@@ -102,10 +102,10 @@ function T_resetPW() {
   var rnPW = document.getElementById("rnpInput");
   var vCode = document.getElementById("T_vcode");
 
-  alert(email.value);
-  alert(nPW.value);
-  alert(rnPW.value);
-  alert(vCode.value);
+  // alert(email.value);
+  // alert(nPW.value);
+  // alert(rnPW.value);
+  // alert(vCode.value);
 
   var f = new FormData();
   f.append("Email", email.value);
