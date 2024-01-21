@@ -3,7 +3,7 @@ require "./assets/model/visitor.php";
 session_start();
 
 if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
-    header("Location: ../Admin");
+    header("Location: ../404");
 } else {
 
     require "assets/model/getOrdersList.php";
@@ -263,8 +263,8 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                         }
                                                         ?>" alt="" class="admin_panel-profile-image">
                                             <div class="admin-name">
-                                                <span class="name segoeui-bold">John Luther</span>
-                                                <span class="type quicksand-SemiBold">Owner</span>
+                                                <span class="name segoeui-bold"><?php echo ($employee_data["emp_name"]); ?></span>
+                                                <span class="type quicksand-SemiBold"><?php echo ($employee_data["emp_type"]); ?></span>
                                             </div>
                                         </div>
                                     </div>

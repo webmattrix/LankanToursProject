@@ -254,7 +254,7 @@ if (isset($_SESSION["lt_tourist"])) {
                                                                                                 <div class="col-3 includeIconBlog1 animatedBtn2">
                                                                                                     <iconify-icon class="py-2 px-3" icon="mdi:airplane" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
                                                                                                 </div>
-                                                                                                <div class="col-3 includeIconBlog1 animatedBtn3">
+                                                                                                <div class="col-3 includeIconBlog1 animatedBtn3" onclick="deleteWatchlistItem('<?php echo ($watchlist_data['tour_id']); ?>');">
                                                                                                     <iconify-icon class="py-2 px-3" icon="material-symbols:delete" style="font-size: calc(0.6rem + 0.6vh);"></iconify-icon>
                                                                                                 </div>
                                                                                             </div>
@@ -274,7 +274,7 @@ if (isset($_SESSION["lt_tourist"])) {
                                                 ?>
                                                 <img src="./assets/img/TourismBag.png" alt="Tourism Bag" style="max-height: 60vh; object-fit: contain;" />
                                                 <div class="d-flex align-items-center w-100 flex-column">
-                                                    <span class="content-heading mb-2" style="color: #4478FF;">Your watchlist is empty. Make it colorful</span>
+                                                    <span class="content-heading mb-2" style="color: #4478FF;">Your watchlist is empty. Make it colourful</span>
                                                     <a href="Home">
                                                         <button class="btn btn-danger px-4" style="width: fit-content;">Travel to Home</button>
                                                     </a>
@@ -289,7 +289,6 @@ if (isset($_SESSION["lt_tourist"])) {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <?php include "./components/footer.php"; ?>
