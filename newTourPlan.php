@@ -176,7 +176,7 @@ if (isset($_SESSION["lt_admin"])) {
 
 <?php
 } else {
-    header("Location: ../Admin");
+    header("Location: ../404");
 }
 
 ?>
