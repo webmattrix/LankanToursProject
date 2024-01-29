@@ -60,11 +60,7 @@ function addToModalTab() {
     if (req3.readyState == 4) {
       var respData3 = req3.responseText;
       var responseObj3 = JSON.parse(respData3);
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
       var table = document.getElementById("tableC&P");
 
       table.innerHTML += `<tr>
@@ -105,7 +101,7 @@ function updateTour(tid) {
 
 }
 
-function deleteNewAdded(row,plid) {
+function deleteNewAdded(row, plid) {
 
   deleteArray.push(plid);
 
