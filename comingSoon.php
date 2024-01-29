@@ -48,7 +48,7 @@ if (isset($_SESSION["lt_tourist"])) {
                     <img src="./assets/img/comingSoon_IMG/coming-soon.png" class="img-fluid">
                 </div>
                 <div class="box1 mt-4 txtclr">
-                    <p class=" text-center "> Stay Connected !!</p>
+                    <p class=" text-center ">Our Grand Reveal is Near! Get ready for an extraordinary experience. Stay connected for the big moment!</p>
                 </div>
                 <div class="box1">
                     <a href="./Home">
