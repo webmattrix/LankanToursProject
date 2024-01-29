@@ -64,6 +64,7 @@
                 <div class="col-12 text-center">
                     <span class="text-white-50">&copy; 2023 LANKAN TOURS. All Rights Reserved.</span>
                 </div>
+                <div class="text-center text-white-50 opacity-50 content-heading">Created By Quantum Blaze Software Solution</div>
             </footer>
 
         </div>
