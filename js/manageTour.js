@@ -60,9 +60,7 @@ function addToModalTab() {
     if (req3.readyState == 4) {
       var respData3 = req3.responseText;
       var responseObj3 = JSON.parse(respData3);
-
       var table = document.getElementById("tableC&P");
-
       table.innerHTML += `<tr>
                               <td class="col-2 py-2 text-center fw-normal mt-modal-tab-textC">${responseObj3.cityName}</td>
                               <td class="col-4 py-2 text-center mt-modal-tab-textC">${responseObj3.placeName}</td>
