@@ -38,6 +38,8 @@ $location = "primary";
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
     <script src="./js/tour.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.min.css"> -->
 </head>
 
 <body class="c-default" id="body">
