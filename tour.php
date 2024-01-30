@@ -36,6 +36,10 @@ $location = "primary";
     <link rel="stylesheet" href="./css/scrolbar.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
+    <script src="./js/tour.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.min.css"> -->
 </head>
 
 <body class="c-default" id="body">
@@ -60,13 +64,9 @@ $location = "primary";
                 </div>
                 <div class="grid-template">
 
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-4"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-area">
+                    <div class="form-area" <?php if (!isset($_SESSION["lt_tourist"])) {
+                                                echo ('style="pointer-events: none;"');
+                                            } ?>>
                         <div class="p-2" style="max-width: 100%; width: 100%;"> <!-- Column 01 -->
                             <?php
                             if (isset($_SESSION["lt_tourist"])) {
@@ -189,9 +189,9 @@ $location = "primary";
                                 <div class="mt-1">
                                     <label for="">Number of members</label>
                                     <div class="count-switch rounded overflow-hidden">
-                                        <button class="rounded-start fs-4 p-2 fw-bold" onclick="changeMemberCount('increase');">-</button>
-                                        <input type="text" class="p-2 text-center" id="memberCount" value="1" min="1" />
-                                        <button class="rounded-end fs-4 p-2 fw-bold" onclick="changeMemberCount('dicrease');">+</button>
+                                        <button class="rounded-start fs-4 p-2 fw-bold" onclick="changeMemberCount('dicrease');">-</button>
+                                        <input type="text" class="p-2 text-center" id="memberCount" value="1" min="1" max="30" />
+                                        <button class="rounded-end fs-4 p-2 fw-bold" onclick="changeMemberCount('increase');">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -540,7 +540,7 @@ $location = "primary";
 
     </div>
     <?php include "./components/footer.php"; ?>
-    <script src="./js/tour.js"></script>
+
     <script src="./js/newHeader.js"></script>
     <script src="./js/footer.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
