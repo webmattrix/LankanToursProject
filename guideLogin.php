@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/adminTemplate.css">
     <link rel="stylesheet" href="./css/guideLogin.css">
     <link rel="stylesheet" href="./css/font.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+
 </head>
 
 <body>

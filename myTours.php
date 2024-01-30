@@ -200,9 +200,9 @@ ORDER BY `start_date` ASC";
 
                                             <h6> Request Date :
                                                 <?php
-                                                // $convertTime = timeConverter::convert($main_data["date_time"]);
-                                                // echo (date("Y-M-d", strtotime($convertTime)));
-                                                echo ($main_data["date_time"]);
+                                                $convertTime = timeConverter::convert($main_data["date_time"]);
+                                                echo (date("Y-M-d", strtotime($convertTime)));
+                                                // echo ($main_data["date_time"]);
                                                 ?>
                                             </h6>
                                             <h6>Request Status : <span class="text-warning">
@@ -212,28 +212,35 @@ ORDER BY `start_date` ASC";
                                                     <?php
                                                     if ($main_data["tour_name"] != "Custom Tour") {
                                                         if ($main_data["order_status_id"] == 1) {
-                                                            // order assign
-                                                            $guide_query = "SELECT * FROM `order`
-                                                       INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
-                                                       INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-                                                        WHERE `order`.`id` = '" . $main_data["Orderid"] . "'";
-                                                            $guide_rs1 = Database::search($guide_query);
-                                                            $guide_data = $guide_rs1->fetch_assoc();
-                                                            echo ($guide_data["name"]);
+                                                          
+                                                    //         $guide_query = "SELECT * FROM `order`
+                                                    //    INNER JOIN `guide` ON `guide`.`id`=`order`.`guide_id` 
+                                                    //    INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                    //     WHERE `order`.`id` = '" . $main_data["Orderid"] . "'";
+                                                    //         $guide_rs1 = Database::search($guide_query);
+                                                    //         $guide_data = $guide_rs1->fetch_assoc();
+                                                    //         echo ($guide_data["name"]);
+
+                                                      // order assign
+                                                      echo ("Assign");
                                                         } else {
                                                             // order unassign
                                                             echo ("Unassign");
                                                         }
                                                     } else {
                                                         if ($main_data["order_status_id"] == 1) {
-                                                            // order assign
-                                                            $guide_query = "SELECT * FROM `custom_tour`
-                                                       INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id` 
-                                                       INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
-                                                        WHERE `custom_tour`.`id` = '" . $main_data["Orderid"] . "'";
-                                                            $guide_rs1 = Database::search($guide_query);
-                                                            $guide_data = $guide_rs1->fetch_assoc();
-                                                            echo ($guide_data["name"]);
+                                                           
+                                                    //         $guide_query = "SELECT * FROM `custom_tour`
+                                                    //    INNER JOIN `guide` ON `guide`.`id`=`custom_tour`.`guide_id` 
+                                                    //    INNER JOIN `employee` ON `employee`.`id`=`guide`.`employee_id`
+                                                    //     WHERE `custom_tour`.`id` = '" . $main_data["Orderid"] . "'";
+                                                    //         $guide_rs1 = Database::search($guide_query);
+                                                    //         $guide_data = $guide_rs1->fetch_assoc();
+                                                    //         echo ($guide_data["name"]);
+
+
+                                                     // order assign
+                                                    echo ("Assign");
                                                         } else {
                                                             // order unassign
                                                             echo ("Unassign");

@@ -484,5 +484,5 @@ if (isset($_SESSION["lt_guide"])) {
     </html>
     <?php
 } else {
-    header("Location: ./Guide");
+    header("Location: ../Guide");
 } ?>
