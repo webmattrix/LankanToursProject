@@ -64,12 +64,12 @@ if (isset($_SESSION["lt_tourist"])) {
                 $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
-WHERE `order`.`user_id` = '" . $user_id . "' AND `order`.`start_date` <= '" . $today . "' AND `order`.`end_date` >= '" . $today . "' 
+WHERE `order`.`user_id` = '" . $user_id . "' OR `order`.`end_date` >= '" . $today . "' OR `order`.`end_date` IS NULL 
 ORDER BY `start_date` ASC";
 
                 $ct_order_query = "SELECT *,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-WHERE `custom_tour`.`user_id` = '" . $user_id . "' AND `custom_tour`.`start_date` <= '" . $today . "' AND `custom_tour`.`end_date` >= '" . $today . "' 
+WHERE `custom_tour`.`user_id` = '" . $user_id . "' OR `custom_tour`.`end_date` >= '" . $today . "' OR `custom_tour`.`end_date` IS NULL 
 ORDER BY `start_date` ASC";
 
                 $ongoingTourList = getOrders::getOrderList($order_query, $ct_order_query);
