@@ -1,8 +1,7 @@
 <?php
 $location = "primary";
 session_start();
-if (isset($_SESSION["lt_tourist"])) {
-    $data = $_SESSION["lt_tourist"]; ?>
+ ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -66,7 +65,4 @@ if (isset($_SESSION["lt_tourist"])) {
     </body>
 
     </html>
-    <?php
-} else {
-    header("Location: ./Login");
-} ?>
+   
