@@ -15,6 +15,7 @@
   border-radius: 6px;
   background-color: #272727;
 }
+
 .tour_popular-tours .tour_popular-tours-items {
   min-width: 25%;
   /* border: 1px solid gray; */
@@ -52,6 +53,7 @@
   background-size: cover;
   background-position-y: center;
 }
+
 .tour_popular-tours .tour_popular-tours-items .item .image img {
   width: 100%;
   height: 100%;
@@ -66,19 +68,11 @@
   padding: 0 5px;
 }
 
-.tour_popular-tours
-  .tour_popular-tours-items
-  .item
-  .slider
-  iconify-icon:first-child {
+.tour_popular-tours .tour_popular-tours-items .item .slider iconify-icon:first-child {
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.486), transparent);
 }
 
-.tour_popular-tours
-  .tour_popular-tours-items
-  .item
-  .slider
-  iconify-icon:nth-child(2) {
+.tour_popular-tours .tour_popular-tours-items .item .slider iconify-icon:nth-child(2) {
   background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.486), transparent);
 }
 
@@ -127,7 +121,7 @@
   grid-gap: 50px 10px;
 }
 
-.tour-plan-grid > div > .item {
+.tour-plan-grid>div>.item {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -164,34 +158,36 @@
   gap: 5px;
 }
 
-.tour-bottom-section > div {
+.tour-bottom-section>div {
   background-color: #3e3e3e;
   /* padding: 10px; */
 }
 
-.tour-bottom-section > div:nth-child(1) {
+.tour-bottom-section>div:nth-child(1) {
   border-radius: 0 100vh 100vh 0;
   display: flex;
   justify-content: end;
 }
-.tour-bottom-section > div:nth-child(2) {
+
+.tour-bottom-section>div:nth-child(2) {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.tour-bottom-section > div:nth-child(3) {
+
+.tour-bottom-section>div:nth-child(3) {
   border-radius: 100vh 0 0 100vh;
 }
 
-.tour-bottom-section > div:nth-child(3),
-.tour-bottom-section > div:nth-child(1) {
+.tour-bottom-section>div:nth-child(3),
+.tour-bottom-section>div:nth-child(1) {
   flex-grow: 2;
   background-color: #1c1c1c;
 }
 
 /* Location Icon */
-.tour-bottom-section > div:nth-child(2) > span {
+.tour-bottom-section>div:nth-child(2)>span {
   background-color: #3e3e3e;
   width: 60px;
   height: 60px;
@@ -203,7 +199,7 @@
   box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.25) inset;
 }
 
-.tour-bottom-section > div:nth-child(2) > span > span {
+.tour-bottom-section>div:nth-child(2)>span>span {
   width: 70%;
   height: 70%;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -218,13 +214,13 @@
   background-color: #3e3e3e;
 }
 
-.tour-bottom-section > div > span > span:hover {
+.tour-bottom-section>div>span>span:hover {
   transform: scale(1.1);
 }
 
 /* Left and Right Icons */
-.tour-bottom-section > div:nth-child(3) > span,
-.tour-bottom-section > div:nth-child(1) > span {
+.tour-bottom-section>div:nth-child(3)>span,
+.tour-bottom-section>div:nth-child(1)>span {
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -233,8 +229,8 @@
   align-items: center;
 }
 
-.tour-bottom-section > div:nth-child(3) > span > span,
-.tour-bottom-section > div:nth-child(1) > span > span {
+.tour-bottom-section>div:nth-child(3)>span>span,
+.tour-bottom-section>div:nth-child(1)>span>span {
   width: 70%;
   height: 70%;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -249,13 +245,15 @@
   background-color: #2d2d2d;
 }
 
-.tour-bottom-section > div:nth-child(3) > span > span > * {
+.tour-bottom-section>div:nth-child(3)>span>span>* {
   color: #fe002e;
 }
-.tour-bottom-section > div:nth-child(1) > span > span > * {
+
+.tour-bottom-section>div:nth-child(1)>span>span>* {
   color: #019218;
 }
-.tour-bottom-section > div:nth-child(2) > span > span > * {
+
+.tour-bottom-section>div:nth-child(2)>span>span>* {
   color: white;
 }
 
@@ -264,12 +262,18 @@
 }
 
 .custom-tour .grid-template .form-area {
-  display: flex;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 50px;
 }
 
-.custom-tour .grid-template .form-area > div {
+@media (max-width:768px) {
+  .custom-tour .grid-template .form-area {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.custom-tour .grid-template .form-area>div {
   width: 100%;
 }
 
@@ -335,28 +339,30 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* Limit to 4 lines */
+  -webkit-line-clamp: 2;
+  /* Limit to 4 lines */
   line-height: 1.5;
   height: 60px;
 }
 
-.custom-tour .grid-template .form-area > div > div input,
-.custom-tour .grid-template .form-area > div > div select,
-.custom-tour .grid-template .form-area > div > div textarea,
-.custom-tour .grid-template .form-area > div > div .count-switch {
+.custom-tour .grid-template .form-area>div>div input,
+.custom-tour .grid-template .form-area>div>div select,
+.custom-tour .grid-template .form-area>div>div textarea,
+.custom-tour .grid-template .form-area>div>div .count-switch {
   border: 1px solid #323232;
   background-color: #313131;
   color: white;
 }
 
-.custom-tour .grid-template .form-area > div > div select option {
+.custom-tour .grid-template .form-area>div>div select option {
   color: white;
 }
 
-.custom-tour .grid-template .form-area > div > div .count-switch {
+.custom-tour .grid-template .form-area>div>div .count-switch {
   width: fit-content;
 }
-.custom-tour .grid-template .form-area > div > div button {
+
+.custom-tour .grid-template .form-area>div>div button {
   background-color: #313131;
   border: 1px solid #323232;
 }

@@ -60,18 +60,12 @@ function addToModalTab() {
     if (req3.readyState == 4) {
       var respData3 = req3.responseText;
       var responseObj3 = JSON.parse(respData3);
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> main
       var table = document.getElementById("tableC&P");
-
       table.innerHTML += `<tr>
                               <td class="col-2 py-2 text-center fw-normal mt-modal-tab-textC">${responseObj3.cityName}</td>
                               <td class="col-4 py-2 text-center mt-modal-tab-textC">${responseObj3.placeName}</td>
                               <td ><button class="addTourBtnDel1 px-4 py-1">Delete</button></td>
-                             </tr>`;
+                              </tr>`;
     }
   };
   req3.open("POST", "../assets/model/addct&plProcess.php", true);
@@ -105,7 +99,7 @@ function updateTour(tid) {
 
 }
 
-function deleteNewAdded(row,plid) {
+function deleteNewAdded(row, plid) {
 
   deleteArray.push(plid);
 

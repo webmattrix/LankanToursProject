@@ -263,7 +263,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
-                  <div class="position-relative" onclick="viewPlace('<?php echo ($places_data['city_id']); ?>');">
+                  <div class="position-relative" onclick="viewPlace();">
                     <div class="place" style="background-image: url('./assets/img/places/<?php echo ($places_image_data["path"]); ?>');">
                       <iconify-icon icon="carbon:touch-1-filled"></iconify-icon>
                     </div>
@@ -303,7 +303,8 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
                 $tour_rs = Database::search("SELECT * FROM `tour`");
 
-                for ($x = 1; $x < $tour_rs->num_rows; $x++) {
+                for ($x = 0; $x < $tour_rs->num_rows; $x++) {
+                  $tour_iteration = $x + 1;
                   $tour_data = $tour_rs->fetch_assoc();
 
                   $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' LIMIT 5");
@@ -337,10 +338,10 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                       </div>
                       <div class="tour-plan-slider position-relative">
                         <div class="position-absolute top-50 text-white w-100 px-2 fs-5 d-flex justify-content-between home_tour-plan-arrow-container" style="z-index: 3;">
-                          <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'left');"></iconify-icon>
-                          <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($x); ?>,'right');"></iconify-icon>
+                          <iconify-icon icon="mingcute:left-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($tour_iteration); ?>,'left');"></iconify-icon>
+                          <iconify-icon icon="mingcute:right-line" class="text-white c-pointer" onclick="tourPlanSlideMover(<?php echo ($tour_iteration); ?>,'right');"></iconify-icon>
                         </div>
-                        <div class="slides" style="width: <?php echo ($tour_places_count); ?>00%;" id="slide<?php echo ($x); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_places_count); ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($x); ?>)">
+                        <div class="slides" style="width: <?php echo ($tour_places_count); ?>00%;" id="slide<?php echo ($tour_iteration); ?>Container" data-marginLeft="0" data-maxWidth="<?php echo ($tour_places_count); ?>00" ontouchstart="touchStartDetector(event);" ontouchend="touchEndDetector(event,<?php echo ($tour_iteration); ?>)">
                           <?php
                           for ($tourPlaceIteration = 0; $tourPlaceIteration < $tour_places_count; $tourPlaceIteration++) {
                             $tour_places_data = $tour_place_rs->fetch_assoc();
@@ -356,14 +357,14 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                           <div class="slide" id="sliderSlide3" style="background-image: url('./assets/img/tour_plan_images/img (3).jpg');"></div> -->
                         </div>
                         <div class="position-absolute end-0 bottom-0 quicksand-SemiBold me-2 mb-1" style="text-shadow: 0px 0px 5px black;">
-                          <span class="text-white" id="slide<?php echo ($x); ?>ImageNumber" data-imageNumber="1">1</span>
+                          <span class="text-white" id="slide<?php echo ($tour_iteration); ?>ImageNumber" data-imageNumber="1">1</span>
                           <span class="text-white"> / <?php echo ($tour_places_count); ?></span>
                         </div>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
-                      <div class="quicksand-Medium sub-heading py-2"><?php echo ($tour_data["description"]); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2"><?php echo (nl2br($tour_data["description"])); ?></div>
                       <div class="w-100 d-flex justify-content-center">
                         <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>

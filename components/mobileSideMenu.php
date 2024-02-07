@@ -73,12 +73,18 @@
                     <span class="bottomBorder"></span>
                     <span class="quicksand-SemiBold">Tours</span>
                 </a>
-                <a class="item item-3 d-flex align-items-center gap-3 w-75 px-3 c-pointer">
+                <a href="<?php
+                            if ($location == 'primary') {
+                                echo ('Tour-Place');
+                            } else {
+                                echo ('../Tour-Place');
+                            }
+                            ?>" class="item item-3 d-flex align-items-center gap-3 w-75 px-3 c-pointer">
                     <div class="iconContainer d-flex justify-content-center align-items-center">
                         <iconify-icon icon="material-symbols:work-history"></iconify-icon>
                     </div>
                     <span class="bottomBorder"></span>
-                    <span class="quicksand-SemiBold">History</span>
+                    <span class="quicksand-SemiBold">Places</span>
                 </a>
                 <!-- <a href="#" class="item item-4 d-flex align-items-center gap-3 w-75 px-3 c-pointer">
                     <div class="iconContainer d-flex justify-content-center align-items-center">

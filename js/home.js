@@ -106,8 +106,8 @@ function goToLogin() {
 }
 
 
-function viewPlace(city_id) {
-  window.location = "Tour-Place/" + city_id;
+function viewPlace() {
+  window.location = "Tour-Place";
 }
 
 function addToWatchList(id) {
