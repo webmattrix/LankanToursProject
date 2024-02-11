@@ -90,8 +90,6 @@ function tourReqProcessing(tourId) {
   req5.open("POST", "../assets/model/itinerarySendReqProcess.php", true);
   req5.send(form2);
 
-
-
 }
 
 function tourRequest(tourId) {

@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Segoe";
+  src: url("../assets/fonts/SegoeUI.ttf");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/fonts/quicksand.ttf");
+}
+
+.afterProcess1 {
+  display: none;
+}
+
+.reqProcess1 {
+  display: block;
+}
+
 #body {
   background-color: #dcdcdc;
 }
