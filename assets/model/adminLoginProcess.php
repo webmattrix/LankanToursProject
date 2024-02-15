@@ -23,7 +23,7 @@ if (empty($email)) {
 } else if (strlen($password) < 5 || strlen($password) > 20) {
     echo "Invalid Password";
 } else {
-    $resulset = Database::search("SELECT *,`employee`.`id` AS `employee_id` FROM 
+    $resulset = Database::search("SELECT *,`employee`.`id` AS `employee_id`,`employe_type`.`id` AS `emp_type` FROM 
     `employee` INNER JOIN `employe_type` ON employee.employe_type_id=employe_type.id 
     WHERE `employee`.`email`='" . $email . "' AND `employee`.`password`='" . $password . "' AND (`employe_type`.`name`='admin' OR `employe_type`.`name`='super admin' OR `employe_type`.`name`='Owner')");
     $n = $resulset->num_rows;
@@ -43,7 +43,7 @@ if (empty($email)) {
                 setcookie("lt_admin_password", "", -1);
             }
 
-          
+
             $verificatonCode = generatePassword(6);
 
             Database::iud("UPDATE `employee`SET `verification_code`='" . $verificatonCode . "' WHERE `email`='" . $email . "'");
@@ -136,10 +136,8 @@ if (empty($email)) {
             } else {
                 echo "success01";
             }
-
-            
         } else {
-           
+
             if ($rememberMe == true) {
                 setcookie("lt_admin_email", $email, time() + (86400 * 30), "/");
                 setcookie("lt_admin_password", $password, time() + (86400 * 30), "/");
@@ -148,10 +146,9 @@ if (empty($email)) {
                 setcookie("lt_admin_email", "", -1);
                 setcookie("lt_admin_password", "", -1);
             }
-             echo "success02";
+            echo "success02";
         }
     } else {
         echo "Invalid Email or Password";
     }
 }
-?>

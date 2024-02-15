@@ -31,7 +31,7 @@ require "assets/model/sqlConnection.php";
     ?>
     <link rel="stylesheet" href="./css/newHeader.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/scrolbar.css" />
+    <link rel="stylesheet" href="./css/place-scroll.css" />
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
     <script src="./js/places.js"></script>
@@ -106,6 +106,10 @@ require "assets/model/sqlConnection.php";
                                                         if ($place_image_table_rows == 0) {
                                                             continue;
                                                         }
+                                                        if ($place_table_data["description"] == NULL || $place_table_data["description"] == "" || empty($place_table_data["description"])) {
+                                                            continue;
+                                                        }
+
 
                                                     ?>
                                                         <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
@@ -151,12 +155,12 @@ require "assets/model/sqlConnection.php";
                                                                 <div class="card-body">
                                                                     <div class="col-12 p-0 m-0">
                                                                         <div class="row">
-                                                                            <div class="col-6">
+                                                                            <div class="col-9">
                                                                                 <div class="row">
                                                                                     <span class="text-start quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;"><?php echo ($place_table_data["name"]); ?></span>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-6">
+                                                                            <div class="col-3">
                                                                                 <div class="row">
                                                                                     <span class="text-end quicksand-SemiBold" style="font-size: calc(0.68rem + 0.68vh); color: #000;"><?php echo ($place_table_data["rating"]); ?>/5</span>
                                                                                 </div>
@@ -164,7 +168,7 @@ require "assets/model/sqlConnection.php";
                                                                         </div>
                                                                         <hr style="border: 1px solid rgba(0, 0, 0, 0.75);">
                                                                     </div>
-                                                                    <p class="card-text"><?php echo ($place_table_data["description"]); ?></p>
+                                                                    <p class="card-text" style="max-height: 250px; overflow-y: auto;"><?php echo (nl2br($place_table_data["description"])); ?></p>
                                                                 </div>
                                                             </div>
                                                         </div>
