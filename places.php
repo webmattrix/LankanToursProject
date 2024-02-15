@@ -106,6 +106,10 @@ require "assets/model/sqlConnection.php";
                                                         if ($place_image_table_rows == 0) {
                                                             continue;
                                                         }
+                                                        if ($place_table_data["description"] == NULL || $place_table_data["description"] == "" || empty($place_table_data["description"])) {
+                                                            continue;
+                                                        }
+
 
                                                     ?>
                                                         <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
@@ -164,7 +168,7 @@ require "assets/model/sqlConnection.php";
                                                                         </div>
                                                                         <hr style="border: 1px solid rgba(0, 0, 0, 0.75);">
                                                                     </div>
-                                                                    <p class="card-text"><?php echo ($place_table_data["description"]); ?></p>
+                                                                    <p class="card-text"><?php echo (nl2br($place_table_data["description"])); ?></p>
                                                                 </div>
                                                             </div>
                                                         </div>
