@@ -68,6 +68,7 @@ INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id`
 WHERE `order`.`user_id` = '" . $user_id . "' AND (`order`.`end_date` >= '" . $today . "' OR `order`.`end_date` IS NULL )
 ORDER BY `start_date` ASC";
 
+
                 $ct_order_query = "SELECT *,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
 WHERE `custom_tour`.`user_id` = '" . $user_id . "' AND (`custom_tour`.`end_date` >= '" . $today . "' OR `custom_tour`.`end_date` IS NULL) 
