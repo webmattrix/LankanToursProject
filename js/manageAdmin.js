@@ -22,7 +22,7 @@ function adminReister() {
         alert("success");
         location.reload();
       } else {
-        alert("something went to wrong !");
+        alert(text);
       }
     }
   };
