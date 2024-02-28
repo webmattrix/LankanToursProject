@@ -428,10 +428,137 @@ $location = "primary";
                                     </div>
                                 </div>
 
+                                <!-- Modal 1 -->
+                                <div class="modal fade" id="open1stModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <span class="fs-5 fw-bold" style="font-family: 'Quicksand'; color: #333;" id="exampleModalLabel">Make it Yours</span>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-12">
+                                                    <div class="row">
+
+                                                        <?php
+
+                                                        $contact_rs = Database::search("SELECT * FROM `contact_method`");
+                                                        $contact_num = $contact_rs->num_rows;
+
+                                                        ?>
+
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <div class="col-12 col-lg-5">
+                                                                    <div class="row pt-1">
+                                                                        <span class="fw-bold ps-3" style="font-family: 'Quicksand'; font-size: calc(0.6rem + 0.6vh);">Tour Plan</span>
+                                                                        <div class="col-12">
+                                                                            <input type="text" id="to_name" class="form-control" placeholder="Day 11 Tour Plan" readonly style="font-family: 'Quicksand'; cursor: default; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                                        </div>
+                                                                        <div class="col-12 mt-4 pt-2">
+                                                                            <input type="text" id="jn_members" class="form-control" placeholder="Members" style="font-family: 'Quicksand'; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;" />
+                                                                        </div>
+
+                                                                        <div class="col-12 mt-4 pt-2">
+                                                                            <select class="form-select" id="star_level" aria-label="Tour Level" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                                                <option value="0">Tour Level</option>
+                                                                                <option value="1">1 Star</option>
+                                                                                <option value="2">2 Star</option>
+                                                                                <option value="3">3 Star</option>
+                                                                                <option value="4">4 Star</option>
+                                                                                <option value="5">5 Star</option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="col-12 mt-4 pt-2">
+                                                                            <select class="form-select" id="contact_meth" aria-label="How do we contact you?" style="font-family: 'Quicksand'; cursor: pointer; font-size: calc(0.61rem + 0.65vh); border-radius: 8px; border: 1px solid #44B0FF;">
+                                                                                <option value="0">How do we contact you?</option>
+                                                                                <?php
+
+                                                                                for ($coM = 0; $coM < $contact_num; $coM++) {
+                                                                                    $contact_data = $contact_rs->fetch_assoc();
+
+                                                                                ?>
+                                                                                    <option value="<?php echo $contact_data["id"]; ?>"><?php echo $contact_data["name"]; ?></option>
+                                                                                <?php
+                                                                                }
+
+                                                                                ?>
+
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-lg-7">
+                                                                    <div class="row">
+                                                                        <div class="col-12 mt-4">
+                                                                            <textarea class="form-control" placeholder="Your Message.." id="message_ovw" cols="30" rows="11" style="font-family: 'Quicksand'; font-size: calc(0.57rem + 0.55vh); border-radius: 8px; border: 1px solid #44B0FF; background: #EBEBEB;"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 mt-4">
+                                                                        <div class="row justify-content-center justify-content-lg-end">
+                                                                            <div class="col-9 col-lg-5 col-sm-4">
+                                                                                <button type="button" onclick="reqProcessTour(<?php echo $all_tour_data['id']; ?>);" class="btn text-white col-12 p-2 justify-content-center" data-bs-dismiss="modal" style="font-size: calc(0.54rem + 0.56vh); background-color: #1546F4; display: flex; align-items: center;">Send Request&nbsp;&nbsp;<iconify-icon icon="mdi:email-send-outline" class="fs-5"></iconify-icon></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal 2 -->
+                                <div class="modal fade" id="open2ndModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-12 afterProcess1">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-5">
+                                                            <img src="./assets/img/itinerary_IMG/complete.png" style="width: 100%; height: 100%;" alt="">
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="row">
+                                                                <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">Request was send</span>
+                                                                <span class="text-center" style="color: #3FAB46; font-family: 'Segoe'; font-size: calc(0.7rem + 0.68vh);">We will contact you soon as possible</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3 mb-2">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-9 col-sm-6 col-lg-5">
+                                                                    <button class="btn col-12 text-white justify-content-center" style="background-color: #1546F4; display: flex; align-items: center;" onclick="viewMyTours();">Watch your tour&nbsp;&nbsp;<iconify-icon icon="mdi:flight" style="color: #FFFFFF;"></iconify-icon></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 reqProcess1" style="padding: 18%;">
+                                                    <div class="row">
+                                                        <span class="text-center">
+                                                            <span class="spinner-border pb-3" style="color: #1546F4;" aria-hidden="true"></span>
+                                                        </span>
+                                                        <span class="text-center px-4 pb-4 pt-1 fs-5" style="color: #1546F4; font-family: 'Quicksand';">
+                                                            <span role="status">Request Processing...</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="tour-bottom-section">
                                     <div class="">
                                         <span>
-                                            <span data-bs-toggle="modal" data-bs-target="#tourRequestModel">
+                                            <span onclick="openReqTourModal(<?php echo $all_tour_data['id'];?>);">
                                                 <iconify-icon icon="mdi:airplane"></iconify-icon>
                                             </span>
                                         </span>
@@ -542,6 +669,8 @@ $location = "primary";
     <?php include "./components/footer.php"; ?>
 
     <script src="./js/newHeader.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/itinerary.js"></script>
     <script src="./js/footer.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>

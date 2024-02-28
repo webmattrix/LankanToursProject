@@ -44,6 +44,11 @@ require "./assets/model/passwordGenerator.php";
                 </div> -->
 
                 <!--  -->
+                <?php
+
+                    if($_SESSION["lt_admin"])
+                
+                ?>
                 <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
                 <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin"
                     onclick="openManageAdmin();">
