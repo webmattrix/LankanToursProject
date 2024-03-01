@@ -51,10 +51,10 @@
                     ?>
                     <iconify-icon icon="material-symbols:lock" class="position-absolute end-0 top-50 me-2" style="color: #fff; transform: translateY(-50%);"></iconify-icon>
                 </div>
-                <div class="offset-1 col-10 text-start mt-2">
+                <!-- <div class="offset-1 col-10 text-start mt-2">
                     <input type="checkbox" id="guide_remember" class="form-check-input" style="border-radius: 100%;">
                     <label class="text-white fs-6 quicksand-Medium" for="guide_remember">Keep Me Logged In</label>
-                </div>
+                </div> -->
                 <div class="d-flex justify-content-center">
                     <button onclick="guideSignIn();" class="btn guide_login-btn quicksand-Medium d-flex justify-content-center gap-2 align-items-center text-white">
                         <span>Login</span>

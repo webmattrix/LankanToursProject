@@ -69,6 +69,28 @@ function feedbackModal(id) {
   request.send();
 }
 
+function tourDelete(id,name){
+  var form = new FormData();
+form.append("order_Id", id);
+form.append("Order_name", name);
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (request.readyState == 4) {
+      var txt = request.responseText;
+      if(txt="Success"){
+        window.location.reload();
+      }else{
+        alert("Error");
+      }
+      
+      
+    }
+  };
+  request.open("POST", "./assets/model/myTourDelete.php", true);
+  request.send(form);
+}
+
 var M_modal;
 function messageModal(id,name) {
   

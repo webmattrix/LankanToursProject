@@ -56,7 +56,7 @@ if (isset($_SESSION["lt_admin"])) {
                                 <div class="col-lg-4 offset-lg-0 mb-3 mb-lg-0 col-md-6  col-sm-6">
                                     <div class=" AdminCard" style="max-width: 30rem;">
                                         <?php
-                                        $admin_rs2 = Database::search("SELECT * FROM `employee` WHERE `employe_type_id`='2' AND `status`='0' ");
+                                        $admin_rs2 = Database::search("SELECT * FROM `employee` WHERE `employe_type_id`='2' AND `status`='1' ");
                                         $number2 = $admin_rs2->num_rows;
                                         ?>
                                         <h4 class="card-title" style="font-family: Inter;">Active Admins</h4>

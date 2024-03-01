@@ -60,16 +60,18 @@ if (isset($_SESSION["lt_tourist"])) {
                 $today = $date->setTimezone(new DateTimeZone("Asia/Colombo"));
                 $today = $today->format("Y-m-d");
                 $user_id = $_SESSION['lt_tourist']['id'];
+                
 
                 $order_query = "SELECT *,`tour`.`name` AS `tour_name`,`order_status`.`name` AS `Orderstatus`,`order`.`id` AS `Orderid` FROM `order` 
 INNER JOIN `tour` ON `tour`.`id`=`order`.`tour_id` 
 INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id` 
-WHERE `order`.`user_id` = '" . $user_id . "' OR `order`.`end_date` >= '" . $today . "' OR `order`.`end_date` IS NULL 
+WHERE `order`.`user_id` = '" . $user_id . "' AND (`order`.`end_date` >= '" . $today . "' OR `order`.`end_date` IS NULL )
 ORDER BY `start_date` ASC";
+
 
                 $ct_order_query = "SELECT *,`order_status`.`name` AS `Orderstatus`,`custom_tour`.`id` AS `Orderid` FROM `custom_tour` 
 INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id` 
-WHERE `custom_tour`.`user_id` = '" . $user_id . "' OR `custom_tour`.`end_date` >= '" . $today . "' OR `custom_tour`.`end_date` IS NULL 
+WHERE `custom_tour`.`user_id` = '" . $user_id . "' AND (`custom_tour`.`end_date` >= '" . $today . "' OR `custom_tour`.`end_date` IS NULL) 
 ORDER BY `start_date` ASC";
 
                 $ongoingTourList = getOrders::getOrderList($order_query, $ct_order_query);
@@ -171,16 +173,17 @@ ORDER BY `start_date` ASC";
                             <div class="col-lg-8 col-12">
                                 <div class="col-lg-11 offset-lg-1 col-12">
                                     <div class="row mt-2 mt-lg-0">
-                                        <div class="col-lg-8 col-12 text-start mt-2 mt-lg-0">
-                                            <h5 style=" font-family:Segoe UI">
+                                        <div class="col-lg-8 col-8 text-start mt-2 mt-lg-0">
+                                            <h5 style=" font-family:Quicksand-bold">
                                                 <?php echo ($main_data["tour_name"]); ?>
                                             </h5>
                                         </div>
-                                        <div class="col-lg-4 col-12 text-start text-lg-end">
+                                        <div class="col-lg-4 col-4 text-start mt-1 mt-lg-0  text-end">
                                             <?php
                                             if ($main_data["tour_name"] != "Custom Tour") {
+                                               
                                             ?>
-                                                <a href="" class="text-primary text-decoration-none" style=" font-family:Segoe UI">
+                                                <a href="./itinerary/<?php echo($main_data['tour_id']);?>" class="text-primary text-decoration-none" style=" font-family:Quicksand-bold">
                                                     View tour </a>
                                             <?php
                                             } else {
@@ -198,13 +201,42 @@ ORDER BY `start_date` ASC";
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
 
-                                            <h6> Request Date :
+                                            <h6> Request Date : 
                                                 <?php
                                                 $convertTime = timeConverter::convert($main_data["date_time"]);
                                                 echo (date("Y-M-d", strtotime($convertTime)));
                                                 // echo ($main_data["date_time"]);
                                                 ?>
                                             </h6>
+                                            <h6> Start Date :<span class="text-warning">
+                                                <?php
+                                                
+
+                                                if ($main_data["tour_name"] != "Custom Tour") {
+                                                    if ($main_data["order_status_id"] == 1) {
+                                                 
+                                                  // order assign
+                                                  $convertTime2 = timeConverter::convert($main_data["start_date"]);
+                                                echo (date("Y-M-d", strtotime($convertTime2)));
+                                                // echo ($main_data["date_time"]);
+                                                    } else {
+                                                        // order unassign
+                                                        echo ("Unassign");
+                                                    }
+                                                } else {
+                                                    if ($main_data["order_status_id"] == 1) {
+                                                       
+                                                 // order assign
+                                                 $convertTime2 = timeConverter::convert($main_data["start_date"]);
+                                                 echo (date("Y-M-d", strtotime($convertTime2)));
+                                                 // echo ($main_data["date_time"]);
+                                                    } else {
+                                                        // order unassign
+                                                        echo ("Unassign");
+                                                    }
+                                                }
+                                                ?>
+                                            </span></h6>
                                             <h6>Request Status : <span class="text-warning">
                                                     <?php echo ($main_data["Orderstatus"]); ?>
                                                 </span> </h6>
@@ -280,7 +312,21 @@ ORDER BY `start_date` ASC";
                                                         } ?>
                                                     </div>
                                                     <div class=" col-md-4  offset-md-0  col-10 offset-1  mt-2">
-                                                        <button class="btn btn-danger MytoursButton" style="width: 100%;"><i class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
+                                                        <?php 
+                                                        if($main_data["Orderstatus"] == "Assigned"){
+                                                            //assigned
+                                                            ?>
+                                                             <button class="btn btn-danger MytoursButton" style="width: 100%;" disabled><i class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
+                                                            <?php
+
+                                                        }else{
+                                                            //unassigned
+                                                            ?>
+                                                             <button class="btn btn-danger MytoursButton" style="width: 100%;" onclick="tourDelete('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-trash3-fill text-white"></i> &nbsp;Delete</button>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                       
 
                                                     </div>
                                                     <div class=" col-md-4   offset-md-0 col-10 offset-1  mt-2">
@@ -306,7 +352,23 @@ ORDER BY `start_date` ASC";
                                                     <?php
 
                                                     } ?>
-                                                    <button class="btn btn-danger MytoursButton">&nbsp;<i class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
+                                                    
+                                                    <?php
+                                                    if($main_data["Orderstatus"] == "Assigned"){
+                                                        //Asigned
+                                                        ?>
+                                        
+                                                        <button class="btn btn-danger MytoursButton" disabled >&nbsp;<i class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
+                                                        <?php
+
+                                                    }else{
+                                                        //Unassigned
+                                                        ?>
+                                                        <button class="btn btn-danger MytoursButton" onclick="tourDelete('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');" >&nbsp;<i class="bi bi-trash3-fill text-white"></i>&nbsp;</button>
+                                                        <?php
+                                                    }?>
+                                                    
+                                                    
                                                     <button class="btn btn-primary MytoursButton" onclick="messageModal('<?php echo $main_data['Orderid']; ?>','<?php echo $main_data['tour_name']; ?>');"><i class="bi bi-envelope-fill text-white"></i>
                                                         <?php
                                                         if ($main_data["tour_name"] == "Custom Tour") {
