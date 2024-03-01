@@ -35,7 +35,7 @@ require "assets/model/sqlConnection.php";
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
     <script src="./js/places.js"></script>
-    <script src="./js/newHeader.js"></script>
+    
 </head>
 
 <body class="container-fluid" style="margin:0; background-color: #DEDEDE; padding:0;" onload="homeOnloadFunction();">
@@ -208,6 +208,7 @@ require "assets/model/sqlConnection.php";
 
 
             <?php include "./components/footer.php"; ?>
+
         </div>
     </div>
 
@@ -215,6 +216,7 @@ require "assets/model/sqlConnection.php";
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="./js/newHeader.js"></script>
 </body>
 
 </html>
