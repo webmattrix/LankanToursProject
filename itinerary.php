@@ -483,10 +483,10 @@ $tour_view_count = $tour_views_table_data["views"];
                 // Short namespaces can be used.
                 map = new Map(document.getElementById("map"), {
                     center: {
-                        lat: 7.0000,
-                        lng: 80.0000
+                        lat: 7.8731,
+                        lng: 80.7718
                     },
-                    zoom: 10,
+                    zoom: 8,
                     mapId: "DEMO_MAP_ID",
                 });
 
