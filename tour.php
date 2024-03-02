@@ -225,7 +225,7 @@ $location = "primary";
             $order_table = Database::search("SELECT * FROM `order`");
             $order_table_rows = $order_table->num_rows;
 
-            if ($order_table_rows > 0) {
+            if ($order_table_rows > 4) {
 
             ?>
 
