@@ -250,7 +250,11 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
           <!-- Beautiful places -->
           <div class="col-12">
-            <div class="segoeui-bold home_subtitle pb-3 main-content">Most Beautiful Places of SRI LANKA</div>
+            <div class="segoeui-bold home_subtitle pb-3 main-content d-flex justify-content-center align-items-center gap-3">
+              <span style="width: 20px; height: 3px; background-color: #333; border-radius: 3px;" class="d-none d-md-block"></span>
+              <span>Most Beautiful Places of SRI LANKA</span>
+              <span style="width: 20px; height: 3px; background-color: #333; border-radius: 3px;" class="d-none d-md-block"></span>
+            </div>
             <div class="home_places-grid">
 
               <?php
@@ -296,7 +300,11 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
           <div class="col-12" id="home_tour_plans">
             <div class="row">
 
-              <div class="segoeui-bold home_subtitle pb-2 main-content mt-2">Feel the SRI LANKA with our top tour plan</div>
+              <div class="segoeui-bold home_subtitle pb-2 main-content mt-5 d-flex justify-content-center align-items-center gap-3">
+                <span style="width: 25px; height: 3px; background-color: #333; border-radius: 3px;" class="d-none d-md-block"></span>
+                <span>Feel the SRI LANKA with our top tour plan</span>
+                <span style="width: 25px; height: 3px; background-color: #333; border-radius: 3px;" class="d-none d-md-block"></span>
+              </div>
 
               <div class="home_tour-plan">
                 <?php

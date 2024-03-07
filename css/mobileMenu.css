@@ -18,8 +18,8 @@
   top: 0;
   border-radius: 5px;
   z-index: 0;
-  background-color: rgba(62, 62, 62, 0.25);
-  border: 2px solid #3E3E3E;
+  /* background-color: rgba(62, 62, 62, 0.25); */
+  border: 2px solid #0ad0ee40;
   transition-duration: 0.5s;
 }
 
@@ -29,6 +29,7 @@
 
 .mobileMenuListItems .item span {
   z-index: 1;
+  color: #828282;
 }
 
 .mobileMenuListItems .item:hover .bottomBorder {
