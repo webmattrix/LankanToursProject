@@ -270,7 +270,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                     </div>
                                     <div class="admin_grid-item">
                                         <lottie-player src="../assets/animations/todayEngagement.json" background="transparent" speed="1" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0.5;" loop autoplay direction="1" mode="normal"></lottie-player>
-                                        <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Today
+                                        <span class="position-absolute text-white segoeui-bold top-0 start-0 m-3">Total
                                             Engagement</span>
                                         <span class="position-absolute text-white segoeui-bold bottom-0 end-0 m-3">
                                             <?php echo ($total_users); ?>
