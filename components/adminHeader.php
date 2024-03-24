@@ -112,7 +112,15 @@ if (isset($_SESSION["lt_admin"])) {
                 </div>
             </div>
             <div class="w-100 mt-5 d-flex flex-column align-items-center">
-                <div class="" style="width: 100px; height: 100px; clip-path: circle(); background-color: gray; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: url('../assets/img/favicon.png');"></div>
+                <div class="" style="width: 100px; 
+                    height: 100px; 
+                    clip-path: circle(); 
+                    background-color: white; 
+                    background-size: cover; 
+                    background-repeat: no-repeat; 
+                    background-position: center; 
+                    background-image: url('../assets/img/favicon.png');">
+                </div>
                 <span class="lemon mt-2 fs-4">Lankan Tours</span>
             </div>
             <hr>
