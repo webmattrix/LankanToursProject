@@ -2,7 +2,7 @@
 session_start();
 
 if (empty($_SESSION["lt_admin"])) {
-    header("Location: ../404");
+    header("Location: ../404_II");
 } else {
     if (isset($_SESSION["lt_admin"])) {
         $data01 = $_SESSION["lt_admin"];

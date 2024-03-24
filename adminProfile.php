@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
-    header("Location: ../404");
+    header("Location: ../404_II");
 } else {
 
     require "assets/model/sqlConnection.php";

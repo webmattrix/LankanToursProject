@@ -7,7 +7,7 @@ require "./assets/model/getTourViews.php";
 session_start();
 
 if (empty($_SESSION["lt_admin"])) {
-    header("Location: ../404");
+    header("Location: ../404_II");
 } else {
     $admin = $_SESSION["lt_admin"];
 
