@@ -92,10 +92,22 @@ if (isset($_SESSION["lt_admin"])) {
                     <iconify-icon icon="ic:outline-mail"></iconify-icon>
                 </div>
                 <div class="d-flex gap-2 align-items-center">
-                    <div class="" style="width: 35px; height: 35px; clip-path: circle(); background-color: gray;"></div>
+                    <div class="" style="width: 35px; height: 35px; 
+                        clip-path: circle(); 
+                        background-color: gray; 
+                        background-size: contain; 
+                        background-repeat: no-repeat; 
+                        background-position: center; 
+                        background-image: url(<?php
+                                                if (empty($employee_data["profile_picture"])) {
+                                                    echo (strval("../assets/img/profile/empty_profile.jpg"));
+                                                } else {
+                                                    echo (strval("../assets/img/profile/admin/" . $employee_data["profile_picture"]));
+                                                }
+                                                ?>);"></div>
                     <div class="d-flex flex-column quicksand-semibold">
-                        <span class="">Admin Name</span>
-                        <span class="">Type</span>
+                        <span class=""><?php echo ($employee_data["emp_name"]); ?></span>
+                        <span class=""><?php echo ($employee_data["emp_type"]); ?></span>
                     </div>
                 </div>
             </div>
