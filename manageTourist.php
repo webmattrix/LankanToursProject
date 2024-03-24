@@ -4,7 +4,7 @@ require "assets/model/sqlConnection.php";
 session_start();
 
 if (empty($_SESSION["lt_admin"])) {
-    header("Location: ../404_II");
+    header("Location: ../404");
 } else {
     if (isset($_SESSION["lt_admin"])) {
 ?>

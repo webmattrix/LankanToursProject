@@ -3,7 +3,7 @@ require "./assets/model/visitor.php";
 session_start();
 
 if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
-    header("Location: ../404_II");
+    header("Location: ../404");
 } else {
 
     require "assets/model/getOrdersList.php";
@@ -183,7 +183,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                     $admin_table_rows = $admin_table->num_rows;
                                     if ($admin_table_rows > 0) {
                                     ?>
-                                        <div class="col-5 mb-0 col-md-3 col-xl-2 alert alert-danger text-center">Admin Profile</div>
+                                        <div class="col-5 mb-0 col-md-3 col-xl-2 alert alert-danger text-center" onclick="viewAdminProfile();">Admin Profile</div>
                                     <?php
                                     }
                                     ?>
@@ -196,7 +196,7 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                                                                                         } else {
                                                                                             echo ("alert-success");
                                                                                         }
-                                                                                        ?> text-center">Tour Order</div>
+                                                                                        ?> text-center" onclick="openManageOrders();">Tour Order</div>
                                     <?php
                                     }
                                     ?>
