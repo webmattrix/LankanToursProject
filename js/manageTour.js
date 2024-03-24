@@ -37,6 +37,38 @@ function loadPlaces() {
   req2.send();
 }
 
+function selection(){
+  var selection = document.getElementById("select_tours").value;
+  
+  var req5 = new XMLHttpRequest();
+  req5.onreadystatechange = function(){
+    if(req5.readyState == 4){
+      var respData5 = req5.responseText;
+
+      var tableRow = document.getElementById("addRow_table");
+      tableRow.innerHTML = respData5;
+    }
+  };
+  req5.open("GET","../assets/model/selectTourProcess.php?indSel="+selection,true);
+  req5.send();
+}
+
+function searchTour(){
+  var inputResult = document.getElementById("search_result").value;
+
+  var req6 = new XMLHttpRequest();
+  req6.onreadystatechange = function(){
+    if(req6.readyState == 4){
+      var respData6 = req6.responseText;
+
+      var tableView = document.getElementById("addRow_table");
+      tableView.innerHTML = respData6;
+    }
+  };
+  req6.open("GET","../assets/model/searchTourProcess.php?srch="+inputResult,true);
+  req6.send();  
+}
+
 var newArray = [];
 var deleteArray = [];
 var tourId;

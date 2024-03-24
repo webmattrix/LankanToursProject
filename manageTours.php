@@ -321,11 +321,11 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                 <div class="col-12 col-sm-5 col-lg-5 my-sm-2 mt-lg-0">
                                                                     <span class="d-flex align-items-center"><iconify-icon icon="material-symbols:tune" class="fs-5 mt-filter-icon3"></iconify-icon> &nbsp;<span class="mt-filter-textC" style="font-family: 'Segoe'; font-size: calc(0.64rem + 0.68vh);">Filter</span>
                                                                         <div class="col-lg-6 col-9 col-sm-9 ps-3">
-                                                                            <select class="selectorMTP_ord" style="cursor: pointer;" aria-label="Default select example">
+                                                                            <select class="selectorMTP_ord" id="select_tours" onchange="selection();" style="cursor: pointer;" aria-label="Default select example">
                                                                                 <option selected>Select</option>
-                                                                                <option value="1">One</option>
-                                                                                <option value="2">Two</option>
-                                                                                <option value="3">Three</option>
+                                                                                <option value="tour_name">By Tour Name</option>
+                                                                                <option value="date">By Date Duration</option>
+                                                                                <option value="active">By Activeness</option>
                                                                             </select>
                                                                         </div>
                                                                     </span>
@@ -334,14 +334,14 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                     <div class="row justify-content-end">
                                                                         <div class="col-12 col-lg-6 col-sm-8">
                                                                             <div class="input-group">
-                                                                                <input type="text" class="form-control textInputDet2" placeholder="search here...">
+                                                                                <input type="text" id="search_result" class="form-control textInputDet2" onkeydown="searchTour();" placeholder="search here...">
                                                                                 <span class="input-group-text"><a href="#" style="color: #858585;"><iconify-icon icon="fe:search"></iconify-icon></a></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 mt-lg-4 d-none d-lg-grid d-md-grid d-xl-grid">
-                                                                    <div class="row">
+                                                                    <div class="row" id="addRow_table">
 
                                                                         <?php
 
@@ -390,10 +390,11 @@ $employee_data = $employee_rs->fetch_assoc();
                                                                                         $purchased_count = 0;
                                                                                     }
 
-                                                                                    $start_date = $count_ord_data["start_date"];
-                                                                                    $end_date = $count_ord_data["end_date"];
+                                                                                    // $start_date = $count_ord_data["start_date"];
+                                                                                    // $end_date = $count_ord_data["end_date"];
 
-                                                                                    $duration = date_diff(new DateTime($start_date), new DateTime($end_date))->d;
+                                                                                    // $duration = date_diff(new DateTime($start_date), new DateTime($end_date))->d;
+                                                                                    $duration = $tour_plan_data['date_count'];
 
                                                                                 ?>
 
