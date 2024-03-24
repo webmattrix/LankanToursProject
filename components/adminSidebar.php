@@ -43,12 +43,9 @@ require "./assets/model/passwordGenerator.php";
                     <div>Lorem, ipsum dolor.</div>
                 </div> -->
 
-                <!--  -->
-                <?php
+                <!-- Super admin validation -->
+                <!-- Super admin validation -->
 
-                    if($_SESSION["lt_admin"])
-                
-                ?>
                 <!-- <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin" onclick="viewSubMenu('admin');"> -->
                 <div class="listItem" data-value="adminSubContent" statusNumber="0" id="admin"
                     onclick="openManageAdmin();">
