@@ -105,35 +105,31 @@ if (isset($_SESSION["lt_admin"])) {
             </div>
             <hr>
             <div class="d-flex flex-column gap-5 quicksand-semibold ps-3 pt-3 mobileMenuIconList">
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openAdminDashboard();">
                     <iconify-icon icon="ic:round-dashboard" class="fs-4"></iconify-icon>
                     <div class="">Dashboard</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openManageAdmin();">
                     <iconify-icon icon="ic:baseline-admin-panel-settings" class="fs-4"></iconify-icon>
                     <div class="">Admin</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openManageGuide();">
                     <iconify-icon icon="dashicons:admin-users" class="fs-4"></iconify-icon>
-                    <div class="">admin</div>
+                    <div class="">Guide</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openManageTourist();">
                     <iconify-icon icon="fa-solid:hiking" class="fs-4"></iconify-icon>
                     <div class="">Tourist</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openManageTour();">
                     <iconify-icon icon="material-symbols:travel" class="fs-4"></iconify-icon>
                     <div class="">Tour Plan</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-3 align-items-center" onclick="openManageOrders();">
                     <iconify-icon icon="mingcute:mail-send-fill" class="fs-4"></iconify-icon>
                     <div class="">Orders</div>
                 </div>
-                <div class="d-flex gap-3 align-items-center">
-                    <iconify-icon icon="dashicons:text-page" class="fs-4"></iconify-icon>
-                    <div class="">Pages</div>
-                </div>
-                <div class="d-flex gap-3 align-items-center pb-5">
+                <div class="d-flex gap-3 align-items-center pb-5 disabled">
                     <iconify-icon icon="icon-park-solid:setting-two" class="fs-4"></iconify-icon>
                     <div class="">Setting</div>
                 </div>
