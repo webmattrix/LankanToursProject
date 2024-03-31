@@ -1,10 +1,9 @@
 <?php
-
-// $data = file_get_contents("./assets/data/ctrl.json");
-// $ctrl = json_decode($data);
-// if ($ctrl->status == 1) {
-//   header("Location: Update");
-// }
+$ctrlfile = file_get_contents("./assets/data/ctrl.json");
+$ctrl = json_decode($ctrlfile);
+if ($ctrl->status == '0') {
+  header("Location: 404");
+}
 
 session_start();
 require "assets/model/sqlConnection.php";
@@ -75,11 +74,34 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   }
   ?>
   <!-- <link rel="stylesheet" href="./css/header.css"> -->
-  <link rel="stylesheet" href="./css/scrolbar.css">
-  <link rel="stylesheet" href="./css/footer.css">
-  <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/scrolbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/font.css" />
   <link rel="stylesheet" href="./css/style.css" />
-  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon" />
+  <style>
+    #tourScroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      border-radius: 0;
+    }
+
+    #tourScroll::-webkit-scrollbar-track {
+      background-color: white;
+    }
+
+    #tourScroll::-webkit-scrollbar-thumb {
+      background-color: rgb(162, 162, 162);
+      /* background-color: red; */
+      border: 2px solid rgb(199, 199, 199);
+      border-radius: 100vw;
+      scroll-behavior: smooth;
+    }
+
+    #tourScroll::-webkit-scrollbar-thumb:hover {
+      background-color: rgb(134, 134, 134);
+    }
+  </style>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" id="body" style="overflow-x: hidden;">
@@ -362,7 +384,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                           <?php
                           for ($tourPlaceIteration = 0; $tourPlaceIteration < $tour_places_count; $tourPlaceIteration++) {
                             $tour_places_data = $tour_place_rs->fetch_assoc();
-                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' LIMIT 1");
+                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' ORDER BY RAND() LIMIT 1");
                             $place_image_data = $place_image_rs->fetch_assoc();
                           ?>
                             <div class="slide" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
@@ -381,7 +403,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                     </div>
                     <div class="col-12">
                       <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
-                      <div class="quicksand-Medium sub-heading py-2 overflow-auto" style="max-height: 200px;"><?php echo (nl2br($tour_data["description"])); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2 overflow-auto mt-2" id="tourScroll" style="max-height: 300px; height: 300px;"><?php echo (nl2br($tour_data["description"])); ?></div>
                       <div class="w-100 d-flex justify-content-center">
                         <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>
