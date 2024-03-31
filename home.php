@@ -1,4 +1,11 @@
 <?php
+
+// $data = file_get_contents("./assets/data/ctrl.json");
+// $ctrl = json_decode($data);
+// if ($ctrl->status == 1) {
+//   header("Location: Update");
+// }
+
 session_start();
 require "assets/model/sqlConnection.php";
 require "assets/model/visitor.php";
@@ -31,7 +38,7 @@ if (isset($_COOKIE["visiter_status"])) {
 <html lang="en">
 
 <head>
-<script src="./js/script.js"></script>
+  <script src="./js/script.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lankan Travel</title>
@@ -374,7 +381,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                     </div>
                     <div class="col-12">
                       <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
-                      <div class="quicksand-Medium sub-heading py-2"><?php echo (nl2br($tour_data["description"])); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2 overflow-auto" style="max-height: 200px;"><?php echo (nl2br($tour_data["description"])); ?></div>
                       <div class="w-100 d-flex justify-content-center">
                         <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>
@@ -402,6 +409,18 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
     </div>
   </div>
 
+  <script>
+    document.addEventListener('keydown', function(e) {
+      // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+        e.preventDefault(); // Prevent the default behavior
+      }
+    });
+
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault(); // Prevent the default right-click context menu
+    });
+  </script>
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/footer.js"></script>
