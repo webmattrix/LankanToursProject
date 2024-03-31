@@ -7,6 +7,7 @@ require "assets/model/sqlConnection.php";
 <html>
 
 <head>
+<script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Places || Lankan Travel</title>

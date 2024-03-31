@@ -15,6 +15,7 @@ $tour_view_count = $tour_views_table_data["views"];
 <html>
 
 <head>
+<script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Itinerary</title>

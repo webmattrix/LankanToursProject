@@ -10,6 +10,7 @@ $location = "primary";
 <html lang="en">
 
 <head>
+    <script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lankan Travel | Tours</title>
@@ -559,7 +560,7 @@ $location = "primary";
                                 <div class="tour-bottom-section">
                                     <div class="">
                                         <span>
-                                            <span onclick="openReqTourModal(<?php echo $all_tour_data['id'];?>);">
+                                            <span onclick="openReqTourModal(<?php echo $all_tour_data['id']; ?>);">
                                                 <iconify-icon icon="mdi:airplane"></iconify-icon>
                                             </span>
                                         </span>

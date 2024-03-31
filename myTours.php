@@ -7,6 +7,7 @@ if (isset($_SESSION["lt_tourist"])) {
     <html lang="en">
 
     <head>
+    <script src="./js/script.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Orders</title>
