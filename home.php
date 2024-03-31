@@ -294,7 +294,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
               for ($x = 0; $x < $places_rs->num_rows; $x++) {
                 $places_data = $places_rs->fetch_assoc();
-                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' LIMIT 1");
+                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' ORDER BY RAND () LIMIT 1 LIMIT 1");
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
