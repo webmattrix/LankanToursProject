@@ -19,6 +19,7 @@ if (isset($_SESSION["lt_tourist"])) {
         <link rel="stylesheet" href="./css/newHeader.css" />
         <link rel="stylesheet" href="./css/footer.css" />
         <link rel="stylesheet" href="./css/scrolbar.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
         <?php
         if (isset($_COOKIE["lt_theme"])) {

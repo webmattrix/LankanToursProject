@@ -16,6 +16,7 @@ $location = "primary";
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <?php
     if (isset($_COOKIE["lt_theme"])) {
         if ($_COOKIE["lt_theme"] === 'light') {

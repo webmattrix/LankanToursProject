@@ -70,6 +70,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   <link rel="stylesheet" href="./css/scrolbar.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/style.css" />
   <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 </head>
 
