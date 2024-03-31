@@ -1,5 +1,11 @@
 <?php
 
+$ctrlfile = file_get_contents("./assets/data/ctrl.json");
+$ctrl = json_decode($ctrlfile);
+if ($ctrl->status == '0') {
+    header("Location: ../Coming-Soon");
+}
+
 $tid = $_GET["tour_id"];
 session_start();
 require "./assets/model/sqlConnection.php";

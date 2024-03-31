@@ -2,7 +2,7 @@
 $ctrlfile = file_get_contents("./assets/data/ctrl.json");
 $ctrl = json_decode($ctrlfile);
 if ($ctrl->status == '0') {
-  header("Location: 404");
+  header("Location: ./Coming-Soon");
 }
 
 session_start();
