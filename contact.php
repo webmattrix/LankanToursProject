@@ -57,10 +57,10 @@ session_start();
                         <div class="col-12  p-4 contactCard ">
                             <div class="row" style="z-index: 100;">
                                 <div class="col-2 ">
-                                    <img src="./assets/img/ContactPage_IMG/photo-1494790108377-be9c29b29330.jpg" style=" width:59px; height:59px; border-radius:50%;">
+                                    <img src="./assets/img/favicon.png" style=" width:59px; border-radius:50%; object-fit: cover;">
                                 </div>
                                 <div class="col-9 offset-1" style="font-family: 'SegoeUI';">
-                                    <h5 class=" mt-2">Customer Service</h5>
+                                    <h5 class=" mt-2"><b>Customer Service</b></h5>
                                 </div>
                             </div>
                             <div class="col-12" style="font-family: 'QuickSand';">
@@ -85,18 +85,19 @@ session_start();
     </div>
     <?php
     include "./components/footer.php";
-
     ?>
     <script>
         document.addEventListener('keydown', function(e) {
             // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
                 e.preventDefault(); // Prevent the default behavior
+                alert("OK");
             }
         });
 
         document.addEventListener('contextmenu', function(event) {
-            event.preventDefault(); // Prevent the default right-click context menu
+            event.preventDefault();
+            alert("Right Click - Contact Page");
         });
     </script>
     <script src="./js/newHeader.js"></script>

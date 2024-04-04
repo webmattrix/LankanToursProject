@@ -7,5 +7,6 @@ document.addEventListener('keydown', function (e) {
 
 document.addEventListener('contextmenu', function (event) {
     event.preventDefault(); // Prevent the default right-click context menu
+    alert("Right Click - Script File")
 });
 

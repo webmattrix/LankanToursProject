@@ -259,7 +259,7 @@ function openReqTourModal(Tour_Id) {
 
       if (respData3 == 1) {
 
-        window.location = "../Login";
+        window.location = "./Login";
 
       } else {
         var respObj = JSON.parse(respData3);
