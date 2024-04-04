@@ -37,7 +37,7 @@ if (isset($_COOKIE["visiter_status"])) {
 <html lang="en">
 
 <head>
-  <script src="./js/script.js"></script>
+  <!--<script src="./js/script.js"></script>-->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lankan Travel</title>
@@ -294,7 +294,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
               for ($x = 0; $x < $places_rs->num_rows; $x++) {
                 $places_data = $places_rs->fetch_assoc();
-                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' ORDER BY RAND () LIMIT 1 LIMIT 1");
+                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' ORDER BY RAND() LIMIT 1");
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
@@ -346,7 +346,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                   $tour_iteration = $x + 1;
                   $tour_data = $tour_rs->fetch_assoc();
 
-                  $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' LIMIT 5");
+                  $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' ORDER BY RAND()");
                   $tour_places_count = $tour_place_rs->num_rows;
 
                 ?>
@@ -384,10 +384,12 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                           <?php
                           for ($tourPlaceIteration = 0; $tourPlaceIteration < $tour_places_count; $tourPlaceIteration++) {
                             $tour_places_data = $tour_place_rs->fetch_assoc();
+                            $place_table = Database::search("SELECT * FROM `place` WHERE id='" . $tour_places_data["place_id"] . "'");
+                            $place_table_data = $place_table->fetch_assoc();
                             $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' ORDER BY RAND() LIMIT 1");
                             $place_image_data = $place_image_rs->fetch_assoc();
                           ?>
-                            <div class="slide" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
+                            <div class="slide d-flex justify-content-center align-items-end text-white segoeui-bold fs-4" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
                           <?php
                           }
                           ?>
@@ -403,7 +405,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                     </div>
                     <div class="col-12">
                       <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
-                      <div class="quicksand-Medium sub-heading py-2 overflow-auto mt-2" id="tourScroll" style="max-height: 300px; height: 300px;"><?php echo (nl2br($tour_data["description"])); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2 overflow-auto mt-2" id="tourScroll" style="max-height: 200px; height: 200px;"><?php echo (nl2br($tour_data["description"])); ?></div>
                       <div class="w-100 d-flex justify-content-center">
                         <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>
@@ -433,21 +435,20 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
   <script>
     document.addEventListener('keydown', function(e) {
-      // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
       if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-        e.preventDefault(); // Prevent the default behavior
+        e.preventDefault();
       }
     });
 
     document.addEventListener('contextmenu', function(event) {
-      event.preventDefault(); // Prevent the default right-click context menu
+      event.preventDefault();
     });
   </script>
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/footer.js"></script>
   <script src="./js/newHeader.js"></script>
-  <script src="./js/script.js"></script>
+  <!--<script src="./js/script.js"></script>-->
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 
