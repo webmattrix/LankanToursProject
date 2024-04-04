@@ -102,7 +102,7 @@ require "assets/model/sqlConnection.php";
 
                                                         $place_table_data = $place_table->fetch_assoc();
 
-                                                        $place_image_table = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_table_data["id"] . "'");
+                                                        $place_image_table = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_table_data["id"] . "' ORDER BY RAND ()");
                                                         $place_image_table_rows = $place_image_table->num_rows;
 
                                                         if ($place_image_table_rows == 0) {
