@@ -10,12 +10,14 @@ $location = "primary";
 <html lang="en">
 
 <head>
+    <script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lankan Travel | Tours</title>
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/newHeader.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <?php
     if (isset($_COOKIE["lt_theme"])) {
         if ($_COOKIE["lt_theme"] === 'light') {
@@ -346,7 +348,7 @@ $location = "primary";
 
                         $all_tour_place_rs = Database::search("SELECT * FROM `tour_has_place` 
                         INNER JOIN `place` ON `place`.`id`=`tour_has_place`.`place_id` 
-                        WHERE `tour_has_place`.`tour_id`='" . $all_tour_data["id"] . "' LIMIT 5");
+                        WHERE `tour_has_place`.`tour_id`='" . $all_tour_data["id"] . "' ORDER BY RAND ()");
 
                         $all_tour_place_count = $all_tour_place_rs->num_rows;
 
@@ -367,7 +369,7 @@ $location = "primary";
 
                                             for ($all_tour_places_iteration = 0; $all_tour_places_iteration < $all_tour_place_count; $all_tour_places_iteration++) {
                                                 $all_tour_place_data = $all_tour_place_rs->fetch_assoc();
-                                                $all_place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $all_tour_place_data["place_id"] . "' LIMIT 1");
+                                                $all_place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $all_tour_place_data["place_id"] . "' ORDER BY RAND () LIMIT 1");
                                                 $all_place_image_data = $all_place_image_rs->fetch_assoc();
                                             ?>
 
@@ -558,7 +560,7 @@ $location = "primary";
                                 <div class="tour-bottom-section">
                                     <div class="">
                                         <span>
-                                            <span onclick="openReqTourModal(<?php echo $all_tour_data['id'];?>);">
+                                            <span onclick="openReqTourModal(<?php echo $all_tour_data['id']; ?>);">
                                                 <iconify-icon icon="mdi:airplane"></iconify-icon>
                                             </span>
                                         </span>
@@ -668,6 +670,18 @@ $location = "primary";
     </div>
     <?php include "./components/footer.php"; ?>
 
+    <script>
+        document.addEventListener('keydown', function(e) {
+            // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault(); // Prevent the default behavior
+            }
+        });
+
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevent the default right-click context menu
+        });
+    </script>
     <script src="./js/newHeader.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/itinerary.js"></script>

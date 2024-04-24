@@ -7,10 +7,12 @@ require "assets/model/sqlConnection.php";
 <html>
 
 <head>
+    <script src="./js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Places || Lankan Travel</title>
     <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <?php
     if (isset($_COOKIE["lt_theme"])) {
@@ -35,7 +37,7 @@ require "assets/model/sqlConnection.php";
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
 
     <script src="./js/places.js"></script>
-    
+
 </head>
 
 <body class="container-fluid" style="margin:0; background-color: #DEDEDE; padding:0;" onload="homeOnloadFunction();">
@@ -100,7 +102,7 @@ require "assets/model/sqlConnection.php";
 
                                                         $place_table_data = $place_table->fetch_assoc();
 
-                                                        $place_image_table = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_table_data["id"] . "'");
+                                                        $place_image_table = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $place_table_data["id"] . "' ORDER BY RAND ()");
                                                         $place_image_table_rows = $place_image_table->num_rows;
 
                                                         if ($place_image_table_rows == 0) {
@@ -212,6 +214,18 @@ require "assets/model/sqlConnection.php";
         </div>
     </div>
 
+    <script>
+        // document.addEventListener('keydown', function(e) {
+        //     // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
+        //     if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+        //         e.preventDefault(); // Prevent the default behavior
+        //     }
+        // });
+
+        // document.addEventListener('contextmenu', function(event) {
+        //     event.preventDefault(); // Prevent the default right-click context menu
+        // });
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

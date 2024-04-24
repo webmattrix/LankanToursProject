@@ -1,5 +1,11 @@
 <?php
 
+$ctrlfile = file_get_contents("./assets/data/ctrl.json");
+$ctrl = json_decode($ctrlfile);
+if ($ctrl->status == '0') {
+    header("Location: ../Coming-Soon");
+}
+
 $tid = $_GET["tour_id"];
 session_start();
 require "./assets/model/sqlConnection.php";
@@ -15,6 +21,7 @@ $tour_view_count = $tour_views_table_data["views"];
 <html>
 
 <head>
+    <script src="../js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Itinerary</title>
@@ -25,6 +32,7 @@ $tour_view_count = $tour_views_table_data["views"];
     <link rel="stylesheet" href="../css/newHeader.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     <?php
     if (isset($_COOKIE["lt_theme"])) {
@@ -346,6 +354,9 @@ $tour_view_count = $tour_views_table_data["views"];
 
                                     ?>
 
+                                    <div class="col-11 mt-5 py-4 bg-blog-cont1 sub-heading">
+                                        <?php echo (nl2br($tour_views_table_data["description"])); ?>
+                                    </div>
 
 
                                     <div class="col-12 mb-lg-0 mb-sm-0 mb-3 d-flex justify-content-center" style="padding-top: 5%; padding-bottom: 5%;">
@@ -504,6 +515,17 @@ $tour_view_count = $tour_views_table_data["views"];
         }
 
         initMap();
+
+        document.addEventListener('keydown', function(e) {
+            // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault(); // Prevent the default behavior
+            }
+        });
+
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevent the default right-click context menu
+        });
     </script>
 
 </body>

@@ -12,6 +12,7 @@ if (isset($_SESSION["lt_tourist"])) {
     <html lang="en">
 
     <head>
+        <script src="./js/script.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Watchlist</title>
@@ -19,6 +20,7 @@ if (isset($_SESSION["lt_tourist"])) {
         <link rel="stylesheet" href="./css/newHeader.css" />
         <link rel="stylesheet" href="./css/footer.css" />
         <link rel="stylesheet" href="./css/scrolbar.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
         <?php
         if (isset($_COOKIE["lt_theme"])) {
@@ -293,6 +295,18 @@ if (isset($_SESSION["lt_tourist"])) {
         </div>
         <?php include "./components/footer.php"; ?>
 
+        <script>
+            document.addEventListener('keydown', function(e) {
+                // Check if the pressed key is F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                    e.preventDefault(); // Prevent the default behavior
+                }
+            });
+
+            document.addEventListener('contextmenu', function(event) {
+                event.preventDefault(); // Prevent the default right-click context menu
+            });
+        </script>
         <script src="./js/newHeader.js"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <script src="./js/watchlist.js"></script>

@@ -1,4 +1,10 @@
 <?php
+$ctrlfile = file_get_contents("./assets/data/ctrl.json");
+$ctrl = json_decode($ctrlfile);
+if ($ctrl->status == '0') {
+  header("Location: ./Coming-Soon");
+}
+
 session_start();
 require "assets/model/sqlConnection.php";
 require "assets/model/visitor.php";
@@ -67,10 +73,34 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   }
   ?>
   <!-- <link rel="stylesheet" href="./css/header.css"> -->
-  <link rel="stylesheet" href="./css/scrolbar.css">
-  <link rel="stylesheet" href="./css/footer.css">
-  <link rel="stylesheet" href="./css/font.css">
-  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/scrolbar.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/font.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon" />
+  <style>
+    #tourScroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      border-radius: 0;
+    }
+
+    #tourScroll::-webkit-scrollbar-track {
+      background-color: white;
+    }
+
+    #tourScroll::-webkit-scrollbar-thumb {
+      background-color: rgb(162, 162, 162);
+      /* background-color: red; */
+      border: 2px solid rgb(199, 199, 199);
+      border-radius: 100vw;
+      scroll-behavior: smooth;
+    }
+
+    #tourScroll::-webkit-scrollbar-thumb:hover {
+      background-color: rgb(134, 134, 134);
+    }
+  </style>
 </head>
 
 <body onload="homeOnloadFunction();" class="c-default" id="body" style="overflow-x: hidden;">
@@ -116,19 +146,19 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
             </a>
           </div>
           <div class="slide active" id="slide1">
-            <img src="./assets/img/home-slider/img (1).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (28).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide2">
-            <img src="./assets/img/home-slider/img (2).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (16).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide3">
-            <img src="./assets/img/home-slider/img (3).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (26).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide4">
-            <img src="./assets/img/home-slider/img (4).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (27).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide5">
-            <img src="./assets/img/home-slider/img (5).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (25).jpg" alt="Home Slider Image">
           </div>
 
         </div>
@@ -147,7 +177,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
           <div class="why-choosing-us">
             <div class="title segoeui-bold main-heading">Why Choosing Us</div>
             <div class="content">
-              <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
+              <img src="./assets/img/why-choosing-us.jpg" alt="Tourist in front of waterfall" />
               <div class="right-side">
                 <div class="text-center quicksand-SemiBold sub-heading">Discover the heart of Sri Lanka with Lankan Travel. We offer curated experiences led by passionate locals, ensuring personalized journeys that immerse you in authentic culture and unforgettable landscapes. Experience Sri Lanka like never before with Lankan Travel.</div>
                 <div class="list ps-5 mt-2">
@@ -263,7 +293,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
 
               for ($x = 0; $x < $places_rs->num_rows; $x++) {
                 $places_data = $places_rs->fetch_assoc();
-                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' LIMIT 1");
+                $places_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_image`.`place_id`='" . $places_data["id"] . "' ORDER BY RAND() LIMIT 1");
                 if ($places_image_rs->num_rows > 0) {
                   $places_image_data = $places_image_rs->fetch_assoc();
               ?>
@@ -315,7 +345,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                   $tour_iteration = $x + 1;
                   $tour_data = $tour_rs->fetch_assoc();
 
-                  $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' LIMIT 5");
+                  $tour_place_rs = Database::search("SELECT * FROM `tour_has_place` WHERE `tour_has_place`.`tour_id`='" . $tour_data["id"] . "' ORDER BY RAND()");
                   $tour_places_count = $tour_place_rs->num_rows;
 
                 ?>
@@ -353,10 +383,12 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                           <?php
                           for ($tourPlaceIteration = 0; $tourPlaceIteration < $tour_places_count; $tourPlaceIteration++) {
                             $tour_places_data = $tour_place_rs->fetch_assoc();
-                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' LIMIT 1");
+                            $place_table = Database::search("SELECT * FROM `place` WHERE id='" . $tour_places_data["place_id"] . "'");
+                            $place_table_data = $place_table->fetch_assoc();
+                            $place_image_rs = Database::search("SELECT * FROM `place_image` WHERE `place_id`='" . $tour_places_data["place_id"] . "' ORDER BY RAND() LIMIT 1");
                             $place_image_data = $place_image_rs->fetch_assoc();
                           ?>
-                            <div class="slide" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
+                            <div class="slide d-flex justify-content-center align-items-end text-white segoeui-bold fs-4" id="sliderSlide<?php echo ($tourPlaceIteration + 1); ?>" style="background-image: url('./assets/img/places/<?php echo ($place_image_data["path"]); ?>');"></div>
                           <?php
                           }
                           ?>
@@ -372,7 +404,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
                     </div>
                     <div class="col-12">
                       <div class="segoeui-bold text-center mt-1 fs-5"><?php echo ($tour_data["name"]); ?></div>
-                      <div class="quicksand-Medium sub-heading py-2"><?php echo (nl2br($tour_data["description"])); ?></div>
+                      <div class="quicksand-Medium sub-heading py-2 overflow-auto mt-2" id="tourScroll" style="max-height: 200px; height: 200px;"><?php echo (nl2br($tour_data["description"])); ?></div>
                       <div class="w-100 d-flex justify-content-center">
                         <a class="mt-2 view-itinerary d-flex gap-2 align-items-center quicksand-Regular ps-3 pe-4 pt-1 pb-1 text-decoration-none c-pointer" href="itinerary/<?php echo ($tour_data["id"]); ?>">
                           <span>View Ininerary</span>
@@ -400,11 +432,21 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
     </div>
   </div>
 
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+    });
+  </script>
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/footer.js"></script>
   <script src="./js/newHeader.js"></script>
-  <script src="./js/script.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

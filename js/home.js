@@ -16,7 +16,7 @@ function setPlaceholder() {
 
 var homeSlider;
 function homeOnloadFunction() {
-  homeSlider = setInterval(homeSlider, 1000 * 45);
+  homeSlider = setInterval(homeSlider, 1000 * 25);
 }
 
 var sliderNumber = 1;

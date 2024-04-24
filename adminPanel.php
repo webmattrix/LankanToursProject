@@ -157,8 +157,58 @@ if (!isset($_SESSION["lt_admin"]) || $_SESSION["lt_admin"] == null) {
                     <div class="d-flex w-100 flex-column" style="max-height: 100vh; overflow-y: auto; min-height: 100vh;">
                         <?php
                         include "./components/adminHeader.php"; // change if you using other component like "guideHeader.php"
-                        ?>
 
+                        $order_table = Database::search("SELECT * FROM `order`
+                INNER JOIN `order_status` ON `order_status`.`id`=`order`.`order_status_id`
+                WHERE `order_status`.`name` = 'Unassigned'
+                ORDER BY `order`.`id` ASC");
+                        $order_table_rows = $order_table->num_rows;
+
+                        $custom_order_table = Database::search("SELECT * FROM `custom_tour`
+                INNER JOIN `order_status` ON `order_status`.`id`=`custom_tour`.`order_status_id`
+                WHERE `order_status`.`name`='Unassigned'
+                ORDER BY `custom_tour`.`id` ASC");
+                        $custom_order_table_rows = $custom_order_table->num_rows;
+
+                        $total_orders = $order_table_rows + $custom_order_table_rows;
+
+                        $admin_table = Database::search("SELECT * FROM `employee`
+                        INNER JOIN `admin` ON `employee`.`id`=`admin`.`employee_id`
+                        WHERE BINARY `employee`.`email`='" . $admin['email'] . "' AND BINARY `employee`.`password`='" . $admin['password'] . "'");
+                        $admin_table_rows = $admin_table->num_rows;
+
+                        if ($total_orders > 0 || $admin_table_rows != 0) {
+                        ?>
+                            <div class="col-12 mt-2 px-3 pt-2 pb-2">
+                                <div class="row">
+                                    <div class="bg-white rounded p-2 d-flex justify-content-center gap-2">
+                                        <?php
+                                        if ($admin_table_rows == 0) {
+                                        ?>
+                                            <div class="col-5 mb-0 col-md-3 col-xl-2 alert alert-danger c-pointer text-center" onclick="viewAdminProfile();">Admin Profile</div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <?php
+                                        if ($total_orders > 0) {
+                                        ?>
+                                            <div class="col-5 mb-0 col-md-3 col-xl-2 alert c-pointer <?php
+                                                                                                        if ($total_orders > 0) {
+                                                                                                            echo ("alert-warning");
+                                                                                                        } else {
+                                                                                                            echo ("alert-success");
+                                                                                                        }
+                                                                                                        ?> text-center" onclick="openManageOrders();">Tour Order</div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+
+                        ?>
                         <!-- Page Content / body content eka methanin liyanna -->
                         <div class="col-12 px-3 pt-2 pb-3">
                             <div class="row">
