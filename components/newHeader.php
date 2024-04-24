@@ -11,6 +11,10 @@
 
 <body>
 
+    <a href="https://wa.me/+79533445831" class="position-fixed end-0 me-4 bottom-0 mb-4 c-pointer" style="z-index: 1000;">
+        <img src="./assets/img/chat_icon.png" alt="" style="width: 60px;">
+    </a>
+
     <div class="w-100 position-sticky top-0 start-0 d-flex justify-content-between py-2 px-3 px-xl-5 header-container align-items-center flex-row-reverse flex-lg-row" style="z-index: 9;" id="headerContainer">
 
         <div class="d-flex align-items-center d-lg-none position-relative">

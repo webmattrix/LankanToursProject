@@ -147,19 +147,19 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
             </a>
           </div>
           <div class="slide active" id="slide1">
-            <img src="./assets/img/home-slider/img (1).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (28).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide2">
-            <img src="./assets/img/home-slider/img (2).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (16).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide3">
-            <img src="./assets/img/home-slider/img (3).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (26).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide4">
-            <img src="./assets/img/home-slider/img (4).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (27).jpg" alt="Home Slider Image">
           </div>
           <div class="slide" id="slide5">
-            <img src="./assets/img/home-slider/img (5).jpg" alt="Home Slider Image">
+            <img src="./assets/img/home-slider/img (25).jpg" alt="Home Slider Image">
           </div>
 
         </div>
@@ -178,7 +178,7 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
           <div class="why-choosing-us">
             <div class="title segoeui-bold main-heading">Why Choosing Us</div>
             <div class="content">
-              <img src="./assets/img/why-choosing-us.png" alt="Tourist in front of waterfall" />
+              <img src="./assets/img/why-choosing-us.jpg" alt="Tourist in front of waterfall" />
               <div class="right-side">
                 <div class="text-center quicksand-SemiBold sub-heading">Discover the heart of Sri Lanka with Lankan Travel. We offer curated experiences led by passionate locals, ensuring personalized journeys that immerse you in authentic culture and unforgettable landscapes. Experience Sri Lanka like never before with Lankan Travel.</div>
                 <div class="list ps-5 mt-2">
@@ -434,21 +434,20 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   </div>
 
   <script>
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-        e.preventDefault();
-      }
-    });
+    // document.addEventListener('keydown', function(e) {
+    //   if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+    //     e.preventDefault();
+    //   }
+    // });
 
-    document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-    });
+    // document.addEventListener('contextmenu', function(event) {
+    //   event.preventDefault();
+    // });
   </script>
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/footer.js"></script>
   <script src="./js/newHeader.js"></script>
-  <!--<script src="./js/script.js"></script>-->
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
 

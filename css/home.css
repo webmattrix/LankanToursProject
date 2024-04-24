@@ -177,6 +177,10 @@ img {
     font-size: 24px;
   }
 
+  .home-image-slider {
+    max-height: 55vh;
+  }
+
   .home-image-slider .slides .slide:nth-child(1) .slide-content div:nth-child(1) {
     font-size: 20px;
   }

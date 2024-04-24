@@ -37,11 +37,11 @@
                         <div class="quicksand-SemiBold col-12 d-flex flex-column align-items-center col-lg-4 align-items-lg-start">
                             <span class="fs-5 text-white">Follow US</span>
                             <div class="d-flex gap-3 pt-2">
-                                <iconify-icon icon="ic:sharp-facebook" class="text-white fs-3"></iconify-icon>
-                                <iconify-icon icon="entypo-social:youtube-with-circle" class="text-white fs-3"></iconify-icon>
-                                <iconify-icon icon="entypo-social:linkedin-with-circle" class="text-white fs-3"></iconify-icon>
-                                <iconify-icon icon="formkit:twitter" class="text-white fs-3"></iconify-icon>
-                                <iconify-icon icon="ri:whatsapp-fill" class="text-white fs-3"></iconify-icon>
+                                <a href=""><iconify-icon icon="ic:sharp-facebook" class="text-white fs-3"></iconify-icon></a>
+                                <a href=""><iconify-icon icon="entypo-social:youtube-with-circle" class="text-white fs-3"></iconify-icon></a>
+                                <a href=""><iconify-icon icon="entypo-social:linkedin-with-circle" class="text-white fs-3"></iconify-icon></a>
+                                <a href="https://www.instagram.com/lankantravel__official?igsh=cmljOGUyMHJ5bm1o"><iconify-icon icon="ri:instagram-fill" class="text-white fs-3"></iconify-icon></a>
+                                <a href="https://wa.me/+79533445831"><iconify-icon icon="ri:whatsapp-fill" class="text-white fs-3"></iconify-icon></a>
                             </div>
                         </div>
                         <div class="quicksand-SemiBold col-12 d-flex flex-column align-items-center col-lg-4 align-items-lg-start">
