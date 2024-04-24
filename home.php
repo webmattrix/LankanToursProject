@@ -37,7 +37,6 @@ if (isset($_COOKIE["visiter_status"])) {
 <html lang="en">
 
 <head>
-  <!--<script src="./js/script.js"></script>-->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lankan Travel</title>
@@ -434,15 +433,15 @@ Experience the allure of Sri Lanka's wonders - from pristine beaches to ancient 
   </div>
 
   <script>
-    // document.addEventListener('keydown', function(e) {
-    //   if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-    //     e.preventDefault();
-    //   }
-    // });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+        e.preventDefault();
+      }
+    });
 
-    // document.addEventListener('contextmenu', function(event) {
-    //   event.preventDefault();
-    // });
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+    });
   </script>
   <script src="./js/bootstrap.js"></script>
   <script src="./js/home.js"></script>
